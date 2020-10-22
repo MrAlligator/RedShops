@@ -1,4 +1,3 @@
-<div class="container">
         <h2 class="h2 upp align-center"> Hybrid devices</h2>
         <hr class="offset-lg">
 
@@ -68,11 +67,4 @@
               </div>
             </div>
           </div>
-
-
         </div>
-        <div class="align-right align-center-xs">
-          <hr class="offset-sm">
-          <a href="./store/"> <h5 class="upp">View all devices </h5> </a>
-        </div>
-      </div>

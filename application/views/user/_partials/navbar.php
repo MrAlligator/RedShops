@@ -19,7 +19,7 @@
                 </a>
                 <ul class="dropdown-menu">
                   <li class="dropdown-header">Fashion</li>
-                  <li><a href="./store/product.html">Kemeja</a></li>
+                  <li><a href="<?php echo base_url('index.php/user/kemeja') ?>">Kemeja</a></li>
                   <li><a href="./about/">Kaos</a></li>
                   <li><a href="./checkout/">Jaket</a></li>
                   <li><a href="./faq/">Celana</a></li>
