@@ -1,4 +1,4 @@
-<div class="cart" data-toggle="inactive">
+    <div class="cart" data-toggle="inactive">
       <div class="label">
         <i class="ion-bag"></i>
       </div>
@@ -6,18 +6,12 @@
       <div class="overlay"></div>
 
       <div class="window">
-      <div class="title">
+        <div class="title">
           <button type="button" class="close"><i class="ion-android-close"></i></button>
           <h4>Shopping cart</h4>
         </div>
 
         <div class="content">
-
-          <!-- /input-group -->
-
-              <a href="#remove"> <i class="ion-trash-b"></i> Remove </a>
-            </div>
-          </div>
 
         </div>
 
