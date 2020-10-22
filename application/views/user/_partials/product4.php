@@ -1,16 +1,16 @@
-        <h2 class="h2 upp align-center"> KEMEJA </h2>
+        <h2 class="h2 upp align-center"> CELANA</h2>
         <hr class="offset-lg">
 
         <div class="row">
 
-          <div class="col-sm-6 col-md-3 product">
+          <div class="col-sm-6 col-md-4 product">
             <div class="body">
               <a href="#favorites" class="favorites" data-favorite="inactive"><i class="ion-ios-heart-outline"></i></a>
-              <a href="./"><img src="<?php echo base_url('assets/img/products/kemeja/kemeja1.jpg') ?>" alt="kemeja1"/></a>
+              <a href="./"><img src="<?php echo base_url('assets/img/products/celana/celana4.jpg') ?>" alt="celana4"/></a>
 
               <div class="content align-center">
-                <p class="price">Rp. 150.000</p>
-                <h2 class="h3">Kemeja Pantai</h2>
+                <p class="price">Rp. 125.000</p>
+                <h2 class="h3">Celana Santai</h2>
                 <hr class="offset-sm">
 
                 <button class="btn btn-link"> <i class="ion-android-open"></i> Details</button>
@@ -19,14 +19,14 @@
             </div>
           </div>
 
-          <div class="col-sm-6 col-md-3 product">
+          <div class="col-sm-6 col-md-4 product">
             <div class="body">
               <a href="#favorites" class="favorites" data-favorite="inactive"><i class="ion-ios-heart-outline"></i></a>
-              <a href="./"><img src="<?php echo base_url('assets/img/products/kemeja/kemeja2.jpg') ?>" alt="kemeja2"/></a>
+              <a href="./"><img src="<?php echo base_url('assets/img/products/celana/celana2.jpg') ?>" alt="celana2"/></a>
 
               <div class="content align-center">
-                <p class="price">Rp. 150.000</p>
-                <h2 class="h3">Kemeja Pantai</h2>
+                <p class="price">Rp. 125.000</p>
+                <h2 class="h3">Celana Santai</h2>
                 <hr class="offset-sm">
 
                 <button class="btn btn-link"> <i class="ion-android-open"></i> Details</button>
@@ -35,14 +35,14 @@
             </div>
           </div>
 
-          <div class="col-sm-6 col-md-3 product">
+          <div class="col-sm-6 col-md-4 product">
             <div class="body">
               <a href="#favorites" class="favorites" data-favorite="inactive"><i class="ion-ios-heart-outline"></i></a>
-              <a href="./"><img src="<?php echo base_url('assets/img/products/kemeja/kemeja3.jpg') ?>" alt="kemeja3"/></a>
+              <a href="./"><img src="<?php echo base_url('assets/img/products/celana/celana3.jpg') ?>" alt="celana3"/></a>
 
               <div class="content align-center">
-                <p class="price">Rp. 150.000</p>
-                <h2 class="h3">Kemeja Pantai</h2>
+                <p class="price">Rp. 125.000</p>
+                <h2 class="h3">Celana Santai</h2>
                 <hr class="offset-sm">
 
                 <button class="btn btn-link"> <i class="ion-android-open"></i> Details</button>
@@ -51,15 +51,14 @@
             </div>
           </div>
 
-
-          <div class="col-sm-6 col-md-3 product">
+          <div class="col-sm-6 col-md-4 product visible-sm">
             <div class="body">
               <a href="#favorites" class="favorites" data-favorite="inactive"><i class="ion-ios-heart-outline"></i></a>
-              <a href="./"><img src="<?php echo base_url('assets/img/products/kemeja/kemeja4.jpg') ?>" alt="kemeja4"/></a>
+              <a href="./"><img src="<?php echo base_url('assets/img/products/celana/celana4.jpg') ?>" alt="celana4"/></a>
 
               <div class="content align-center">
-                <p class="price">Rp. 150.000</p>
-                <h2 class="h3">Kemeja Pantai</h2>
+                <p class="price">Rp. 125.000</p>
+                <h2 class="h3">Celana Santai</h2>
                 <hr class="offset-sm">
 
                 <button class="btn btn-link"> <i class="ion-android-open"></i> Details</button>
@@ -67,6 +66,4 @@
               </div>
             </div>
           </div>
-
-
         </div>
