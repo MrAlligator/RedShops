@@ -15,7 +15,7 @@
               <li class="active"><a href="<?php echo base_url('index.php/user') ?>">Beranda</a></li>
               <li class="dropdown">
                 <a href="./store/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                  Produk <i class="ion-android-arrow-dropdown"></i>
+                  Produk<i class="ion-android-arrow-dropdown"></i>
                 </a>
                 <ul class="dropdown-menu">
                   <li class="dropdown-header">Fashion</li>
