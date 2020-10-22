@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Products extends CI_Controller
+class Produk extends CI_Controller
 {
     public function __construct()
     {
@@ -13,7 +13,7 @@ class Products extends CI_Controller
 
     public function index()
     {
-        $data["products"] = $this->product_model->getAll();
+        $data["produk"] = $this->product_model->getAll();
         $this->load->view("admin/produk/lihatproduk", $data);
     }
 
@@ -44,10 +44,10 @@ class Products extends CI_Controller
             $this->session->set_flashdata('success', 'Berhasil disimpan');
         }
 
-        $data["product"] = $product->getById($id);
-        if (!$data["product"]) show_404();
+        $data["produk"] = $product->getById($id);
+        if (!$data["produk"]) show_404();
         
-        $this->load->view("admin/product/editproduk", $data);
+        $this->load->view("admin/produk/editproduk", $data);
     }
 
     public function delete($id=null)

@@ -45,8 +45,8 @@
     </a>
     <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="<?php echo base_url('index.php/admin/lihatproduk') ?>">Lihat Produk</a>
-            <a class="collapse-item" href="<?php echo base_url('index.php/admin/tambahproduk') ?>">Tambah Produk</a>
+            <a class="collapse-item" href="<?php echo base_url('index.php/admin/produk') ?>">Lihat Produk</a>
+            <a class="collapse-item" href="<?php echo base_url('index.php/admin/produk/add') ?>">Tambah Produk</a>
         </div>
     </div>
 </li>
