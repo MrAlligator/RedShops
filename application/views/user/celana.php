@@ -11,15 +11,17 @@
 
     
     <nav class="navbar navbar-default">
-        <?php $this->load->view("user/_partials/navbar.php") ?>
+        <?php $this->load->view("user/_partials/navbarcat.php") ?>
     </nav>
 
-    <?php $this->load->view("user/_partials/header.php") ?>
-    
-    <hr class="offset-lg">
-    <hr class="offset-lg">
 
-    <?php $this->load->view("user/_partials/bars.php") ?>
+    <header>
+      <div class="carousel" data-count="3" data-current="1">
+        <div class="items">
+            <?php $this->load->view("user/_partials/header1.php") ?>
+        </div>
+      </div>
+    </header>
 
     <hr class="offset-lg">
     <hr class="offset-md">
@@ -28,32 +30,9 @@
     <section class="products">
       <div class="container">
         <?php $this->load->view("user/_partials/product1.php") ?>
-        <div class="align-right align-center-xs">
-          <hr class="offset-sm">
-          <a href="./store/"> <h5 class="upp">View all desktops </h5> </a>
-        </div>
       </div>
     </section>
 
-    <section class="products">
-      <div class="container">
-        <?php $this->load->view("user/_partials/product2.php") ?>
-        <div class="align-right align-center-xs">
-          <hr class="offset-sm">
-          <a href="./store/"> <h5 class="upp">View all devices </h5> </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="products">
-      <div class="container">
-        <?php $this->load->view("user/_partials/product3.php") ?>
-        <div class="align-right align-center-xs">
-          <hr class="offset-sm">
-          <a href="./store/"> <h5 class="upp">View all tablets </h5> </a>
-        </div>
-      </div>
-    </section>
 
     <hr class="offset-lg">
     <hr class="offset-sm">

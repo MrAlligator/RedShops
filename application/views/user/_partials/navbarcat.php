@@ -12,8 +12,8 @@
 
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="<?php echo base_url('index.php/user') ?>">Beranda</a></li>
-              <li class="dropdown">
+              <li><a href="<?php echo base_url('index.php/user') ?>">Beranda</a></li>
+              <li class="active dropdown">
                 <a href="./store/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                   Produk <i class="ion-android-arrow-dropdown"></i>
                 </a>
