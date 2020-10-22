@@ -29,7 +29,6 @@
 
     <section class="products">
       <div class="container">
-      <h2 class="h2 upp align-center"> Desktops </h2>
         <hr class="offset-lg">
 
         <div class="row">
