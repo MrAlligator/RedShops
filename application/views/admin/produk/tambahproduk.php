@@ -35,16 +35,29 @@
 
 								<form action="" method="post" enctype="multipart/form-data" >
 									<div class="form-group">
-										<label for="name">Name*</label>
+										<label for="name">Nama*</label>
 										<input class="form-control"
 										type="text" name="name" placeholder="Product name" />
+										<div class="invalid-feedback">
+											
+										</div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+										<label for="kind">Jenis*</label><br>
+										<select name='agama'>
+                                            <option value='Kaos'>Kaos</option>
+                                            <option value='Kemeja' selected='selected'>Kemeja</option>
+                                            <option value='Celana'>Celana</option>
+                                            <option value='Jaker'>Jaket</option>
+                                        </select>
 										<div class="invalid-feedback">
 											
 										</div>
 									</div>
 
 									<div class="form-group">
-										<label for="price">Price*</label>
+										<label for="price">Harga*</label>
 										<input class="form-control"
 										type="number" name="price" min="0" placeholder="Product price" />
 										<div class="invalid-feedback">
@@ -54,7 +67,7 @@
 
 
 									<div class="form-group">
-										<label for="name">Photo</label>
+										<label for="name">Foto</label>
 										<input class="form-control-file"
 										type="file" name="image" />
 										<div class="invalid-feedback">
@@ -63,7 +76,7 @@
 									</div>
 
 									<div class="form-group">
-										<label for="name">Description*</label>
+										<label for="name">Deskripsi*</label>
 										<textarea class="form-control"
 										name="description" placeholder="Product description..."></textarea>
 										<div class="invalid-feedback">

@@ -13,9 +13,7 @@
     <script type="text/javascript" src="<?php echo base_url('assets/js/jquery-ui-1.11.4.js') ?>"></script>
     <script type="text/javascript" src="<?php echo base_url('assets/js/jquery.ui.touch-punch.js') ?>"></script>
 
-    <!--
     <script type="text/javascript">
-     $(document).ready(function(){
-     });
+        $(document).ready(function(){
+        });
     </script>
-    -->
