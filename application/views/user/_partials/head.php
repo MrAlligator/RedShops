@@ -4,15 +4,16 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title> Unistore Pro &middot; Premium Responsive E-Commerce Template</title>
 
-    <meta name="description" content="Bootstrap template for you store - E-Commerce Bootstrap Template">
-    <meta name="keywords" content="unistore, e-commerce bootstrap template, premium e-commerce bootstrap template, premium bootstrap template, bootstrap template, e-commerce, bootstrap template, sunrise digital">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
     <meta name="author" content="Sunrise Digital">
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url('assets/favicon.png') ?>">
 
     <!-- Bootstrap -->
     <link href="<?php echo base_url('assets/css/bootstrap.css') ?>" rel="stylesheet">
     <link href="<?php echo base_url('assets/css/custom.css') ?>" rel="stylesheet">
     <link href="<?php echo base_url('assets/css/carousel.css') ?>" rel="stylesheet">
+    <link href="<?php echo base_url('assets/css/carousel-product.css') ?>" rel="stylesheet">
     <link href="<?php echo base_url('assets/ionicons-2.0.1/css/ionicons.css') ?>" rel="stylesheet">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <link href='https://fonts.googleapis.com/css?family=Catamaran:400,100,300' rel='stylesheet' type='text/css'>
