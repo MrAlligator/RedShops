@@ -34,7 +34,6 @@ class Produk extends CI_Controller
     public function edit($id = null)
     {
         if (!isset($id)) redirect('admin/produk');
-       
         $product = $this->product_model;
         $validation = $this->form_validation;
         $validation->set_rules($product->rules());

@@ -4,29 +4,29 @@ class Product_model extends CI_Model
 {
     private $_table = "produk";
 
-    public $product_id;
-    public $name;
-    public $kind;
-    public $price;
-    public $image = "default.jpg";
-    public $description;
+    public $id_produk;
+    public $nama_produk;
+    public $jenis_produk;
+    public $harga_produk;
+    public $foto_produk = "default.jpg";
+    public $deskripsi;
 
     public function rules()
     {
         return [
-            ['field' => 'name',
+            ['field' => 'nama',
             'label' => 'Nama',
             'rules' => 'required'],
 
-            ['field' => 'kind',
+            ['field' => 'jenis',
             'label' => 'Jenis',
             'rules' => 'required'],
 
-            ['field' => 'price',
+            ['field' => 'harga',
             'label' => 'Harga',
             'rules' => 'numeric', 'required'],
             
-            ['field' => 'description',
+            ['field' => 'deskripsi',
             'label' => 'Deskripsi',
             'rules' => 'required']
         ];
@@ -45,27 +45,27 @@ class Product_model extends CI_Model
     public function save()
     {
         $post = $this->input->post();
-        $this->product_id = uniqid();
-        $this->name = $post["nama_produk"];
-        $this->kind = $post["jenis_produk"];
-        $this->price = $post["harga_produk"];
-        $this->description = $post["deskripsi"];
+        $this->id_produk = uniqid();
+        $this->nama_produk = $post["nama"];
+        $this->jenis_produk = $post["jenis"];
+        $this->harga_produk = $post["harga"];
+        $this->deskripsi = $post["deskripsi"];
         return $this->db->insert($this->_table, $this);
     }
 
     public function update()
     {
         $post = $this->input->post();
-        $this->product_id = $post["id_produk"];
-        $this->name = $post["nama_produk"];
-        $this->kind = $post["jenis_produk"];
-        $this->price = $post["harga_produk"];
-        $this->description = $post["deskripsi"];
-        return $this->db->update($this->_table, $this, array('product_id' => $post['id_produk']));
+        $this->id_produk = $post["id"];
+        $this->nama_produk = $post["nama"];
+        $this->jenis_produk = $post["jenis"];
+        $this->harga_produk = $post["harga"];
+        $this->deskripsi = $post["deskripsi"];
+        return $this->db->update($this->_table, $this, array('id_produk' => $post['id']));
     }
 
     public function delete($id)
     {
-        return $this->db->delete($this->_table, array("product_id" => $id));
+        return $this->db->delete($this->_table, array("id_produk" => $id));
     }
 }
