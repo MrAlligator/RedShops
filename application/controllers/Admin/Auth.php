@@ -40,9 +40,11 @@ class Auth extends CI_Controller {
                     redirect('admin/dashboard');
                 } else {
                     $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password Salah!</div>');
+                    redirect('admin/auth');
                 }
             } else {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Akun Belum Diaktifkan</div>');
+                redirect('admin/auth');
             }
         } else {
             //user tidak aktif
