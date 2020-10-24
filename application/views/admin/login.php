@@ -38,7 +38,7 @@
 
                   <?php echo $this->session->flashdata('message'); ?>
 
-                  <form class="user" action="<?php echo site_url('admin/auth') ?>" method="post">
+                  <form class="user" action="<?php echo site_url('admin/auth/index') ?>" method="post">
                     <div class="form-group">
                       <input type="text" class="form-control form-control-user" id="username" name="username" placeholder="Username" value="<?= set_value('username') ?>"><?= form_error('username', '<small class="text-danger pl-3">', '</small>') ?>
                     </div>

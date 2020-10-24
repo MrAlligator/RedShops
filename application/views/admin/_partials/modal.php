@@ -28,7 +28,7 @@
       <div class="modal-body">Tekan logout, jika ingin mengakhiri sesi ini!</div>
       <div class="modal-footer">
         <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
-        <a class="btn btn-primary" href="<?php echo base_url('index.php/admin/auth') ?>">Logout</a>
+        <a class="btn btn-primary" href="<?php echo base_url('index.php/admin/auth/logout') ?>">Logout</a>
       </div>
     </div>
   </div>

@@ -9,6 +9,10 @@ class Auth extends CI_Controller {
 
 	public function index()
 	{
+        if($this->session->userdata('username')) {
+            redirect('admin/dashboard');
+        }
+
         $data['title'] = 'Login';
         $this->form_validation->set_rules('username', 'Username', 'required|trim');
         $this->form_validation->set_rules('password', 'Password', 'required|trim');
@@ -47,7 +51,6 @@ class Auth extends CI_Controller {
                 redirect('admin/auth');
             }
         } else {
-            //user tidak aktif
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Akun Belum Terdaftar</div>');
             redirect('admin/auth');
         }
@@ -55,6 +58,9 @@ class Auth extends CI_Controller {
     
     public function regis()
 	{
+        if($this->session->userdata('username')) {
+            redirect('admin/dashboard');
+        }
         $data['title'] = 'Registrasi';
         $this->form_validation->set_rules('nama', 'Nama', 'required|trim');
         $this->form_validation->set_rules('username', 'Username', 'required|trim|is_unique[user.username]', [

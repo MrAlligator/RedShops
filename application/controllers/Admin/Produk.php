@@ -9,6 +9,7 @@ class Produk extends CI_Controller
         parent::__construct();
         $this->load->model("product_model");
         $this->load->library('form_validation');
+        is_logged_in();
     }
 
     public function index()

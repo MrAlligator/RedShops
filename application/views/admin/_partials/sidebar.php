@@ -9,7 +9,7 @@
 </a>
 
 <!-- Divider -->
-<hr class="sidebar-divider">
+<hr class="sidebar-divider mt-3">
 
 <!-- Heading -->
 <div class="sidebar-heading">
@@ -18,14 +18,14 @@
 
 <!-- Nav Item - Dashboard -->
 <li class="nav-item">
-    <a class="nav-link" href="<?php echo base_url('index.php/admin') ?>">
+    <a class="nav-link pb-0" href="<?php echo base_url('index.php/admin') ?>">
     <i class="fas fa-fw fa-tachometer-alt"></i>
     <span>Dashboard</span></a>
 </li>
 
 <!-- Nav Item - Pages Collapse Menu 
 <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+    <a class="nav-link pb-0 collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
         <i class="fas fa-fw fa-cog"></i>
         <span>Components</span>
     </a>
@@ -39,7 +39,7 @@
 
 <!-- Nav Item - Product Collapse Menu -->
 <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+    <a class="nav-link pb-0 collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
         <i class="fas fa-fw fa-folder"></i>
         <span>Produk</span>
     </a>
@@ -52,7 +52,7 @@
 </li>
 
 <!-- Divider -->
-<hr class="sidebar-divider">
+<hr class="sidebar-divider mt-3">
 <!-- Heading  -->
 <div class="sidebar-heading">
     User
@@ -60,7 +60,7 @@
 
 <!-- Nav Item - Pages Collapse Menu  -->
 <!-- <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+    <a class="nav-link pb-0 collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
         <i class="fas fa-fw fa-folder"></i>
         <span>Pages</span>
     </a>
@@ -80,20 +80,27 @@
 
 <!-- Nav Item - Charts  -->
 <li class="nav-item">
-    <a class="nav-link" href="<?php echo base_url('index.php/admin/dashboard/profil') ?>">
+    <a class="nav-link pb-0" href="<?php echo base_url('index.php/admin/dashboard/profil') ?>">
         <i class="fas fa-fw fa-user"></i>
         <span>Profil Saya</span></a>
 </li>
 
+<!-- Nav Item - Charts  -->
+<li class="nav-item">
+    <a class="nav-link pb-0" href="<?php echo base_url('index.php/admin/dashboard/editprofil') ?>">
+        <i class="fas fa-fw fa-user-edit"></i>
+        <span>Edit Profil</span></a>
+</li>
+
 <!-- Nav Item - Tables -->
 <li class="nav-item">
-    <a class="nav-link" href="<?php echo base_url('index.php/admin/auth') ?>">
+    <a class="nav-link pb-0" href="<?php echo base_url('index.php/admin/auth/logout') ?>">
         <i class="fas fa-sign-out-alt"></i>
         <span>Logout</span></a>
 </li>
 
 <!-- Divider -->
-<hr class="sidebar-divider d-none d-md-block">
+<hr class="sidebar-divider mt-3 d-none d-md-block">
 
 <!-- Sidebar Toggler (Sidebar) -->
 <div class="text-center d-none d-md-inline">
