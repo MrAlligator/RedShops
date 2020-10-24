@@ -9,7 +9,12 @@
 </a>
 
 <!-- Divider -->
-<hr class="sidebar-divider my-0">
+<hr class="sidebar-divider">
+
+<!-- Heading -->
+<div class="sidebar-heading">
+    Administrator
+</div>
 
 <!-- Nav Item - Dashboard -->
 <li class="nav-item">
@@ -17,14 +22,6 @@
     <i class="fas fa-fw fa-tachometer-alt"></i>
     <span>Dashboard</span></a>
 </li>
-
-<!-- Divider -->
-<hr class="sidebar-divider">
-
-<!-- Heading -->
-<div class="sidebar-heading">
-    Interface
-</div>
 
 <!-- Nav Item - Pages Collapse Menu 
 <li class="nav-item">
@@ -83,17 +80,17 @@
 
 <!-- Nav Item - Charts  -->
 <li class="nav-item">
-    <a class="nav-link" href="charts.html">
+    <a class="nav-link" href="<?php echo base_url('index.php/admin/dashboard/profil') ?>">
         <i class="fas fa-fw fa-user"></i>
-        <span>Profil</span></a>
+        <span>Profil Saya</span></a>
 </li>
 
-<!-- Nav Item - Tables
+<!-- Nav Item - Tables -->
 <li class="nav-item">
-    <a class="nav-link" href="tables.html">
-        <i class="fas fa-fw fa-table"></i>
-        <span>Tables</span></a>
-</li>  -->
+    <a class="nav-link" href="<?php echo base_url('index.php/admin/auth') ?>">
+        <i class="fas fa-sign-out-alt"></i>
+        <span>Logout</span></a>
+</li>
 
 <!-- Divider -->
 <hr class="sidebar-divider d-none d-md-block">
