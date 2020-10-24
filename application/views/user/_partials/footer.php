@@ -2,8 +2,8 @@
         <div class="container align-center">
             <hr class="offset-md">
 
-            <h1 class="h3 upp">Join our newsletter</h1>
-            <p>Get more information and receive special discounts for our products.</p>
+            <h1 class="h3 upp">Join Bersama REDSHOP</h1>
+            <p>Dapatkan Spesial Produk Dari Kami Dengan Harga yang Terjangkau</p>
 
             <div class="social">
               <a href="#"><i class="ion-social-facebook"></i></a>
@@ -26,22 +26,22 @@
 
         <div class="row menu">
           <div class="col-sm-3 col-md-2">
-            <h1 class="h4">Information <i class="ion-plus-round hidden-sm hidden-md hidden-lg"></i> </h1>
+            <h1 class="h4">Informassi <i class="ion-plus-round hidden-sm hidden-md hidden-lg"></i> </h1>
 
             <div class="list-group">
-              <a href="#" class="list-group-item">About</a>
-              <a href="#" class="list-group-item">Terms</a>
-              <a href="#" class="list-group-item">How to order</a>
-              <a href="#" class="list-group-item">Delivery</a>
+              <a href="#" class="list-group-item">Tentang</a>
+              <a href="#" class="list-group-item">Cara Order</a>
+              <a href="#" class="list-group-item">Pengiriman</a>
             </div>
           </div>
           <div class="col-sm-3 col-md-2">
-            <h1 class="h4">Products <i class="ion-plus-round hidden-sm hidden-md hidden-lg"></i> </h1>
+            <h1 class="h4">Produk <i class="ion-plus-round hidden-sm hidden-md hidden-lg"></i> </h1>
 
             <div class="list-group">
-              <a href="#" class="list-group-item">Laptops</a>
-              <a href="#" class="list-group-item">Tablets</a>
-              <a href="#" class="list-group-item">Servers</a>
+              <a href="#" class="list-group-item">Kemeja</a>
+              <a href="#" class="list-group-item">Kaos</a>
+              <a href="#" class="list-group-item">Celana</a>
+              <a href="#" class="list-group-item">Jaket</a>
             </div>
           </div>
           <div class="col-sm-3 col-md-2">
@@ -85,17 +85,17 @@
 
           </div>
           <div class="col-sm-3 col-md-3 col-md-offset-1 align-right hidden-sm hidden-xs">
-            <h1 class="h4">Unistore Pro, Inc.</h1>
+            <h1 class="h4">REDSHOP STORE JEMBER</h1>
 
               <address>
-                1305 Market Street, Suite 800<br>
-                San Francisco, CA 94102<br>
-                <abbr title="Phone">P:</abbr> (123) 456-7890
+                Jln. Semanggi No.45b<br>
+                Jember, Jawa Timur<br>
+                <abbr title="Phone">P:</abbr> 089685115927
               </address>
 
               <address>
                 <strong>Support</strong><br>
-                <a href="mailto:#">sup@example.com</a>
+                <a href="mailto:#">Redshop@gmail.com</a>
               </address>
 
           </div>

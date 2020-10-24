@@ -219,7 +219,7 @@
 	.carousel > .items > .item h2.colorful {
 		display: inline-block;
 		padding: 10px 0px;
-		color: #fff;
+		color: #000000;
 		margin: 0;
 	}
 
@@ -370,7 +370,7 @@
 		.carousel > .items > .item h2.colorful {
 			display: inline-block;
 			padding: 10px 25px;
-			color: #fff;
+			color: #000000;
 			margin: 0;
 			text-align: center;
 		}

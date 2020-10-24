@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title> Unistore Pro &middot; Premium Responsive E-Commerce Template</title>
+    <title> REDSHOP &middot; Fashion Shop</title>
     <?php $this->load->view("user/_partials/head.php") ?>
   </head>
   <body>
@@ -23,7 +23,7 @@
     <header>
       <div class="carousel" data-count="3" data-current="1">
         <div class="items">
-            <?php $this->load->view("user/_partials/header1.php") ?>
+            <?php $this->load->view("user/_partials/header4.php") ?>
         </div>
       </div>
     </header>
@@ -34,7 +34,83 @@
 
     <section class="products">
       <div class="container">
-        <?php $this->load->view("user/_partials/product1.php") ?>
+        <hr class="offset-lg">
+
+        <div class="row">
+
+<div class="col-sm-6 col-md-4 product">
+  <div class="body">
+    <a href="#favorites" class="favorites" data-favorite="inactive"><i class="ion-ios-heart-outline"></i></a>
+    <a href="./"><img src="<?php echo base_url('assets/img/products/celana/celana4.jpg') ?>" alt="celana4"/></a>
+
+    <div class="content align-center">
+      <p class="price">Rp. 125.000</p>
+      <h2 class="h3">Celana Santai</h2>
+      <hr class="offset-sm">
+
+      <button class="btn btn-link"> <i class="ion-android-open"></i> Details</button>
+      <button class="btn btn-primary btn-sm rounded"> <i class="ion-bag"></i> Add to cart</button>
+    </div>
+  </div>
+</div>
+
+<div class="col-sm-6 col-md-4 product">
+  <div class="body">
+    <a href="#favorites" class="favorites" data-favorite="inactive"><i class="ion-ios-heart-outline"></i></a>
+    <a href="./"><img src="<?php echo base_url('assets/img/products/celana/celana2.jpg') ?>" alt="celana2"/></a>
+
+    <div class="content align-center">
+      <p class="price">Rp. 125.000</p>
+      <h2 class="h3">Celana Santai</h2>
+      <hr class="offset-sm">
+
+      <button class="btn btn-link"> <i class="ion-android-open"></i> Details</button>
+      <button class="btn btn-primary btn-sm rounded"> <i class="ion-bag"></i> Add to cart</button>
+    </div>
+  </div>
+</div>
+
+<div class="col-sm-6 col-md-4 product">
+  <div class="body">
+    <a href="#favorites" class="favorites" data-favorite="inactive"><i class="ion-ios-heart-outline"></i></a>
+    <a href="./"><img src="<?php echo base_url('assets/img/products/celana/celana3.jpg') ?>" alt="celana3"/></a>
+
+    <div class="content align-center">
+      <p class="price">Rp. 125.000</p>
+      <h2 class="h3">Celana Santai</h2>
+      <hr class="offset-sm">
+
+      <button class="btn btn-link"> <i class="ion-android-open"></i> Details</button>
+      <button class="btn btn-primary btn-sm rounded"> <i class="ion-bag"></i> Add to cart</button>
+    </div>
+  </div>
+</div>
+
+<div class="col-sm-6 col-md-4 product visible-sm">
+  <div class="body">
+    <a href="#favorites" class="favorites" data-favorite="inactive"><i class="ion-ios-heart-outline"></i></a>
+    <a href="./"><img src="<?php echo base_url('assets/img/products/celana/celana4.jpg') ?>" alt="celana4"/></a>
+
+    <div class="content align-center">
+      <p class="price">Rp. 125.000</p>
+      <h2 class="h3">Celana Santai</h2>
+      <hr class="offset-sm">
+
+      <button class="btn btn-link"> <i class="ion-android-open"></i> Details</button>
+      <button class="btn btn-primary btn-sm rounded"> <i class="ion-bag"></i> Add to cart</button>
+    </div>
+  </div>
+          </div>
+
+
+            </div>
+          </div>
+
+
+          
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 

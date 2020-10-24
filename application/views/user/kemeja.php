@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title> Unistore Pro &middot; Premium Responsive E-Commerce Template</title>
+    <title> REDSHOP &middot; Fashion Shop</title>
     <?php $this->load->view("user/_partials/head.php") ?>
   </head>
   <body>
@@ -41,27 +41,11 @@
           <div class="col-sm-6 col-md-3 product">
             <div class="body">
               <a href="#favorites" class="favorites" data-favorite="inactive"><i class="ion-ios-heart-outline"></i></a>
-              <a href="./"><img src="<?php echo base_url('assets/img/products/apple-imac-27-retina.jpg') ?>" alt="Apple iMac 27 Retina"/></a>
+              <a href="./"><img src="<?php echo base_url('assets/img/products/kemeja/kemeja1.jpg') ?>" alt="kemeja1"/></a>
 
               <div class="content align-center">
-                <p class="price">$2099.99</p>
-                <h2 class="h3">iMac 27 Retina</h2>
-                <hr class="offset-sm">
-
-                <a href="<?php echo base_url('index.php/user/detailproduk') ?>"><button class="btn btn-link"> <i class="ion-android-open"></i> Details</button></a>
-                <button class="btn btn-primary btn-sm rounded"> <i class="ion-bag"></i> Add to cart</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-sm-6 col-md-3 product">
-            <div class="body">
-              <a href="#favorites" class="favorites" data-favorite="inactive"><i class="ion-ios-heart-outline"></i></a>
-              <a href="./"><img src="<?php echo base_url('assets/img/products/microsoft-surface-studio.jpg') ?>" alt="Microsoft Surface Studio"/></a>
-
-              <div class="content align-center">
-                <p class="price">$3749.99</p>
-                <h2 class="h3">Surface Studio</h2>
+                <p class="price">Rp. 150.000</p>
+                <h2 class="h3">Kemeja Pantai</h2>
                 <hr class="offset-sm">
 
                 <button class="btn btn-link"> <i class="ion-android-open"></i> Details</button>
@@ -73,11 +57,27 @@
           <div class="col-sm-6 col-md-3 product">
             <div class="body">
               <a href="#favorites" class="favorites" data-favorite="inactive"><i class="ion-ios-heart-outline"></i></a>
-              <a href="./"><img src="<?php echo base_url('assets/img/products/dell-inspiron-23.jpg') ?>" alt="Dell Inspion 23"/></a>
+              <a href="./"><img src="<?php echo base_url('assets/img/products/kemeja/kemeja2.jpg') ?>" alt="kemeja2"/></a>
 
               <div class="content align-center">
-                <p class="price">$1987.99</p>
-                <h2 class="h3">Dell Inspion 23</h2>
+                <p class="price">Rp. 150.000</p>
+                <h2 class="h3">Kemeja Pantai</h2>
+                <hr class="offset-sm">
+
+                <button class="btn btn-link"> <i class="ion-android-open"></i> Details</button>
+                <button class="btn btn-primary btn-sm rounded"> <i class="ion-bag"></i> Add to cart</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-md-3 product">
+            <div class="body">
+              <a href="#favorites" class="favorites" data-favorite="inactive"><i class="ion-ios-heart-outline"></i></a>
+              <a href="./"><img src="<?php echo base_url('assets/img/products/kemeja/kemeja3.jpg') ?>" alt="kemeja3"/></a>
+
+              <div class="content align-center">
+                <p class="price">Rp. 150.000</p>
+                <h2 class="h3">Kemeja Pantai</h2>
                 <hr class="offset-sm">
 
                 <button class="btn btn-link"> <i class="ion-android-open"></i> Details</button>
@@ -90,16 +90,25 @@
           <div class="col-sm-6 col-md-3 product">
             <div class="body">
               <a href="#favorites" class="favorites" data-favorite="inactive"><i class="ion-ios-heart-outline"></i></a>
-              <a href="./"><img src="<?php echo base_url('assets/img/products/lenovo-ideacenter.jpg') ?>" alt="Lenovo IdeaCenter"/></a>
+              <a href="./"><img src="<?php echo base_url('assets/img/products/kemeja/kemeja4.jpg') ?>" alt="kemeja4"/></a>
 
               <div class="content align-center">
-                <p class="price">$2487.99</p>
-                <h2 class="h3">Lenovo IdeaCenter</h2>
+                <p class="price">Rp. 150.000</p>
+                <h2 class="h3">Kemeja Pantai</h2>
                 <hr class="offset-sm">
 
                 <button class="btn btn-link"> <i class="ion-android-open"></i> Details</button>
                 <button class="btn btn-primary btn-sm rounded"> <i class="ion-bag"></i> Add to cart</button>
               </div>
+            </div>
+          </div>
+
+
+            </div>
+          </div>
+
+
+          
             </div>
           </div>
         </div>
