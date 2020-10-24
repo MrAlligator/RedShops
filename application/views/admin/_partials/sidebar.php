@@ -1,8 +1,11 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
 <!-- Sidebar - Brand -->
-<a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-    <div class="sidebar-brand-text mx-3">RedShop Admin</div>
+<a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url('index.php/admin') ?>">
+        <div class="sidebar-brand-icon">
+            <i class="fas fa-user-secret"></i>
+        </div>
+    <div class="sidebar-brand-text mx-3">RedShop</div>
 </a>
 
 <!-- Divider -->
@@ -10,7 +13,7 @@
 
 <!-- Nav Item - Dashboard -->
 <li class="nav-item">
-    <a class="nav-link" href="index.html">
+    <a class="nav-link" href="<?php echo base_url('index.php/admin') ?>">
     <i class="fas fa-fw fa-tachometer-alt"></i>
     <span>Dashboard</span></a>
 </li>
@@ -51,16 +54,15 @@
     </div>
 </li>
 
-<!-- Divider 
+<!-- Divider -->
 <hr class="sidebar-divider">
--->
-<!-- Heading
+<!-- Heading  -->
 <div class="sidebar-heading">
-    Addons
-</div> -->
+    User
+</div>
 
-<!-- Nav Item - Pages Collapse Menu
-<li class="nav-item">
+<!-- Nav Item - Pages Collapse Menu  -->
+<!-- <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
         <i class="fas fa-fw fa-folder"></i>
         <span>Pages</span>
@@ -79,12 +81,12 @@
     </div>
 </li> -->
 
-<!-- Nav Item - Charts 
+<!-- Nav Item - Charts  -->
 <li class="nav-item">
     <a class="nav-link" href="charts.html">
-        <i class="fas fa-fw fa-chart-area"></i>
-        <span>Charts</span></a>
-</li> -->
+        <i class="fas fa-fw fa-user"></i>
+        <span>Profil</span></a>
+</li>
 
 <!-- Nav Item - Tables
 <li class="nav-item">

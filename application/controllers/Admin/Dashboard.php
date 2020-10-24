@@ -8,7 +8,13 @@ class Dashboard extends CI_Controller {
 
 	public function index()
 	{
-        // load view admin/overview.php
-        $this->load->view("admin/dashboard");
+		$data['title'] = 'Dashboard';
+		$data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+		$this->load->view("admin/dashboard", $data);
+	}
+
+	public function profil()
+	{
+		
 	}
 }
