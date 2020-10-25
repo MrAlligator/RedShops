@@ -33,38 +33,29 @@
                 <h1 class="h3 mb-4 text-gray-800"><?php echo $title?></h1>
                     <div class="row">
                         <div class="col-lg-8">
-                            <form action="<?php echo site_url('admin/dashboard/editprofil') ?>" method="post" enctype="multipart/form-data">
+                            <?php echo $this->session->flashdata('message'); ?>
+                            <form action="<?php echo site_url('admin/dashboard/editpass') ?>" method="post" enctype="multipart/form-data">
                                 <div class="form-group row">
-                                    <label for="username" class="col-sm-2 col-form-label">Username</label>
+                                    <label for="password_lama" class="col-sm-2 col-form-label">Password Lama</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="username" name="username" value="<?php echo $user['username']; ?>" readonly>
+                                        <input type="password" class="form-control" id="password_lama" name="password_lama"><?= form_error('password_lama', '<small class="text-danger pl-3">', '</small>') ?>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="nama" class="col-sm-2 col-form-label">Nama Lengkap</label>
+                                    <label for="password_baru" class="col-sm-2 col-form-label">Password Baru</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="name" name="name" value="<?php echo $user['name']; ?>"><?= form_error('name', '<small class="text-danger pl-3">', '</small>') ?>
+                                        <input type="password" class="form-control" id="password_baru" name="password_baru"><?= form_error('password_baru', '<small class="text-danger pl-3">', '</small>') ?>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <div class="col-sm-2">Foto</div>
+                                    <label for="konfirm_pass" class="col-sm-2 col-form-label">Konfirm Password</label>
                                     <div class="col-sm-10">
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <img src="<?php echo base_url('assetsadmin/img/profile/').$user['image']; ?>" class='img-thumbnail'>
-                                            </div>
-                                            <div class="col-sm-9">
-                                            <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="image" name="image">
-                                                <label class="custom-file-label" for="customFile">Choose file</label>
-                                            </div>
-                                            </div>
-                                        </div>
+                                        <input type="password" class="form-control" id="konfirm_pass" name="konfirm_pass"><?= form_error('konfirm_pass', '<small class="text-danger pl-3">', '</small>') ?>
                                     </div>
                                 </div>
                                 <div class="form-group row justify-content-end">
                                     <div class="col-sm-10">
-                                        <button type="submit" class="btn btn-primary">Simpan</button>
+                                        <button type="submit" class="btn btn-primary">Ubah Password</button>
                                     </div>
                                 </div>
                             </form>

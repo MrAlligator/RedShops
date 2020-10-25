@@ -33,26 +33,20 @@
               <div class="col-lg-6">
                 <div class="p-5">
                   <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-4">Hai Admin Redshop..!</h1>
+                    <h1 class="h4 text-gray-900 mb-4">Lupa password anda?</h1>
                   </div>
 
                   <?php echo $this->session->flashdata('message'); ?>
 
-                  <form class="user" action="<?php echo site_url('admin/auth/index') ?>" method="post">
+                  <form class="user" action="<?php echo site_url('admin/auth/lupapass') ?>" method="post">
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="username" name="username" placeholder="Username" value="<?= set_value('username') ?>"><?= form_error('username', '<small class="text-danger pl-3">', '</small>') ?>
+                      <input type="email" class="form-control form-control-user" id="email" name="email" placeholder="Masukkan Email"><?= form_error('email', '<small class="text-danger pl-3">', '</small>') ?>
                     </div>
-                    <div class="form-group">
-                      <input type="password" class="form-control form-control-user" id="password" name="password" placeholder="Password"><?= form_error('password', '<small class="text-danger pl-3">', '</small>') ?>
-                    </div>
-                    <button class="btn btn-primary btn-user btn-block" type="submit">Login</button>
+                    <button class="btn btn-primary btn-user btn-block" type="submit">Reset Pass</button>
                   </form>
                   <hr>
                   <div class="text-center">
-                    <a class="small" href="<?php echo base_url('index.php/admin/auth/forgot') ?> ">Lupa Password?</a>
-                  </div>
-                  <div class="text-center">
-                    <a class="small" href="<?php echo base_url('index.php/admin/auth/regis')?>">Buat Akun Baru?</a>
+                    <a class="small" href="<?php echo base_url('index.php/admin/auth') ?> ">Kembali ke Login</a>
                   </div>
                 </div>
               </div>

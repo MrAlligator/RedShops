@@ -92,6 +92,13 @@
         <span>Edit Profil</span></a>
 </li>
 
+<!-- Nav Item - Charts  -->
+<li class="nav-item">
+    <a class="nav-link pb-0" href="<?php echo base_url('index.php/admin/dashboard/editpass') ?>">
+        <i class="fas fa-fw fa-key"></i>
+        <span>Ubah Password</span></a>
+</li>
+
 <!-- Nav Item - Tables -->
 <li class="nav-item">
     <a class="nav-link pb-0" href="<?php echo base_url('index.php/admin/auth/logout') ?>">
