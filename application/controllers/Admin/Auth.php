@@ -66,10 +66,13 @@ class Auth extends CI_Controller {
         $this->form_validation->set_rules('username', 'Username', 'required|trim|is_unique[user.username]', [
             'is_unique' => 'Username Telah Terdaftar'
         ]);
+        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[user.email]', [
+            'is_unique' => 'Email Telah Terdaftar'
+        ]);
         $this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[8]|max_length[8]|matches[konfirm]', [
             'matches' => 'Password tidak Sama!',
-            'min_length' => 'Password terlalu Pendek!',
-            'max_length' => 'Password terlalu Panjang!'
+            'min_length' => 'Password tidak boleh kurang dari 8 karakter!',
+            'max_length' => 'Password tidak boleh lebih dari 8 karakter!'
         ]);
         $this->form_validation->set_rules('password', 'Password', 'required|trim|matches[password]');
         if($this->form_validation->run() == false){
@@ -77,6 +80,7 @@ class Auth extends CI_Controller {
         } else {
             $data = [
                 'name' => htmlspecialchars($this->input->post('nama',true)),
+                'email' => htmlspecialchars($this->input->post('email',true)),
                 'username' => htmlspecialchars($this->input->post('username',true)),
                 'image' => 'default.jpg',
                 'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
@@ -99,5 +103,35 @@ class Auth extends CI_Controller {
 
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Anda Sudah Logout</div>');
         redirect('admin/auth');
+    }
+
+    public function forgot()
+    {
+        $data['title'] = 'Lupa Password';
+        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email');
+
+        if($this->form_validation->run() == false) {
+            $this->load->view("admin/lupapass", $data);
+        } else {
+            //validasi lolos
+            $email = $this->input->post('email');
+            $this->db->get_where('user', ['email' => $email, 'is_active' => 1])->row_array();
+
+            if($user) {
+                $token = base64_encode(random_bytes(32));
+                $user_token = [
+                    'email' => $email,
+                    'token' => $token,
+                    'date_created' => time()
+                ];
+
+                $this->db->insert('user_token', $user_token);
+                $this->_sendEmail($token, 'forgot');
+
+            } else {
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Email belum terdaftar atau Belum aktif</div>');
+                redirect('admin/auth/forgot');
+            }
+        }
     }
 }

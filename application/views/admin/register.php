@@ -28,14 +28,17 @@
               </div>
               <form class="user" method="post" action="<?php echo base_url('index.php/admin/auth/regis') ?>">
                 <div class="form-group">
-                    <input type="text" class="form-control form-control-user" id="nama" name="nama" placeholder="Nama" value="<?= set_value('nama') ?>"><?= form_error('nama', '<small class="text-danger pl-3">', '</small>') ?>
+                    <input type="text" class="form-control form-control-user" id="nama" name="nama" placeholder="Masukkan Nama" value="<?= set_value('nama') ?>"><?= form_error('nama', '<small class="text-danger pl-3">', '</small>') ?>
                 </div>
                 <div class="form-group">
-                  <input type="text" class="form-control form-control-user" id="username" name="username" placeholder="Username" value="<?= set_value('username') ?>"><?= form_error('username', '<small class="text-danger pl-3">', '</small>') ?>
+                    <input type="text" class="form-control form-control-user" id="email" name="email" placeholder="Masukkan Email" value="<?= set_value('email') ?>"><?= form_error('nama', '<small class="text-danger pl-3">', '</small>') ?>
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control form-control-user" id="username" name="username" placeholder="Masukkan Username" value="<?= set_value('username') ?>"><?= form_error('username', '<small class="text-danger pl-3">', '</small>') ?>
                 </div>
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="password" class="form-control form-control-user" id="password" name="password" placeholder="Password"><?= form_error('password', '<small class="text-danger pl-3">', '</small>') ?>
+                    <input type="password" class="form-control form-control-user" id="password" name="password" placeholder=" Masukkan Password"><?= form_error('password', '<small class="text-danger pl-3">', '</small>') ?>
                   </div>
                   <div class="col-sm-6">
                     <input type="password" class="form-control form-control-user" id="konfirm" name="konfirm" placeholder="Repeat Password">
@@ -45,7 +48,7 @@
               </form>
               <hr>
               <div class="text-center">
-                <a class="small" href="forgot-password.html">Forgot Password?</a>
+                <a class="small" href="<?php echo base_url('index.php/admin/auth/forgot') ?>">Lupa Password?</a>
               </div>
               <div class="text-center">
                 <a class="small" href="<?php echo base_url('index.php/admin')?>">Sudah Memiliki Akun? Login!</a>
