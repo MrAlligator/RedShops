@@ -76,15 +76,13 @@ class Dashboard extends CI_Controller {
 		$data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
 		
 		$this->form_validation->set_rules('password_lama', 'Password Lama', 'required|trim');
-		$this->form_validation->set_rules('password_baru', 'Password Baru', 'required|trim|min_length[8]|max_length[8]|matches[konfirm_pass]',[
+		$this->form_validation->set_rules('password_baru', 'Password Baru', 'required|trim|min_length[8]|matches[konfirm_pass]',[
 			'matches' => 'Password tidak Sama!',
-            'min_length' => 'Password tidak boleh kurang dari 8 karakter!',
-            'max_length' => 'Password tidak boleh lebih dari 8 karakter!'
+            'min_length' => 'Password tidak boleh kurang dari 8 karakter!'
 		]);
-		$this->form_validation->set_rules('konfirm_pass', 'Konfirmasi Password Baru', 'required|trim|min_length[8]|max_length[8]|matches[password_baru]',[
+		$this->form_validation->set_rules('konfirm_pass', 'Konfirmasi Password Baru', 'required|trim|min_length[8]|matches[password_baru]',[
 			'matches' => 'Password tidak Sama!',
-            'min_length' => 'Password tidak boleh kurang dari 8 karakter!',
-            'max_length' => 'Password tidak boleh lebih dari 8 karakter!'
+            'min_length' => 'Password tidak boleh kurang dari 8 karakter!'
 		]);
 
 		if($this->form_validation->run() == false) {

@@ -33,21 +33,21 @@
               <div class="col-lg-6">
                 <div class="p-5">
                   <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-4">Lupa password anda?</h1>
+                    <h1 class="h4 text-gray-900">Reset password anda!</h1>
+                    <h5 class="mb-4"><?php echo $this->session->userdata('reset_email'); ?></h5>
                   </div>
 
                   <?php echo $this->session->flashdata('message'); ?>
 
-                  <form class="user" action="<?php echo site_url('admin/auth/forgot') ?>" method="post">
+                  <form class="user" action="<?php echo site_url('admin/auth/changePassword') ?>" method="post">
                     <div class="form-group">
-                      <input type="email" class="form-control form-control-user" id="email" name="email" placeholder="Masukkan Email"><?= form_error('email', '<small class="text-danger pl-3">', '</small>') ?>
+                      <input type="password" class="form-control form-control-user" id="password" name="password" placeholder="Masukkan Password Baru"><?= form_error('password', '<small class="text-danger pl-3">', '</small>') ?>
                     </div>
-                    <button class="btn btn-primary btn-user btn-block" type="submit">Reset Pass</button>
+                    <div class="form-group">
+                      <input type="password" class="form-control form-control-user" id="konfirm" name="konfirm" placeholder="Ketikkan Password Baru Lagi"><?= form_error('konfirm', '<small class="text-danger pl-3">', '</small>') ?>
+                    </div>
+                    <button class="btn btn-primary btn-user btn-block" type="submit">Ubah Password</button>
                   </form>
-                  <hr>
-                  <div class="text-center">
-                    <a class="small" href="<?php echo base_url('index.php/admin/auth') ?> ">Kembali ke Login</a>
-                  </div>
                 </div>
               </div>
             </div>
