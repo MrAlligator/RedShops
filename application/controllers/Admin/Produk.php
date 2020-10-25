@@ -9,10 +9,13 @@ class Produk extends CI_Controller
         parent::__construct();
         $this->load->model("product_model");
         $this->load->library('form_validation');
+        is_logged_in();
     }
 
     public function index()
     {
+        $data['title'] = 'Produk';
+		$data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data["produk"] = $this->product_model->getAll();
         $this->load->view("admin/produk/lihatproduk", $data);
     }
@@ -28,7 +31,9 @@ class Produk extends CI_Controller
             $this->session->set_flashdata('success', 'Berhasil disimpan');
         }
 
-        $this->load->view("admin/produk/tambahproduk");
+        $data['title'] = 'Tambah Produk';
+		$data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+        $this->load->view("admin/produk/tambahproduk", $data);
     }
 
     public function edit($id = null)
@@ -46,6 +51,8 @@ class Produk extends CI_Controller
         $data["produk"] = $product->getById($id);
         if (!$data["produk"]) show_404();
         
+        $data['title'] = 'Edit Produk';
+		$data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $this->load->view("admin/produk/editproduk", $data);
     }
 

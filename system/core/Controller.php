@@ -100,4 +100,12 @@ class CI_Controller {
 		return self::$instance;
 	}
 
+	public function cek_status()
+	{
+    	$this->load->library('session');
+    	if($this->session->userdata('id') == NULL){
+        	$this->session->set_flashdata('error_login', 'Silahkan login terlebih dahulu untuk mengakses data.');
+        	redirect('auth');
+    	}
+	}
 }
