@@ -5,11 +5,15 @@ class Dashboard extends CI_Controller {
     {
 		parent::__construct();
 		$this->load->library('form_validation');
+		$this->load->model('product_model');
+		$this->load->model('user_model');
 		is_logged_in();
 	}
 
 	public function index()
 	{
+		$data['totalproduk'] = $this->product_model->hitung_jumlah_produk();
+		$data['totaluser'] = $this->user_model->hitung_jumlah_user();
 		$data['title'] = 'Dashboard';
 		$data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
 		$this->load->view("admin/dashboard", $data);

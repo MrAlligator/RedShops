@@ -68,4 +68,15 @@ class Product_model extends CI_Model
     {
         return $this->db->delete($this->_table, array("id_produk" => $id));
     }
+
+    public function hitung_jumlah_produk()
+    {
+        $query=$this->db->get('produk');
+        if ($query->num_rows()>0) {
+            return $query->num_rows();
+        }
+        else {
+            return 0;
+        }
+    }
 }
