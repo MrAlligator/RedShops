@@ -69,10 +69,9 @@ class Auth extends CI_Controller {
         $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[user.email]', [
             'is_unique' => 'Email Telah Terdaftar'
         ]);
-        $this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[8]|max_length[8]|matches[konfirm]', [
+        $this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[8]|matches[konfirm]', [
             'matches' => 'Password tidak Sama!',
-            'min_length' => 'Password tidak boleh kurang dari 8 karakter!',
-            'max_length' => 'Password tidak boleh lebih dari 8 karakter!'
+            'min_length' => 'Password tidak boleh kurang dari 8 karakter!'
         ]);
         $this->form_validation->set_rules('password', 'Password', 'required|trim|matches[password]');
         if($this->form_validation->run() == false){
@@ -129,7 +128,7 @@ class Auth extends CI_Controller {
             $email = $this->input->post('email');
             $this->db->get_where('user', ['email' => $email, 'is_active' => 1])->row_array();
 
-            if($user) {
+            if($email) {
                 $token = base64_encode(random_bytes(32));
                 $user_token = [
                     'email' => $email,
@@ -185,6 +184,23 @@ class Auth extends CI_Controller {
                     </div>
                 </div>
         ');
+        } else if ($type == 'forgot') {
+            $this->email->subject('Reset Password');
+            $this->email->message('
+                <div class="row">
+                    <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                    <div class="col-lg-6">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Hai, silahkan Klik untuk reset passwordmu!</h1>
+                            </div>
+                            <div class="text-center">
+                                <a class="btn btn-primary" href="' . base_url() . 'index.php/admin/auth/resetpass?email=' . $this->input->post('email') . '&token=' . urlencode($token) . '">Reset Password</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        ');
         }
 
         if($this->email->send()) {
@@ -226,6 +242,73 @@ class Auth extends CI_Controller {
             }
         } else {
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Aktivasi gagal, Email Salah!</div>');
+            redirect('admin/auth');
+        }
+    }
+
+    public function resetpass ()
+    {
+        $email = $this->input->get('email');
+        $token = $this->input->get('token');
+
+        $user = $this->db->get_where('user', ['email' => $email])->row_array();
+
+        if($user) {
+            $user_token = $this->db->get_where('user_token', ['token' => $token])->row_array();
+            if($user_token) {
+                $this->session->set_userdata('reset_email', $email);
+                $this->changePassword();
+                // if(time() - $user_token['date_created'] < (60*60*24)) {
+                //     $this->db->set('is_active', 1);
+                //     $this->db->where('email', $email);
+                //     $this->db->update('user');
+
+                //     $this->db->delete('user_token', ['email' => $email]);
+
+                //     $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">'. $email . ' telah diaktivasi, silahkan login.</div>');
+                //     redirect('admin/auth');
+                // } else {
+                //     $this->db->delete('user', ['email' => $email]);
+                //     $this->db->delete('user_token', ['email' => $email]);
+                    
+                //     $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Reset password gagal, Token kadaluarsa</div>');
+                //     redirect('admin/auth/forgot');
+                // }
+            } else {
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Reset password gagal, Token invalid</div>');
+                redirect('admin/auth');
+            }
+        } else {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Reset password gagal, Email Salah!</div>');
+            redirect('admin/auth');
+        }
+    }
+
+    public function changePassword()
+    {
+        $data['title'] = 'Reset Password';
+        $this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[8]|matches[konfirm]', [
+            'matches' => 'Password tidak Sama!',
+            'min_length' => 'Password tidak boleh kurang dari 8 karakter!'
+        ]);
+        $this->form_validation->set_rules('konfirm', 'konfirm', 'required|trim|min_length[8]|matches[password]', [
+            'matches' => 'Password tidak Sama!',
+            'min_length' => 'Password tidak boleh kurang dari 8 karakter!'
+        ]);
+
+        if($this->form_validation->run() == false) {
+            $this->load->view("admin/resetpass", $data);
+        } else {
+            $password = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
+            $email = $this->session->userdata('reset_email');
+
+            $this->db->set('password', $password);
+            $this->db->where('email', $email);
+            $this->db->update('user');
+
+            $this->session->unset_userdata('reset_email');
+
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Silahkan Login</div>');
             redirect('admin/auth');
         }
     }
