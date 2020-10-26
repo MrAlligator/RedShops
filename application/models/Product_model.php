@@ -8,8 +8,13 @@ class Product_model extends CI_Model
     public $nama_produk;
     public $jenis_produk;
     public $harga_produk;
+    public $jumlahstok;
     public $foto_produk = "default.jpg";
+    public $foto_produk2 = "default.jpg";
+    // public $foto_produk3 = "default.jpg";
     public $deskripsi;
+    public $deskripsi2;
+    public $deskripsi3;
 
     public function rules()
     {
@@ -25,7 +30,15 @@ class Product_model extends CI_Model
             ['field' => 'harga',
             'label' => 'Harga',
             'rules' => 'numeric', 'required'],
+
+            ['field' => 'jumlahstok',
+            'label' => 'Jumlah Stok',
+            'rules' => 'numeric', 'required'],
             
+            ['field' => 'foto',
+            'label' => 'Foto',
+            'rules' => 'uploaded'],
+
             ['field' => 'deskripsi',
             'label' => 'Deskripsi',
             'rules' => 'required']
@@ -49,7 +62,13 @@ class Product_model extends CI_Model
         $this->nama_produk = $post["nama"];
         $this->jenis_produk = $post["jenis"];
         $this->harga_produk = $post["harga"];
+        $this->jumlahstok = $post["jumlahstok"];
+        $this->foto_produk = $this->_uploadImage();
+        // $this->foto_produk2 = $this->_uploadGambar();
+        // $this->foto_produk3 = $this->_uploadFoto();
         $this->deskripsi = $post["deskripsi"];
+        $this->deskripsi2 = $post["deskripsi2"];
+        $this->deskripsi3 = $post["deskripsi3"];
         return $this->db->insert($this->_table, $this);
     }
 
@@ -60,7 +79,25 @@ class Product_model extends CI_Model
         $this->nama_produk = $post["nama"];
         $this->jenis_produk = $post["jenis"];
         $this->harga_produk = $post["harga"];
+        $this->jumlahstok = $post["jumlahstok"];
+        if (!empty($_FILES["foto"]["nama"])) {
+            $this->foto_produk = $this->_uploadImage();
+        } else {
+            $this->foto_produk = $post["old_image"];
+        }
+        // if (!empty($_FILES["foto2"]["nama"])) {
+        //     $this->foto_produk2 = $this->_uploadImage2();
+        // } else {
+        //     $this->foto_produk2 = $post["old_image"];
+        // }
+        // if (!empty($_FILES["foto3"]["nama"])) {
+        //     $this->foto_produk3 = $this->_uploadImage3();
+        // } else {
+        //     $this->foto_produk3 = $post["old_image"];
+        // }
         $this->deskripsi = $post["deskripsi"];
+        $this->deskripsi2 = $post["deskripsi"];
+        $this->deskripsi3 = $post["deskripsi"];
         return $this->db->update($this->_table, $this, array('id_produk' => $post['id']));
     }
 
@@ -78,5 +115,24 @@ class Product_model extends CI_Model
         else {
             return 0;
         }
+    }
+
+    private function _uploadImage()
+    {
+        $config['upload_path']          = './assets/img/products/';
+        $config['allowed_types']        = 'jpg|png';
+        $config['file_name']            = $this->id_produk;
+        $config['overwrite']			= true;
+        $config['max_size']             = 2048; // 1MB
+        // $config['max_width']            = 1024;
+        // $config['max_height']           = 768;
+
+        $this->load->library('upload', $config);
+
+        if ($this->upload->do_upload('foto')) {
+            return $this->upload->data("file_name");
+        }
+        //print_r($this->upload->display_errors());
+        return "default.jpg";
     }
 }

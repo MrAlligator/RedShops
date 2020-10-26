@@ -8,6 +8,7 @@ class Produk extends CI_Controller
     {
         parent::__construct();
         $this->load->model("product_model");
+        $this->load->model("dropdown_model");
         $this->load->library('form_validation');
         is_logged_in();
     }
@@ -28,10 +29,11 @@ class Produk extends CI_Controller
 
         if ($validation->run()) {
             $product->save();
-            $this->session->set_flashdata('success', 'Berhasil disimpan');
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil ditambahkan</div>');
         }
 
         $data['title'] = 'Tambah Produk';
+        $data["menu"] = $this->dropdown_model->get_jenis();
 		$data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $this->load->view("admin/produk/tambahproduk", $data);
     }

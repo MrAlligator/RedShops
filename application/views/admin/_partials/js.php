@@ -1,5 +1,6 @@
 <!-- Bootstrap core JavaScript-->
-<script src="<?php echo base_url('assetsadmin/vendor/jquery/jquery.min.js') ?>"></script>
+  <script src="<?php echo base_url('assetsadmin/vendor/jquery/jquery.min.js') ?>"></script>
+  <script src="<?php echo base_url('assetsadmin/vendor/jquery/jquery-3.3.1.min.js') ?>"></script>
   <script src="<?php echo base_url('assetsadmin/vendor/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
 
   <!-- Core plugin JavaScript-->

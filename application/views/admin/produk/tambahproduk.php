@@ -33,13 +33,12 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                        <h1 class="mt-4">Add New</h1>
-                        <div class="card mb-3">
+                        <div class="card mb-3 col-lg-8">
 							<div class="card-header">
 								<a href="<?php echo site_url('admin/produk') ?>"><i class="fas fa-arrow-left"></i> Back</a>
 							</div>
 							<div class="card-body">
-
+                            <?php echo $this->session->flashdata('message'); ?>
 								<form action="<?php echo site_url('admin/produk/add') ?>" method="post" enctype="multipart/form-data" >
                                     <!--<div class="form-group">
 										<label for="name">ID Produk*</label>
@@ -48,10 +47,9 @@
 											
 										</div>
                                     </div>-->
-                                    
                                     <div class="form-group">
 										<label for="name">Nama*</label>
-										<input name="nama" class="form-control <?php echo form_error('nama') ? 'is-invalid':'' ?>" type="text" placeholder="Product name" />
+										<input name="nama" class="form-control <?php echo form_error('nama') ? 'is-invalid':'' ?>" type="text" placeholder="Nama Produk" />
 										<div class="invalid-feedback">
                                             <?php echo form_error('nama') ?>
 										</div>
@@ -59,39 +57,66 @@
                                     
                                     <div class="form-group">
 										<label for="kind">Jenis*</label><br>
-										<select name='jenis'>
-                                            <option value='Kaos'>Kaos</option>
-                                            <option value='Kemeja' selected='selected'>Kemeja</option>
-                                            <option value='Celana'>Celana</option>
-                                            <option value='Jaket'>Jaket</option>
+										<select class="form-control" name="jenis" id="jenis" required>
+                                            <?php foreach($menu as $row):?>
+                                            <option value="<?php echo $row->jenis;?>"><?php echo $row->jenis;?></option>
+                                            <?php endforeach;?>
                                         </select>
-										<div class="invalid-feedback">
-                                            <?php echo form_error('jenis') ?>
-										</div>
 									</div>
 
 									<div class="form-group">
 										<label for="price">Harga*</label>
-										<input name="harga" class="form-control <?php echo form_error('harga') ? 'is-invalid':'' ?>" type="number" min="0" placeholder="Product price" />
+										<input name="harga" class="form-control <?php echo form_error('harga') ? 'is-invalid':'' ?>" type="number" min="0" placeholder="Harga Produk" />
 										<div class="invalid-feedback">
                                             <?php echo form_error('harga') ?>
 										</div>
 									</div>
 
-
-									<div class="form-group">
-										<label for="name">Foto</label>
-										<input name="foto" class="form-control-file <?php echo form_error('foto') ? 'is-invalid':'' ?>" type="file"/>
+                                    <div class="form-group">
+										<label for="stok">Jumlah Stok*</label>
+										<input name="jumlahstok" class="form-control <?php echo form_error('jumlahstok') ? 'is-invalid':'' ?>" type="number" min="0" placeholder="Jumlah Stok" />
 										<div class="invalid-feedback">
-                                            <?php echo form_error('foto') ?>
+                                            <?php echo form_error('jumlahstok') ?>
 										</div>
 									</div>
 
 									<div class="form-group">
+										<label for="name">Foto</label>
+										<div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="foto" name="foto">
+                                            <label class="custom-file-label" for="customFile">Choose file</label>
+                                        </div>
+									</div>
+
+                                    <!-- <div class="form-group">
+										<label for="name">Foto 2</label>
+										<div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="gambar" name="gambar">
+                                            <label class="custom-file-label" for="customFile">Choose file</label>
+                                        </div>
+									</div> -->
+
+									<div class="form-group">
 										<label for="name">Deskripsi*</label>
-										<textarea class="form-control <?php echo form_error('deskripsi') ? 'is-invalid':'' ?>" name="deskripsi" placeholder="Product description..."></textarea>
+										<textarea class="form-control <?php echo form_error('deskripsi') ? 'is-invalid':'' ?>" name="deskripsi" placeholder="Deskripsi Produk..."></textarea>
 										<div class="invalid-feedback">
                                             <?php echo form_error('deskripsi') ?>
+										</div>
+									</div>
+
+                                    <div class="form-group">
+										<label for="name">Deskripsi 2*</label>
+										<textarea class="form-control <?php echo form_error('deskripsi2') ? 'is-invalid':'' ?>" name="deskripsi2" placeholder="Deskripsi Produk..."></textarea>
+										<div class="invalid-feedback">
+                                            <?php echo form_error('deskripsi2') ?>
+										</div>
+									</div>
+
+                                    <div class="form-group">
+										<label for="name">Deskripsi 3*</label>
+										<textarea class="form-control <?php echo form_error('deskripsi3') ? 'is-invalid':'' ?>" name="deskripsi3" placeholder="Deskripsi Produk..."></textarea>
+										<div class="invalid-feedback">
+                                            <?php echo form_error('deskripsi3') ?>
 										</div>
 									</div>
 

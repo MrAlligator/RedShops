@@ -46,6 +46,7 @@
                       <th>Nama</th>
                       <th>Jenis</th>
                       <th>Harga</th>
+                      <th>Stok</th>
                       <th>Foto</th>
                       <th>Deskripsi</th>
                       <th>Aksi</th>
@@ -64,7 +65,12 @@
                           <?php echo $product->harga_produk ?>
                         </td>
                         <td>
-
+                          <?php echo $product->jumlahstok ?>
+                        </td>
+                        <td>
+                          <img src="<?php echo base_url('assets/img/products/'.$product->foto_produk) ?>" width="64" /><br>
+                          <!-- <img src="<?php echo base_url('assets/img/products/'.$product->foto_produk2) ?>" width="64" /><br>
+                          <img src="<?php echo base_url('assets/img/products/'.$product->foto_produk3) ?>" width="64" /> -->
                         </td>
                         <td>
                           <?php echo substr($product->deskripsi, 0, 120) ?>...</td>
