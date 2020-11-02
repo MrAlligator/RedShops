@@ -55,6 +55,26 @@ class Product_model extends CI_Model
         return $this->db->get_where($this->_table, ["id_produk" => $id])->row();
     }
 
+    public function getKemeja()
+    {
+        return $this->db->get_where($this->_table, ["jenis_produk" => "Kemeja"])->result();
+    }
+
+    public function getKaos()
+    {
+        return $this->db->get_where($this->_table, ["jenis_produk" => "Kaos"])->result();
+    }
+
+    public function getCelanaPendek()
+    {
+        return $this->db->get_where($this->_table, ["jenis_produk" => "Celana Pendek"])->result();
+    }
+
+    public function getKemeja()
+    {
+        return $this->db->get_where($this->_table, ["jenis_produk" => "Kemeja"])->result();
+    }
+
     public function save()
     {
         $post = $this->input->post();
