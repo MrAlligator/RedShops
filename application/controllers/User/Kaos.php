@@ -8,7 +8,8 @@ class Kaos extends CI_Controller {
 
 	public function index()
 	{
-        // load view admin/overview.php
-        $this->load->view("user/kaos");
+		// load view admin/overview.php
+		$data['title'] = 'Kaos';
+        $this->load->view("user/kaos", $data);
 	}
 }

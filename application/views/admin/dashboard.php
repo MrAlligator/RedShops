@@ -100,10 +100,6 @@
           <div class="row">
 
             <!-- Area Chart -->
-            
-              </div>
-
-            </div>
           </div>
 
         </div>
@@ -116,7 +112,6 @@
       <?php $this->load->view("admin/_partials/footer.php") ?>
       <!-- End of Footer -->
 
-    </div>
     <!-- End of Content Wrapper -->
   <?php $this->load->view("admin/_partials/modal.php") ?>
   </div>
@@ -125,7 +120,7 @@
   <!-- Scroll to Top Button-->
   <?php $this->load->view("admin/_partials/scrolltop.php") ?>
 
-  <?php $this->load->view("admin/_partials/js.php") ?>
+  <?php $this->load->view("admin/_partials/js.php") ?>        
 
 </body>
 

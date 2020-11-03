@@ -55,14 +55,24 @@ class Product_model extends CI_Model
         return $this->db->get_where($this->_table, ["id_produk" => $id])->row();
     }
 
-    public function getKemeja()
+    public function getKemejaPendek()
     {
-        return $this->db->get_where($this->_table, ["jenis_produk" => "Kemeja"])->result();
+        return $this->db->get_where($this->_table, ["jenis_produk" => "Kemeja Lengan Pendek"])->result();
     }
 
-    public function getKaos()
+    public function getKemejaPanjang()
     {
-        return $this->db->get_where($this->_table, ["jenis_produk" => "Kaos"])->result();
+        return $this->db->get_where($this->_table, ["jenis_produk" => "Kemeja Lengan Panjang"])->result();
+    }
+
+    public function getKaosPendek()
+    {
+        return $this->db->get_where($this->_table, ["jenis_produk" => "Kaos Lengan Pendek"])->result();
+    }
+
+    public function getKaosPanjang()
+    {
+        return $this->db->get_where($this->_table, ["jenis_produk" => "Kaos Lengan Panjang"])->result();
     }
 
     public function getCelanaPendek()
@@ -70,9 +80,9 @@ class Product_model extends CI_Model
         return $this->db->get_where($this->_table, ["jenis_produk" => "Celana Pendek"])->result();
     }
 
-    public function getKemeja()
+    public function getCelanaPanjang()
     {
-        return $this->db->get_where($this->_table, ["jenis_produk" => "Kemeja"])->result();
+        return $this->db->get_where($this->_table, ["jenis_produk" => "Celana Panjang"])->result();
     }
 
     public function save()

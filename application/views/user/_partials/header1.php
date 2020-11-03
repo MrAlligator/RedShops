@@ -11,7 +11,7 @@
                     <h1 class="h3 colorful black hidden-xs"></h1>
 
                     <hr class="offset-sm">
-                    <h2 class="h1 lg upp black">KEMEJA <br> </h2> <br>
+                    <h2 class="h1 lg upp black"><?php echo $title ?><br> </h2> <br>
                     <h1 class="h3 black hidden-xs">Berkemeja Membuatmu Tampil Menawan</h1>
                     <hr class="offset-md">
                     <hr class="offset-md">
