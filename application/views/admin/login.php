@@ -49,10 +49,10 @@
                   </form>
                   <hr>
                   <div class="text-center">
-                    <a class="small" href="<?php echo base_url('index.php/admin/auth/forgot') ?> ">Lupa Password?</a>
+                    <a class="small" href="<?php echo base_url('admin/auth/forgot') ?> ">Lupa Password?</a>
                   </div>
                   <div class="text-center">
-                    <a class="small" href="<?php echo base_url('index.php/admin/auth/regis')?>">Buat Akun Baru?</a>
+                    <a class="small" href="<?php echo base_url('admin/auth/regis')?>">Buat Akun Baru?</a>
                   </div>
                 </div>
               </div>

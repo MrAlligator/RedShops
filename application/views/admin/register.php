@@ -26,7 +26,7 @@
               <div class="text-center">
                 <h1 class="h4 text-gray-900 mb-4">Buat Akun</h1>
               </div>
-              <form class="user" method="post" action="<?php echo base_url('index.php/admin/auth/regis') ?>">
+              <form class="user" method="post" action="<?php echo base_url('admin/auth/regis') ?>">
                 <div class="form-group">
                     <input type="text" class="form-control form-control-user" id="nama" name="nama" placeholder="Masukkan Nama" value="<?= set_value('nama') ?>"><?= form_error('nama', '<small class="text-danger pl-3">', '</small>') ?>
                 </div>
@@ -48,10 +48,10 @@
               </form>
               <hr>
               <div class="text-center">
-                <a class="small" href="<?php echo base_url('index.php/admin/auth/forgot') ?>">Lupa Password?</a>
+                <a class="small" href="<?php echo base_url('admin/auth/forgot') ?>">Lupa Password?</a>
               </div>
               <div class="text-center">
-                <a class="small" href="<?php echo base_url('index.php/admin')?>">Sudah Memiliki Akun? Login!</a>
+                <a class="small" href="<?php echo base_url('admin')?>">Sudah Memiliki Akun? Login!</a>
               </div>
             </div>
           </div>

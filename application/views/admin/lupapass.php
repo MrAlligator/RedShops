@@ -46,7 +46,7 @@
                   </form>
                   <hr>
                   <div class="text-center">
-                    <a class="small" href="<?php echo base_url('index.php/admin/auth') ?> ">Kembali ke Login</a>
+                    <a class="small" href="<?php echo base_url('admin/auth') ?> ">Kembali ke Login</a>
                   </div>
                 </div>
               </div>

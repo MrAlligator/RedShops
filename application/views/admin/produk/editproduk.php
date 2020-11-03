@@ -43,7 +43,7 @@
 
                         <form action="" method="post" enctype="multipart/form-data">
                         <!-- Note: atribut action dikosongkan, artinya action-nya akan diproses 
-                            oleh controller tempat vuew ini digunakan. Yakni index.php/admin/products/edit/ID --->
+                            oleh controller tempat vuew ini digunakan. Yakni admin/products/edit/ID --->
 
                             <input type="hidden" name="id" value="<?php echo $produk->id_produk?>" />
 
