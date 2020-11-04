@@ -100,7 +100,7 @@
             </a>
             <!-- Dropdown - User Information -->
             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="<?php echo base_url('index.php/admin/dashboard/profil') ?>">
+                <a class="dropdown-item" href="<?php echo base_url('admin/dashboard/profil') ?>">
                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                 Profil Saya
                 </a>

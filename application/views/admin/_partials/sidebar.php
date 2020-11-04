@@ -1,7 +1,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
 <!-- Sidebar - Brand -->
-<a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url('index.php/admin') ?>">
+<a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url('admin') ?>">
         <div class="sidebar-brand-icon">
             <i class="fas fa-user-secret"></i>
         </div>
@@ -18,7 +18,7 @@
 
 <!-- Nav Item - Dashboard -->
 <li class="nav-item">
-    <a class="nav-link pb-0" href="<?php echo base_url('index.php/admin') ?>">
+    <a class="nav-link pb-0" href="<?php echo base_url('admin') ?>">
     <i class="fas fa-fw fa-tachometer-alt"></i>
     <span>Dashboard</span></a>
 </li>
@@ -45,8 +45,8 @@
     </a>
     <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="<?php echo base_url('index.php/admin/produk') ?>">Lihat Produk</a>
-            <a class="collapse-item" href="<?php echo base_url('index.php/admin/produk/add') ?>">Tambah Produk</a>
+            <a class="collapse-item" href="<?php echo base_url('admin/produk') ?>">Lihat Produk</a>
+            <a class="collapse-item" href="<?php echo base_url('admin/produk/add') ?>">Tambah Produk</a>
         </div>
     </div>
 </li>
@@ -80,28 +80,28 @@
 
 <!-- Nav Item - Charts  -->
 <li class="nav-item">
-    <a class="nav-link pb-0" href="<?php echo base_url('index.php/admin/dashboard/profil') ?>">
+    <a class="nav-link pb-0" href="<?php echo base_url('admin/dashboard/profil') ?>">
         <i class="fas fa-fw fa-user"></i>
         <span>Profil Saya</span></a>
 </li>
 
 <!-- Nav Item - Charts  -->
 <li class="nav-item">
-    <a class="nav-link pb-0" href="<?php echo base_url('index.php/admin/dashboard/editprofil') ?>">
+    <a class="nav-link pb-0" href="<?php echo base_url('admin/dashboard/editprofil') ?>">
         <i class="fas fa-fw fa-user-edit"></i>
         <span>Edit Profil</span></a>
 </li>
 
 <!-- Nav Item - Charts  -->
 <li class="nav-item">
-    <a class="nav-link pb-0" href="<?php echo base_url('index.php/admin/dashboard/editpass') ?>">
+    <a class="nav-link pb-0" href="<?php echo base_url('admin/dashboard/editpass') ?>">
         <i class="fas fa-fw fa-key"></i>
         <span>Ubah Password</span></a>
 </li>
 
 <!-- Nav Item - Tables -->
 <li class="nav-item">
-    <a class="nav-link pb-0" href="<?php echo base_url('index.php/admin/auth/logout') ?>">
+    <a class="nav-link pb-0" href="<?php echo base_url('admin/auth/logout') ?>">
         <i class="fas fa-sign-out-alt"></i>
         <span>Logout</span></a>
 </li>
