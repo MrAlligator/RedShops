@@ -40,11 +40,10 @@
                   Jaket  <i class="ion-android-arrow-dropdown"></i>
                 </a>
                 <ul class="dropdown-menu">
+                  <li><a href="<?php echo base_url('user/jaket') ?>"> Hoddie</a></li>
+                  <li><a href="<?php echo base_url('user/jaket') ?>">Jeans</a></li>
+                  <li><a href="<?php echo base_url('user/jaket') ?>">Parka</a></li>
                   <li><a href="<?php echo base_url('user/jaket') ?>">Bomber</a></li>
-                  <li><a href="<?php echo base_url('user/jaket') ?>">Trucker</a></li>
-                  <li><a href="<?php echo base_url('user/jaket') ?>">Hoddie</a></li>
-                
-                  
                 </ul>
               </li>
 
