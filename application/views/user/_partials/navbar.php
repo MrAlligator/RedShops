@@ -13,6 +13,44 @@
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
               <li class="active"><a href="<?php echo base_url('user') ?>">Beranda</a></li>
+              
+              
+
+              <li class="dropdown">
+                <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                  Kemeja  <i class="ion-android-arrow-dropdown"></i>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a href="<?php echo base_url('user/kemeja') ?>">Kemeja lengan Panjang</a></li>
+                  <li><a href="<?php echo base_url('user/kemeja') ?>">Kemeja Lengan Pendek</a></li>
+                 
+                </ul>
+              </li>
+
+              <li class="dropdown">
+                <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                  Kaos  <i class="ion-android-arrow-dropdown"></i>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a href="<?php echo base_url('user/kaos') ?>">Kaos Lengan Panjang</a></li>
+                  <li><a href="<?php echo base_url('user/kaos') ?>">Kaos Lengan Pendek</a></li>
+                 
+                </ul>
+              </li>
+
+              <li class="dropdown">
+                <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                  Jaket  <i class="ion-android-arrow-dropdown"></i>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a href="<?php echo base_url('user/jaket') ?>"> Hoddie</a></li>
+                  <li><a href="<?php echo base_url('user/jaket') ?>">Jeans</a></li>
+                  <li><a href="<?php echo base_url('user/jaket') ?>">Parka</a></li>
+                  <li><a href="<?php echo base_url('user/jaket') ?>">Bomber</a></li>
+                 
+                </ul>
+              </li>
+
               <li class="dropdown">
                 <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                   Kemeja  <i class="ion-android-arrow-dropdown"></i>
