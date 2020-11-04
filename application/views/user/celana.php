@@ -16,7 +16,7 @@
 
     
     <nav class="navbar navbar-default">
-        <?php $this->load->view("user/_partials/navbarcat.php") ?>
+        <?php $this->load->view("user/_partials/navbarcelana.php") ?>
     </nav>
 
 
