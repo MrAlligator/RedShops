@@ -4,31 +4,66 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Pencarian dengan CodeIgniter 3 &raquo; Jaranguda.com</title>
-		<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+		<title>RedShop &middot; <?= $title ?></title>
+		<?php $this->load->view("user/_partials/head.php"); ?>
 	</head>
 	<body>
 
-	<div class="container">
-	<h3>Hasil Pencarian</h3>
-	<hr>
+	<?php $this->load->view("user/_partials/toplinks.php") ?>
 
-		<?php
+	<nav class="navbar navbar-default">
+        <?php $this->load->view("user/_partials/navbar.php") ?>
+	</nav>
+	
+    <hr class="offset-lg">
+    <hr class="offset-md">
+	<hr class="offset-lg">
+    <hr class="offset-md">
+	
+	<section class="products">
+      <div class="container">
+        <h2 class="h2 upp align-center"> Hasil Pencarian </h2>
+        <hr class="offset-lg">
 
-		if(count($hasil)>0)
-		{
-			foreach ($hasil as $data) {
-			echo $data->nama_produk . " => " . $data->jenis_produk ."<br>";
-			}
-		}
+        <div class="row">
+			<?php
+				if(count($cari)>0)
+				{
+					foreach ($cari as $data) {
+						?>
+						<div class="col-sm-6 col-md-3 product">
+						<div class="body">
+						  <a href="./"><img src="<?= base_url('assets/img/products/'.$data->foto_produk) ?>" alt="Apple iMac 27 Retina"/></a>
+			
+						  <div class="content align-center">
+							<p class="price"><?= $data->harga_produk ?></p>
+							<h2 class="h3"><?= $data->nama_produk ?></h2>
+							<hr class="offset-sm">
+			
+							<button class="btn btn-link"> <i class="ion-android-open"></i> Details</button>
+							<button class="btn btn-primary btn-sm rounded"> <i class="ion-bag"></i> Add to cart</button>
+						  </div>
+						</div>
+					  </div>
+					  <?php
+					}
+				}
 
-		else
-		{
-			echo "Data tidak ditemukan";
-		}
+				else
+				{
+					echo "Data tidak ditemukan";
+				}	
 
-		?>
+			?>
+        </div>
+      </div>
+    </section>
+	<?php $this->load->view("user/_partials/login.php") ?>
 
-	</div>
+    <?php $this->load->view("user/_partials/regis.php") ?>
+
+    <?php $this->load->view("user/_partials/forgotpass.php") ?>
+
+	<?php $this->load->view("user/_partials/js-utama.php") ?>
 	</body>
 </html>

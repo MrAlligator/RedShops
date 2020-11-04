@@ -50,42 +50,6 @@
                  
                 </ul>
               </li>
-
-              <li class="dropdown">
-                <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                  Kemeja  <i class="ion-android-arrow-dropdown"></i>
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a href="<?php echo base_url('user/kemeja') ?>">Kemeja Lengan Panjang</a></li>
-                  <li><a href="<?php echo base_url('user/kemeja') ?>">Kemeja Lengan Pendek</a></li>
-                  
-                </ul>
-              </li>
-
-              <li class="dropdown">
-                <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                  Kaos  <i class="ion-android-arrow-dropdown"></i>
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a href="<?php echo base_url('user/kaos') ?>">Kaos Lengan Panjang</a></li>
-                  <li><a href="<?php echo base_url('user/kaos') ?>">Kaos Lengan Pendek</a></li>
-                  
-                </ul>
-              </li>
-
-              <li class="dropdown">
-                <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                  Jaket  <i class="ion-android-arrow-dropdown"></i>
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a href="<?php echo base_url('user/jaket') ?>">Bomber</a></li>
-                  <li><a href="<?php echo base_url('user/jaket') ?>">Trucker</a></li>
-                  <li><a href="<?php echo base_url('user/jaket') ?>">Hoddie</a></li>
-                
-                  
-                </ul>
-              </li>
-
               <li class="dropdown">
                 <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                   Celana  <i class="ion-android-arrow-dropdown"></i>
@@ -100,11 +64,13 @@
           </div><!--/.nav-collapse -->
 
 
-          <div class="search hidden-xs" data-style="hidden">
-            <div class="input">
-              <button type="button"><i class="ion-ios-search"></i></button>
 
-              <input type="text" name="search" value="" placeholder="Type here..." />
+          <form action="<?php echo base_url("user/overview/hasil") ?>" method="get">
+            <div class="search hidden-xs" data-style="hidden">
+              <div class="input">
+                <button type="button"><i class="ion-ios-search"></i></button>
+                <input type="text" name="search" value="" placeholder="Type here..." />
+              </div>
             </div>
-          </div>
+          </form>
         </div><!--/.container-fluid -->
