@@ -7,6 +7,7 @@ class Dashboard extends CI_Controller {
 		$this->load->library('form_validation');
 		$this->load->model('product_model');
 		$this->load->model('user_model');
+		$this->load->model('search_model');
 		is_logged_in();
 	}
 
@@ -109,6 +110,12 @@ class Dashboard extends CI_Controller {
 				}
 			}
 		}
+	}
+
+	public function hasil()
+	{
+		$hasil['cari'] = $this->search_model->search();
+		$this->load->view('user/hasilcari',$hasil);
 	}
 
 }

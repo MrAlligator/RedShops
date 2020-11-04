@@ -8,7 +8,8 @@ class Jaket extends CI_Controller {
 
 	public function index()
 	{
-        // load view admin/overview.php
-        $this->load->view("user/jaket");
+		// load view admin/overview.php
+		$data['title'] = 'Jaket';
+        $this->load->view("user/jaket", $data);
 	}
 }

@@ -14,19 +14,48 @@
             <ul class="nav navbar-nav">
               <li class="active"><a href="<?php echo base_url('user') ?>">Beranda</a></li>
               <li class="dropdown">
-                <a href="./store/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                  Produk  <i class="ion-android-arrow-dropdown"></i>
+                <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                  Kemeja  <i class="ion-android-arrow-dropdown"></i>
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a href="<?php echo base_url('user/kemeja') ?>">Kemeja</a></li>
-                  <li><a href="<?php echo base_url('user/kaos') ?>">Kaos</a></li>
-                  <li><a href="<?php echo base_url('user/jaket') ?>">Jaket</a></li>
-                  <li><a href="<?php echo base_url('user/celana') ?>">Celana</a></li>
-                  <li role="separator" class="divider"></li>
-                  <li class="dropdown-header">Desain</li>
-                  <li role="separator" class="divider"></li>
-                  <li><a href="./blog/item-photo.html">Sablon</a></li>
-                  <li><a href="./blog/item-video.html">Bordir</a></li>
+                  <li><a href="<?php echo base_url('user/kemeja') ?>">Kemeja Lengan Panjang</a></li>
+                  <li><a href="<?php echo base_url('user/kemeja') ?>">Kemeja Lengan Pendek</a></li>
+                  
+                </ul>
+              </li>
+
+              <li class="dropdown">
+                <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                  Kaos  <i class="ion-android-arrow-dropdown"></i>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a href="<?php echo base_url('user/kaos') ?>">Kaos Lengan Panjang</a></li>
+                  <li><a href="<?php echo base_url('user/kaos') ?>">Kaos Lengan Pendek</a></li>
+                  
+                </ul>
+              </li>
+
+              <li class="dropdown">
+                <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                  Jaket  <i class="ion-android-arrow-dropdown"></i>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a href="<?php echo base_url('user/jaket') ?>">Bomber</a></li>
+                  <li><a href="<?php echo base_url('user/jaket') ?>">Trucker</a></li>
+                  <li><a href="<?php echo base_url('user/jaket') ?>">Hoddie</a></li>
+                
+                  
+                </ul>
+              </li>
+
+              <li class="dropdown">
+                <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                  Celana  <i class="ion-android-arrow-dropdown"></i>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a href="<?php echo base_url('user/celana') ?>">Celana Pendek</a></li>
+                  <li><a href="<?php echo base_url('user/celana') ?>">Celana Pendek</a></li>
+                  
                 </ul>
               </li>
             </ul>
