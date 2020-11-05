@@ -50,25 +50,31 @@
                  
                 </ul>
               </li>
-
               <li class="dropdown">
                 <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                   Celana  <i class="ion-android-arrow-dropdown"></i>
                 </a>
                 <ul class="dropdown-menu">
+<<<<<<< HEAD
                   <li><a href="<?php echo base_url('user/celana') ?>">Celana Panjang</a></li>
                   <li><a href="<?php echo base_url('user/celana') ?>">Celana Pendek</a></li>
+=======
+              
+                  
+>>>>>>> 0964ea10b0bf6464296b6677a217cf94622e004d
                 </ul>
               </li>
             </ul>
           </div><!--/.nav-collapse -->
 
 
-          <div class="search hidden-xs" data-style="hidden">
-            <div class="input">
-              <button type="button"><i class="ion-ios-search"></i></button>
 
-              <input type="text" name="search" value="" placeholder="Type here..." />
+          <form action="<?php echo base_url("user/overview/hasil") ?>" method="get">
+            <div class="search hidden-xs" data-style="hidden">
+              <div class="input">
+                <button type="button"><i class="ion-ios-search"></i></button>
+                <input type="text" name="search" value="" placeholder="Type here..." />
+              </div>
             </div>
-          </div>
+          </form>
         </div><!--/.container-fluid -->

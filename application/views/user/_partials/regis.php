@@ -18,6 +18,9 @@
                     <input type="email" name="email" value="" placeholder="E-mail" required="" class="form-control" />
                     <br>
 
+                    <input type="text" name="username" value="" placeholder="Username" required="" class="form-control" />
+                    <br>
+
                     <input type="password" name="password" value="" placeholder="Password" required="" class="form-control" />
                     <br>
 

@@ -21,9 +21,9 @@
                   Kemeja  <i class="ion-android-arrow-dropdown"></i>
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a href="<?php echo base_url('user/kemeja') ?>">Kemeja lengan Panjang</a></li>
+                  <li><a href="<?php echo base_url('user/kemeja') ?>">Kemeja Lengan Panjang</a></li>
                   <li><a href="<?php echo base_url('user/kemeja') ?>">Kemeja Lengan Pendek</a></li>
-                 
+                  
                 </ul>
               </li>
 

@@ -8,7 +8,8 @@ class Celana extends CI_Controller {
 
 	public function index()
 	{
-        // load view admin/overview.php
-        $this->load->view("user/celana");
+		// load view admin/overview.php
+		$data['title'] = 'Celana';
+        $this->load->view("user/celana", $data);
 	}
 }
