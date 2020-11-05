@@ -54,34 +54,15 @@
             </div>
           </div>
           <div class="col-sm-3 col-md-2">
-            <h1 class="h4">Location</h1>
+            <h1 class="h4"></h1>
 
-            <div class="dropdown">
-      			  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      			    Language
-      			    <span class="caret"></span>
-      			  </button>
-      			  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-      			    <li><a href="#English"> <img src="<?php echo base_url('assets/img/flags/gb.png') ?>" alt="Eng"/> English</a></li>
-      			    <li><a href="#Spanish"> <img src="<?php echo base_url('assets/img/flags/es.png') ?>" alt="Spa"/> Spanish</a></li>
-      			    <li><a href="#Deutch"> <img src="<?php echo base_url('assets/img/flags/de.png') ?>" alt="De"/> Deutch</a></li>
-      			    <li><a href="#French"> <img src="<?php echo base_url('assets/img/flags/fr.png') ?>" alt="Fr"/> French</a></li>
-      			  </ul>
-      			</div>
+            
       			<hr class="offset-xs">
 
-      			<div class="dropdown">
-      			  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      			    Currency
-      			    <span class="caret"></span>
-      			  </button>
-      			  <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-      			    <li><a href="#Euro"><i class="ion-social-euro"></i> Euro</a></li>
-      			    <li><a href="#Dollar"><i class="ion-social-usd"></i> Dollar</a></li>
-      			    <li><a href="#Yen"><i class="ion-social-yen"></i> Yen</a></li>
-      			    <li><a href="#Bitcoin"><i class="ion-social-bitcoin"></i> Bitcoin</a></li>
-      			  </ul>
-      			</div>
+      		
+      			 
+      			 
+      		
 
           </div>
           <div class="col-sm-3 col-md-3 col-md-offset-1 align-right hidden-sm hidden-xs">
