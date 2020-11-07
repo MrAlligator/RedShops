@@ -24,10 +24,8 @@
     <hr class="offset-lg">
     <hr class="offset-lg">
 
-    <?php $this->load->view("user/_partials/bars.php") ?>
+   
 
-    <hr class="offset-lg">
-    <hr class="offset-md">
 
 
     <section class="products">

@@ -55,9 +55,13 @@
                   Celana  <i class="ion-android-arrow-dropdown"></i>
                 </a>
                 <ul class="dropdown-menu">
+<<<<<<< HEAD
+                  <li><a href="<?php echo base_url('user/celana') ?>">Celana Panjang</a></li>
                   <li><a href="<?php echo base_url('user/celana') ?>">Celana Pendek</a></li>
-                  <li><a href="<?php echo base_url('user/celana') ?>">Celana Pendek</a></li>
+=======
+              
                   
+>>>>>>> 0964ea10b0bf6464296b6677a217cf94622e004d
                 </ul>
               </li>
             </ul>
