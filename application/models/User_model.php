@@ -2,6 +2,18 @@
 
 class user_model extends CI_Model
 {
+    private $_table = "user";
+
+    public $id_user;
+    public $name;
+    public $email;
+    public $username;
+    public $image = "default.jpg";
+    public $password;
+    public $role_id;
+    public $is_Active;
+    public $date_created;
+
     public function hitung_jumlah_user()
     {
         $query=$this->db->get('user');
@@ -11,5 +23,10 @@ class user_model extends CI_Model
         else {
             return 0;
         }
+    }
+
+    public function getAll()
+    {
+        return $this->db->get($this->_table)->result();
     }
 }

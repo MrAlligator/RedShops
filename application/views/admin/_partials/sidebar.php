@@ -23,19 +23,19 @@
     <span>Dashboard</span></a>
 </li>
 
-<!-- Nav Item - Pages Collapse Menu 
+<!-- Nav Item - Pages Collapse Menu --> 
 <li class="nav-item">
     <a class="nav-link pb-0 collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-        <i class="fas fa-fw fa-cog"></i>
-        <span>Components</span>
+        <i class="fas fa-fw fa-user"></i>
+        <span>User</span>
     </a>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="buttons.html">Buttons</a>
+            <a class="collapse-item" href="<?= base_url('admin/user') ?>">Lihat User</a>
             <a class="collapse-item" href="cards.html">Cards</a>
         </div>
     </div>
-</li> -->
+</li>
 
 <!-- Nav Item - Product Collapse Menu -->
 <li class="nav-item">
@@ -50,6 +50,7 @@
         </div>
     </div>
 </li>
+
 
 <!-- Divider -->
 <hr class="sidebar-divider mt-3">

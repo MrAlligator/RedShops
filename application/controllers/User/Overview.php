@@ -5,12 +5,13 @@ class Overview extends CI_Controller {
     {
 		parent::__construct();
 		$this->load->model('search_model');
+		$this->load->model('product_model');
 	}
 
 	public function index()
 	{
-        // load view admin/overview.php
-        $this->load->view("user/overview");
+		$data["kemeja"] = $this->product_model->get();
+        $this->load->view("user/overview", $data);
 	}
 
 	public function hasil()
