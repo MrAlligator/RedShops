@@ -24,10 +24,6 @@
     <hr class="offset-lg">
     <hr class="offset-lg">
 
-   
-
-
-
     <section class="products">
       <div class="container">
         <?php $this->load->view("user/_partials/product1.php") ?>
