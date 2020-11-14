@@ -10,7 +10,8 @@ class Overview extends CI_Controller {
 
 	public function index()
 	{
-		$data["kemeja"] = $this->product_model->get();
+		$data['kemeja'] = $this->product_model->getKemejaPanjang();
+		$data['all'] = $this->product_model->getAll();
         $this->load->view("user/overview", $data);
 	}
 
@@ -20,4 +21,6 @@ class Overview extends CI_Controller {
 		$data['title'] = "Hasil Pencarian";
 		$this->load->view('user/hasilcari',$data);
 	}
+
+
 }

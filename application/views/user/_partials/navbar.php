@@ -21,8 +21,8 @@
                   Kemeja  <i class="ion-android-arrow-dropdown"></i>
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a href="<?php echo base_url('user/kemeja') ?>">Kemeja lengan Panjang</a></li>
-                  <li><a href="<?php echo base_url('user/kemeja') ?>">Kemeja Lengan Pendek</a></li>
+                  <li><a href="<?php echo base_url('user/kemejapanjang') ?>">Kemeja lengan Panjang</a></li>
+                  <li><a href="<?php echo base_url('user/kemejapendek') ?>">Kemeja Lengan Pendek</a></li>
                  
                 </ul>
               </li>
@@ -32,8 +32,8 @@
                   Kaos  <i class="ion-android-arrow-dropdown"></i>
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a href="<?php echo base_url('user/kaos') ?>">Kaos Lengan Panjang</a></li>
-                  <li><a href="<?php echo base_url('user/kaos') ?>">Kaos Lengan Pendek</a></li>
+                  <li><a href="<?php echo base_url('user/kaospanjang') ?>">Kaos Lengan Panjang</a></li>
+                  <li><a href="<?php echo base_url('user/kaospendek') ?>">Kaos Lengan Pendek</a></li>
                  
                 </ul>
               </li>
@@ -43,10 +43,10 @@
                   Jaket  <i class="ion-android-arrow-dropdown"></i>
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a href="<?php echo base_url('user/jaket') ?>"> Hoddie</a></li>
-                  <li><a href="<?php echo base_url('user/jaket') ?>">Jeans</a></li>
-                  <li><a href="<?php echo base_url('user/jaket') ?>">Parka</a></li>
-                  <li><a href="<?php echo base_url('user/jaket') ?>">Bomber</a></li>
+                  <li><a href="<?php echo base_url('user/hoddie') ?>"> Hoddie</a></li>
+                  <li><a href="<?php echo base_url('user/jeans') ?>">Jeans</a></li>
+                  <li><a href="<?php echo base_url('user/parka') ?>">Parka</a></li>
+                  <li><a href="<?php echo base_url('user/bomber') ?>">Bomber</a></li>
                  
                 </ul>
               </li>
@@ -55,13 +55,8 @@
                   Celana  <i class="ion-android-arrow-dropdown"></i>
                 </a>
                 <ul class="dropdown-menu">
-<<<<<<< HEAD
-                  <li><a href="<?php echo base_url('user/celana') ?>">Celana Panjang</a></li>
-                  <li><a href="<?php echo base_url('user/celana') ?>">Celana Pendek</a></li>
-=======
-              
-                  
->>>>>>> 0964ea10b0bf6464296b6677a217cf94622e004d
+                  <li><a href="<?php echo base_url('user/celanapanjang') ?>">Celana Panjang</a></li>
+                  <li><a href="<?php echo base_url('user/celanapendek') ?>">Celana Pendek</a></li>
                 </ul>
               </li>
             </ul>

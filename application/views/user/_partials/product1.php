@@ -4,7 +4,9 @@
         <div class="row">
 
         <?php
-					foreach ($cari as $data) {
+				if(count($kemeja)>0)
+				{
+					foreach ($kemeja as $data) {
 						?>
 						<div class="col-sm-6 col-md-3 product">
 						<div class="body">
@@ -22,6 +24,7 @@
 					  </div>
 					  <?php
 					}
+				}
 			  ?>
 
 
