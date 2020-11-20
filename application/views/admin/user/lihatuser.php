@@ -65,11 +65,9 @@
                         </td>
                         <td>
                           <img src="<?php echo base_url('assetsadmin/img/profile/'.$admin->image) ?>" width="64" /><br>
-                          <!-- <img src="<?php echo base_url('assets/img/products/'.$product->foto_produk2) ?>" width="64" /><br>
-                          <img src="<?php echo base_url('assets/img/products/'.$product->foto_produk3) ?>" width="64" /> -->
                         </td>
                         <td>
-                          <?php echo $admin->date_created ?>
+                          <?php echo date('d F Y', $admin->date_created) ?>
                         </td>
                         <td>
                           <a href="<?php echo site_url('admin/produk/edit/'.$admin->id_user) ?>" class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
