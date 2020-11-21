@@ -33,7 +33,7 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                        <h1 class="mt-4">Add New</h1>
+                        <h1 class="mt-4"></h1>
                         <div class="card mb-3">
                         <div class="card-header">
                         <a href="<?php echo site_url('admin/produk/') ?>"><i class="fas fa-arrow-left"></i>

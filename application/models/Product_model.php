@@ -112,9 +112,9 @@ class Product_model extends CI_Model
         $this->jumlahstok = $post["jumlahstok"];
         if (!empty($_FILES["foto"]["nama"])) {
             $this->foto_produk = $this->_uploadImage();
-        } else {
-            $this->foto_produk = $post["old_image"];
-        }
+        }// else {
+           // $this->foto_produk = $post["old_image"];
+        //}
         // if (!empty($_FILES["foto2"]["nama"])) {
         //     $this->foto_produk2 = $this->_uploadImage2();
         // } else {
