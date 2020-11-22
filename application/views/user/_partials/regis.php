@@ -24,7 +24,7 @@
                     <input type="password" name="password" value="" placeholder="Password" required="" class="form-control" />
                     <br>
 
-                    <input type="text" name="confirm" value="" placeholder="Password again" required="" class="form-control" />
+                    <input type="password" name="confirm" value="" placeholder="Password again" required="" class="form-control" />
                     <br>
 
                     <button type="submit" class="btn btn-primary btn-sm">Ok</button> &nbsp;&nbsp;
