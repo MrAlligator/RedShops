@@ -30,6 +30,8 @@ class Produk extends CI_Controller
         if ($validation->run()) {
             $product->save();
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil ditambahkan</div>');
+        } else {
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data gagal ditambahkan</div>');
         }
 
         $data['title'] = 'Tambah Produk';
@@ -47,13 +49,16 @@ class Produk extends CI_Controller
 
         if ($validation->run()) {
             $product->update();
-            $this->session->set_flashdata('success', 'Berhasil disimpan');
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil ditambahkan</div>');
+        } else {
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data gagal ditambahkan</div>');
         }
 
         $data["produk"] = $product->getById($id);
         if (!$data["produk"]) show_404();
         
         $data['title'] = 'Edit Produk';
+        $data["menu"] = $this->dropdown_model->get_jenis();
 		$data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $this->load->view("admin/produk/editproduk", $data);
     }

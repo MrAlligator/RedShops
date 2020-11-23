@@ -48,6 +48,7 @@
                       <th>Username</th>
                       <th>Foto</th>
                       <th>Tanggal Dibuat</th>
+                      <th>Jabatan</th>
                       <th>Aksi</th>
                     </tr>
                   </thead>
@@ -70,8 +71,17 @@
                           <?php echo date('d F Y', $admin->date_created) ?>
                         </td>
                         <td>
-                          <a href="<?php echo site_url('admin/produk/edit/'.$admin->id_user) ?>" class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
-                          <a onclick="deleteConfirm('<?php echo site_url('admin/produk/delete/'.$admin->id_user) ?>')" href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a></td>
+                          <?php
+                          $jabatan = $admin->role_id;
+                          if($jabatan = "2"){
+                            echo "Admin";
+                          }else {
+                            echo "User";
+                          }
+                          ?>
+                        </td>
+                        <td>
+                          <a onclick="deleteConfirm('<?php echo site_url('admin/user/delete/'.$admin->id_user) ?>')" href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a></td>
                       </tr>
                     <?php endforeach; ?>
                   </tbody>
