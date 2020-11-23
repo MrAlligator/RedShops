@@ -31,9 +31,8 @@
                   Kaos  <i class="ion-android-arrow-dropdown"></i>
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a href="<?php echo base_url('user/kaos') ?>">Kaos Lengan Panjang</a></li>
-                  <li><a href="<?php echo base_url('user/kaos') ?>">Kaos Lengan Pendek</a></li>
-                 
+                  <li><a href="<?php echo base_url('user/kaospanjang') ?>">Kaos Lengan Panjang</a></li>
+                  <li><a href="<?php echo base_url('user/kaospendek') ?>">Kaos Lengan Pendek</a></li>
                 </ul>
               </li>
 

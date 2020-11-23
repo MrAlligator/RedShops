@@ -57,22 +57,38 @@ class Product_model extends CI_Model
 
     public function getKemejaPendek()
     {
-        return $this->db->get_where($this->_table, ["jenis_produk" => "Kemeja Lengan Pendek"])->result();
+        $data = $this->db->query("SELECT * FROM produk WHERE jenis_produk='Kemeja Lengan Pendek' ");
+        return $data->result();
+    }
+
+    public function getKemejaPanjangIndex()
+    {
+        $data = $this->db->query("SELECT * FROM produk WHERE jenis_produk='Kemeja Lengan Panjang' LIMIT 0,4 ");
+        return $data->result();
     }
 
     public function getKemejaPanjang()
     {
-        return $this->db->get_where($this->_table, ["jenis_produk" => "Kemeja Lengan Panjang"])->result();
+        $data = $this->db->query("SELECT * FROM produk WHERE jenis_produk='Kemeja Lengan Panjang' ");
+        return $data->result();
     }
 
     public function getKaosPendek()
     {
-        return $this->db->get_where($this->_table, ["jenis_produk" => "Kaos Lengan Pendek"])->result();
+        $data = $this->db->query("SELECT * FROM produk WHERE jenis_produk='Kaos Lengan Pendek' ");
+        return $data->result();
+    }
+
+    public function getKaosPanjangIndex()
+    {
+        $data = $this->db->query("SELECT * FROM produk WHERE jenis_produk='Kaos Lengan Panjang' LIMIT 0,4 ");
+        return $data->result();
     }
 
     public function getKaosPanjang()
     {
-        return $this->db->get_where($this->_table, ["jenis_produk" => "Kaos Lengan Panjang"])->result();
+        $data = $this->db->query("SELECT * FROM produk WHERE jenis_produk='Kaos Lengan Panjang' ");
+        return $data->result();
     }
 
     public function getCelanaPendek()
@@ -110,11 +126,11 @@ class Product_model extends CI_Model
         $this->jenis_produk = $post["jenis"];
         $this->harga_produk = $post["harga"];
         $this->jumlahstok = $post["jumlahstok"];
-        if (!empty($_FILES["foto"]["nama"])) {
+        if (!empty($_FILES["foto"]["name"])) {
             $this->foto_produk = $this->_uploadImage();
-        }// else {
-           // $this->foto_produk = $post["old_image"];
-        //}
+        }else {
+           $this->foto_produk = $post["old_image"];
+        }
         // if (!empty($_FILES["foto2"]["nama"])) {
         //     $this->foto_produk2 = $this->_uploadImage2();
         // } else {
