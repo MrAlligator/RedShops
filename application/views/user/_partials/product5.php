@@ -1,12 +1,12 @@
-        <h2 class="h2 upp align-center"> JAKET</h2>
+        <h2 class="h2 upp align-center"> KEMEJA PENDEK</h2>
         <hr class="offset-lg">
 
         <div class="row">
         <?php
-          $tot = count($produk3);
+          $tot = count($produk5);
           if($tot>0)
           {
-            foreach ($produk3 as $data) {
+            foreach ($produk5 as $data) {
               ?>
               <div class="col-sm-6 col-md-3 product">
               <div class="body">

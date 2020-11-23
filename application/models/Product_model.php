@@ -55,6 +55,12 @@ class Product_model extends CI_Model
         return $this->db->get_where($this->_table, ["id_produk" => $id])->row();
     }
 
+    public function getKemejaPendekIndex()
+    {
+        $data = $this->db->query("SELECT * FROM produk WHERE jenis_produk='Kemeja Lengan Pendek' LIMIT 0,4 ");
+        return $data->result();
+    }
+
     public function getKemejaPendek()
     {
         $data = $this->db->query("SELECT * FROM produk WHERE jenis_produk='Kemeja Lengan Pendek' ");
@@ -70,6 +76,12 @@ class Product_model extends CI_Model
     public function getKemejaPanjang()
     {
         $data = $this->db->query("SELECT * FROM produk WHERE jenis_produk='Kemeja Lengan Panjang' ");
+        return $data->result();
+    }
+
+    public function getKaosPendekIndex()
+    {
+        $data = $this->db->query("SELECT * FROM produk WHERE jenis_produk='Kaos Lengan Pendek' LIMIT 0,4 ");
         return $data->result();
     }
 

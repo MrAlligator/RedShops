@@ -29,7 +29,17 @@
         <?php $this->load->view("user/_partials/product1.php") ?>
         <div class="align-right align-center-xs">
           <hr class="offset-sm">
-          <a href="./store/"> <h5 class="upp">View all desktops </h5> </a>
+          <a href="<?= base_url('user/kemejapanjang') ?>"> <h5 class="upp">Selengkapnya...</h5> </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="products">
+      <div class="container">
+        <?php $this->load->view("user/_partials/product5.php") ?>
+        <div class="align-right align-center-xs">
+          <hr class="offset-sm">
+          <a href="<?= base_url('user/kemejapendek') ?>"> <h5 class="upp">Selengkapnya...</h5> </a>
         </div>
       </div>
     </section>
@@ -39,7 +49,7 @@
         <?php $this->load->view("user/_partials/product2.php") ?>
         <div class="align-right align-center-xs">
           <hr class="offset-sm">
-          <a href="./store/"> <h5 class="upp">View all devices </h5> </a>
+          <a href="<?= base_url('user/kaospanjang') ?>"> <h5 class="upp">Selengkapnya...</h5> </a>
         </div>
       </div>
     </section>
@@ -49,7 +59,7 @@
         <?php $this->load->view("user/_partials/product3.php") ?>
         <div class="align-right align-center-xs">
           <hr class="offset-sm">
-          <a href="./store/"> <h5 class="upp">View all tablets </h5> </a>
+          <a href="<?= base_url('user/kaospendek') ?>"> <h5 class="upp">Selengkapnya...</h5> </a>
         </div>
       </div>
     </section>
@@ -57,6 +67,16 @@
     <section class="products">
       <div class="container">
         <?php $this->load->view("user/_partials/product4.php") ?>
+        <div class="align-right align-center-xs">
+          <hr class="offset-sm">
+          <a href="./store/"> <h5 class="upp">View all tablets </h5> </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="products">
+      <div class="container">
+        <?php $this->load->view("user/_partials/product6.php") ?>
         <div class="align-right align-center-xs">
           <hr class="offset-sm">
           <a href="./store/"> <h5 class="upp">View all tablets </h5> </a>

@@ -12,6 +12,8 @@ class Overview extends CI_Controller {
 	{
 		$data['produk1'] = $this->product_model->getKemejaPanjangIndex();
 		$data['produk2'] = $this->product_model->getKaosPanjangIndex();
+		$data['produk5'] = $this->product_model->getKemejaPendekIndex();
+		$data['produk3'] = $this->product_model->getKaosPendekIndex();
         $this->load->view("user/overview", $data);
 	}
 

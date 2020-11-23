@@ -1,4 +1,4 @@
-        <h2 class="h2 upp align-center"> KEMEJA </h2>
+        <h2 class="h2 upp align-center"> KEMEJA PANJANG </h2>
         <hr class="offset-lg">
 
         <div class="row">
@@ -10,7 +10,7 @@
 					?>
 					<div class="col-sm-6 col-md-3 product">
 					<div class="body">
-					  <a href="./"><img src="<?= base_url('assets/img/products/'.$data->foto_produk) ?>" alt="Apple iMac 27 Retina"/></a>
+					  <a href=""><img src="<?= base_url('assets/img/products/'.$data->foto_produk) ?>" alt="Apple iMac 27 Retina"/></a>
 		
 					  <div class="content align-center">
 						<p class="price"><?= $data->harga_produk ?></p>
