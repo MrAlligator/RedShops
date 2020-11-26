@@ -32,22 +32,28 @@ class Auth extends CI_Controller {
         $user = $this->db->get_where('user', ['username' => $username])->row_array();
         //jika user ada
         if($user) {
-            //user aktif
-            if($user['is_active'] == 1) {
-                //cek pass
-                if(password_verify($password, $user['password'])){
-                    $data = [
-                        'username' => $user['username'],
-                        'role_id' => $user['role_id']
-                    ];
-                    $this->session->set_userdata($data);
-                    redirect('admin/dashboard');
+            //Jika hak akses admin
+            if($user['role_id'] == 2) {
+                //user aktif
+                if($user['is_active'] == 1) {
+                    //cek pass
+                    if(password_verify($password, $user['password'])){
+                        $data = [
+                            'username' => $user['username'],
+                            'role_id' => $user['role_id']
+                        ];
+                        $this->session->set_userdata($data);
+                        redirect('admin/dashboard');
+                    } else {
+                        $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password Salah!</div>');
+                        redirect('admin/auth');
+                    }
                 } else {
-                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password Salah!</div>');
+                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Akun Belum Diaktifkan</div>');
                     redirect('admin/auth');
                 }
             } else {
-                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Akun Belum Diaktifkan</div>');
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Anda Bukan Admin</div>');
                 redirect('admin/auth');
             }
         } else {
