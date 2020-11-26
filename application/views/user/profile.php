@@ -54,13 +54,16 @@
                 You haven't placed any orders yet
             </div>
             <div class="col-sm-8 col-md-3">
-                <h2>My Address</h2>
-                No addresses are currently saved
+            <button type="button" class="btn btn-primary btn-lg">Manage Orders</button>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-sm-8 col-md-12">
+            <div class="col-sm-8 col-md-8">
+                <h2>My Address</h2>
+                No addresses are currently saved
+            </div>
+            <div class="col-sm-8 col-md-3">
                 <button type="button" class="btn btn-primary btn-lg">Manage Adresses</button>
             </div>
         </div>
