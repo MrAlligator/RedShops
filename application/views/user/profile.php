@@ -53,10 +53,9 @@
                 <h2>My Orders</h2>
                 You haven't placed any orders yet
             </div>
-            <div class="col-sm-8 col-md-3">
-            <button type="button" class="btn btn-primary btn-lg">Manage Orders</button>
-            </div>
         </div>
+
+        <hr class="offset-md">
 
         <div class="row">
             <div class="col-sm-8 col-md-8">
