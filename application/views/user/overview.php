@@ -5,10 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title> RedShop &middot;</title>
+    <title> RedShop  &middot;</title>
     <?php $this->load->view("user/_partials/head.php") ?>
   </head>
   <body>
+  
     
     <?php $this->load->view("user/_partials/cart.php") ?>
 
@@ -94,6 +95,8 @@
     <?php $this->load->view("user/_partials/login.php") ?>
 
     <?php $this->load->view("user/_partials/regis.php") ?>
+
+    <?php $this->load->view("user/_partials/logout.php") ?>
 
     <?php $this->load->view("user/_partials/forgotpass.php") ?>
 

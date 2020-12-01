@@ -110,6 +110,11 @@ class Auth extends CI_Controller {
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Selamat! Akun berhasil dibuat. Silahkan cek email untuk verifikasi</div>');
             redirect('admin/auth');
 
+            public function regis('user', $data)
+                {
+                    return $this->db->insert($table, $data);
+                }
+
         }
     }
 

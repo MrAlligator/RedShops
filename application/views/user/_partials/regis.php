@@ -11,11 +11,14 @@
                   <h2 class="modal-title text-center">Registration</h2>
                   <br>
 
-                  <form class="join" action="index.php" method="post">
+                  <form class="join" action="<?= base_url('User/Regis/regis_proses'); ?>" method="post">
                     <input type="text" name="name" value="" placeholder="Name" required="" class="form-control" />
                     <br>
 
                     <input type="email" name="email" value="" placeholder="E-mail" required="" class="form-control" />
+                    <br>
+
+                    <input type="text" name="username" value="" placeholder="Username" required="" class="form-control" />
                     <br>
 
                     <!-- <input type="text" name="username" value="" placeholder="Username" required="" class="form-control" />
@@ -24,10 +27,10 @@
                     <input type="password" name="password" value="" placeholder="Password" required="" class="form-control" />
                     <br>
 
-                    <input type="password" name="confirm" value="" placeholder="Password again" required="" class="form-control" />
-                    <br>
+                    <!-- <input type="password" name="confirm" value="" placeholder="Password again" required="" class="form-control" />
+                    <br> -->
 
-                    <button type="submit" class="btn btn-primary btn-sm">Ok</button> &nbsp;&nbsp;
+                    <button type="submit" class="btn btn-primary btn-sm">Daftar</button> &nbsp;&nbsp;
                     <a href="#">Terms ></a>
 
                     <!-- <br><br>

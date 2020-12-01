@@ -11,7 +11,7 @@
                   <h2 class="modal-title text-center">Login</h2>
                   <br>
 
-                  <form class="signin" action="index.php" method="post">
+                  <form class="signin" action="<?= base_url('User/Login/login_proses'); ?>" method="post">
                     <input type="email" name="email" id="email" value="" placeholder="E-mail" required class="form-control" />
                     <br>
                     <input type="password" name="password" id="password" value="" placeholder="Password" required class="form-control" />
