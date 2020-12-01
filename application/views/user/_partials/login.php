@@ -8,7 +8,7 @@
             <div class="container-fluid">
               <div class="row">
                 <div class="col-sm-6 col-sm-offset-3">
-                  <h2 class="modal-title text-center">Masuk</h2>
+                  <h2 class="modal-title text-center">Login</h2>
                   <br>
 
                   <form class="signin" action="index.php" method="post">
@@ -19,6 +19,19 @@
 
                     <button type="submit" class="btn btn-primary">Ok</button>
                     <a href="#forgin-password" data-action="Forgot-Password">Lupa Password? ></a>
+
+                    <br>
+                    <div class="text-center p-t-12">
+                          <span class="txt1">
+                                Belum punya akun?
+                          </span>
+                          <a href="#signin" data-toggle="modal" data-target="#Modal-Registration"> <i class="ion-person"></i> Daftar</a>
+            
+                          </a>
+                    
+                    </div>
+
+
                   </form>
                   <br><br><br>
                 </div>

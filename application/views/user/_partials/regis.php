@@ -18,8 +18,8 @@
                     <input type="email" name="email" value="" placeholder="E-mail" required="" class="form-control" />
                     <br>
 
-                    <input type="text" name="username" value="" placeholder="Username" required="" class="form-control" />
-                    <br>
+                    <!-- <input type="text" name="username" value="" placeholder="Username" required="" class="form-control" />
+                    <br> -->
 
                     <input type="password" name="password" value="" placeholder="Password" required="" class="form-control" />
                     <br>
@@ -30,10 +30,13 @@
                     <button type="submit" class="btn btn-primary btn-sm">Ok</button> &nbsp;&nbsp;
                     <a href="#">Terms ></a>
 
-                    <br><br>
-                    <p>
-                      By creating an account you will be able to shop faster, be up to date on an order's status, and keep track of the orders you have previously made.
-                    </p>
+                    <!-- <br><br>
+                    <div class="text-center p-t-12">
+                          <span class="txt1">
+                                Sudah punya akun?
+                          </span>
+                          <a href="#signin" data-toggle="modal" data-target="#Modal-SignIn"> <i class="ion-unlocked"></i> Masuk</a>
+                          </a> -->
                   </form>
                 </div>
               </div>
