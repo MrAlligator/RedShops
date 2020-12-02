@@ -97,6 +97,18 @@ class Product_model extends CI_Model
         return $data->result();
     }
 
+    public function getjaketIndex()
+    {
+        $data = $this->db->query("SELECT * FROM produk WHERE jenis_produk='jaket' LIMIT 0,4 ");
+        return $data->result();
+    }
+
+    public function getjaket()
+    {
+        $data = $this->db->query("SELECT * FROM produk WHERE jenis_produk='jaket' ");
+        return $data->result();
+    }
+
     public function getKaosPanjang()
     {
         $data = $this->db->query("SELECT * FROM produk WHERE jenis_produk='Kaos Lengan Panjang' ");

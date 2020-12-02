@@ -6,13 +6,13 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="<?php echo base_url('user') ?>"> RedShop </a>
+            <a class="navbar-brand" href="<?php echo base_url() ?>"> RedShop </a>
             <a class="navbar-brand pull-right hidden-sm hidden-md hidden-lg" href="#open-cart"> <i class="ion-bag"></i> 7 </a>
           </div>
 
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li class=""><a href="<?php echo base_url('user') ?>">Beranda</a></li>
+              <li class=""><a href="<?php echo base_url() ?>">Beranda</a></li>
               <li class="dropdown">
                 <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                   Kemeja  <i class="ion-android-arrow-dropdown"></i>
@@ -35,17 +35,16 @@
                 </ul>
               </li>
 
-              <li class="dropdown">
+              <li class=""><a href="<?php echo base_url('user/jaket') ?>">Jaket</a></li>
+
+              <!-- <li class="dropdown">
                 <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                   Jaket  <i class="ion-android-arrow-dropdown"></i>
                 </a>
                 <ul class="dropdown-menu">
                   <li><a href="<?php echo base_url('user/jaket') ?>"> Hoddie</a></li>
-                  <li><a href="<?php echo base_url('user/jaket') ?>">Jeans</a></li>
-                  <li><a href="<?php echo base_url('user/jaket') ?>">Parka</a></li>
-                  <li><a href="<?php echo base_url('user/jaket') ?>">Bomber</a></li>
                 </ul>
-              </li>
+              </li> -->
 
               <li class="active dropdown">
                 <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
