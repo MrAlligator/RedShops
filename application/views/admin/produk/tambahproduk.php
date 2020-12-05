@@ -38,7 +38,7 @@
 								<a href="<?php echo site_url('admin/produk') ?>"><i class="fas fa-arrow-left"></i> Back</a>
 							</div>
 							<div class="card-body">
-                            <?php echo $this->session->flashdata('message'); ?>
+                            <!-- <?php echo $this->session->flashdata('message'); ?> -->
 								<form action="<?php echo site_url('admin/produk/add') ?>" method="post" enctype="multipart/form-data" >
                                     <!--<div class="form-group">
 										<label for="name">ID Produk*</label>

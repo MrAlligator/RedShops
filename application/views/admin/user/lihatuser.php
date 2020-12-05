@@ -36,7 +36,7 @@
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Produk</h6>
+              <!-- <h6 class="m-0 font-weight-bold text-primary">Produk</h6> -->
             </div>
             <div class="card-body">
               <div class="table-responsive">
@@ -73,7 +73,9 @@
                         <td>
                           <?php
                           $jabatan = $admin->role_id;
-                          if($jabatan = "2"){
+                          if($jabatan == 1){
+                            echo "Super Admin";
+                          }else if($jabatan == 2){
                             echo "Admin";
                           }else {
                             echo "User";

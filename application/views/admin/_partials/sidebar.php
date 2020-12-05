@@ -11,94 +11,42 @@
 <!-- Divider -->
 <hr class="sidebar-divider mt-3">
 
-<!-- Heading -->
+<?php 
+    $role_id = $this->session->userdata('role_id');
+    $queryMenu = "SELECT user_menu.id, menu FROM user_menu JOIN user_access_menu ON user_menu.id = user_access_menu.menu_id WHERE user_access_menu.role_id = $role_id ORDER BY user_access_menu.menu_id ASC";
+    $menu = $this->db->query($queryMenu)->result_array();
+?>
+
+<?php foreach ($menu as $m) : ?>
+    <div class="sidebar-heading">
+        <?= $m['menu']; ?>
+    </div>
+
+    <?php 
+    $menuId = $m['id'];
+    $querySubMenu = "SELECT * FROM user_sub_menu WHERE menu_id = $menuId AND is_active = '1'";
+    $subMenu = $this->db->query($querySubMenu)->result_array();
+    ?>
+
+    <?php foreach ($subMenu as $sm) : ?>
+    <?php if ($title == $sm['title']) : ?>
+        <li class="nav-item active">
+    <?php else : ?>
+        <li class="nav-item">
+    <?php endif ; ?>
+            <a class="nav-link" href="<?= base_url($sm['url']) ?>">
+                <i class="<?php echo $sm['icon'] ?>"></i>
+            <span><?= $sm['title'] ?></span></a>
+        </li>
+    <?php endforeach; ?>
+
+    <hr class="sidebar-divider">
+
+<?php endforeach; ?>
+
 <div class="sidebar-heading">
-    Administrator
+    Aksi
 </div>
-
-<!-- Nav Item - Dashboard -->
-<li class="nav-item">
-    <a class="nav-link pb-0" href="<?php echo base_url('admin') ?>">
-    <i class="fas fa-fw fa-tachometer-alt"></i>
-    <span>Dashboard</span></a>
-</li>
-
-<!-- Nav Item - Pages Collapse Menu --> 
-<li class="nav-item">
-    <a class="nav-link pb-0 collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-        <i class="fas fa-fw fa-user"></i>
-        <span>User</span>
-    </a>
-    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="<?= base_url('admin/user') ?>">Lihat User</a>
-        </div>
-    </div>
-</li>
-
-<!-- Nav Item - Product Collapse Menu -->
-<li class="nav-item">
-    <a class="nav-link pb-0 collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-        <i class="fas fa-fw fa-folder"></i>
-        <span>Produk</span>
-    </a>
-    <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="<?php echo base_url('admin/produk') ?>">Lihat Produk</a>
-            <a class="collapse-item" href="<?php echo base_url('admin/produk/add') ?>">Tambah Produk</a>
-        </div>
-    </div>
-</li>
-
-
-<!-- Divider -->
-<hr class="sidebar-divider mt-3">
-<!-- Heading  -->
-<div class="sidebar-heading">
-    User
-</div>
-
-<!-- Nav Item - Pages Collapse Menu  -->
-<!-- <li class="nav-item">
-    <a class="nav-link pb-0 collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-        <i class="fas fa-fw fa-folder"></i>
-        <span>Pages</span>
-    </a>
-    <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Login Screens:</h6>
-            <a class="collapse-item" href="login.html">Login</a>
-            <a class="collapse-item" href="register.html">Register</a>
-            <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-            <div class="collapse-divider"></div>
-            <h6 class="collapse-header">Other Pages:</h6>
-            <a class="collapse-item" href="404.html">404 Page</a>
-            <a class="collapse-item" href="blank.html">Blank Page</a>
-        </div>
-    </div>
-</li> -->
-
-<!-- Nav Item - Charts  -->
-<li class="nav-item">
-    <a class="nav-link pb-0" href="<?php echo base_url('admin/dashboard/profil') ?>">
-        <i class="fas fa-fw fa-user"></i>
-        <span>Profil Saya</span></a>
-</li>
-
-<!-- Nav Item - Charts  -->
-<li class="nav-item">
-    <a class="nav-link pb-0" href="<?php echo base_url('admin/dashboard/editprofil') ?>">
-        <i class="fas fa-fw fa-user-edit"></i>
-        <span>Edit Profil</span></a>
-</li>
-
-<!-- Nav Item - Charts  -->
-<li class="nav-item">
-    <a class="nav-link pb-0" href="<?php echo base_url('admin/dashboard/editpass') ?>">
-        <i class="fas fa-fw fa-key"></i>
-        <span>Ubah Password</span></a>
-</li>
-
 <!-- Nav Item - Tables -->
 <li class="nav-item">
     <a class="nav-link pb-0" href="<?php echo base_url('admin/auth/logout') ?>">

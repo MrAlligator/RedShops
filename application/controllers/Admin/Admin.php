@@ -2,18 +2,28 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Produk extends CI_Controller
+class Admin extends CI_Controller
 {
     public function __construct()
     {
         parent::__construct();
         $this->load->model("product_model");
         $this->load->model("dropdown_model");
+		$this->load->model('user_model');
         $this->load->library('form_validation');
         is_logged_in();
     }
 
     public function index()
+	{
+		$data['totalproduk'] = $this->product_model->hitung_jumlah_produk();
+		$data['totaluser'] = $this->user_model->hitung_jumlah_user();
+		$data['title'] = 'Dashboard';
+		$data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+		$this->load->view("admin/dashboard", $data);
+	}
+
+    public function produk()
     {
         $data['title'] = 'Produk';
 		$data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
@@ -31,7 +41,7 @@ class Produk extends CI_Controller
             $product->save();
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil ditambahkan</div>');
         } else {
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data gagal ditambahkan</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Data gagal ditambahkan</div>');
         }
 
         $data['title'] = 'Tambah Produk';
@@ -49,9 +59,9 @@ class Produk extends CI_Controller
 
         if ($validation->run()) {
             $product->update();
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil ditambahkan</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil diubah</div>');
         } else {
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data gagal ditambahkan</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Data gagal diubah</div>');
         }
 
         $data["produk"] = $product->getById($id);

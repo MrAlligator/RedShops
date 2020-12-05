@@ -89,10 +89,10 @@
                     <div class="col-auto">
                       <i class="fa fa-shopping-cart text-gray-300"></i>
                     </div>-->
-                  </div> 
+                  <!-- </div> 
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
 
           <!-- Content Row -->
@@ -105,9 +105,9 @@
         </div>
         <!-- /.container-fluid -->
 
-      </div>
-      <!-- End of Main Content -->
 
+        </div>
+      <!-- End of Main Content -->
       <!-- Footer -->
       <?php $this->load->view("admin/_partials/footer.php") ?>
       <!-- End of Footer -->

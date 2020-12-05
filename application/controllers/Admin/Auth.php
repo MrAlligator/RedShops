@@ -10,7 +10,7 @@ class Auth extends CI_Controller {
 	public function index()
 	{
         if($this->session->userdata('username')) {
-            redirect('admin/dashboard');
+            redirect('admin/admin');
         }
 
         $data['title'] = 'Login';
@@ -33,7 +33,7 @@ class Auth extends CI_Controller {
         //jika user ada
         if($user) {
             //Jika hak akses admin
-            if($user['role_id'] == 2) {
+            if($user['role_id'] <= 2) {
                 //user aktif
                 if($user['is_active'] == 1) {
                     //cek pass
@@ -43,7 +43,7 @@ class Auth extends CI_Controller {
                             'role_id' => $user['role_id']
                         ];
                         $this->session->set_userdata($data);
-                        redirect('admin/dashboard');
+                        redirect('admin/admin');
                     } else {
                         $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password Salah!</div>');
                         redirect('admin/auth');
@@ -65,7 +65,7 @@ class Auth extends CI_Controller {
     public function regis()
 	{
         if($this->session->userdata('username')) {
-            redirect('admin/dashboard');
+            redirect('admin/admin');
         }
         $data['title'] = 'Registrasi';
         $this->form_validation->set_rules('nama', 'Nama', 'required|trim');
@@ -664,5 +664,11 @@ class Auth extends CI_Controller {
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Silahkan Login</div>');
             redirect('admin/auth');
         }
+    }
+
+    public function blocked()
+	{
+        $data['title'] = 'Access Blocked';
+        $this->load->view('admin/blocked', $data);
     }
 }
