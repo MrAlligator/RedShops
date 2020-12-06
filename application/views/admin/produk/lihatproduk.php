@@ -76,8 +76,8 @@
                           <?php echo substr($product->deskripsi, 0, 120) ?>...</td>
                         </td>
                         <td>
-                          <a href="<?php echo site_url('admin/produk/edit/'.$product->id_produk) ?>" class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
-                          <a onclick="deleteConfirm('<?php echo site_url('admin/produk/delete/'.$product->id_produk) ?>')" href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a></td>
+                          <a href="<?php echo site_url('admin/admin/edit/'.$product->id_produk) ?>" class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
+                          <a onclick="deleteConfirm('<?php echo site_url('admin/admin/delete/'.$product->id_produk) ?>')" href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a></td>
                       </tr>
                     <?php endforeach; ?>
                   </tbody>

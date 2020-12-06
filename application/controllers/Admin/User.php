@@ -48,7 +48,7 @@ class User extends CI_Controller {
 					$this->db->set('image', $new_image);
 				} else {
 					$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">' . $this->upload->display_errors() . '</div>');
-					redirect('admin/dashboard/profil');
+					redirect('admin/user');
 				}
 			}
 
@@ -57,7 +57,7 @@ class User extends CI_Controller {
 			$this->db->update('user');
 			
 			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil diupdate</div>');
-        	redirect('admin/dashboard/profil');
+        	redirect('admin/user');
 		}
 	}
 
@@ -83,11 +83,11 @@ class User extends CI_Controller {
 			$new_password = $this->input->post('password_baru');
 			if(!password_verify($current_password, $data['user']['password'])){
 				$this->session->set_flashdata('message', '<div class="alert alert-alert" role="alert">Password lama salah!</div>');
-        		redirect('admin/dashboard/editpass');
+        		redirect('admin/user/editpass');
 			} else {
 				if($current_password == $new_password) {
 					$this->session->set_flashdata('message', '<div class="alert alert-alert" role="alert">Password baru tidak boleh sama dengan Password lama!</div>');
-        			redirect('admin/dashboard/editpass');
+        			redirect('admin/user/editpass');
 				} else {
 					$password_hash = password_hash($new_password, PASSWORD_DEFAULT);
 
@@ -96,7 +96,7 @@ class User extends CI_Controller {
 					$this->db->update('user');
 
 					$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Password berhasil diganti!</div>');
-        			redirect('admin/dashboard/editpass');
+        			redirect('admin/user/editpass');
 				}
 			}
 		}

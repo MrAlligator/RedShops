@@ -35,11 +35,11 @@
                 <div class="container-fluid">
                         <div class="card mb-3 col-lg-8">
 							<div class="card-header">
-								<a href="<?php echo site_url('admin/produk') ?>"><i class="fas fa-arrow-left"></i> Back</a>
+								<a href="<?php echo site_url('admin/admin/produk') ?>"><i class="fas fa-arrow-left"></i> Back</a>
 							</div>
 							<div class="card-body">
                             <!-- <?php echo $this->session->flashdata('message'); ?> -->
-								<form action="<?php echo site_url('admin/produk/add') ?>" method="post" enctype="multipart/form-data" >
+								<form action="<?php echo site_url('admin/admin/add') ?>" method="post" enctype="multipart/form-data" >
                                     <!--<div class="form-group">
 										<label for="name">ID Produk*</label>
 										<input name="id" class="form-control" type="text" placeholder="Product ID" />

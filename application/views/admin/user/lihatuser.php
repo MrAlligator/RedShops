@@ -83,7 +83,7 @@
                           ?>
                         </td>
                         <td>
-                          <a onclick="deleteConfirm('<?php echo site_url('admin/user/delete/'.$admin->id_user) ?>')" href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a></td>
+                          <a onclick="deleteConfirm('<?php echo site_url('admin/administrator/delete/'.$admin->id_user) ?>')" href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a></td>
                       </tr>
                     <?php endforeach; ?>
                   </tbody>

@@ -52,7 +52,7 @@ class Admin extends CI_Controller
 
     public function edit($id = null)
     {
-        if (!isset($id)) redirect('admin/produk');
+        if (!isset($id)) redirect('admin/admin/produk');
         $product = $this->product_model;
         $validation = $this->form_validation;
         $validation->set_rules($product->rules());
@@ -78,7 +78,7 @@ class Admin extends CI_Controller
         if (!isset($id)) show_404();
         
         if ($this->product_model->delete($id)) {
-            redirect(site_url('admin/produk'));
+            redirect(site_url('admin/admin/produk'));
         }
     }
 }

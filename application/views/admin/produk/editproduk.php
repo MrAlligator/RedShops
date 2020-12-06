@@ -36,7 +36,7 @@
                         <h1 class="mt-4"></h1>
                         <div class="card mb-3">
                         <div class="card-header">
-                        <a href="<?php echo site_url('admin/produk/') ?>"><i class="fas fa-arrow-left"></i>
+                        <a href="<?php echo site_url('admin/admin/produk/') ?>"><i class="fas fa-arrow-left"></i>
                             Back</a>
                         </div>
                         <?php echo $this->session->flashdata('message'); ?>
