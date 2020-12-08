@@ -7,7 +7,7 @@
 
 
           <div class="item center" data-marker="1">
-            <img src="<?php echo base_url('assets/img/carousel/bckg-2.jpg') ?>" alt="Background" class="background hidden-xs hidden-sm"/>
+            <img src="<?php echo base_url('assets/img/carousel/bg/bgredshop.png') ?>" alt="Background" class="background hidden-xs hidden-sm"/>
             <img src="<?php echo base_url('assets/img/carousel/bckg-2-sm.jpg') ?>" alt="Background" class="background visible-sm"/>
             <img src="<?php echo base_url('assets/img/carousel/bckg-2-xs.jpg') ?>" alt="Background" class="background visible-xs"/>
 

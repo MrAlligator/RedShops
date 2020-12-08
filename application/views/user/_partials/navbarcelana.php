@@ -46,17 +46,6 @@
                 </ul>
               </li> -->
 
-              <li class="active dropdown">
-                <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                  Celana  <i class="ion-android-arrow-dropdown"></i>
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a href="<?php echo base_url('user/celana') ?>">Celana Pendek</a></li>
-                  <li><a href="<?php echo base_url('user/celana') ?>">Celana Pendek</a></li>
-                  
-                </ul>
-              </li>
-            </ul>
           </div><!--/.nav-collapse -->
 
 

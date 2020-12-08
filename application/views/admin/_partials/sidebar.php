@@ -46,6 +46,9 @@
         <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="<?php echo base_url('admin/produk') ?>">Lihat Produk</a>
             <a class="collapse-item" href="<?php echo base_url('admin/produk/add') ?>">Tambah Produk</a>
+            <a class="collapse-item" href="<?php echo base_url('admin/Jumlah pesanan') ?>">Jumlah Pesanan</a>
+
+
         </div>
     </div>
 </li>
