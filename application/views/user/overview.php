@@ -64,15 +64,7 @@
       </div>
     </section>
 
-    <section class="products">
-      <div class="container">
-        <?php $this->load->view("user/_partials/product4.php") ?>
-        <div class="align-right align-center-xs">
-          <hr class="offset-sm">
-          <a href="./store/"> <h5 class="upp">View all tablets </h5> </a>
-        </div>
-      </div>
-    </section>
+   
 
     <section class="products">
       <div class="container">

@@ -40,7 +40,22 @@
         </li>
     <?php endforeach; ?>
 
-    <hr class="sidebar-divider">
+<!-- Nav Item - Product Collapse Menu -->
+<li class="nav-item">
+    <a class="nav-link pb-0 collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+        <i class="fas fa-fw fa-folder"></i>
+        <span>Produk</span>
+    </a>
+    <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="<?php echo base_url('admin/produk') ?>">Lihat Produk</a>
+            <a class="collapse-item" href="<?php echo base_url('admin/produk/add') ?>">Tambah Produk</a>
+            <a class="collapse-item" href="<?php echo base_url('admin/Jumlah pesanan') ?>">Jumlah Pesanan</a>
+
+
+        </div>
+    </div>
+</li>
 
 <?php endforeach; ?>
 
