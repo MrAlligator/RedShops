@@ -1,6 +1,6 @@
 <?php
 
-defined('BASEPATH') or exit('No direct script access allowed');
+defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Admin extends CI_Controller
 {
@@ -9,24 +9,24 @@ class Admin extends CI_Controller
         parent::__construct();
         $this->load->model("product_model");
         $this->load->model("dropdown_model");
-        $this->load->model('user_model');
+		$this->load->model('user_model');
         $this->load->library('form_validation');
         is_logged_in();
     }
 
     public function index()
-    {
-        $data['totalproduk'] = $this->product_model->hitung_jumlah_produk();
-        $data['totaluser'] = $this->user_model->hitung_jumlah_user();
-        $data['title'] = 'Dashboard';
-        $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
-        $this->load->view("admin/dashboard", $data);
-    }
+	{
+		$data['totalproduk'] = $this->product_model->hitung_jumlah_produk();
+		$data['totaluser'] = $this->user_model->hitung_jumlah_user();
+		$data['title'] = 'Dashboard';
+		$data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+		$this->load->view("admin/dashboard", $data);
+	}
 
     public function produk()
     {
         $data['title'] = 'Produk';
-        $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+		$data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data["produk"] = $this->product_model->getAll();
         $this->load->view("admin/produk/lihatproduk", $data);
     }
@@ -46,7 +46,7 @@ class Admin extends CI_Controller
 
         $data['title'] = 'Tambah Produk';
         $data["menu"] = $this->dropdown_model->get_jenis();
-        $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+		$data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $this->load->view("admin/produk/tambahproduk", $data);
     }
 
@@ -66,17 +66,17 @@ class Admin extends CI_Controller
 
         $data["produk"] = $product->getById($id);
         if (!$data["produk"]) show_404();
-
+        
         $data['title'] = 'Edit Produk';
         $data["menu"] = $this->dropdown_model->get_jenis();
-        $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+		$data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $this->load->view("admin/produk/editproduk", $data);
     }
 
-    public function delete($id = null)
+    public function delete($id=null)
     {
         if (!isset($id)) show_404();
-
+        
         if ($this->product_model->delete($id)) {
             redirect(site_url('admin/admin/produk'));
         }
