@@ -64,8 +64,6 @@
       </div>
     </section>
 
-   
-
     <section class="products">
       <div class="container">
         <?php $this->load->view("user/_partials/product6.php") ?>
