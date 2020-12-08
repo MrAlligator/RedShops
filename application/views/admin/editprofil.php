@@ -32,7 +32,7 @@
                 <!-- Page Heading -->
                     <div class="row">
                         <div class="col-lg-8">
-                            <form action="<?php echo site_url('admin/dashboard/editprofil') ?>" method="post" enctype="multipart/form-data">
+                            <form action="<?php echo site_url('admin/user/editprofil') ?>" method="post" enctype="multipart/form-data">
                                 <div class="form-group row">
                                     <label for="username" class="col-sm-2 col-form-label">Username</label>
                                     <div class="col-sm-10">

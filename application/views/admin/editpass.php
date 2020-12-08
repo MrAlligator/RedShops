@@ -33,7 +33,7 @@
                     <div class="row">
                         <div class="col-lg-8">
                             <?php echo $this->session->flashdata('message'); ?>
-                            <form action="<?php echo site_url('admin/dashboard/editpass') ?>" method="post" enctype="multipart/form-data">
+                            <form action="<?php echo site_url('admin/user/editpass') ?>" method="post" enctype="multipart/form-data">
                                 <div class="form-group row">
                                     <label for="password_lama" class="col-sm-2 col-form-label">Password Lama</label>
                                     <div class="col-sm-10">
