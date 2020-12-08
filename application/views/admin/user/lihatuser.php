@@ -49,6 +49,7 @@
                       <th>Foto</th>
                       <th>Tanggal Dibuat</th>
                       <th>Jabatan</th>
+                      <th>Aktif?</th>
                       <th>Aksi</th>
                     </tr>
                   </thead>
@@ -77,8 +78,18 @@
                             echo "Super Admin";
                           }else if($jabatan == 2){
                             echo "Admin";
-                          }else {
+                          }else if($jabatan == 3) {
                             echo "User";
+                          }
+                          ?>
+                        </td>
+                        <td>
+                          <?php
+                          $is_active = $admin->is_active;
+                          if($is_active == 1){
+                            echo "Sudah Diaktivasi";
+                          } else if($is_active == 0){
+                            echo "Belum Diaktivasi";
                           }
                           ?>
                         </td>

@@ -217,11 +217,7 @@
     </footer>
 
     <!-- Modal -->
-    <?php $this->load->view("user/_partials/login.php") ?>
-
-    <?php $this->load->view("user/_partials/regis.php") ?>
-
-    <?php $this->load->view("user/_partials/forgotpass.php") ?>
+    <?php $this->load->view("user/_partials/modal.php") ?>
 
     <?php $this->load->view("user/_partials/js-produk.php") ?>
 

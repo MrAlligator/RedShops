@@ -12,7 +12,6 @@
   
     
     <?php $this->load->view("user/_partials/cart.php") ?>
-
     <?php $this->load->view("user/_partials/toplinks.php") ?>
 
     
@@ -92,13 +91,9 @@
     </footer>
 
     <!-- Modal -->
-    <?php $this->load->view("user/_partials/login.php") ?>
-
-    <?php $this->load->view("user/_partials/regis.php") ?>
+    <?php $this->load->view("user/_partials/modal.php") ?>
 
     <?php $this->load->view("user/_partials/logout.php") ?>
-
-    <?php $this->load->view("user/_partials/forgotpass.php") ?>
 
     <!-- 
     <div class="modal fade" id="Modal-Gallery" tabindex="-1" role="dialog">

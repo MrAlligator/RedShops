@@ -77,11 +77,7 @@
     </footer>
 
     <!-- Modal -->
-    <?php $this->load->view("user/_partials/login.php") ?>
-
-    <?php $this->load->view("user/_partials/regis.php") ?>
-
-    <?php $this->load->view("user/_partials/forgotpass.php") ?>
+    <?php $this->load->view("user/_partials/modal.php") ?>
 
     <!-- 
     <div class="modal fade" id="Modal-Gallery" tabindex="-1" role="dialog">
