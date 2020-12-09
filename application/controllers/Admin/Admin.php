@@ -81,4 +81,11 @@ class Admin extends CI_Controller
             redirect(site_url('admin/admin/produk'));
         }
     }
+
+    public function transaksi()
+	{
+		$data['title'] = 'Data Transaksi';
+		$data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+		$this->load->view("admin/transaksi/lihattransaksi", $data);
+	}
 }
