@@ -1,9 +1,11 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Ongkir extends CI_Controller
+class Rajaongkir extends CI_Controller
 {
-    public function province()
+    private $api_key = "f574db8a9779a98d290f7c4c541b4a79";
+
+    public function provinsi()
     {
         $curl = curl_init();
 
@@ -16,7 +18,7 @@ class Ongkir extends CI_Controller
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => "GET",
             CURLOPT_HTTPHEADER => array(
-                "key: f574db8a9779a98d290f7c4c541b4a79"
+                "key: $this->api_key"
             ),
         ));
 
@@ -32,7 +34,7 @@ class Ongkir extends CI_Controller
         }
     }
 
-    public function city()
+    public function kota()
     {
         $curl = curl_init();
 
@@ -45,7 +47,7 @@ class Ongkir extends CI_Controller
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => "GET",
             CURLOPT_HTTPHEADER => array(
-                "key: f574db8a9779a98d290f7c4c541b4a79"
+                "key: $this->api_key"
             ),
         ));
 
@@ -61,7 +63,7 @@ class Ongkir extends CI_Controller
         }
     }
 
-    public function cost()
+    public function biaya()
     {
         $curl = curl_init();
 
@@ -76,7 +78,7 @@ class Ongkir extends CI_Controller
             CURLOPT_POSTFIELDS => "origin=501&destination=114&weight=1700&courier=jne",
             CURLOPT_HTTPHEADER => array(
                 "content-type: application/x-www-form-urlencoded",
-                "key: f574db8a9779a98d290f7c4c541b4a79"
+                "key: $this->api_key"
             ),
         ));
 
