@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 08, 2020 at 02:54 PM
+-- Generation Time: Dec 11, 2020 at 02:48 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -20,26 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_redshop`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `alamat`
---
-
-CREATE TABLE `alamat` (
-  `id` int(11) NOT NULL,
-  `nama` varchar(255) NOT NULL,
-  `lokasi` int(11) DEFAULT NULL,
-  `alamat` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `alamat`
---
-
-INSERT INTO `alamat` (`id`, `nama`, `lokasi`, `alamat`) VALUES
-(1, 'REDSHOP', NULL, 'Jl. Brantas 23, Tegal Boto Lor, Sumbersari, Kec. Sumbersari, Kabupaten Jember, Jawa Timur 68121');
 
 -- --------------------------------------------------------
 
@@ -97,6 +77,26 @@ INSERT INTO `produk` (`id_produk`, `nama_produk`, `jenis_produk`, `harga_produk`
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `setting_toko`
+--
+
+CREATE TABLE `setting_toko` (
+  `id_alamat` int(11) NOT NULL,
+  `nama_toko` varchar(255) NOT NULL,
+  `lokasi_toko` int(11) DEFAULT NULL,
+  `alamat_toko` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `setting_toko`
+--
+
+INSERT INTO `setting_toko` (`id_alamat`, `nama_toko`, `lokasi_toko`, `alamat_toko`) VALUES
+(1, 'REDSHOP', NULL, 'Jl. Brantas 23, Tegal Boto Lor, Sumbersari, Kec. Sumbersari, Kabupaten Jember, Jawa Timur 68121');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user`
 --
 
@@ -117,10 +117,10 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `name`, `email`, `username`, `image`, `password`, `role_id`, `is_active`, `date_created`) VALUES
-(15, 'Rizki Pratama', 'e41181256@student.polije.ac.id', 'e41181256', 'default.jpg', '$2y$10$V4tfbqezKa3MwpV/JSKiKOomU6z7MXg36Jow9trv44YCtLhg7qEZ2', 1, 1, 1606392372),
-(20, 'Silviana', 'silvianawidya46@gmail.com', 'silviasu', 'default.jpg', '$2y$10$nrv3e9D6WzAbDKrCBTOAUueJ74rnyFI52Y1Lb9nr7774KdAAIHKXm', 2, 1, 1606920350),
+(15, 'Rizki Pratama', 'e41181256@student.polije.ac.id', 'superadmin', 'default.jpg', '$2y$10$GhfGPWAEqFHhfVsUfm/39egxWqa8S3qib5y99oU9eSsIzvN6wozoi', 1, 1, 1606392372),
+(20, 'Silviana', 'silvianawidya46@gmail.com', 'admin', 'default.jpg', '$2y$10$8GLRq0LPEyHM4WNVNq41LOUa4HB2ByzRfJ3Pnzv8OrEq0a0nmRK6K', 2, 1, 1606920350),
 (21, 'obay', 'ilmi.obbi@gmail.com', 'obay', 'default.jpg', '$2y$10$R/jIbdBOYo/HfUFYDUwrqOXHbyLvomqNnRBAUGNdAc87zSjDmgTrG', 1, 1, 1606921272),
-(25, 'Rizki Widya', 'rizkiw8778@gmail.com', 'mr', 'default.jpg', '$2y$10$ZojkdEO5M6sbRPAzmqkxE.3h/TrmXDNmL4EIkj9QI5kzoBP6MO2BS', 3, 0, 1607396976);
+(26, 'Rizki Widya', 'rizkiw8778@gmail.com', 'mrrest', 'default.jpg', '$2y$10$0r2e6Y6Dsj1tstUf45hl6OqX9z6yVIb4aUH./bbP3yQxx45dgtekC', 3, 1, 1607434853);
 
 -- --------------------------------------------------------
 
@@ -211,7 +211,8 @@ INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active
 (13, 2, 'Edit Profil', 'admin/user/editprofil', 'fas fa-fw fa-user-edit', 1),
 (14, 2, 'Ubah Password', 'admin/user/editpass', 'fas fa-fw fa-key', 1),
 (15, 3, 'User', 'admin/administrator', 'fas fa-fw fa-users', 1),
-(16, 1, 'Transaksi', 'admin/transaksi', 'fas fa-fw fa-handshake', 1);
+(16, 1, 'Transaksi', 'admin/transaksi', 'fas fa-fw fa-handshake', 1),
+(17, 1, 'Alamat Toko', 'admin/admin/editalamat', 'fas fa-map-marked-alt', 1);
 
 -- --------------------------------------------------------
 
@@ -245,12 +246,6 @@ INSERT INTO `user_token` (`id_token`, `email`, `token`, `date_created`) VALUES
 --
 
 --
--- Indexes for table `alamat`
---
-ALTER TABLE `alamat`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `jenis`
 --
 ALTER TABLE `jenis`
@@ -261,6 +256,12 @@ ALTER TABLE `jenis`
 --
 ALTER TABLE `produk`
   ADD PRIMARY KEY (`id_produk`);
+
+--
+-- Indexes for table `setting_toko`
+--
+ALTER TABLE `setting_toko`
+  ADD PRIMARY KEY (`id_alamat`);
 
 --
 -- Indexes for table `user`
@@ -314,7 +315,7 @@ ALTER TABLE `jenis`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `user_access_menu`
@@ -338,7 +339,7 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT for table `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `user_token`
