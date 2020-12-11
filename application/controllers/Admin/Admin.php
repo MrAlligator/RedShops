@@ -96,7 +96,7 @@ class Admin extends CI_Controller
         //     // 'alamat_toko' => $this->editalamat_model->setting(),
         //     'isi' => 'editalamat',
         // );
-        // $this->load->view('admin/editalamat', $data);
+        // $this->load->view('admin/editalamat', $data, FALSE);
         $data['title'] = 'Alamat Toko';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $this->load->view("admin/editalamat", $data, FALSE);
