@@ -30,16 +30,22 @@ class Rajaongkir extends CI_Controller
         if ($err) {
             echo "cURL Error #:" . $err;
         } else {
-            echo $response;
+            $array_response = json_decode($response, true);
+            $data_provinsi = $array_response['rajaongkir']['results'];
+            echo "<option value=''>Pilih Provinsi</option>";
+            foreach ($data_provinsi as $key => $value) {
+                echo "<option value='" . $value['province_id'] . "' id_provinsi='" . $value['province_id'] . "'>" . $value['province'] . "</option>";
+            }
         }
     }
 
-    public function kota()
+    public function kabupaten()
     {
+        $id_provinsi_terpilih = $this->input->post('id_provinsi');
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => "https://api.rajaongkir.com/starter/city",
+            CURLOPT_URL => "https://api.rajaongkir.com/starter/city?province=" . $id_provinsi_terpilih,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_MAXREDIRS => 10,
@@ -59,11 +65,16 @@ class Rajaongkir extends CI_Controller
         if ($err) {
             echo "cURL Error #:" . $err;
         } else {
-            echo $response;
+            $array_response = json_decode($response, true);
+            $data_kabupaten = $array_response['rajaongkir']['results'];
+            echo "<option value=''>Pilih Kabupaten/Kota</option>";
+            foreach ($data_kabupaten as $key => $value) {
+                echo "<option value='" . $value['city_id'] . "'>" . $value['city_name'] . "</option>";
+            }
         }
     }
 
-    public function biaya()
+    public function shipping()
     {
         $curl = curl_init();
 
