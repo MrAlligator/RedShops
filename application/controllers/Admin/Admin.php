@@ -7,6 +7,7 @@ class Admin extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->model("editalamat_model");
         $this->load->model("product_model");
         $this->load->model("dropdown_model");
         $this->load->model('user_model');
@@ -91,14 +92,13 @@ class Admin extends CI_Controller
 
     public function editalamat()
     {
-        // $data = array(
-        //     'title' => 'Alamat Toko',
-        //     // 'alamat_toko' => $this->editalamat_model->setting(),
-        //     'isi' => 'editalamat',
-        // );
-        // $this->load->view('admin/editalamat', $data, FALSE);
         $data['title'] = 'Alamat Toko';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
-        $this->load->view("admin/editalamat", $data, FALSE);
+        $data = array(
+            'title' => 'Alamat Toko',
+            'alamat_toko' => $this->editalamat_model->setting(),
+            'isi' => 'editalamat',
+        );
+        $this->load->view('admin/editalamat', $data);
     }
 }

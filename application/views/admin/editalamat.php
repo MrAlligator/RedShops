@@ -30,7 +30,7 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <?php echo form_open('admin/editalamat') ?>
+                    <?php echo form_open('admin/admin/editalamat') ?>
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label>Provinsi</label>
