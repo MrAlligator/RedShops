@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 13 Des 2020 pada 01.42
+-- Waktu pembuatan: 14 Des 2020 pada 13.31
 -- Versi server: 10.4.8-MariaDB
 -- Versi PHP: 7.3.10
 
@@ -21,6 +21,21 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_redshop`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `detail_transaksi`
+--
+
+CREATE TABLE `detail_transaksi` (
+  `id_transaksi` int(11) NOT NULL,
+  `id_produk` int(11) NOT NULL,
+  `nama_produk` varchar(255) NOT NULL,
+  `harga` int(11) NOT NULL,
+  `qty` int(11) NOT NULL,
+  `subtotal` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -98,6 +113,20 @@ INSERT INTO `setting_toko` (`id_alamat`, `nama_toko`, `lokasi_toko`, `alamat_tok
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `transaksi`
+--
+
+CREATE TABLE `transaksi` (
+  `id_transaksi` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `alamat` text NOT NULL,
+  `tgl_transaksi` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `user`
 --
 
@@ -118,9 +147,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `name`, `email`, `username`, `image`, `password`, `role_id`, `is_active`, `date_created`) VALUES
-(15, 'Rizki Pratama', 'e41181256@student.polije.ac.id', 'superadmin', 'default.jpg', '$2y$10$GhfGPWAEqFHhfVsUfm/39egxWqa8S3qib5y99oU9eSsIzvN6wozoi', 1, 1, 1606392372),
+(15, 'Rizki Pratama', 'e41181256@student.polije.ac.id', 'superadmin', 'IMG_1216.jpg', '$2y$10$Ue1Gy7/2ayI9T/EctwsPS.0rl6L1CM0rI.FATdQ/onj2xW6jxmO2K', 1, 1, 1606392372),
 (20, 'Silviana', 'silvianawidya46@gmail.com', 'admin', 'default.jpg', '$2y$10$8GLRq0LPEyHM4WNVNq41LOUa4HB2ByzRfJ3Pnzv8OrEq0a0nmRK6K', 2, 1, 1606920350),
-(21, 'obay', 'ilmi.obbi@gmail.com', 'obay', 'default.jpg', '$2y$10$R/jIbdBOYo/HfUFYDUwrqOXHbyLvomqNnRBAUGNdAc87zSjDmgTrG', 1, 1, 1606921272),
+(21, 'obay', 'ilmi.obbi@gmail.com', 'obay', 'default.jpg', '$2y$10$R/jIbdBOYo/HfUFYDUwrqOXHbyLvomqNnRBAUGNdAc87zSjDmgTrG', 1, 0, 1606921272),
 (26, 'Rizki Widya', 'rizkiw8778@gmail.com', 'mrrest', 'default.jpg', '$2y$10$0r2e6Y6Dsj1tstUf45hl6OqX9z6yVIb4aUH./bbP3yQxx45dgtekC', 3, 1, 1607434853);
 
 -- --------------------------------------------------------
@@ -265,6 +294,12 @@ ALTER TABLE `setting_toko`
   ADD PRIMARY KEY (`id_alamat`);
 
 --
+-- Indeks untuk tabel `transaksi`
+--
+ALTER TABLE `transaksi`
+  ADD PRIMARY KEY (`id_transaksi`);
+
+--
 -- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
@@ -311,6 +346,12 @@ ALTER TABLE `user_token`
 --
 ALTER TABLE `jenis`
   MODIFY `id_jenis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT untuk tabel `transaksi`
+--
+ALTER TABLE `transaksi`
+  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
