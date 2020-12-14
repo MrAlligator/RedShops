@@ -82,11 +82,11 @@ class User extends CI_Controller {
 			$current_password = $this->input->post('password_lama');
 			$new_password = $this->input->post('password_baru');
 			if(!password_verify($current_password, $data['user']['password'])){
-				$this->session->set_flashdata('message', '<div class="alert alert-alert" role="alert">Password lama salah!</div>');
+				$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password lama Salah!</div>');
         		redirect('admin/user/editpass');
 			} else {
 				if($current_password == $new_password) {
-					$this->session->set_flashdata('message', '<div class="alert alert-alert" role="alert">Password baru tidak boleh sama dengan Password lama!</div>');
+					$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password baru tidak boleh sama dengan Password lama!</div>');
         			redirect('admin/user/editpass');
 				} else {
 					$password_hash = password_hash($new_password, PASSWORD_DEFAULT);

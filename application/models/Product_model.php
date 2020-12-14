@@ -166,8 +166,8 @@ class Product_model extends CI_Model
         //     $this->foto_produk3 = $post["old_image"];
         // }
         $this->deskripsi = $post["deskripsi"];
-        $this->deskripsi2 = $post["deskripsi"];
-        $this->deskripsi3 = $post["deskripsi"];
+        $this->deskripsi2 = $post["deskripsi2"];
+        $this->deskripsi3 = $post["deskripsi3"];
         return $this->db->update($this->_table, $this, array('id_produk' => $post['id']));
     }
 
