@@ -38,17 +38,21 @@ class Admin extends CI_Controller
         $validation = $this->form_validation;
         $validation->set_rules($product->rules());
 
-        if ($validation->run()) {
-            $product->save();
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil ditambahkan</div>');
-        } else {
-            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Data gagal ditambahkan</div>');
-        }
-
         $data['title'] = 'Tambah Produk';
         $data["menu"] = $this->dropdown_model->get_jenis();
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
-        $this->load->view("admin/produk/tambahproduk", $data);
+
+        if ($validation->run() == false) {
+            $this->load->view("admin/produk/tambahproduk", $data);
+        } else {
+            if($product->save() == true) {
+                $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil ditambahkan</div>');
+                redirect("admin/produk/tambahproduk");
+            } else {
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Data gagal ditambahkan</div>');
+                redirect("admin/produk/tambahproduk");
+            }
+        }
     }
 
     public function edit($id = null)
@@ -58,20 +62,23 @@ class Admin extends CI_Controller
         $validation = $this->form_validation;
         $validation->set_rules($product->rules());
 
-        if ($validation->run()) {
-            $product->update();
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil diubah</div>');
-        } else {
-            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Data gagal diubah</div>');
-        }
-
-        $data["produk"] = $product->getById($id);
-        if (!$data["produk"]) show_404();
-
         $data['title'] = 'Edit Produk';
         $data["menu"] = $this->dropdown_model->get_jenis();
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
-        $this->load->view("admin/produk/editproduk", $data);
+        $data["produk"] = $product->getById($id);
+        if (!$data["produk"]) show_404();
+        
+        if ($validation->run() == false) {
+            $this->load->view("admin/produk/editproduk", $data);
+        } else {
+            if ($product->update() == true) {
+                $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil diubah</div>');
+                redirect("admin/admin/edit");
+            } else {
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Data gagal diubah</div>');
+                redirect("admin/admin/edit");
+            }
+        }
     }
 
     public function delete($id = null)
