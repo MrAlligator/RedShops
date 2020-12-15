@@ -6,4 +6,9 @@ class Dropdown_model extends CI_Model
         $query = $this->db->get('jenis')->result();
         return $query;
     }
+
+    public function get_role(){
+        $query = $this->db->get('user_role')->result();
+        return $query;
+    }
 }

@@ -11,15 +11,25 @@ class user_model extends CI_Model
     public $image = "default.jpg";
     public $password;
     public $role_id;
-    public $is_Active;
+    public $is_active;
     public $date_created;
 
     public function rules()
     {
         return [
-            ['field' => 'password',
-            'label' => 'Password',
-            'rules' => 'required']
+            ['field' => 'name',
+            'label' => 'Nama',
+            'rules' => 'required|trim'],
+
+            ['field' => 'email',
+            'label' => 'Email',
+            'rules' => 'required|trim|valid_email|is_unique[user.email]',
+            'is_unique' => 'Email telah terdaftar'],
+
+            ['field' => 'username',
+            'label' => 'Username',
+            'rules' => 'required|trim|is_unique[user.username]',
+            'is_unique' => 'Username telah terdaftar']
         ];
     }
 
@@ -42,6 +52,20 @@ class user_model extends CI_Model
     public function getById($id)
     {
         return $this->db->get_where($this->_table, ["id_user" => $id])->row();
+    }
+
+    public function save()
+    {
+        $post = $this->input->post();
+        $this->name = $post["name"];
+        $this->email = $post["email"];
+        $this->username = $post["username"];
+        $this->image = 'default.jpg';
+        $this->password = password_hash("admin123", PASSWORD_DEFAULT);
+        $this->role_id = $post["role"];
+        $this->is_active = 1;
+        $this->date_created = time();
+        return $this->db->insert($this->_table, $this);
     }
 
     public function update()
