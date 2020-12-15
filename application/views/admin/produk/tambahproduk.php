@@ -40,15 +40,8 @@
 							<div class="card-body">
                             <!-- <?php echo $this->session->flashdata('message'); ?> -->
 								<form action="<?php echo site_url('admin/admin/add') ?>" method="post" enctype="multipart/form-data" >
-                                    <!--<div class="form-group">
-										<label for="name">ID Produk*</label>
-										<input name="id" class="form-control" type="text" placeholder="Product ID" />
-										<div class="invalid-feedback">
-											
-										</div>
-                                    </div>-->
                                     <div class="form-group">
-										<label for="name">Nama*</label>
+										<label for="name">Nama *</label>
 										<input name="nama" class="form-control <?php echo form_error('nama') ? 'is-invalid':'' ?>" type="text" placeholder="Nama Produk" />
 										<div class="invalid-feedback">
                                             <?php echo form_error('nama') ?>
@@ -56,7 +49,7 @@
                                     </div>
                                     
                                     <div class="form-group">
-										<label for="kind">Jenis*</label><br>
+										<label for="kind">Jenis *</label><br>
 										<select class="form-control" name="jenis" id="jenis" required>
                                             <?php foreach($menu as $row):?>
                                             <option value="<?php echo $row->jenis;?>"><?php echo $row->jenis;?></option>
@@ -65,7 +58,7 @@
 									</div>
 
 									<div class="form-group">
-										<label for="price">Harga*</label>
+										<label for="price">Harga *</label>
 										<input name="harga" class="form-control <?php echo form_error('harga') ? 'is-invalid':'' ?>" type="number" min="0" placeholder="Harga Produk" />
 										<div class="invalid-feedback">
                                             <?php echo form_error('harga') ?>
@@ -73,7 +66,7 @@
 									</div>
 
                                     <div class="form-group">
-										<label for="stok">Jumlah Stok*</label>
+										<label for="stok">Jumlah Stok *</label>
 										<input name="jumlahstok" class="form-control <?php echo form_error('jumlahstok') ? 'is-invalid':'' ?>" type="number" min="0" placeholder="Jumlah Stok" />
 										<div class="invalid-feedback">
                                             <?php echo form_error('jumlahstok') ?>
@@ -97,7 +90,7 @@
 									</div> -->
 
 									<div class="form-group">
-										<label for="name">Deskripsi*</label>
+										<label for="name">Deskripsi *</label>
 										<textarea class="form-control <?php echo form_error('deskripsi') ? 'is-invalid':'' ?>" name="deskripsi" placeholder="Deskripsi Produk..."></textarea>
 										<div class="invalid-feedback">
                                             <?php echo form_error('deskripsi') ?>
@@ -105,18 +98,18 @@
 									</div>
 
                                     <div class="form-group">
-										<label for="name">Deskripsi 2*</label>
-										<textarea class="form-control <?php echo form_error('deskripsi2') ? 'is-invalid':'' ?>" name="deskripsi2" placeholder="Deskripsi Produk..."></textarea>
+										<label for="name">Deskripsi 2 *</label>
+										<textarea class="form-control <?php echo form_error('deskripsi') ? 'is-invalid':'' ?>" name="deskripsi2" placeholder="Deskripsi Produk..."></textarea>
 										<div class="invalid-feedback">
-                                            <?php echo form_error('deskripsi2') ?>
+                                            <?php echo form_error('deskripsi') ?>
 										</div>
 									</div>
 
                                     <div class="form-group">
-										<label for="name">Deskripsi 3*</label>
-										<textarea class="form-control <?php echo form_error('deskripsi3') ? 'is-invalid':'' ?>" name="deskripsi3" placeholder="Deskripsi Produk..."></textarea>
+										<label for="name">Deskripsi 3 *</label>
+										<textarea class="form-control <?php echo form_error('deskripsi') ? 'is-invalid':'' ?>" name="deskripsi3" placeholder="Deskripsi Produk..."></textarea>
 										<div class="invalid-feedback">
-                                            <?php echo form_error('deskripsi3') ?>
+                                            <?php echo form_error('deskripsi') ?>
 										</div>
 									</div>
 
@@ -126,7 +119,7 @@
 							</div>
 
 							<div class="card-footer small text-muted">
-								* required fields
+								* HARUS DI ISI
 							</div>
 
 
