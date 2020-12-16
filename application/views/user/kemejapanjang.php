@@ -75,7 +75,7 @@
     <?php $this->load->view("user/_partials/modal.php") ?>
     <?php $this->load->view("user/_partials/logout.php") ?>
 
-    <!-- 
+    <!-- modal -->
     <div class="modal fade" id="Modal-Gallery" tabindex="-1" role="dialog">
       <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
