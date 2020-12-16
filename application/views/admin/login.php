@@ -12,7 +12,7 @@
     <?php $this->load->view("admin/_partials/head.php") ?>
 </head>
 
-<body class="bg-gradient-primary">
+<body class="bg-gradient-dark">
 
   <div class="container">
 
@@ -40,7 +40,7 @@
 
                   <form class="user" action="<?php echo site_url('admin/auth/index') ?>" method="post">
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="username" name="username" placeholder="Username" value="<?= set_value('username') ?>"><?= form_error('username', '<small class="text-danger pl-3">', '</small>') ?>
+                      <input type="text" class="form-control form-control-user" id="Email atau Username" name="username" placeholder="Username" value="<?= set_value('username') ?>"><?= form_error('username', '<small class="text-danger pl-3">', '</small>') ?>
                     </div>
                     <div class="form-group">
                       <input type="password" class="form-control form-control-user" id="password" name="password" placeholder="Password"><?= form_error('password', '<small class="text-danger pl-3">', '</small>') ?>

@@ -30,6 +30,7 @@ class Auth extends CI_Controller {
         $password = $this->input->post('password');
 
         $user = $this->db->get_where('user', ['username' => $username])->row_array();
+        $email = $this->db->get_where('user', ['email' => $username])->row_array();
         //jika user ada
         if($user) {
             //Jika hak akses admin
@@ -56,7 +57,33 @@ class Auth extends CI_Controller {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Anda Bukan Admin</div>');
                 redirect('admin/auth');
             }
-        } else {
+        } if($email) {
+            //Jika hak akses admin
+            if($email['role_id'] <= 2) {
+                //user aktif
+                if($email['is_active'] == 1) {
+                    //cek pass
+                    if(password_verify($password, $email['password'])){
+                        $data = [
+                            'username' => $email['username'],
+                            'role_id' => $email['role_id']
+                        ];
+                        $this->session->set_userdata($data);
+                        redirect('admin/admin');
+                    } else {
+                        $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password Salah!</div>');
+                        redirect('admin/auth');
+                    }
+                } else {
+                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Akun Belum Diaktifkan</div>');
+                    redirect('admin/auth');
+                }
+            } else {
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Anda Bukan Admin</div>');
+                redirect('admin/auth');
+            }
+        }
+        else {
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Akun Belum Terdaftar</div>');
             redirect('admin/auth');
         }

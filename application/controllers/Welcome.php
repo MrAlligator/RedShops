@@ -17,6 +17,7 @@ class Welcome extends CI_Controller {
 		$data['produk4'] = $this->product_model->getJaketIndex();
 		$data['produk5'] = $this->product_model->getKemejaPendekIndex();
 		$data['produk3'] = $this->product_model->getKaosPendekIndex();
+		$data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $this->load->view("user/overview", $data);
 	}
 

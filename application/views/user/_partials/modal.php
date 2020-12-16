@@ -11,8 +11,8 @@
                   <h2 class="modal-title text-center">Masuk</h2>
                   <br>
 
-                  <form class="signin" action="index.php" method="post">
-                    <input type="email" name="email" value="" placeholder="E-mail" required="" class="form-control" />
+                  <form class="signin" action="<?php echo site_url('user/auth') ?>" method="post">
+                    <input type="text" name="username" value="" placeholder="E-mail / Password" required="" class="form-control" />
                     <br>
                     <input type="password" name="password" value="" placeholder="Password" required="" class="form-control" />
                     <br>
