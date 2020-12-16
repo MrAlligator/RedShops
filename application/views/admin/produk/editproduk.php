@@ -63,7 +63,6 @@
                                             <option value="<?php echo $row->jenis;?>"><?php echo $row->jenis;?></option>
                                             <?php endforeach;?>
                                         </select>
-<<<<<<< Updated upstream
                                     </div>
 
                                     <div class="form-group">
@@ -112,42 +111,6 @@
                                         <label for="name">Deskripsi*</label>
                                         <textarea class="form-control <?php echo form_error('deskripsi') ? 'is-invalid':'' ?>" name="deskripsi" placeholder="Product description..."><?php echo $produk->deskripsi ?></textarea>
                                         <div class="invalid-feedback">
-=======
-										<div class="invalid-feedback">
-                                            <?php echo form_error('jenis') ?>
-										</div>
-									</div>
-
-									<div class="form-group">
-										<label for="price">Harga*</label>
-										<input name="harga" class="form-control <?php echo form_error('harga') ? 'is-invalid':'' ?>" type="number" min="0" placeholder="Product price" value="<?php echo $produk->harga_produk ?>" />
-										<div class="invalid-feedback">
-                                            <?php echo form_error('harga') ?>
-										</div>
-									</div>
-
-                                    <div class="form-group">
-										<label for="stok">Jumlah Stok*</label>
-										<input name="jumlahstok" class="form-control <?php echo form_error('jumlahstok') ? 'is-invalid':'' ?>" type="number" min="0" placeholder="Product stock" value="<?php echo $produk->harga_produk ?>" />
-										<div class="invalid-feedback">
-                                            <?php echo form_error('jumlahstok') ?>
-										</div>
-									</div>
-
-
-									<!--<div class="form-group">
-										<label for="name">Foto</label>
-										<input name="foto" class="form-control-file <?php echo form_error('foto') ? 'is-invalid':'' ?>" type="file"/>
-										<div class="invalid-feedback">
-                                            <?php echo form_error('foto') ?>
-										</div>
-									</div> -->
-
-									<div class="form-group">
-										<label for="name">Deskripsi*</label>
-										<textarea class="form-control <?php echo form_error('deskripsi') ? 'is-invalid':'' ?>" name="deskripsi" placeholder="Product description..."><?php echo $produk->deskripsi ?></textarea>
-										<div class="invalid-feedback">
->>>>>>> Stashed changes
                                             <?php echo form_error('deskripsi') ?>
                                         </div>
                                     </div>

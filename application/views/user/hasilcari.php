@@ -59,6 +59,7 @@
       </div>
     </section>
 	<?php $this->load->view("user/_partials/modal.php") ?>
+	<?php $this->load->view("user/_partials/logout.php") ?>
 
 	<?php $this->load->view("user/_partials/js-utama.php") ?>
 	</body>

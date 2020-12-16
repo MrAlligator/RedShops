@@ -12,6 +12,7 @@ class Kemejapendek extends CI_Controller {
 		// load view admin/overview.php
 		$data['title'] = 'Kemeja Lengan Pendek';
 		$data['produk'] = $this->product_model->getKemejaPendek();
+		$data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $this->load->view("user/kemejapendek", $data);
 	}
 }

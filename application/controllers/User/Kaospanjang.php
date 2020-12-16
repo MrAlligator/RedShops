@@ -12,6 +12,7 @@ class Kaospanjang extends CI_Controller {
 		// load view admin/overview.php
 		$data['title'] = 'Kaos Lengan Panjang';
 		$data['produk'] = $this->product_model->getKaosPanjang();
+		$data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $this->load->view("user/kaospanjang", $data);
 	}
 }

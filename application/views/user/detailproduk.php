@@ -15,7 +15,7 @@
 
     
     <nav class="navbar navbar-default">
-      <?php $this->load->view("user/_partials/navbarcat.php") ?>
+      <?php $this->load->view("user/_partials/navbar.php") ?>
     </nav>
     <hr class="offset-lg">
     <hr class="offset-lg">
@@ -218,6 +218,7 @@
 
     <!-- Modal -->
     <?php $this->load->view("user/_partials/modal.php") ?>
+    <?php $this->load->view("user/_partials/logout.php") ?>
 
     <?php $this->load->view("user/_partials/js-produk.php") ?>
 

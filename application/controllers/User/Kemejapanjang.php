@@ -12,6 +12,7 @@ class Kemejapanjang extends CI_Controller {
 		// load view admin/overview.php
 		$data['title'] = 'Kemeja Lengan Panjang';
 		$data['produk'] = $this->product_model->getKemejaPanjang();
+		$data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $this->load->view("user/kemejapanjang", $data);
 	}
 }

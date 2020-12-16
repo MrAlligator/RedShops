@@ -73,6 +73,7 @@
 
     <!-- Modal -->
     <?php $this->load->view("user/_partials/modal.php") ?>
+    <?php $this->load->view("user/_partials/logout.php") ?>
 
     <!-- 
     <div class="modal fade" id="Modal-Gallery" tabindex="-1" role="dialog">

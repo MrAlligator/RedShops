@@ -12,6 +12,7 @@ class Celanapendek extends CI_Controller {
 		// load view admin/overview.php
 		$data['title'] = 'Celana Pendek';
 		$data['produk'] = $this->product_model->getCelanaPendek();
+		$data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $this->load->view("user/celanapendek", $data);
 	}
 }
