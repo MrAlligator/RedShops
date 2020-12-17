@@ -49,7 +49,7 @@
                             <input type="hidden" name="id" value="<?php echo $produk->id_produk?>" />
 
                             <div class="form-group">
-                                <label for="name">Nama*</label>
+                                <label for="name">Nama *</label>
                                 <input name="nama" class="form-control <?php echo form_error('nama') ? 'is-invalid':'' ?>" type="text" placeholder="Product name" value="<?php echo $produk->nama_produk ?>" />
                                 <div class="invalid-feedback">
                                     <?php echo form_error('nama') ?>
@@ -57,7 +57,7 @@
                                 </div>
                                     
                                 <div class="form-group">
-                                        <label for="kind">Jenis*</label><br>
+                                        <label for="kind">Jenis *</label><br>
                                         <select class="form-control" name="jenis" id="jenis" required>
                                             <?php foreach($menu as $row):?>
                                             <option value="<?php echo $row->jenis;?>"><?php echo $row->jenis;?></option>
@@ -66,7 +66,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="price">Harga*</label>
+                                        <label for="price">Harga *</label>
                                         <input name="harga" class="form-control <?php echo form_error('harga') ? 'is-invalid':'' ?>" type="number" min="0" placeholder="Product price" value="<?php echo $produk->harga_produk ?>" />
                                         <div class="invalid-feedback">
                                             <?php echo form_error('harga') ?>
@@ -74,7 +74,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="stok">Jumlah Stok*</label>
+                                        <label for="stok">Jumlah Stok *</label>
                                         <input name="jumlahstok" class="form-control <?php echo form_error('jumlahstok') ? 'is-invalid':'' ?>" type="number" min="0" placeholder="Jumlah Stok" value="<?php echo $produk->jumlahstok ?>" />
                                         <div class="invalid-feedback">
                                             <?php echo form_error('jumlahstok') ?>
@@ -108,8 +108,24 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="name">Deskripsi*</label>
+                                        <label for="name">Deskripsi *</label>
                                         <textarea class="form-control <?php echo form_error('deskripsi') ? 'is-invalid':'' ?>" name="deskripsi" placeholder="Product description..."><?php echo $produk->deskripsi ?></textarea>
+                                        <div class="invalid-feedback">
+                                            <?php echo form_error('deskripsi') ?>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="name">Deskripsi *</label>
+                                        <textarea class="form-control <?php echo form_error('deskripsi') ? 'is-invalid':'' ?>" name="deskripsi2" placeholder="Product description..."><?php echo $produk->deskripsi2 ?></textarea>
+                                        <div class="invalid-feedback">
+                                            <?php echo form_error('deskripsi') ?>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="name">Deskripsi *</label>
+                                        <textarea class="form-control <?php echo form_error('deskripsi') ? 'is-invalid':'' ?>" name="deskripsi3" placeholder="Product description..."><?php echo $produk->deskripsi3 ?></textarea>
                                         <div class="invalid-feedback">
                                             <?php echo form_error('deskripsi') ?>
                                         </div>
@@ -121,7 +137,7 @@
                         </div>
 
                         <div class="card-footer small text-muted">
-                        * required fields
+                        * HARUS DI ISI
                         </div>
 
 						</div>

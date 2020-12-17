@@ -25,6 +25,7 @@ class Welcome extends CI_Controller {
 	{
 		$data['cari'] = $this->search_model->search();
 		$data['title'] = "Hasil Pencarian";
+		$data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
 		$this->load->view('user/hasilcari',$data);
 	}
 }

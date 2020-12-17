@@ -1,12 +1,12 @@
-        <h2 class="h2 upp align-center"> KAOS PANJANG</h2>
+        <h2 class="h2 upp align-center"> KAOS PENDEK</h2>
         <hr class="offset-lg">
 
         <div class="row">
         <?php
-          $tot = count($produk2);
+          $tot = count($produk3);
           if($tot>0)
           {
-            foreach ($produk2 as $data) {
+            foreach ($produk3 as $data) {
               ?>
               <div class="col-sm-6 col-md-3 product">
               <div class="body">
@@ -17,7 +17,7 @@
                 <h2 class="h3"><?= $data->nama_produk ?></h2>
                 <hr class="offset-sm">
         
-                <button class="btn btn-link"> <i class="ion-android-open"></i> Details</button>
+                <a class="btn btn-link" href="<?= site_url('user/detailproduk/lihat/'.$data->id_produk) ?>"> <i class="ion-android-open"></i> Details</a>
                 <button class="btn btn-primary btn-sm rounded"> <i class="ion-bag"></i> Add to cart</button>
                 </div>
               </div>

@@ -23,19 +23,19 @@ class Detailproduk extends CI_Controller {
 
 	public function lihat($id = null)
     {
-        if (!isset($id)) redirect('admin/admin/produk');
+        if (!isset($id)) redirect('welcome');
         $product = $this->product_model;
         $validation = $this->form_validation;
         $validation->set_rules($product->rules());
 
-        $data['title'] = 'Edit Produk';
+        $data['title'] = 'Detail Produk';
         $data["menu"] = $this->dropdown_model->get_jenis();
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data["produk"] = $product->getById($id);
         if (!$data["produk"]) show_404();
         
         if ($validation->run() == false) {
-            $this->load->view("admin/produk/editproduk", $data);
+            $this->load->view("user/detailproduk", $data);
         } else {
             if ($product->update() == true) {
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil diubah</div>');

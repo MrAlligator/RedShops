@@ -52,11 +52,12 @@
           </div><!--/.nav-collapse -->
 
 
+          <form action="<?php echo base_url("welcome/hasil") ?>" method="get">
           <div class="search hidden-xs" data-style="hidden">
             <div class="input">
               <button type="button"><i class="ion-ios-search"></i></button>
-
               <input type="text" name="search" value="" placeholder="Type here..." />
             </div>
           </div>
+        </form>
         </div><!--/.container-fluid -->

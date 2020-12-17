@@ -50,7 +50,7 @@
   </div>
   <!--/.nav-collapse -->
 
-  <form action="<?php echo base_url("user/overview/hasil") ?>" method="get">
+  <form action="<?php echo base_url("welcome/hasil") ?>" method="get">
     <div class="search hidden-xs" data-style="hidden">
       <div class="input">
         <button type="button"><i class="ion-ios-search"></i></button>

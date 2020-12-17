@@ -10,7 +10,7 @@ class Auth extends CI_Controller {
     public function index()
 	{
         if($this->session->userdata('username')) {
-            redirect('user/overview');
+            redirect('welcome');
         }
 
         $data['title'] = 'Login';
@@ -100,7 +100,7 @@ class Auth extends CI_Controller {
     public function regis()
 	{
         if($this->session->userdata('username')) {
-            redirect('user/overview');
+            redirect('welcome');
         }
         $data['title'] = 'Registrasi';
         $this->form_validation->set_rules('nama', 'Nama', 'required|trim');
@@ -117,7 +117,7 @@ class Auth extends CI_Controller {
         $this->form_validation->set_rules('password', 'Password', 'required|trim|matches[password]');
         if($this->form_validation->run() == false){
             $this->session->set_flashdata('message');
-            $this->load->view("user/overview");
+            $this->load->view("welcome");
             
         } else {
             $email = $this->input->post('email',true);
@@ -145,7 +145,7 @@ class Auth extends CI_Controller {
             $this->_sendEmail($token, 'verify');
 
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Selamat! Akun berhasil dibuat. Silahkan cek email untuk verifikasi</div>');
-            redirect('user/overview');
+            redirect('welcome');
         }
     }
 

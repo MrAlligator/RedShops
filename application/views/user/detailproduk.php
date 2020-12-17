@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title> Unistore Pro &middot; Premium Responsive E-Commerce Template</title>
+    <title> RedShops &middot; <?= $produk->nama_produk ?></title>
     <?php $this->load->view("user/_partials/head.php") ?>
   </head>
   <body>
@@ -33,7 +33,7 @@
                 <button class="btn btn-control" data-direction="left"> <i class="ion-ios-arrow-left"></i></button>
 
                 <div class="item center" data-marker="1">
-                  <img src="<?php echo base_url('assets/img/product/1.jpg') ?>" alt="Microsoft Surface Studio" class="background"/>
+                  <img src="<?php echo base_url('assets/img/products/'. $produk->foto_produk) ?>" alt="Microsoft Surface Studio" class="background"/>
                 </div>
                 
                 <div class="item" data-marker="2">
@@ -57,7 +57,7 @@
             <div class="caption">
               <img src="<?php echo base_url('assets/img/brands/microsoft.png') ?>" alt="Microsoft" class="brand hidden-xs hidden-sm" />
 
-              <h1>Surface Studio</h1>
+              <h1><?= $produk->nama_produk ?></h1>
 
               <p> &middot; OS Windows™ 10</p>
               <p> &middot; 28 Inch PixelSense™ Display</p>
@@ -66,8 +66,7 @@
               <hr class="offset-sm visible-sm">
               <hr class="offset-xs visible-sm">
 
-              <p class="price">$2 999.00</p>
-              <p class="price through">$3 449.99</p>
+              <p class="price"><?= $produk->harga_produk ?></p>
               <hr class="offset-md">
 
               <button class="btn btn-primary rounded"> <i class="ion-bag"></i> Add to cart</button>
@@ -81,12 +80,11 @@
           <div class="col-sm-7 white sm-padding">
             <hr class="offset-sm visible-xs">
 
-            <h2 class="h1">Microsoft Surface Studio</h2>
+            <h2 class="h1"><?= $produk->nama_produk ?></h2>
             <br>
 
             <p>
-              Visualize ideas as you paint, edit, and design. Let the 10-bit color depth and strikingly large 28” display pull you in from across the room. Or, lose yourself in the creative details of your work.
-              Surface Studio is designed with a Zero Gravity Hinge that moves the display weightlessly from an upright angle, down into Studio Mode with one hand.
+              <?= $produk->deskripsi ?>
             </p>
             <br>
 
@@ -167,42 +165,7 @@
               <a href="tel:+80005554465" class="btn btn-primary btn-sm"> <i class="ion-social-whatsapp"></i> 8000 555-44-65 </a>
               <hr class="offset-md visible-xs">
             </div>
-            <hr class="offset-sm hidden-xs">
-
-            <div class="comments white">
-              <h2 class="h3">What do you think? (#3)</h2>
-              <br>
-
-
-              <div class="wrapper">
-                <div class="content">
-                  <h3>Anne Hathaway</h3>
-                  <label>2 years ago</label>
-                  <p>
-                    Apple Music brings iTunes music streaming to the UK. But is it worth paying for? In our Apple Music review, we examine the service's features, UK pricing, audio quality and music library
-                  </p>
-
-
-                  <h3>Chris Hemsworth</h3>
-                  <label>Today</label>
-                  <p>
-                    Samsung's Galaxy S7 smartphone is getting serious hype. Here's what it does better than Apple's iPhone 6s.
-                  </p>
-
-
-                  <h3>Anne Hathaway</h3>
-                  <label>2 years ago</label>
-                  <p>
-                    Apple Music brings iTunes music streaming to the UK. But is it worth paying for? In our Apple Music review, we examine the service's features, UK pricing, audio quality and music library
-                  </p>
-                </div>
-              </div>
-              <hr class="offset-lg">
-              <hr class="offset-md">
-
-              <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#Modal-Comment"> <i class="ion-chatbox-working"></i> Add comment </button>
-              <hr class="offset-md visible-xs">
-            </div>            
+            <hr class="offset-sm hidden-xs">            
           </div>
         </div>
       </div>

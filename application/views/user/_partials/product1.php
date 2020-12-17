@@ -17,7 +17,7 @@
 						<h2 class="h3"><?= $data->nama_produk ?></h2>
 						<hr class="offset-sm">
 		
-						<a class="btn btn-link" href="<?= site_url('user/detailproduk'.$product->id_produk) ?>"> <i class="ion-android-open"></i> Details</a>
+						<a class="btn btn-link" href="<?= site_url('user/detailproduk/lihat/'.$data->id_produk) ?>"> <i class="ion-android-open"></i> Details</a>
 						<button class="btn btn-primary btn-sm rounded"> <i class="ion-bag"></i> Add to cart</button>
 					  </div>
 					</div>

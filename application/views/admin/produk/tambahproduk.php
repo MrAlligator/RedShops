@@ -38,9 +38,9 @@
 								<a href="<?php echo site_url('admin/admin/produk') ?>"><i class="fas fa-arrow-left"></i> Back</a>
 							</div>
 							<div class="card-body">
-                            <!-- <?php echo $this->session->flashdata('message'); ?> -->
+                            <?php echo $this->session->flashdata('message'); ?>
 								<form action="<?php echo site_url('admin/admin/add') ?>" method="post" enctype="multipart/form-data" >
-                                    <div class="form-group">
+                                    <div class="form-group">    
 										<label for="name">Nama *</label>
 										<input name="nama" class="form-control <?php echo form_error('nama') ? 'is-invalid':'' ?>" type="text" placeholder="Nama Produk" />
 										<div class="invalid-feedback">

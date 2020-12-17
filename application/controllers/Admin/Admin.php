@@ -47,10 +47,10 @@ class Admin extends CI_Controller
         } else {
             if($product->save() == true) {
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil ditambahkan</div>');
-                redirect("admin/produk/tambahproduk");
+                redirect("admin/admin/add");
             } else {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Data gagal ditambahkan</div>');
-                redirect("admin/produk/tambahproduk");
+                redirect("admin/admin/add");
             }
         }
     }
