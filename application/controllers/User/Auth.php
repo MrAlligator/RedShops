@@ -5,20 +5,25 @@ class Auth extends CI_Controller {
     {
         parent::__construct();
         $this->load->library('form_validation');
+        $this->load->model('product_model');
     }
     
     public function index()
 	{
         if($this->session->userdata('username')) {
-            redirect('welcome');
+            redirect('user/auth');
         }
-
-        $data['title'] = 'Login';
+        $data['produk1'] = $this->product_model->getKemejaPanjangIndex();
+		$data['produk2'] = $this->product_model->getKaosPanjangIndex();
+		$data['produk4'] = $this->product_model->getJaketIndex();
+		$data['produk5'] = $this->product_model->getKemejaPendekIndex();
+		$data['produk3'] = $this->product_model->getKaosPendekIndex();
+		$data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $this->form_validation->set_rules('username', 'Username', 'required|trim');
         $this->form_validation->set_rules('password', 'Password', 'required|trim');
 
         if($this->form_validation->run() == false) {
-            $this->load->view("welcome", $data);
+            $this->load->view("user/overview", $data);
         } else {
             //validasi lolos
             $this->_login();
@@ -146,6 +151,39 @@ class Auth extends CI_Controller {
 
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Selamat! Akun berhasil dibuat. Silahkan cek email untuk verifikasi</div>');
             redirect('welcome');
+        }
+    }
+
+    public function forgot()
+    {
+        $data['title'] = 'Lupa Password';
+        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email');
+
+        if($this->form_validation->run() == false) {
+            $this->load->view("user/overview", $data);
+        } else {
+            //validasi lolos
+            $email = $this->input->post('email');
+            $this->db->get_where('user', ['email' => $email, 'is_active' => 1])->row_array();
+
+            if($email) {
+                $token = base64_encode(random_bytes(32));
+                $user_token = [
+                    'email' => $email,
+                    'token' => $token,
+                    'date_created' => time()
+                ];
+
+                $this->db->insert('user_token', $user_token);
+                $this->_sendEmail($token, 'forgot');
+
+                $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Silahkan cek email untuk reset password</div>');
+                redirect('user/auth');
+
+            } else {
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Email belum terdaftar atau Belum aktif</div>');
+                redirect('user/auth/forgot');
+            }
         }
     }
 

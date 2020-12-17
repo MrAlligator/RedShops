@@ -87,7 +87,7 @@
                   <h4 class="modal-title">Lupa Password Anda?</h4>
                   <br>
 
-                  <form class="join" action="index.php" method="post">
+                  <form class="join" action="<?= base_url('user/auth/forgot') ?>" method="post">
                     <input type="email" name="email" value="" placeholder="E-mail" required="" class="form-control" />
                     <br>
 

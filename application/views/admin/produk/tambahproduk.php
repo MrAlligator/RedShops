@@ -90,7 +90,7 @@
 									</div> -->
 
 									<div class="form-group">
-										<label for="name">Deskripsi *</label>
+										<label for="name">Deskripsi Singkat *</label>
 										<textarea class="form-control <?php echo form_error('deskripsi') ? 'is-invalid':'' ?>" name="deskripsi" placeholder="Deskripsi Produk..."></textarea>
 										<div class="invalid-feedback">
                                             <?php echo form_error('deskripsi') ?>
@@ -98,7 +98,7 @@
 									</div>
 
                                     <div class="form-group">
-										<label for="name">Deskripsi 2 *</label>
+										<label for="name">Deskripsi Detail *</label>
 										<textarea class="form-control <?php echo form_error('deskripsi') ? 'is-invalid':'' ?>" name="deskripsi2" placeholder="Deskripsi Produk..."></textarea>
 										<div class="invalid-feedback">
                                             <?php echo form_error('deskripsi') ?>
@@ -106,7 +106,7 @@
 									</div>
 
                                     <div class="form-group">
-										<label for="name">Deskripsi 3 *</label>
+										<label for="name">Spesifikasi *</label>
 										<textarea class="form-control <?php echo form_error('deskripsi') ? 'is-invalid':'' ?>" name="deskripsi3" placeholder="Deskripsi Produk..."></textarea>
 										<div class="invalid-feedback">
                                             <?php echo form_error('deskripsi') ?>

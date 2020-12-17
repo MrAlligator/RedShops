@@ -12,7 +12,7 @@
 				<a href="./"><img src="<?= base_url('assets/img/products/'.$data->foto_produk) ?>" alt="Apple iMac 27 Retina"/></a>
 
 				<div class="content align-center">
-				<p class="price"><?= $data->harga_produk ?></p>
+				<p class="price">Rp. <?= $data->harga_produk ?>,-</p>
 				<h2 class="h3"><?= $data->nama_produk ?></h2>
 				<hr class="offset-sm">
 
