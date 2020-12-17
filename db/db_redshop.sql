@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 14 Des 2020 pada 13.31
+-- Waktu pembuatan: 17 Des 2020 pada 08.42
 -- Versi server: 10.4.8-MariaDB
 -- Versi PHP: 7.3.10
 
@@ -74,7 +74,8 @@ CREATE TABLE `produk` (
   `harga_produk` int(11) NOT NULL,
   `jumlahstok` int(11) NOT NULL,
   `foto_produk` varchar(255) NOT NULL DEFAULT 'default.jpg',
-  `foto_produk2` varchar(256) NOT NULL,
+  `foto_produk2` varchar(256) NOT NULL DEFAULT 'default.jpg',
+  `foto_produk3` varchar(256) NOT NULL DEFAULT 'default.jpg',
   `deskripsi` text NOT NULL,
   `deskripsi2` text NOT NULL,
   `deskripsi3` text NOT NULL
@@ -84,11 +85,21 @@ CREATE TABLE `produk` (
 -- Dumping data untuk tabel `produk`
 --
 
-INSERT INTO `produk` (`id_produk`, `nama_produk`, `jenis_produk`, `harga_produk`, `jumlahstok`, `foto_produk`, `foto_produk2`, `deskripsi`, `deskripsi2`, `deskripsi3`) VALUES
-('5fafd9b55c2b1', 'jgjhgjhgg', 'Kaos Lengan Panjang', 2456789, 12345, '5fafd9b55c2b1.jpg', 'default.jpg', 'jvjfyugjhg', 'jvjfyugjhg', 'jvjfyugjhg'),
-('5fbb46cec2fb7', 'Whuzz', 'Kaos Lengan Panjang', 100000, 444, 'default.jpg', 'default.jpg', 'hjgljkhg', 'lkj', 'jhgkjjkg'),
-('5fbb46ec9ee58', 'kjhkjh', 'Kaos Lengan Panjang', 5436, 65446, 'default.jpg', 'default.jpg', 'djhgfjfg', 'djhgfjfg', 'djhgfjfg'),
-('5fc102fbc028d', 'Hoddie', 'Jaket', 200000, 23, '5fc102fbc028d.jpg', 'default.jpg', 'Akwkwakwak', 'wakkawkwakwa', 'wakawkawkwakwa');
+INSERT INTO `produk` (`id_produk`, `nama_produk`, `jenis_produk`, `harga_produk`, `jumlahstok`, `foto_produk`, `foto_produk2`, `foto_produk3`, `deskripsi`, `deskripsi2`, `deskripsi3`) VALUES
+('5fafd9b55c2b1', 'jgjhgjhgg', 'Kaos Lengan Panjang', 2456789, 12345, '5fafd9b55c2b1.jpg', 'default.jpg', 'default.jpg', 'jvjfyugjhg', 'jvjfyugjhg', 'jvjfyugjhg'),
+('5fbb46cec2fb7', 'Whuzz', 'Kaos Lengan Panjang', 100000, 444, 'default.jpg', 'default.jpg', 'default.jpg', 'hjgljkhg', 'lkj', 'jhgkjjkg'),
+('5fbb46ec9ee58', 'kjhkjh', 'Kaos Lengan Panjang', 5436, 65446, 'default.jpg', 'default.jpg', 'default.jpg', 'djhgfjfg', 'djhgfjfg', 'djhgfjfg'),
+('5fc102fbc028d', 'Hoddie', 'Jaket', 200000, 23, '5fc102fbc028d.jpg', 'default.jpg', 'default.jpg', 'Akwkwakwak', 'wakkawkwakwa', 'wakawkawkwakwa'),
+('5fdaa6ea6b742', 'ashjfgh', 'Kaos Lengan Pendek', 1241, 124124, 'default.jpg', 'default.jpg', 'default.jpg', '124124', 'dfsfaugiyg', 'igiugafiaf'),
+('5fdaa73679dbd', 'ajhsfgjhagf', 'Kaos Lengan Panjang', 12313, 12442, 'default.jpg', 'default.jpg', 'default.jpg', 'dskjahlg', 'kjflkjg', 'kjhljkh'),
+('5fdaa7722811c', 'ajhsfgjhagf', 'Kaos Lengan Panjang', 12313, 12442, 'default.jpg', 'default.jpg', 'default.jpg', 'dskjahlg', 'kjflkjg', 'kjhljkh'),
+('5fdaa7915d143', 'avg', 'Kaos Lengan Pendek', 12412, 24325, 'default.jpg', 'default.jpg', 'default.jpg', 'sdgvisg', 'dhfhg', 'sdkjgsjhg'),
+('5fdaa7bae17fa', 'hbjk', 'Kemeja Lengan Panjang', 12124, 23546, 'default.jpg', 'default.jpg', 'default.jpg', 'sdkvhls', 'kkshdvlksdh', 'jdshgkjsah'),
+('5fdaa7c82f956', 'kjbkjhjkh', 'Kemeja Lengan Panjang', 124124, 124124, 'default.jpg', 'default.jpg', 'default.jpg', 'jvlsvlsav', 'akjvajsvh', 'ksjvaskljvhaslv'),
+('5fdaa8d8e606a', 'jkjkhj', 'Kemeja Lengan Pendek', 12512512, 2145125, 'default.jpg', 'default.jpg', 'default.jpg', 'dsgsg', 'sdgsg', 'dsgsg'),
+('5fdae91228391', 'Jeans Jacket', 'Jaket', 100000, 100, 'default.jpg', 'default.jpg', 'default.jpg', 'jhshafjhasgfjhaf', 'kashgfasfg', 'ahjgfkjasgf'),
+('5fdaea1e9c49f', 'Rizki Widya', 'Kaos Lengan Panjang', 60000, 100, 'default.jpg', 'default.jpg', 'default.jpg', 'kajhflashgh', 'jashjkahg', 'jaghajk'),
+('5fdaf10cac6a3', 'jghakgjhag', 'Kemeja Lengan Panjang', 94876, 76, 'default.jpg', 'default.jpg', 'default.jpg', 'khqwgfjhagfagf', 'hagfashgfsagfgf', 'asfhgasjhfgjhasgf');
 
 -- --------------------------------------------------------
 
@@ -147,10 +158,11 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `name`, `email`, `username`, `image`, `password`, `role_id`, `is_active`, `date_created`) VALUES
-(15, 'Rizki Pratama', 'e41181256@student.polije.ac.id', 'superadmin', 'IMG_1216.jpg', '$2y$10$Ue1Gy7/2ayI9T/EctwsPS.0rl6L1CM0rI.FATdQ/onj2xW6jxmO2K', 1, 1, 1606392372),
+(15, 'Rizki Pratama', 'e41181256@student.polije.ac.id', 'superadmin', '_MG_5223.JPG', '$2y$10$Ue1Gy7/2ayI9T/EctwsPS.0rl6L1CM0rI.FATdQ/onj2xW6jxmO2K', 1, 1, 1606392372),
 (20, 'Silviana', 'silvianawidya46@gmail.com', 'admin', 'default.jpg', '$2y$10$8GLRq0LPEyHM4WNVNq41LOUa4HB2ByzRfJ3Pnzv8OrEq0a0nmRK6K', 2, 1, 1606920350),
 (21, 'obay', 'ilmi.obbi@gmail.com', 'obay', 'default.jpg', '$2y$10$R/jIbdBOYo/HfUFYDUwrqOXHbyLvomqNnRBAUGNdAc87zSjDmgTrG', 1, 0, 1606921272),
-(26, 'Rizki Widya', 'rizkiw8778@gmail.com', 'mrrest', 'default.jpg', '$2y$10$0r2e6Y6Dsj1tstUf45hl6OqX9z6yVIb4aUH./bbP3yQxx45dgtekC', 3, 1, 1607434853);
+(26, 'Rizki Widya', 'rizkiw8778@gmail.com', 'mrrest', 'default.jpg', '$2y$10$dLRNmp98IbxLfzVBQSx3buzI1lqQDQdyJ7yebhEr0BySwEPzXf.kK', 3, 1, 1607434853),
+(27, 'Widya Rizki', 'rizkipratama7575@gmail.com', 'e41181256', 'default.jpg', '$2y$10$B9/W5kyYQV14AgaD9NVAQOc4Drgz.bHdS15MN2pltheifhu/n36oa', 2, 1, 1608086405);
 
 -- --------------------------------------------------------
 
@@ -242,7 +254,8 @@ INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active
 (14, 2, 'Ubah Password', 'admin/user/editpass', 'fas fa-fw fa-key', 1),
 (15, 3, 'User', 'admin/administrator', 'fas fa-fw fa-users', 1),
 (16, 1, 'Transaksi', 'admin/admin/transaksi', 'fas fa-fw fa-handshake', 1),
-(17, 1, 'Alamat Toko', 'admin/admin/editalamat', 'fas fa-map-marked-alt', 1);
+(17, 1, 'Alamat Toko', 'admin/admin/editalamat', 'fas fa-map-marked-alt', 1),
+(18, 1, 'Foto Produk', 'admin/admin/fotoproduk', 'fas fa-fw fa-handshake', 1);
 
 -- --------------------------------------------------------
 
@@ -269,7 +282,21 @@ INSERT INTO `user_token` (`id_token`, `email`, `token`, `date_created`) VALUES
 (19, 'silvianawidya46@gmail.com', 'jh98nzIJZvHQ8clMi+3GzUcofkcP0x1AIfLNcKGVi3A=', 1606920350),
 (22, 'rizkiw8778@gmail.com', 'Um0c7XM2C7VZ0p1Lfk+fKjIP+0mdfME28tbAsrmcnVw=', 1607396247),
 (23, 'rizkiw8778@gmail.com', 'muogJxzbxDvz5pYph/BW2E+KjK84PHOk86yG7n6jDGI=', 1607396725),
-(24, 'rizkiw8778@gmail.com', 'cHGWZoxIiyBUfsE/bSaCAll1buIrsBN6g0M42VXTHCw=', 1607396976);
+(24, 'rizkiw8778@gmail.com', 'cHGWZoxIiyBUfsE/bSaCAll1buIrsBN6g0M42VXTHCw=', 1607396976),
+(25, 'rizkipratama7575@gmail.com', 'ZmQY+Ocx+DZwmxt00dqa1YdlRSwMTPjy25jnB9Gud0I=', 1608086429),
+(26, 'rizkipratama7575@gmail.com', 'VSaQsRgwOdcyn6VZu4LZs9YikNZPlWN/e/ByDCvrHSQ=', 1608177268),
+(27, 'rizkiw8778@gmail.com', '80dntzm/zS8t8RB6jX/t/T9Z8AoORxjrQHUPwLgYwxM=', 1608177857),
+(28, 'rizkiw8778@gmail.com', 'nK6qE1wDShbXN2yNjZkXRyejApIUa+uV0OJe72ewwh8=', 1608177921),
+(29, 'rizkiw8778@gmail.com', 'KI9ILrJpsy+0mVg1/s9XfQb0bNuG6rrySaPJBEeJ6a4=', 1608189393),
+(30, 'rizkiw8778@gmail.com', 'wKIpApA2UkKf6mW0BX58M+G0id64uw0NmK4Tl9gAzlg=', 1608189435),
+(31, 'rizkiw8778@gmail.com', 'LKaKVihjIsfk70Sygh3g99auZu76024xte2ilejAnhw=', 1608189451),
+(32, 'rizkiw8778@gmail.com', 'IVrZNLIn9AUeba6PhSkjlfXQyyr5Lmn9sWxn+ev7aMg=', 1608189503),
+(33, 'rizkiw8778@gmail.com', 'ZxwImzKLeVHd5MU/wrabY/RudHTQBlULrWnT75OknU0=', 1608189526),
+(34, 'rizkiw8778@gmail.com', 'Rmvf1NGQ4jLKnVgWRhaZvzRyVPmYEPTtacgoJCz/ygA=', 1608189630),
+(35, 'rizkipratama7575@gmail.com', 'e8iNnzJ/BSucaIZkCi1Y3JAFHhj6kp0u0iGfAfT5gd0=', 1608189664),
+(36, 'rizkipratama7575@gmail.com', 'tO6nlqzLR4HIfWlzKVPpPF6bxwjI5H9/oCy1HZZu1sM=', 1608189750),
+(37, 'rizkiw8778@gmail.com', '+gXBKylVrIaWoF9nA8HeTNvDXH2kPyJmVkmLxZ6nmHI=', 1608189864),
+(38, 'rizkiw8778@gmail.com', 'Vo9eCxIir/1uTfDLf5QUU4yaalzGgJawwig2VSYOGe4=', 1608189892);
 
 --
 -- Indexes for dumped tables
@@ -357,7 +384,7 @@ ALTER TABLE `transaksi`
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT untuk tabel `user_access_menu`
@@ -381,13 +408,13 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT untuk tabel `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT untuk tabel `user_token`
 --
 ALTER TABLE `user_token`
-  MODIFY `id_token` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_token` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
