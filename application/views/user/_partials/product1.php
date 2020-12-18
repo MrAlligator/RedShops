@@ -1,4 +1,8 @@
-        <h2 class="h2 upp align-center"> KEMEJA PANJANG </h2>
+        <div class="align-center">
+			<?php echo $this->session->flashdata('message'); ?>
+		</div>
+		<h2 class="h2 upp align-center"> KEMEJA PANJANG </h2>
+
         <hr class="offset-lg">
 
         <div class="row">

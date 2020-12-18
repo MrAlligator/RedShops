@@ -9,7 +9,12 @@
 	</head>
 	<body>
 
-	<?php $this->load->view("user/_partials/toplinks.php") ?>
+	<?php if (isset($user['username'])) : ?>
+		<?php $this->load->view("user/_partials/cart.php") ?>
+		<?php $this->load->view("user/_partials/toplinks.php") ?>
+    <?php else : ?>
+    	<?php $this->load->view("user/_partials/toplinks.php") ?>
+    <?php endif; ?>
 
 	<nav class="navbar navbar-default">
         <?php $this->load->view("user/_partials/navbar.php") ?>
