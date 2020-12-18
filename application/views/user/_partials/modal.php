@@ -42,7 +42,6 @@
           <div class="row">
             <div class="col-sm-6 col-sm-offset-3">
               <h2 class="modal-title text-center">Registration</h2>
-              <?php echo $this->session->flashdata('message'); ?>
               <br>
 
               <form class="join" action="<?php echo base_url('user/auth/regis') ?>" method="post">
