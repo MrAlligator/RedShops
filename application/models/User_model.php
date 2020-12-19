@@ -10,6 +10,9 @@ class user_model extends CI_Model
     public $username;
     public $image = "default.jpg";
     public $password;
+    public $alamat;
+    public $alamat2;
+    public $alamat3;
     public $role_id;
     public $is_active;
     public $date_created;
@@ -62,6 +65,18 @@ class user_model extends CI_Model
         $this->username = $post["username"];
         $this->image = 'default.jpg';
         $this->password = password_hash("admin123", PASSWORD_DEFAULT);
+        $this->alamat = 'Belum diatur';
+        $this->kab = 'Belum diatur';
+        $this->prov = 'Belum diatur';
+        $this->telp = 'Belum diatur';
+        $this->alamat2 = 'Belum diatur';
+        $this->kab2 = 'Belum diatur';
+        $this->prov2 = 'Belum diatur';
+        $this->telp2 = 'Belum diatur';
+        $this->alamat3 = 'Belum diatur';
+        $this->kab3 = 'Belum diatur';
+        $this->prov3 = 'Belum diatur';
+        $this->telp3 = 'Belum diatur';
         $this->role_id = $post["role"];
         $this->is_active = 1;
         $this->date_created = time();

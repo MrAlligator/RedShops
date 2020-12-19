@@ -31,12 +31,12 @@
 
         <div class="row">
             <div class="col-sm-3 col-md-2">
-                <h2>My Account</h2>
+                <h2>Akun Saya</h2>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-sm-3 col-md-2">
+            <div class="col-sm-12">
                 Welcome back, <?= $user['name']; ?>
             </div>
         </div>
@@ -44,8 +44,8 @@
         <hr class="offset-md">
 
         <div class="row">
-            <div class="col-sm-8 col-md-8">
-                <h2>My Orders</h2>
+            <div class="col-sm-12">
+                <h2>Pesanan Saya</h2>
                 You haven't placed any orders yet
             </div>
         </div>
@@ -53,13 +53,67 @@
         <hr class="offset-md">
 
         <div class="row">
-            <div class="col-sm-8 col-md-8">
-                <h2>My Address</h2>
-                <?= $user['alamat']; ?>
-                <!-- No addresses are currently saved -->
-            </div>
-            <div class="col-sm-8 col-md-3">
-                <a href="#alamat" data-toggle="modal" data-target="#Modal-Alamat"> <button type="button" class="btn btn-primary btn-lg">Manage Adresses</button></a>
+            <div class="col-sm-12">
+                <h2>Alamat Saya</h2>
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Alamat</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <?php if ($user['alamat'] != 'Belum diatur') : ?>
+                            <tr>
+                                <td>
+                                    <?= $user['alamat']; ?>, <?= $user['kab']; ?>, <?= $user['prov']; ?>
+                                    </br><?= $user['telp']; ?></td> 
+                                </td>
+                                <td>
+                                    <a href="#alamat" data-toggle="modal" data-target="#Modal-editAlamat" class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
+                                    <a onclick="deleteConfirm('<?php echo site_url('admin/admin/delete/') ?>')" href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
+                                </td>
+                            </tr>
+                        <?php else : ?>
+                            <tr>
+                                <td>
+                                    <?= $user['alamat'];?>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                        <?php endif; ?>
+                        <?php if ($user['alamat2'] != 'Belum diatur') : ?>
+                            <tr>
+                                <td>
+                                    <?= $user['alamat2'];?>
+                                </td>
+                                <td>
+                                    <a href="#alamat" data-toggle="modal" data-target="#Modal-editAlamat2" class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
+                                    <a onclick="deleteConfirm('<?php echo site_url('admin/admin/delete/') ?>')" href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
+                                </td>
+                            </tr>
+                        <?php else : ?>
+                            
+                        <?php endif; ?>
+                        <?php if ($user['alamat3'] != 'Belum diatur') : ?>
+                            <tr>
+                                <td>
+                                    <?= $user['alamat3'];?>
+                                </td>
+                                <td>
+                                    <a href="#alamat" data-toggle="modal" data-target="#Modal-editAlamat3" class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
+                                    <a onclick="deleteConfirm('<?php echo site_url('admin/admin/delete/') ?>')" href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
+                                </td>
+                            </tr>
+                        <?php else : ?>
+                            
+                        <?php endif; ?>
+                        </tbody>
+                    </table>
+                </div>
+                <a href="#alamat" data-toggle="modal" data-target="#Modal-addAlamat"> <button type="button" class="btn btn-primary btn-lg"><?= $title2?></button></a>
             </div>
         </div>
 

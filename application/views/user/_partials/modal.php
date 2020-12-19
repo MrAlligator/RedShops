@@ -109,7 +109,7 @@
   </div>
 </div>
 
-<div class="modal fade" id="Modal-Alamat" tabindex="-1" role="dialog">
+<div class="modal fade" id="Modal-addAlamat" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -119,13 +119,139 @@
         <div class="container-fluid">
           <div class="row">
             <div class="col-sm-6 col-sm-offset-3">
-              <h2 class="modal-title text-center">Manage Address</h2>
+              <h2 class="modal-title text-center"><?= $title2 ?></h2>
+              <br>
+
+              <?php if($user['alamat'] != 'Belum diatur') : ?>
+                <form class="join" action="<?= base_url('user/profile/addalamat2') ?>" method="post">
+              <?php elseif($user['alamat'] != 'Belum diatur' && $user['alamat2'] != 'Belum diatur' ) : ?>
+                <form class="join" action="<?= base_url('user/profile/addalamat3') ?>" method="post">
+              <?php else : ?>
+                <form class="join" action="<?= base_url('user/profile/addalamat') ?>" method="post">
+              <?php endif ;?>
+                <div class="form-group">
+                  <label for="alamat">Alamat</label>
+                  <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Masukkan Alamat"></input>
+                  <label for="alamat">Provinsi</label>
+                  <select class="form-control" name="provinsi"></select>
+                  <label for="alamat">Kabupaten</label>
+                  <select class="form-control" name="kabupaten"></select>
+                  <label for="alamat">No Telepon</label>
+                  <input type="text" class="form-control" id="telp" name="telp" placeholder="Masukkan No Telepon"></input>
+                </div>
+                <button type="submit" class="btn btn-primary">Simpan</button>
+              </form>
+
+              <br>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="Modal-editAlamat" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="ion-android-close"></i></span></button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+              <h2 class="modal-title text-center">Edit Alamat</h2>
               <br>
 
               <form>
                 <div class="form-group">
                   <label for="alamat">Alamat</label>
-                  <textarea class="form-control" id="alamat" name="alamat" rows="3" value="<?php echo $user['alamat']; ?>"></textarea>
+                  <input type="text" class="form-control" id="alamat" name="alamat" value="<?php echo $user['alamat']; ?>"></input>
+                  <label for="alamat">Provinsi</label>
+                  <select class="form-control" name="provinsi"></select>
+                  <label for="alamat">Kabupaten</label>
+                  <select class="form-control" name="kabupaten"></select>
+                  <label for="alamat">No Telepon</label>
+                  <input type="text" class="form-control" id="telp" name="telp" value="<?php echo $user['telp']; ?>"></input>
+                </div>
+                <button type="submit" class="btn btn-primary">Simpan</button>
+              </form>
+
+              <br>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="Modal-editAlamat2" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="ion-android-close"></i></span></button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+              <h2 class="modal-title text-center">Edit Alamat</h2>
+              <br>
+
+              <form>
+                <div class="form-group">
+                  <label for="alamat">Alamat</label>
+                  <input type="text" class="form-control" id="alamat" name="alamat" value="<?php echo $user['alamat2']; ?>"></input>
+                  <label for="alamat">Provinsi</label>
+                  <select class="form-control" name="provinsi"></select>
+                  <label for="alamat">Kabupaten</label>
+                  <select class="form-control" name="kabupaten"></select>
+                  <label for="alamat">No Telepon</label>
+                  <input type="text" class="form-control" id="telp" name="telp" value="<?php echo $user['telp2']; ?>"></input>
+                </div>
+                <button type="submit" class="btn btn-primary">Simpan</button>
+              </form>
+
+              <br>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="Modal-editAlamat3" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="ion-android-close"></i></span></button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+              <h2 class="modal-title text-center">Edit Alamat</h2>
+              <br>
+
+              <form>
+                <div class="form-group">
+                  <label for="alamat">Alamat</label>
+                  <input type="text" class="form-control" id="alamat" name="alamat" value="<?php echo $user['alamat3']; ?>"></input>
+                  <label for="alamat">Provinsi</label>
+                  <select class="form-control" name="provinsi"></select>
+                  <label for="alamat">Kabupaten</label>
+                  <select class="form-control" name="kabupaten"></select>
+                  <label for="alamat">No Telepon</label>
+                  <input type="text" class="form-control" id="telp" name="telp" value="<?php echo $user['telp3']; ?>"></input>
                 </div>
                 <button type="submit" class="btn btn-primary">Simpan</button>
               </form>

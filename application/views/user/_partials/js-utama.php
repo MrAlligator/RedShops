@@ -52,3 +52,33 @@
         });
     });
 </script>
+
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        //masukkan data ke select provinsi
+        $.ajax({
+            type: "POST",
+            url: "<?= base_url('rajaongkir/provinsi') ?>",
+            success: function(hasil_provinsi) {
+                // console.log(hasil_provinsi);
+                $("select[name=provinsi]").html(hasil_provinsi);
+            }
+        });
+
+        //masukkan data ke select kabupaten
+        $("select[name=provinsi]").on("change", function() {
+            var id_provinsi_terpilih = $("option:selected", this).attr("id_provinsi");
+            $.ajax({
+                type: "POST",
+                url: "<?= base_url('rajaongkir/kabupaten') ?>",
+                data: 'id_provinsi=' + id_provinsi_terpilih,
+                success: function(hasil_kabupaten) {
+                    // console.log(hasil_kabupaten);
+                    $("select[name=kabupaten]").html(hasil_kabupaten);
+                }
+            });
+        });
+    });
+</script>
