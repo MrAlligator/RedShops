@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 17 Des 2020 pada 08.42
+-- Waktu pembuatan: 19 Des 2020 pada 15.02
 -- Versi server: 10.4.8-MariaDB
 -- Versi PHP: 7.3.10
 
@@ -148,6 +148,18 @@ CREATE TABLE `user` (
   `username` varchar(128) NOT NULL,
   `image` varchar(128) NOT NULL,
   `password` varchar(256) NOT NULL,
+  `alamat` varchar(128) NOT NULL,
+  `kab` varchar(128) NOT NULL,
+  `prov` varchar(128) NOT NULL,
+  `telp` varchar(128) NOT NULL,
+  `alamat2` varchar(128) NOT NULL,
+  `kab2` varchar(128) NOT NULL,
+  `prov2` varchar(128) NOT NULL,
+  `telp2` varchar(128) NOT NULL,
+  `alamat3` varchar(128) NOT NULL,
+  `kab3` varchar(128) NOT NULL,
+  `prov3` varchar(128) NOT NULL,
+  `telp3` varchar(128) NOT NULL,
   `role_id` int(11) NOT NULL,
   `is_active` int(1) NOT NULL,
   `date_created` int(11) NOT NULL
@@ -157,12 +169,10 @@ CREATE TABLE `user` (
 -- Dumping data untuk tabel `user`
 --
 
-INSERT INTO `user` (`id_user`, `name`, `email`, `username`, `image`, `password`, `role_id`, `is_active`, `date_created`) VALUES
-(15, 'Rizki Pratama', 'e41181256@student.polije.ac.id', 'superadmin', '_MG_5223.JPG', '$2y$10$Ue1Gy7/2ayI9T/EctwsPS.0rl6L1CM0rI.FATdQ/onj2xW6jxmO2K', 1, 1, 1606392372),
-(20, 'Silviana', 'silvianawidya46@gmail.com', 'admin', 'default.jpg', '$2y$10$8GLRq0LPEyHM4WNVNq41LOUa4HB2ByzRfJ3Pnzv8OrEq0a0nmRK6K', 2, 1, 1606920350),
-(21, 'obay', 'ilmi.obbi@gmail.com', 'obay', 'default.jpg', '$2y$10$R/jIbdBOYo/HfUFYDUwrqOXHbyLvomqNnRBAUGNdAc87zSjDmgTrG', 1, 0, 1606921272),
-(26, 'Rizki Widya', 'rizkiw8778@gmail.com', 'mrrest', 'default.jpg', '$2y$10$dLRNmp98IbxLfzVBQSx3buzI1lqQDQdyJ7yebhEr0BySwEPzXf.kK', 3, 1, 1607434853),
-(27, 'Widya Rizki', 'rizkipratama7575@gmail.com', 'e41181256', 'default.jpg', '$2y$10$B9/W5kyYQV14AgaD9NVAQOc4Drgz.bHdS15MN2pltheifhu/n36oa', 2, 1, 1608086405);
+INSERT INTO `user` (`id_user`, `name`, `email`, `username`, `image`, `password`, `alamat`, `kab`, `prov`, `telp`, `alamat2`, `kab2`, `prov2`, `telp2`, `alamat3`, `kab3`, `prov3`, `telp3`, `role_id`, `is_active`, `date_created`) VALUES
+(15, 'Rizki Pratama', 'e41181256@student.polije.ac.id', 'superadmin', '_MG_52231.JPG', '$2y$10$Ue1Gy7/2ayI9T/EctwsPS.0rl6L1CM0rI.FATdQ/onj2xW6jxmO2K', 'Dusun Krajan RT 03 / RW 04', 'Tuban', 'Jawa Timur', '082331067312', 'Belum diatur', '', '', '', 'Belum diatur', '', '', '', 1, 1, 1606392372),
+(28, 'Rizki', 'rizkipratama7575@gmail.com', 'admin', 'default.jpg', '$2y$10$XxBOdizPLBz4BlD3IA9bHem3gouLKmtWLxZg1OJEs9Q6SJrAJNWNS', 'Belum diatur', 'Belum diatur', 'Belum diatur', 'Belum diatur', 'Belum diatur', 'Belum diatur', 'Belum diatur', 'Belum diatur', 'Belum diatur', 'Belum diatur', 'Belum diatur', 'Belum diatur', 2, 1, 1608363165),
+(29, 'Rizki Widya Pratama', 'silvianawidya46@gmail.com', 'rizkiwp', 'default.jpg', '$2y$10$Q7mOLzY0.pIuwOkr2s009.9jmXd3kW7pzcPir9bGkmPfpXXVBHW8.', 'Belum diatur', 'Belum diatur', 'Belum diatur', 'Belum diatur', 'Belum diatur', 'Belum diatur', 'Belum diatur', 'Belum diatur', 'Belum diatur', 'Belum diatur', 'Belum diatur', 'Belum diatur', 3, 1, 1608363215);
 
 -- --------------------------------------------------------
 
@@ -254,8 +264,7 @@ INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active
 (14, 2, 'Ubah Password', 'admin/user/editpass', 'fas fa-fw fa-key', 1),
 (15, 3, 'User', 'admin/administrator', 'fas fa-fw fa-users', 1),
 (16, 1, 'Transaksi', 'admin/admin/transaksi', 'fas fa-fw fa-handshake', 1),
-(17, 1, 'Alamat Toko', 'admin/admin/editalamat', 'fas fa-map-marked-alt', 1),
-(18, 1, 'Foto Produk', 'admin/admin/fotoproduk', 'fas fa-fw fa-handshake', 1);
+(17, 1, 'Alamat Toko', 'admin/admin/editalamat', 'fas fa-map-marked-alt', 1);
 
 -- --------------------------------------------------------
 
@@ -296,7 +305,8 @@ INSERT INTO `user_token` (`id_token`, `email`, `token`, `date_created`) VALUES
 (35, 'rizkipratama7575@gmail.com', 'e8iNnzJ/BSucaIZkCi1Y3JAFHhj6kp0u0iGfAfT5gd0=', 1608189664),
 (36, 'rizkipratama7575@gmail.com', 'tO6nlqzLR4HIfWlzKVPpPF6bxwjI5H9/oCy1HZZu1sM=', 1608189750),
 (37, 'rizkiw8778@gmail.com', '+gXBKylVrIaWoF9nA8HeTNvDXH2kPyJmVkmLxZ6nmHI=', 1608189864),
-(38, 'rizkiw8778@gmail.com', 'Vo9eCxIir/1uTfDLf5QUU4yaalzGgJawwig2VSYOGe4=', 1608189892);
+(38, 'rizkiw8778@gmail.com', 'Vo9eCxIir/1uTfDLf5QUU4yaalzGgJawwig2VSYOGe4=', 1608189892),
+(39, 'rizkiw8778@gmail.com', '060g8MDtSuas9kLJO8c+zMSbUXNjSxPAd0vvcfTjFFE=', 1608331421);
 
 --
 -- Indexes for dumped tables
@@ -384,7 +394,7 @@ ALTER TABLE `transaksi`
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT untuk tabel `user_access_menu`
@@ -414,7 +424,7 @@ ALTER TABLE `user_sub_menu`
 -- AUTO_INCREMENT untuk tabel `user_token`
 --
 ALTER TABLE `user_token`
-  MODIFY `id_token` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id_token` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
