@@ -87,7 +87,8 @@
                         <?php if ($user['alamat2'] != 'Belum diatur') : ?>
                             <tr>
                                 <td>
-                                    <?= $user['alamat2'];?>
+                                <?= $user['alamat2']; ?>, <?= $user['kab2']; ?>, <?= $user['prov2']; ?>
+                                    </br><?= $user['telp2']; ?></td>
                                 </td>
                                 <td>
                                     <a href="#alamat" data-toggle="modal" data-target="#Modal-editAlamat2" class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
@@ -100,7 +101,8 @@
                         <?php if ($user['alamat3'] != 'Belum diatur') : ?>
                             <tr>
                                 <td>
-                                    <?= $user['alamat3'];?>
+                                <?= $user['alamat3']; ?>, <?= $user['kab3']; ?>, <?= $user['prov3']; ?>
+                                    </br><?= $user['telp3']; ?></td>
                                 </td>
                                 <td>
                                     <a href="#alamat" data-toggle="modal" data-target="#Modal-editAlamat3" class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
