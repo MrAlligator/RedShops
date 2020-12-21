@@ -11,7 +11,7 @@ class Product_model extends CI_Model
     public $jumlahstok;
     public $foto_produk = "default.jpg";
     public $foto_produk2 = "default.jpg";
-    // public $foto_produk3 = "default.jpg";
+    public $foto_produk3 = "default.jpg";
     public $deskripsi;
     public $deskripsi2;
     public $deskripsi3;
@@ -36,6 +36,14 @@ class Product_model extends CI_Model
             'rules' => 'numeric', 'required'],
             
             ['field' => 'foto',
+            'label' => 'Foto',
+            'rules' => 'uploaded'],
+
+            ['field' => 'gambar',
+            'label' => 'Foto',
+            'rules' => 'uploaded'],
+
+            ['field' => 'gmbr',
             'label' => 'Foto',
             'rules' => 'uploaded'],
 
@@ -134,8 +142,8 @@ class Product_model extends CI_Model
         $this->harga_produk = $post["harga"];
         $this->jumlahstok = $post["jumlahstok"];
         $this->foto_produk = $this->_uploadImage();
-        // $this->foto_produk2 = $this->_uploadGambar();
-        // $this->foto_produk3 = $this->_uploadFoto();
+        $this->foto_produk2 = $this->_uploadImg();
+        $this->foto_produk3 = $this->_uploadGbr();
         $this->deskripsi = $post["deskripsi"];
         $this->deskripsi2 = $post["deskripsi2"];
         $this->deskripsi3 = $post["deskripsi3"];
@@ -191,7 +199,7 @@ class Product_model extends CI_Model
     {
         $config['upload_path']          = './assets/img/products/';
         $config['allowed_types']        = 'jpg|png';
-        $config['file_name']            = $this->id_produk;
+        $config['file_name']            = $this->id_produk.'1';
         $config['overwrite']			= true;
         $config['max_size']             = 2048; // 1MB
         // $config['max_width']            = 1024;
@@ -200,6 +208,44 @@ class Product_model extends CI_Model
         $this->load->library('upload', $config);
 
         if ($this->upload->do_upload('foto')) {
+            return $this->upload->data("file_name");
+        }
+        //print_r($this->upload->display_errors());
+        return "default.jpg";
+    }
+
+    private function _uploadImg()
+    {
+        $config['upload_path']          = './assets/img/products/';
+        $config['allowed_types']        = 'jpg|png';
+        $config['file_name']            = $this->id_produk.'2';
+        $config['overwrite']			= true;
+        $config['max_size']             = 2048; // 1MB
+        // $config['max_width']            = 1024;
+        // $config['max_height']           = 768;
+
+        $this->load->library('upload', $config);
+
+        if ($this->upload->do_upload('gambar')) {
+            return $this->upload->data("file_name");
+        }
+        //print_r($this->upload->display_errors());
+        return "default.jpg";
+    }
+
+    private function _uploadGbr()
+    {
+        $config['upload_path']          = './assets/img/products/';
+        $config['allowed_types']        = 'jpg|png';
+        $config['file_name']            = $this->id_produk.'3';
+        $config['overwrite']			= true;
+        $config['max_size']             = 2048; // 1MB
+        // $config['max_width']            = 1024;
+        // $config['max_height']           = 768;
+
+        $this->load->library('upload', $config);
+
+        if ($this->upload->do_upload('gmbr')) {
             return $this->upload->data("file_name");
         }
         //print_r($this->upload->display_errors());
