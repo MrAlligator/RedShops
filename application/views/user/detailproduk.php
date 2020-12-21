@@ -70,7 +70,17 @@
               <hr class="offset-md">
 
               <button class="btn btn-primary rounded"> <i class="ion-bag"></i> Add to cart</button>
-              <button class="btn btn-link"> <i class="ion-ios-heart"></i> See later </button>
+              <?php if($produk->jenis_produk == 'Kemeja Lengan Panjang'): ?>
+                <a href="<?= base_url('user/kemejapanjang') ?>" class="btn btn-link">Lihat yang lain</a>
+              <?php elseif($produk->jenis_produk == 'Kemeja Lengan Pendek'): ?>
+                <a href="<?= base_url('user/kemejapendek') ?>" class="btn btn-link">Lihat yang lain</a>
+              <?php elseif($produk->jenis_produk == 'Jaket'): ?>
+                <a href="<?= base_url('user/jaker') ?>" class="btn btn-link">Lihat yang lain</a>
+              <?php elseif($produk->jenis_produk == 'Kaos Lengan Pendek'): ?>
+                <a href="<?= base_url('user/kaospendek') ?>" class="btn btn-link">Lihat yang lain</a>
+              <?php elseif($produk->jenis_produk == 'Kaos Lengan Panjang'): ?>
+                <a href="<?= base_url('user/kaospanjang') ?>" class="btn btn-link">Lihat yang lain</a>
+              <?php endif ; ?>
             </div>
           </div>
         </div>
