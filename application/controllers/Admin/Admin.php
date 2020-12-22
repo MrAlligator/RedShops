@@ -99,12 +99,13 @@ class Admin extends CI_Controller
 
     public function editalamat()
     {
-        $data['title'] = 'Alamat Toko';
-        $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+        // $data['title'] = 'Alamat Toko';
+        // $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data = array(
             'title' => 'Alamat Toko',
             'alamat_toko' => $this->editalamat_model->setting(),
             'isi' => 'editalamat',
+            'user' => $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array()
         );
         $this->load->view('admin/editalamat', $data);
     }
