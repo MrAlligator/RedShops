@@ -35,23 +35,19 @@
       </div>
     </div>
     <div class="col-sm-3 col-md-2">
-      <h1 class="h4">Produk <i class="ion-plus-round hidden-sm hidden-md hidden-lg"></i> </h1>
+      <h1 class="h4"> <i class="ion-plus-round hidden-sm hidden-md hidden-lg"></i> </h1>
 
       <div class="list-group">
-        <a href="#" class="list-group-item">Kemeja</a>
-        <a href="#" class="list-group-item">Kaos</a>
-        <a href="#" class="list-group-item">Celana</a>
-        <a href="#" class="list-group-item">Jaket</a>
+        <a href="#" class="list-group-item"></a>
+        <a href="#" class="list-group-item"></a>
+        <a href="#" class="list-group-item"></a>
+        <a href="#" class="list-group-item"></a>
       </div>
     </div>
     <div class="col-sm-3 col-md-2">
-      <h1 class="h4">Support <i class="ion-plus-round hidden-sm hidden-md hidden-lg"></i> </h1>
+      <h1 class="h4"> <i class="ion-plus-round hidden-sm hidden-md hidden-lg"></i> </h1>
 
-      <div class="list-group">
-        <a href="#" class="list-group-item">Returns</a>
-        <a href="#" class="list-group-item">FAQ</a>
-        <a href="#" class="list-group-item">Contacts</a>
-      </div>
+      
     </div>
     <div class="col-sm-3 col-md-2">
       <h1 class="h4"></h1>

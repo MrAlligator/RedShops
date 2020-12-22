@@ -2,8 +2,8 @@
       <div class="carousel" data-count="3" data-current="1">
 
         <div class="items">
-          <button class="btn btn-control" data-direction="right"> <i class="ion-ios-arrow-right"></i></button>
-          <button class="btn btn-control" data-direction="left"> <i class="ion-ios-arrow-left"></i></button>
+          <button class="btn btn-control" data-direction="right"> <i class="ion-ios-arrow-"></i></button>
+          <button class="btn btn-control" data-direction="left"> <i class="ion-ios-arrow-"></i></button>
 
 
           <div class="item center" data-marker="1">
@@ -83,11 +83,6 @@
           </div>
         </div>
 
-        <ul class="markers">
-          <li data-marker="1" data-style="white" class="active"></li>
-          <li data-marker="2" data-style="white"></li>
-          <li data-marker="3" data-style="white"></li>
-        </ul>
 
       </div>
     </header>
