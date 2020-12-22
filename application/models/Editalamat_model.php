@@ -7,7 +7,7 @@ class Editalamat_model extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('setting_toko');
-        $this->db->where('id', 1);
+        $this->db->where('id_alamat', 1);
         return $this->db->get()->row();
     }
 }
