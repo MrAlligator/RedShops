@@ -132,6 +132,10 @@ class Auth extends CI_Controller {
                 'username' => htmlspecialchars($this->input->post('username',true)),
                 'image' => 'default.jpg',
                 'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
+                'alamat' => 'Belum diatur',
+                'kab' => 'Belum diatur',
+                'prov' => 'Belum diatur',
+                'telp' => 'Belum diatur',
                 'role_id' => 3,
                 'is_active' => 0,
                 'date_created' => time()
