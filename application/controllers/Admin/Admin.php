@@ -45,7 +45,7 @@ class Admin extends CI_Controller
         if ($validation->run() == false) {
             $this->load->view("admin/produk/tambahproduk", $data);
         } else {
-            if($product->save() == true) {
+            if ($product->save() == true) {
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil ditambahkan</div>');
                 redirect("admin/admin/add");
             } else {
@@ -67,7 +67,7 @@ class Admin extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data["produk"] = $product->getById($id);
         if (!$data["produk"]) show_404();
-        
+
         if ($validation->run() == false) {
             $this->load->view("admin/produk/editproduk", $data);
         } else {
@@ -99,14 +99,39 @@ class Admin extends CI_Controller
 
     public function editalamat()
     {
-        // $data['title'] = 'Alamat Toko';
-        // $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
-        $data = array(
-            'title' => 'Alamat Toko',
-            'alamat_toko' => $this->editalamat_model->setting(),
-            'isi' => 'editalamat',
-            'user' => $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array()
-        );
-        $this->load->view('admin/editalamat', $data);
+        $this->form_validation->set_rules('nama_toko', 'Nama_toko', 'required', array(
+            'required' => '%s Harus Diisi !!'
+        ));
+        $this->form_validation->set_rules('kabupaten', 'Kabupaten', 'required', array(
+            'required' => '%s Harus Diisi !!'
+        ));
+        $this->form_validation->set_rules('alamat_toko', 'Alamat Toko', 'required', array(
+            'required' => '%s Harus Diisi !!'
+        ));
+        $this->form_validation->set_rules('no_telepon', 'No Telepon', 'required', array(
+            'required' => '%s Harus Diisi !!'
+        ));
+
+        if ($this->form_validation->run() == FALSE) {
+            $data = array(
+                'title' => 'Alamat Toko',
+                'setting' => $this->editalamat_model->data_setting(),
+                'isi' => 'editalamat',
+            );
+
+            $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+            $this->load->view('admin/editalamat', $data, FALSE);
+        } else {
+            $data = array(
+                'id_alamat' => '1',
+                'nama_toko' => $this->input->post('nama_toko'),
+                'lokasi_toko' => $this->input->post('kabupaten'),
+                'alamat_toko' => $this->input->post('alamat_toko'),
+                'no_telepon' => $this->input->post('no_telepon'),
+            );
+            $this->editalamat_model->edit($data);
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil diubah!</div>');
+            redirect("admin/admin/editalamat");
+        }
     }
 }

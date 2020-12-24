@@ -30,7 +30,16 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <?php echo form_open('admin/admin/editalamat') ?>
+                    <?php
+
+                    if ($this->session->flashdata('message')) {
+                        echo '<div class="alert alert-success">';
+                        echo $this->session->flashdata('message');
+                        echo '</div>';
+                    }
+
+                    echo form_open('admin/admin/editalamat') ?>
+
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label>Provinsi</label>
@@ -38,21 +47,29 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label>Kabupaten/Kota</label>
-                            <select class="form-control" name="kabupaten"></select>
+                            <select class="form-control" name="kabupaten">
+                                <option value="<?= $setting->lokasi_toko ?>"><?= $setting->lokasi_toko ?></option>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group">
                         <label>Nama Toko</label>
-                        <input type="text" class="form-control" name="nama_toko" required>
+                        <input type="text" class="form-control" value="<?= $setting->nama_toko ?>" id="nama_toko" name="nama_toko" required>
+                    </div>
+                    <div class="form-group">
+                        <label>No Telepon</label>
+                        <input type="text" class="form-control" value="<?= $setting->no_telepon ?>" id="no_telepon" name="no_telepon" required>
                     </div>
                     <div class="form-group">
                         <label>Alamat Toko</label>
-                        <input type="text" class="form-control" name="alamat_toko" required>
+                        <input type="text" class="form-control" value="<?= $setting->alamat_toko ?>" id="alamat_toko" name="alamat_toko" required>
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-success">Simpan</button>
                     </div>
+
                     <?php echo form_close() ?>
+
                 </div>
             </div>
             <!-- End of Main Content -->
