@@ -35,11 +35,13 @@
                     <th width="85px">QTY</th>
                     <th>Nama</th>
                     <th style="text-align:right">Harga</th>
+                    <th style="text-align:right">Berat</th>
                     <th style="text-align:right">Sub-Total</th>
                     <th class="text-center">Action</th>
                 </tr>
                 <?php $i = 1; ?>
                 <?php foreach ($this->cart->contents() as $items) : ?>
+                    <?php $barang = $this->product_model->getById($items['id']); ?>
                     <?php echo form_hidden($i . '[rowid]', $items['rowid']); ?>
                     <tr>
                         <td>
@@ -56,6 +58,7 @@
                         </td>
                         <td><?php echo $items['name']; ?></td>
                         <td style="text-align:right">Rp.<?php echo $this->cart->format_number($items['price']); ?></td>
+                        <td style="text-align:right"><?= $barang->berat*$items['qty'] ?> gr</td>
                         <td style="text-align:right">Rp.<?php echo $this->cart->format_number($items['subtotal']); ?></td>
                         <td class="text-center">
                             <a href="<?= base_url('user/cart/deletein/' . $items['rowid']) ?>" class="btn btn-danger btn-sm"><i class="ion-ios-trash"> Hapus</i></a>
