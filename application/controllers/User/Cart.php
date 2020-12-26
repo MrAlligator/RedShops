@@ -7,6 +7,12 @@ class Cart extends CI_Controller{
         $this->load->model("product_model");
     }
 
+    public function index(){
+        $data['title'] = 'Keranjang';
+		$data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+        $this->load->view("user/keranjang", $data);
+    }
+
     public function add(){
         $redirect_page = $this->input->post('redirect_page');
         $data = array(
@@ -19,6 +25,55 @@ class Cart extends CI_Controller{
     
     $this->cart->insert($data);
     redirect($redirect_page, 'refresh');
+    }
+
+    public function delete($rowid)
+    {
+        $redirect_page = $this->input->post('redirect_page');
+
+        $this->cart->remove($rowid);
+        redirect($redirect_page);
+    }
+
+    public function deletein($rowid)
+    {
+        $this->cart->remove($rowid);
+        redirect('user/cart');
+    }
+
+    public function updatein()
+    {
+        $i = 1;
+        foreach ($this->cart->contents() as $items) {
+            $data = array(
+                'rowid' => $items['rowid'],
+                'qty'   => $this->input->post($i . '[qty]')
+            );
+            $this->cart->update($data);
+            $i++;
+        }
+        redirect('user/cart');
+    }
+
+    public function update()
+    {
+        $redirect_page = $this->input->post('redirect_page');
+        $i = 1;
+        foreach ($this->cart->contents() as $items) {
+            $data = array(
+                'rowid' => $items['rowid'],
+                'qty'   => $this->input->post($i . '[qty]')
+            );
+            $this->cart->update($data);
+            $i++;
+        }
+        redirect($redirect_page);
+    }
+
+    public function clear()
+    {
+        $this->cart->destroy();
+        redirect('user/cart');
     }
 
 }
