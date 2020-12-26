@@ -39,13 +39,15 @@
                     <th style="text-align:right">Sub-Total</th>
                     <th class="text-center">Action</th>
                 </tr>
+
                 <?php $i = 1; ?>
                 <?php foreach ($this->cart->contents() as $items) : ?>
                     <?php $barang = $this->product_model->getById($items['id']); ?>
                     <?php echo form_hidden($i . '[rowid]', $items['rowid']); ?>
                     <tr>
                         <td>
-                            <?php echo form_input(array(
+                            <?php
+                            echo form_input(array(
                                 'name' => $i . '[qty]',
                                 'value' => $items['qty'],
                                 'maxlength' => '3',
