@@ -93,7 +93,12 @@
                             <?php
                             $i = 1;
                             $total_berat = 0;
-                            foreach ($variable as $key => $value) { ?>
+                            foreach ($this->cart->contents() as $items) {
+                                $barang = $this->product_model->detail($items['id']);
+                                $berat = $items['qty'] * $barang->berat;
+
+                                $total_berat = $total_berat * $berat;
+                            ?>
                                 <tr>
                                     <td>1</td>
                                     <td>Call of Duty</td>

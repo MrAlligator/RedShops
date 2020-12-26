@@ -23,6 +23,7 @@ class Cart extends CI_Controller
             'id'      => $this->input->post('id'),
             'qty'     => $this->input->post('qty'),
             'price'   => $this->input->post('price'),
+            'berat'   => $this->input->post('berat'),
             'name'    => $this->input->post('name'),
             'produk'  => $this->product_model->getAll(),
         );
