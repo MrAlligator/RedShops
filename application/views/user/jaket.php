@@ -45,9 +45,17 @@
           {
             foreach ($produk as $data) {
               ?>
+              <?php 
+                echo form_open('user/cart/add');
+                echo form_hidden('id', $data->id_produk);
+                echo form_hidden('qty', 1);
+                echo form_hidden('price', $data->harga_produk);
+                echo form_hidden('name', $data->nama_produk);
+                echo form_hidden('redirect_page', str_replace('index.php/', '', current_url()));
+              ?>
               <div class="col-sm-6 col-md-3 product">
               <div class="body">
-                <a href=""><img src="<?= base_url('assets/img/products/'.$data->foto_produk) ?>" alt="Apple iMac 27 Retina"/></a>
+                <a href=""><img src="<?= base_url('assets/img/products/'.$data->foto_produk) ?>" width="300px" height="250px" /></a>
         
                 <div class="content align-center">
                 <p class="price"><?= $data->harga_produk ?></p>
@@ -56,13 +64,14 @@
         
                 <a class="btn btn-link" href="<?= site_url('user/detailproduk/lihat/'.$data->id_produk) ?>"> <i class="ion-android-open"></i> Details</a>
                 <?php if(isset($user['username'])) : ?>
-							<a class="btn btn-primary btn-sm rounded"> <i class="ion-bag"></i> Add to cart</a>
-						<?php else : ?>
-							<a href="#signin" data-toggle="modal" data-target="#Modal-SignIn" class="btn btn-primary btn-sm rounded"> <i class="ion-bag"></i> Add to cart</a>
-						<?php endif ; ?>
+                  <button class="btn btn-primary btn-sm toastrDefaultSuccess rounded"> <i class="ion-bag"></i> Add to cart</button>
+                <?php else : ?>
+                  <a href="#signin" data-toggle="modal" data-target="#Modal-SignIn" class="btn btn-primary btn-sm rounded"> <i class="ion-bag"></i> Add to cart</a>
+                <?php endif ; ?>
                 </div>
               </div>
               </div>
+              <?php echo form_close(); ?>
               <?php
             }
           }
@@ -101,6 +110,12 @@
     -->
 
     <?php $this->load->view("user/_partials/js-utama.php") ?>
+    <script src="<?= base_url('assets/plugins/toastr/toastr.min.js') ?>"></script>
+    <script type="text/javascript">
+      $('.toastrDefaultSuccess').click(function() {
+        toastr.success('Berhasil ditambahkan ke keranjang')
+      });
+    </script>
 
   </body>
 </html>

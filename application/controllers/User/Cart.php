@@ -2,57 +2,23 @@
  
 class Cart extends CI_Controller{
      
-    function __construct(){
+    public function __construct(){
         parent::__construct();
-        $this->load->model('produk_model');
+        $this->load->model("product_model");
     }
 
-    function add_to_cart(){ //fungsi Add To Cart
+    public function add(){
+        $redirect_page = $this->input->post('redirect_page');
         $data = array(
-            'id' => $this->input->post('id_produk'), 
-            'nama' => $this->input->post('nama_produk'), 
-            'harga' => $this->input->post('harga_produk'),
-            'foto' => $this->input->post('foto_produk'), 
-            'qty' => $this->input->post('quantity'), 
+            'id'      => $this->input->post('id'),
+            'qty'     => $this->input->post('qty'),
+            'price'   => $this->input->post('price'),
+            'name'    => $this->input->post('name'),
+            'produk'  => $this->product_model->getAll(),
         );
-        $this->cart->insert($data);
-        // echo $this->show_cart(); //tampilkan cart setelah added
+    
+    $this->cart->insert($data);
+    redirect($redirect_page, 'refresh');
     }
- 
-    // function show_cart(){ //Fungsi untuk menampilkan Cart
-    //     $output = '';
-    //     $no = 0;
-    //     foreach ($this->cart->contents() as $items) {
-    //         $no++;
-    //         $output .='
-    //             <tr>
-    //                 <td>'.$items['name'].'</td>
-    //                 <td>'.number_format($items['price']).'</td>
-    //                 <td>'.$items['qty'].'</td>
-    //                 <td>'.number_format($items['subtotal']).'</td>
-    //                 <td><button type="button" id="'.$items['rowid'].'" class="hapus_cart btn btn-danger btn-xs">Batal</button></td>
-    //             </tr>
-    //         ';
-    //     }
-    //     $output .= '
-    //         <tr>
-    //             <th colspan="3">Total</th>
-    //             <th colspan="2">'.'Rp '.number_format($this->cart->total()).'</th>
-    //         </tr>
-    //     ';
-    //     return $output;
-    // }
- 
-    // function load_cart(){ //load data cart
-    //     echo $this->show_cart();
-    // }
- 
-    // function hapus_cart(){ //fungsi untuk menghapus item cart
-    //     $data = array(
-    //         'rowid' => $this->input->post('row_id'), 
-    //         'qty' => 0, 
-    //     );
-    //     $this->cart->update($data);
-    //     echo $this->show_cart();
-    // }
+
 }

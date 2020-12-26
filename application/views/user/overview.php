@@ -105,6 +105,12 @@
     -->
 
     <?php $this->load->view("user/_partials/js-utama.php") ?>
+    <script src="<?= base_url('assets/plugins/toastr/toastr.min.js') ?>"></script>
+    <script type="text/javascript">
+      $('.toastrDefaultSuccess').click(function() {
+        toastr.success('Berhasil ditambahkan ke keranjang')
+      });
+    </script>
 
   </body>
 </html>

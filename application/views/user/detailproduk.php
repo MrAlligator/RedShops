@@ -55,6 +55,13 @@
 
             </div>
           </div>
+          <?php
+            echo form_open('user/cart/add');
+            echo form_hidden('id', $produk->id_produk);
+            echo form_hidden('price', $produk->harga_produk);
+            echo form_hidden('name', $produk->nama_produk);
+            echo form_hidden('redirect_page', str_replace('index.php/', '', current_url()));
+          ?>
           <div class="col-sm-5 col-md-5 no-padding-xs">
             <div class="caption">
               <img src="<?php echo base_url('assets/img/brands/microsoft.png') ?>" alt="Microsoft" class="brand hidden-xs hidden-sm" />
@@ -69,7 +76,10 @@
               <p class="price">Rp. <?= $produk->harga_produk ?>,-</p>
               <hr class="offset-md">
 
-              <button class="btn btn-primary rounded"> <i class="ion-bag"></i> Add to cart</button>
+              <div class="col-sm-3">
+                <input type="number" name="qty" class="form-control" value="1" min="1">
+              </div>
+              <button class="btn btn-primary toastrDefaultSuccess rounded"> <i class="ion-bag"></i> Add to cart</button>
               <?php if($produk->jenis_produk == 'Kemeja Lengan Panjang'): ?>
                 <a href="<?= base_url('user/kemejapanjang') ?>" class="btn btn-link">Lihat yang lain</a>
               <?php elseif($produk->jenis_produk == 'Kemeja Lengan Pendek'): ?>
@@ -83,6 +93,7 @@
               <?php endif ; ?>
             </div>
           </div>
+          <?php echo form_close(); ?>
         </div>
         <hr class="offset-sm hidden-xs">
 
@@ -135,6 +146,12 @@
     <?php $this->load->view("user/_partials/logout.php") ?>
 
     <?php $this->load->view("user/_partials/js-produk.php") ?>
+    <script src="<?= base_url('assets/plugins/toastr/toastr.min.js') ?>"></script>
+    <script type="text/javascript">
+      $('.toastrDefaultSuccess').click(function() {
+        toastr.success('Berhasil ditambahkan ke keranjang')
+      });
+    </script>
 
   </body>
 </html>
