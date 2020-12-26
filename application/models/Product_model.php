@@ -188,16 +188,16 @@ class Product_model extends CI_Model
         } else {
             $this->foto_produk = $post["old_image"];
         }
-        // if (!empty($_FILES["foto2"]["nama"])) {
-        //     $this->foto_produk2 = $this->_uploadImage2();
-        // } else {
-        //     $this->foto_produk2 = $post["old_image"];
-        // }
-        // if (!empty($_FILES["foto3"]["nama"])) {
-        //     $this->foto_produk3 = $this->_uploadImage3();
-        // } else {
-        //     $this->foto_produk3 = $post["old_image"];
-        // }
+        if (!empty($_FILES["foto2"]["nama"])) {
+            $this->foto_produk2 = $this->_uploadImage2();
+        } else {
+            $this->foto_produk2 = $post["old_image"];
+        }
+        if (!empty($_FILES["foto3"]["nama"])) {
+            $this->foto_produk3 = $this->_uploadImage3();
+        } else {
+            $this->foto_produk3 = $post["old_image"];
+        }
         $this->deskripsi = $post["deskripsi"];
         $this->deskripsi2 = $post["deskripsi2"];
         $this->deskripsi3 = $post["deskripsi3"];
