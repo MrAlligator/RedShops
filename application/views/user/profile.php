@@ -62,13 +62,13 @@
                         <div class="col-sm-10">
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <img src="<?php echo base_url('assetsadmin/img/profile/').$user['image']; ?>" class='img-thumbnail'>
+                                    <img src="<?php echo base_url('assetsadmin/img/profile/') . $user['image']; ?>" class='img-thumbnail'>
                                 </div>
                                 <div class="col-sm-9">
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="image" name="image">
-                                    <label class="custom-file-label" for="customFile">Choose file</label>
-                                </div>
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="image" name="image">
+                                        <label class="custom-file-label" for="customFile">Choose file</label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -94,6 +94,24 @@
         <hr class="offset-md">
 
         <div class="row">
+            <div class="col-sm-12">
+                <h2>Alamat Saya</h2>
+                <form>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Alamat</label>
+                        <div class="col-sm-10">
+                            <input type="text" readonly class="form-control" value="<?php if ($user['alamat'] != 'Belum diatur') : ?>
+                                <?= $user['alamat']; ?>, <?= $user['kab']; ?>, <?= $user['prov']; ?>, <?= $user['telp']; ?>
+                                <?php else : ?> <?= $user['alamat']; ?> <?php endif; ?>
+                                ">
+                        </div>
+                    </div>
+                </form>
+                <a href="#alamat" data-toggle="modal" data-target="#Modal-editAlamat"> <button type="button" class="btn btn-primary btn-lg"><?= $title2 ?></button></a>
+            </div>
+        </div>
+
+        <!-- <div class="row">
             <div class="col-sm-12">
                 <h2>Alamat Saya</h2>
                 <div class="table-responsive">
@@ -129,13 +147,45 @@
                 </div>
                 <a href="#alamat" data-toggle="modal" data-target="#Modal-addAlamat"> <button type="button" class="btn btn-primary btn-lg"><?= $title2 ?></button></a>
             </div>
-        </div>
+        </div> -->
 
         </hr>
     </div>
 
     <hr class="offset-lg">
     <hr class="offset-sm">
+
+    <!-- Script -->
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            //masukkan data ke select provinsi
+            $.ajax({
+                type: "POST",
+                url: "<?= base_url('rajaongkir/provinsi') ?>",
+                success: function(hasil_provinsi) {
+                    // console.log(hasil_provinsi);
+                    $("select[name=provinsi]").html(hasil_provinsi);
+                }
+            });
+
+            //masukkan data ke select kabupaten
+            $("select[name=provinsi]").on("change", function() {
+                var id_provinsi_terpilih = $("option:selected", this).attr("id_provinsi");
+                $.ajax({
+                    type: "POST",
+                    url: "<?= base_url('rajaongkir/kabupaten') ?>",
+                    data: 'id_provinsi=' + id_provinsi_terpilih,
+                    success: function(hasil_kabupaten) {
+                        // console.log(hasil_kabupaten);
+                        $("select[name=kabupaten]").html(hasil_kabupaten);
+                    }
+                });
+            });
+        });
+    </script>
+
     <footer>
         <?php $this->load->view("user/_partials/footer.php") ?>
     </footer>

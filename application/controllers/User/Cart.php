@@ -1,19 +1,23 @@
 <?php
- 
-class Cart extends CI_Controller{
-     
-    public function __construct(){
+
+class Cart extends CI_Controller
+{
+
+    public function __construct()
+    {
         parent::__construct();
         $this->load->model("product_model");
     }
 
-    public function index(){
+    public function index()
+    {
         $data['title'] = 'Keranjang';
-		$data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+        $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $this->load->view("user/keranjang", $data);
     }
 
-    public function add(){
+    public function add()
+    {
         $redirect_page = $this->input->post('redirect_page');
         $data = array(
             'id'      => $this->input->post('id'),
@@ -22,9 +26,9 @@ class Cart extends CI_Controller{
             'name'    => $this->input->post('name'),
             'produk'  => $this->product_model->getAll(),
         );
-    
-    $this->cart->insert($data);
-    redirect($redirect_page, 'refresh');
+
+        $this->cart->insert($data);
+        redirect($redirect_page, 'refresh');
     }
 
     public function delete($rowid)
@@ -76,4 +80,14 @@ class Cart extends CI_Controller{
         redirect('user/cart');
     }
 
+    public function checkout()
+    {
+        $data = array(
+            'title' => 'Checkout',
+            'isi' => 'checkout',
+        );
+
+        $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+        $this->load->view('user/checkout', $data, FALSE);
+    }
 }
