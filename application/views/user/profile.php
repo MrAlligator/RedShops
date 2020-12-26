@@ -37,8 +37,9 @@
 
         <div class="row">
             <div class="col-sm-12">
+                <?php echo $this->session->flashdata('message'); ?>
                 Welcome back, <?= $user['name']; ?></br>
-                <a href="#alamat" data-toggle="modal" data-target="#Modal-editAlamat">Ubah Kata Sandi</a>
+                <a href="#alamat" data-toggle="modal" data-target="#ubahPassModal">Ubah Kata Sandi</a>
                 </br>
                 </br>
             </div>

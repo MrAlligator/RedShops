@@ -191,81 +191,6 @@
   </div>
 </div>
 
-<div class="modal fade" id="Modal-editAlamat2" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="ion-android-close"></i></span></button>
-      </div>
-      <div class="modal-body">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-sm-6 col-sm-offset-3">
-              <h2 class="modal-title text-center">Edit Alamat</h2>
-              <br>
-
-              <form>
-                <div class="form-group">
-                  <label for="alamat">Alamat</label>
-                  <input type="text" class="form-control" id="alamat" name="alamat" value="<?php echo $user['alamat2']; ?>"></input>
-                  <label for="alamat">Provinsi</label>
-                  <select class="form-control" name="provinsi"></select>
-                  <label for="alamat">Kabupaten</label>
-                  <select class="form-control" name="kabupaten"></select>
-                  <label for="alamat">No Telepon</label>
-                  <input type="text" class="form-control" id="telp" name="telp" value="<?php echo $user['telp2']; ?>"></input>
-                </div>
-                <button type="submit" class="btn btn-primary">Simpan</button>
-              </form>
-
-              <br>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="modal fade" id="Modal-editAlamat3" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="ion-android-close"></i></span></button>
-      </div>
-      <div class="modal-body">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-sm-6 col-sm-offset-3">
-              <h2 class="modal-title text-center">Edit Alamat</h2>
-              <br>
-
-              <form>
-                <div class="form-group">
-                  <label for="alamat">Alamat</label>
-                  <input type="text" class="form-control" id="alamat" name="alamat" value="<?php echo $user['alamat3']; ?>"></input>
-                  <label for="alamat">Provinsi</label>
-                  <select class="form-control" name="provinsi"></select>
-                  <label for="alamat">Kabupaten</label>
-                  <select class="form-control" name="kabupaten"></select>
-                  <label for="alamat">No Telepon</label>
-                  <input type="text" class="form-control" id="telp" name="telp" value="<?php echo $user['telp3']; ?>"></input>
-                </div>
-                <button type="submit" class="btn btn-primary">Simpan</button>
-              </form>
-
-              <br>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-      </div>
-    </div>
-  </div>
-</div>
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -279,6 +204,40 @@
       <div class="modal-footer">
         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
         <a id="btn-delete" class="btn btn-danger" href="#">Delete</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="ubahPassModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="ion-android-close"></i></span></button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+              <h2 class="modal-title text-center">Ganti Password</h2>
+              <br>
+
+              <form class="signin" action="<?php echo site_url('user/profile/editpass') ?>" method="post">
+                <input type="password" id="password_lama" name="password_lama" value="" placeholder="Password Lama" required="" class="form-control" />
+                <br>
+                <input type="password" id="password_baru" name="password_baru" value="" placeholder="Password Baru" required="" class="form-control" />
+                <br>
+                <input type="password" id="konfirm_pass" name="konfirm_pass" value="" placeholder="Konfirmasi Password Baru" required="" class="form-control" />
+                <br>
+
+                <button type="submit" class="btn btn-primary">Simpan</button>
+              </form>
+              <br>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
       </div>
     </div>
   </div>
