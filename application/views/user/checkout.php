@@ -68,7 +68,7 @@
                     </address>
                 </div>
                 <!-- /.col -->
-                <div class="col-sm-4 invoice-col">
+                <!-- <div class="col-sm-4 invoice-col">
                     Kepada
                     <address>
                         <strong><?php echo $user['name']; ?></strong><br>
@@ -77,15 +77,15 @@
                         Phone: <?php echo $user['telp']; ?><br>
                         Email: <?php echo $user['email']; ?>
                     </address>
-                </div>
+                </div> -->
                 <!-- /.col -->
-                <div class="col-sm-4 invoice-col">
+                <!-- <div class="col-sm-4 invoice-col">
                     <b>Invoice #<?php echo uniqid('invc') ?></b><br>
                     <br>
                     <b>Order ID:</b> <?php echo uniqid('ordid') ?><br>
                     <b>Payment Due:</b> <?php echo date('d-M-Y') ?><br>
                     <b>Account:</b> <?php echo $user['username']; ?>
-                </div>
+                </div> -->
                 <!-- /.col -->
             </div>
             <!-- /.row -->
@@ -134,6 +134,16 @@
             </div>
             <!-- /.row -->
 
+            <?php
+            echo validation_errors('div class="alert alert-danger alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>', '</div>');
+            ?>
+
+            <?php
+            echo form_open('user/cart/checkout');
+            $no_order = date('Ymd') . strtoupper(random_string('alnum', 8));
+
+            ?>
             <div class="row">
                 <!-- accepted payments column -->
                 <div class="col-sm-6">
@@ -156,8 +166,20 @@
                             <select class="form-control" name="paket"></select>
                         </div>
                         <div class="form-group col-md-12">
+                            <label>Nama Penerima</label>
+                            <input name="nama_penerima" class="form-control" required></input>
+                        </div>
+                        <div class="form-group col-md-12">
                             <label>Alamat</label>
-                            <input type="text" class="form-control"></input>
+                            <input name="alamat" class="form-control" required></input>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Kode Pos</label>
+                            <input name="kode_pos" class="form-control" required></input>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>No Telepon</label>
+                            <input name="no_telepon" class="form-control" required></input>
                         </div>
                     </div>
                 </div>
@@ -188,12 +210,33 @@
             </div>
             <!-- /.row -->
 
+            <!-- Simpan Transaksi -->
+            <input name="no_order" value="<?= $no_order ?>" hidden>
+            <input name="estimasi" hidden>
+            <input name="ongkir" hidden><br><br>
+            <input name="berat" value="<?= $total_berat ?>" hidden>
+            <input name="grand_total" value="<?= $this->cart->total() ?>" hidden>
+            <input name="total_bayar" hidden>
+            <!-- End Simpan Transaksi -->
+
+            <!-- Simpan Detail Transaksi -->
+            <?php
+            $i = 1;
+            foreach ($this->cart->contents() as $items) {
+                echo form_hidden('qty' . $i++, $items['qty']);
+            }
+            ?>
+            <!-- End Simpan Detail Transaksi -->
+
             <!-- this row will not appear when printing -->
             <div class="row no-print">
                 <div class="col-sm-6">
-                    <button type="button" class="btn btn-success float-right"><i class="far fa-credit-card"></i>Buat Pesanan</button>
+                    <button type="submit" class="btn btn-success float-right">
+                        <i class="fas fa-shopping-cart"></i>Buat Pesanan
+                    </button>
                 </div>
             </div>
+            <?php echo form_close() ?>
         </div>
 
         </hr>
@@ -265,6 +308,11 @@
                     ribuan_total_bayar = reverse2.match(/\d{1,3}/g);
                 ribuan_total_bayar = ribuan_total_bayar.join(',').split('').reverse().join('');
                 $("#total_bayar").html("Rp." + ribuan_total_bayar + ".00");
+
+                var estimasi = $("option:selected", this).attr('estimasi');
+                $("input[name=estimasi]").val(estimasi);
+                $("input[name=ongkir]").val(dataongkir);
+                $("input[name=total_bayar]").val(data_total_bayar);
             });
         });
     </script>

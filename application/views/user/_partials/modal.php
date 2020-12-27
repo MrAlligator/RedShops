@@ -132,6 +132,30 @@
 
               echo form_open('user/profile') ?>
 
+              <!-- <div class="row">
+                <div class="form-group">
+                  <label>Provinsi</label>
+                  <select class="form-control" name="provinsi"></select>
+                </div>
+                <div class="form-group">
+                  <label>Kabupaten/Kota</label>
+                  <select class="form-control" name="kabupaten">
+                    <option value="<?= $setting->lokasi_toko ?>"><?= $setting->lokasi_toko ?></option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Alamat</label>
+                  <input type="text" class="form-control" id="alamat" name="alamat" value="<?php echo $user['alamat']; ?>"></input>
+                </div>
+                <div class="form-group">
+                  <label>No Telepon</label>
+                  <input type="text" class="form-control" id="telp" name="telp" value="<?php echo $user['telp']; ?>"></input>
+                </div>
+                <div class="form-group">
+                  <button type="submit" class="btn btn-success">Simpan</button>
+                </div>
+              </div> -->
+
               <form>
                 <div class="form-group">
                   <label for="alamat">Alamat</label>
