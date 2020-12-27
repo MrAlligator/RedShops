@@ -33,23 +33,23 @@
                     <h2>
                         <small>
                             <?php
-                                $hari= date("l");
-                                if ($hari = "Sunday"){
-                                    echo "Minggu";
-                                } elseif($hari = "Monday") {
-                                    echo "Senin";
-                                } elseif($hari = "Tuesday") {
-                                    echo "Selasa";
-                                } elseif($hari = "Wednesday") {
-                                    echo "Rabu";
-                                } elseif($hari = "Thursday") {
-                                    echo "Kamis";
-                                } elseif($hari = "Friday") {
-                                    echo "Jumat";
-                                } else {
-                                    echo "Sabtu";
-                                }
-                                echo date(", d F Y")
+                            $hari = date("l");
+                            if ($hari = "Sunday") {
+                                echo "Minggu";
+                            } elseif ($hari = "Monday") {
+                                echo "Senin";
+                            } elseif ($hari = "Tuesday") {
+                                echo "Selasa";
+                            } elseif ($hari = "Wednesday") {
+                                echo "Rabu";
+                            } elseif ($hari = "Thursday") {
+                                echo "Kamis";
+                            } elseif ($hari = "Friday") {
+                                echo "Jumat";
+                            } else {
+                                echo "Sabtu";
+                            }
+                            echo date(", d F Y")
                             ?>
                         </small>
                     </h2>
@@ -80,10 +80,10 @@
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-4 invoice-col">
-                    <b>Invoice #<?php echo uniqid('invc')?></b><br>
+                    <b>Invoice #<?php echo uniqid('invc') ?></b><br>
                     <br>
-                    <b>Order ID:</b> <?php echo uniqid('ordid')?><br>
-                    <b>Payment Due:</b> <?php echo date('d-M-Y')?><br>
+                    <b>Order ID:</b> <?php echo uniqid('ordid') ?><br>
+                    <b>Payment Due:</b> <?php echo date('d-M-Y') ?><br>
                     <b>Account:</b> <?php echo $user['username']; ?>
                 </div>
                 <!-- /.col -->
@@ -117,7 +117,7 @@
                                 <tr>
                                     <td><?php echo $items['name']; ?></td>
                                     <td>
-                                        <?php foreach ($this->cart->product_options($items['rowid']) as $option_name => $option_value): ?>
+                                        <?php foreach ($this->cart->product_options($items['rowid']) as $option_name => $option_value) : ?>
                                             <?php echo $option_value ?>
                                         <?php endforeach; ?>
                                     </td>
@@ -155,6 +155,10 @@
                             <label>Paket</label>
                             <select class="form-control" name="paket"></select>
                         </div>
+                        <div class="form-group col-md-12">
+                            <label>Alamat</label>
+                            <input type="text" class="form-control"></input>
+                        </div>
                     </div>
                 </div>
                 <!-- /.col -->
@@ -163,19 +167,19 @@
                         <table class="table">
                             <tr>
                                 <th style="width:40%">Subtotal:</th>
-                                <td style="text-align:right;">Rp.<?php echo $this->cart->format_number($this->cart->total()); ?></td>
+                                <th style="text-align:right;">Rp.<?php echo $this->cart->format_number($this->cart->total()); ?></th>
                             </tr>
                             <tr>
                                 <th>Total Berat</th>
-                                <td style="text-align:right;"><?= $total_berat ?> gr</td>
+                                <th style="text-align:right;"><?= $total_berat ?> gr</th>
                             </tr>
                             <tr>
                                 <th>Ongkir</th>
-                                <td style="text-align:right;"><label for="">Gratis Ongkir</label></td>
+                                <th style="text-align:right;"><label id="ongkir"></label></th>
                             </tr>
                             <tr>
                                 <th>Total:</th>
-                                <td style="text-align:right;"><label for="">Rp.<?php echo ($this->cart->format_number($this->cart->total())); ?></label></td>
+                                <th style="text-align:right;"><label id="total_bayar"></label></th>
                             </tr>
                         </table>
                     </div>
@@ -236,13 +240,31 @@
             });
 
             $("select[name=ekspedisi]").on("change", function() {
+                var ekspedisi_terpilih = $("select[name=ekspedisi]").val()
+                var id_kabupaten_tujuan_terpilih = $("option:selected", "select[name=kabupaten]").attr("id_kabupaten");
+                var total_berat = <?= $total_berat ?>;
                 $.ajax({
                     type: "POST",
                     url: "<?= base_url('rajaongkir/shipping') ?>",
+                    data: 'ekspedisi=' + ekspedisi_terpilih + '&id_kabupaten=' + id_kabupaten_tujuan_terpilih + '&berat=' + total_berat,
                     success: function(hasil_paket) {
                         $("select[name=paket]").html(hasil_paket);
                     }
                 });
+            });
+
+            $("select[name=paket]").on("change", function() {
+                var dataongkir = $("option:selected", this).attr('ongkir');
+                var reverse = dataongkir.toString().split('').reverse().join(''),
+                    ribuan_ongkir = reverse.match(/\d{1,3}/g);
+                ribuan_ongkir = ribuan_ongkir.join(',').split('').reverse().join('');
+                $("#ongkir").html("Rp." + ribuan_ongkir + ".00")
+
+                var data_total_bayar = parseInt(dataongkir) + parseInt(<?= $this->cart->total() ?>);
+                var reverse2 = data_total_bayar.toString().split('').reverse().join(''),
+                    ribuan_total_bayar = reverse2.match(/\d{1,3}/g);
+                ribuan_total_bayar = ribuan_total_bayar.join(',').split('').reverse().join('');
+                $("#total_bayar").html("Rp." + ribuan_total_bayar + ".00");
             });
         });
     </script>

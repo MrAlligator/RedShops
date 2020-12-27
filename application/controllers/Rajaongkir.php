@@ -3,7 +3,15 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Rajaongkir extends CI_Controller
 {
-    private $api_key = "f574db8a9779a98d290f7c4c541b4a79";
+    private $api_key = "4daeb8fb96a1e7bfe82256a66a905d67";
+
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('editalamat_model');
+    }
+
 
     public function provinsi()
     {
@@ -69,7 +77,7 @@ class Rajaongkir extends CI_Controller
             $data_kabupaten = $array_response['rajaongkir']['results'];
             echo "<option value=''>Pilih Kabupaten/Kota</option>";
             foreach ($data_kabupaten as $key => $value) {
-                echo "<option value='" . $value['city_id'] . "'>" . $value['city_name'] . "</option>";
+                echo "<option value='" . $value['city_id'] . "' id_kabupaten='" . $value['city_id'] . "'>" . $value['city_name'] . "</option>";
             }
         }
     }
@@ -82,6 +90,11 @@ class Rajaongkir extends CI_Controller
 
     public function shipping()
     {
+        $id_kota_asal = $this->editalamat_model->data_setting()->lokasi_toko;
+        $ekspedisi = $this->input->post('ekspedisi');
+        $id_kabupaten = $this->input->post('id_kabupaten');
+        $berat = $this->input->post('berat');
+
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
@@ -92,7 +105,7 @@ class Rajaongkir extends CI_Controller
             CURLOPT_TIMEOUT => 30,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => "POST",
-            CURLOPT_POSTFIELDS => "origin=501&destination=114&weight=1700&courier=jne",
+            CURLOPT_POSTFIELDS => "origin=" . $id_kota_asal . "&destination=" . $id_kabupaten . "&weight=" . $berat . "&courier=" . $ekspedisi,
             CURLOPT_HTTPHEADER => array(
                 "content-type: application/x-www-form-urlencoded",
                 "key: $this->api_key"
@@ -111,7 +124,7 @@ class Rajaongkir extends CI_Controller
             $data_paket = $array_response['rajaongkir']['results'][0]['costs'];
             echo "<option value=''>Pilih Paket</option>";
             foreach ($data_paket as $key => $value) {
-                echo "<option value='" . $value['service'] . "'>";
+                echo "<option value='" . $value['service'] . "' ongkir='" . $value['cost'][0]['value'] . "'>";
                 echo $value['service'] . " | Rp." . $value['cost'][0]['value'] . " | " . $value['cost'][0]['etd'] . " Hari";
                 echo "</option>";
             }
