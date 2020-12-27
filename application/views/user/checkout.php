@@ -29,14 +29,14 @@
     <div class="container">
         <hr class="offset-md">
 
+        <h2>Checkout Belanja</h2>
         <!-- Main content -->
         <div class="invoice p-3 mb-3">
             <!-- title row -->
             <div class="row">
-                <div class="col-12">
+                <div class="col-sm-4">
                     <h2>
-                        <i class="fas fa-globe"></i>Checkout
-                        <small class="float-right">Date: 2/10/2014</small>
+                        <small>Date: 2/10/2014</small>
                     </h2>
                 </div>
                 <!-- /.col -->
@@ -54,7 +54,7 @@
                     </address>
                 </div>
                 <!-- /.col -->
-                <div class="col-sm-4 invoice-col">
+                <!-- <div class="col-sm-4 invoice-col">
                     To
                     <address>
                         <strong>John Doe</strong><br>
@@ -63,7 +63,7 @@
                         Phone: (555) 539-1037<br>
                         Email: john.doe@example.com
                     </address>
-                </div>
+                </div> -->
                 <!-- /.col -->
                 <div class="col-sm-4 invoice-col">
                     <b>Invoice #007612</b><br>
@@ -78,7 +78,7 @@
 
             <!-- Table row -->
             <div class="row">
-                <div class="col-12 table-responsive">
+                <div class="col-sm-12 table-responsive">
                     <table class="table table-striped">
                         <thead>
                             <tr>
@@ -117,7 +117,25 @@
             <div class="row">
                 <!-- accepted payments column -->
                 <div class="col-sm-6">
-
+                    Tujuan :
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label>Provinsi</label>
+                            <select class="form-control" name="provinsi"></select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Kabupaten/Kota</label>
+                            <select class="form-control" name="kabupaten"></select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Ekspedisi</label>
+                            <select class="form-control" name="ekspedisi"></select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Paket</label>
+                            <select class="form-control" name="paket"></select>
+                        </div>
+                    </div>
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-6">
@@ -125,7 +143,7 @@
                         <table class="table">
                             <tr>
                                 <th style="width:40%">Subtotal:</th>
-                                <td>Rp.<?php echo $this->cart->format_number($items['subtotal']); ?></td>
+                                <td>Rp.<?php echo $this->cart->format_number($this->cart->total()); ?></td>
                             </tr>
                             <tr>
                                 <th>Total Berat</th>
@@ -148,7 +166,7 @@
 
             <!-- this row will not appear when printing -->
             <div class="row no-print">
-                <div class="col-6">
+                <div class="col-sm-6">
                     <button type="button" class="btn btn-success float-right"><i class="far fa-credit-card"></i>Buat Pesanan</button>
                 </div>
             </div>
@@ -159,6 +177,55 @@
 
     <hr class="offset-lg">
     <hr class="offset-sm">
+
+    <!-- Script -->
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            //masukkan data ke select provinsi
+            $.ajax({
+                type: "POST",
+                url: "<?= base_url('rajaongkir/provinsi') ?>",
+                success: function(hasil_provinsi) {
+                    $("select[name=provinsi]").html(hasil_provinsi);
+                }
+            });
+
+            //masukkan data ke select kabupaten
+            $("select[name=provinsi]").on("change", function() {
+                var id_provinsi_terpilih = $("option:selected", this).attr("id_provinsi");
+                $.ajax({
+                    type: "POST",
+                    url: "<?= base_url('rajaongkir/kabupaten') ?>",
+                    data: 'id_provinsi=' + id_provinsi_terpilih,
+                    success: function(hasil_kabupaten) {
+                        $("select[name=kabupaten]").html(hasil_kabupaten);
+                    }
+                });
+            });
+
+            $("select[name=kabupaten]").on("change", function() {
+                $.ajax({
+                    type: "POST",
+                    url: "<?= base_url('rajaongkir/ekspedisi') ?>",
+                    success: function(hasil_ekspedisi) {
+                        $("select[name=ekspedisi]").html(hasil_ekspedisi);
+                    }
+                });
+            });
+
+            $("select[name=ekspedisi]").on("change", function() {
+                $.ajax({
+                    type: "POST",
+                    url: "<?= base_url('rajaongkir/shipping') ?>",
+                    success: function(hasil_paket) {
+                        $("select[name=paket]").html(hasil_paket);
+                    }
+                });
+            });
+        });
+    </script>
 
     <footer>
         <?php $this->load->view("user/_partials/footer.php") ?>

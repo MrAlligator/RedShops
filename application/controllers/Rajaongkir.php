@@ -74,6 +74,12 @@ class Rajaongkir extends CI_Controller
         }
     }
 
+    public function ekspedisi()
+    {
+        echo '<option value="">Pilih Ekspedisi</option>';
+        echo '<option value="jne">JNE</option>';
+    }
+
     public function shipping()
     {
         $curl = curl_init();
@@ -101,7 +107,14 @@ class Rajaongkir extends CI_Controller
         if ($err) {
             echo "cURL Error #:" . $err;
         } else {
-            echo $response;
+            $array_response = json_decode($response, true);
+            $data_paket = $array_response['rajaongkir']['results'][0]['costs'];
+            echo "<option value=''>Pilih Paket</option>";
+            foreach ($data_paket as $key => $value) {
+                echo "<option value='" . $value['service'] . "'>";
+                echo $value['service'] . " | Rp." . $value['cost'][0]['value'] . " | " . $value['cost'][0]['etd'] . " Hari";
+                echo "</option>";
+            }
         }
     }
 }
