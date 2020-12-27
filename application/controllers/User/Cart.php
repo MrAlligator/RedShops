@@ -18,6 +18,7 @@ class Cart extends CI_Controller
 
     public function add()
     {
+        $x = 'options';
         $redirect_page = $this->input->post('redirect_page');
         $data = array(
             'id'      => $this->input->post('id'),
@@ -25,6 +26,25 @@ class Cart extends CI_Controller
             'price'   => $this->input->post('price'),
             'berat'   => $this->input->post('berat'),
             'name'    => $this->input->post('name'),
+            'options' => $this->input->post(array($x.'[size]')),
+            'produk'  => $this->product_model->getAll(),
+        );
+
+        $this->cart->insert($data);
+        redirect($redirect_page, 'refresh');
+    }
+
+    public function addin()
+    {
+        $x = 'options';
+        $redirect_page = $this->input->post('redirect_page');
+        $data = array(
+            'id'      => $this->input->post('id'),
+            'qty'     => $this->input->post('qty'),
+            'price'   => $this->input->post('price'),
+            'berat'   => $this->input->post('berat'),
+            'name'    => $this->input->post('name'),
+            'options' => $this->input->post(array('ukuran')),
             'produk'  => $this->product_model->getAll(),
         );
 
@@ -49,10 +69,12 @@ class Cart extends CI_Controller
     public function updatein()
     {
         $i = 1;
+        $x = 'options';
         foreach ($this->cart->contents() as $items) {
             $data = array(
                 'rowid' => $items['rowid'],
-                'qty'   => $this->input->post($i . '[qty]')
+                'qty'   => $this->input->post($i . '[qty]'),
+                'options' => $this->input->post(array($i . '[size]'))
             );
             $this->cart->update($data);
             $i++;

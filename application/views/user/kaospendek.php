@@ -50,6 +50,7 @@
                 echo form_hidden('qty', 1);
                 echo form_hidden('price', $data->harga_produk);
                 echo form_hidden('name', $data->nama_produk);
+                echo form_hidden('options' , array('size' => 'L'));
                 echo form_hidden('redirect_page', str_replace('index.php/', '', current_url()));
               ?>
               <div class="col-sm-6 col-md-3 product">

@@ -56,7 +56,7 @@
             </div>
           </div>
           <?php
-            echo form_open('user/cart/add');
+            echo form_open('user/cart/addin');
             echo form_hidden('id', $produk->id_produk);
             echo form_hidden('price', $produk->harga_produk);
             echo form_hidden('name', $produk->nama_produk);
@@ -76,6 +76,15 @@
               <p class="price">Rp. <?= $produk->harga_produk ?>,-</p>
               <hr class="offset-md">
 
+              <div class=col-sm-3>
+                <select name="ukuran" class="form-control">
+                  <option value="S">S</option>
+                  <option value="M">M</option>
+                  <option value="L">L</option>
+                  <option value="XL">XL</option>
+                  <option value="XXL">XXL</option>
+                </select>
+              </div>
               <div class="col-sm-3">
                 <input type="number" name="qty" class="form-control" value="1" min="1">
               </div>
