@@ -12,12 +12,7 @@
 
 <body>
 
-    <?php if (isset($user['username'])) : ?>
-        <?php $this->load->view("user/_partials/cart.php") ?>
-        <?php $this->load->view("user/_partials/toplinks.php") ?>
-    <?php else : ?>
-        <?php $this->load->view("user/_partials/toplinks.php") ?>
-    <?php endif; ?>
+    <?php $this->load->view("user/_partials/toplinks.php") ?>
 
     <nav class="navbar navbar-default">
         <?php $this->load->view("user/_partials/navbar.php") ?>
@@ -36,7 +31,27 @@
             <div class="row">
                 <div class="col-sm-4">
                     <h2>
-                        <small>Date: 2/10/2014</small>
+                        <small>
+                            <?php
+                                $hari= date("l");
+                                if ($hari = "Sunday"){
+                                    echo "Minggu";
+                                } elseif($hari = "Monday") {
+                                    echo "Senin";
+                                } elseif($hari = "Tuesday") {
+                                    echo "Selasa";
+                                } elseif($hari = "Wednesday") {
+                                    echo "Rabu";
+                                } elseif($hari = "Thursday") {
+                                    echo "Kamis";
+                                } elseif($hari = "Friday") {
+                                    echo "Jumat";
+                                } else {
+                                    echo "Sabtu";
+                                }
+                                echo date(", d F Y")
+                            ?>
+                        </small>
                     </h2>
                 </div>
                 <!-- /.col -->
@@ -44,33 +59,32 @@
             <!-- info row -->
             <div class="row invoice-info">
                 <div class="col-sm-4 invoice-col">
-                    From
+                    Dari
                     <address>
-                        <strong>Admin, Inc.</strong><br>
-                        795 Folsom Ave, Suite 600<br>
-                        San Francisco, CA 94107<br>
-                        Phone: (804) 123-5432<br>
-                        Email: info@almasaeedstudio.com
+                        <strong>RedShop Jember</strong><br>
+                        <?= $alamattoko->alamat_toko ?><br>
+                        Telepon: <?= $alamattoko->no_telepon ?><br>
+                        Email: redshop0990@gmail.com
                     </address>
                 </div>
                 <!-- /.col -->
-                <!-- <div class="col-sm-4 invoice-col">
-                    To
+                <div class="col-sm-4 invoice-col">
+                    Kepada
                     <address>
-                        <strong>John Doe</strong><br>
-                        795 Folsom Ave, Suite 600<br>
-                        San Francisco, CA 94107<br>
-                        Phone: (555) 539-1037<br>
-                        Email: john.doe@example.com
+                        <strong><?php echo $user['name']; ?></strong><br>
+                        <?php echo $user['alamat']; ?><br>
+                        Kabupaten <?php echo $user['kab']; ?>, <?php echo $user['prov']; ?><br>
+                        Phone: <?php echo $user['telp']; ?><br>
+                        Email: <?php echo $user['email']; ?>
                     </address>
-                </div> -->
+                </div>
                 <!-- /.col -->
                 <div class="col-sm-4 invoice-col">
-                    <b>Invoice #007612</b><br>
+                    <b>Invoice #<?php echo uniqid('invc')?></b><br>
                     <br>
-                    <b>Order ID:</b> 4F3S8J<br>
-                    <b>Payment Due:</b> 2/22/2014<br>
-                    <b>Account:</b> 968-34567
+                    <b>Order ID:</b> <?php echo uniqid('ordid')?><br>
+                    <b>Payment Due:</b> <?php echo date('d-M-Y')?><br>
+                    <b>Account:</b> <?php echo $user['username']; ?>
                 </div>
                 <!-- /.col -->
             </div>
@@ -83,10 +97,11 @@
                         <thead>
                             <tr>
                                 <th>Nama Barang</th>
+                                <th style="width: 19%;">Ukuran</th>
                                 <th style="width: 10%;">Qty</th>
                                 <th style="width: 19%;">Harga</th>
                                 <th style="width: 10%;">Berat</th>
-                                <th style="width: 20%;">Total Harga</th>
+                                <th style="width: 20%; text-align:right;">Total Harga</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -101,10 +116,15 @@
                             ?>
                                 <tr>
                                     <td><?php echo $items['name']; ?></td>
+                                    <td>
+                                        <?php foreach ($this->cart->product_options($items['rowid']) as $option_name => $option_value): ?>
+                                            <?php echo $option_value ?>
+                                        <?php endforeach; ?>
+                                    </td>
                                     <td><?php echo $items['qty']; ?></td>
                                     <td style="text-align:left">Rp.<?php echo $this->cart->format_number($items['price']); ?></td>
                                     <td style="text-align:left"><?= $barang->berat * $items['qty'] ?> gr</td>
-                                    <td style="text-align:left">Rp.<?php echo $this->cart->format_number($items['subtotal']); ?></td>
+                                    <td style="text-align:right;">Rp.<?php echo $this->cart->format_number($items['subtotal']); ?></td>
                                 </tr>
                             <?php } ?>
                         </tbody>
@@ -143,19 +163,19 @@
                         <table class="table">
                             <tr>
                                 <th style="width:40%">Subtotal:</th>
-                                <td>Rp.<?php echo $this->cart->format_number($this->cart->total()); ?></td>
+                                <td style="text-align:right;">Rp.<?php echo $this->cart->format_number($this->cart->total()); ?></td>
                             </tr>
                             <tr>
                                 <th>Total Berat</th>
-                                <td><?= $total_berat ?> gr</td>
+                                <td style="text-align:right;"><?= $total_berat ?> gr</td>
                             </tr>
                             <tr>
                                 <th>Ongkir</th>
-                                <td><label for="">Gratis Ongkir</label></td>
+                                <td style="text-align:right;"><label for="">Gratis Ongkir</label></td>
                             </tr>
                             <tr>
                                 <th>Total:</th>
-                                <td><label for="">Gratis Akhir Tahun</label></td>
+                                <td style="text-align:right;"><label for="">Rp.<?php echo ($this->cart->format_number($this->cart->total())); ?></label></td>
                             </tr>
                         </table>
                     </div>

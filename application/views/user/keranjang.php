@@ -123,15 +123,17 @@
                     <?php $i++; ?>
 
                 <?php endforeach; ?>
-
                 <tr>
-                    <td colspan="2"> </td>
                     <td style="text-align:right" class="right">
                         <h3><strong>Total</strong></h3>
                     </td>
                     <td style="text-align:right" class="right">
                         <h3>Rp.<?php echo $this->cart->format_number($this->cart->total()); ?></h3>
                     </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                 </tr>
 
             </table>

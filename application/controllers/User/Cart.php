@@ -7,6 +7,7 @@ class Cart extends CI_Controller
     {
         parent::__construct();
         $this->load->model("product_model");
+        $this->load->model("editalamat_model");
     }
 
     public function index()
@@ -108,9 +109,10 @@ class Cart extends CI_Controller
         $data = array(
             'title' => 'Checkout',
             'isi' => 'checkout',
+            'user' => $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array(),
+            'alamattoko' => $this->editalamat_model->data_setting()
         );
 
-        $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $this->load->view('user/checkout', $data, FALSE);
     }
 }
