@@ -8,6 +8,7 @@ class Admin extends CI_Controller
     {
         parent::__construct();
         $this->load->model("editalamat_model");
+        $this->load->model("transaksi_model");
         $this->load->model("product_model");
         $this->load->model("dropdown_model");
         $this->load->model('user_model');
@@ -94,6 +95,7 @@ class Admin extends CI_Controller
     {
         $data['title'] = 'Data Transaksi';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+        $data['transaksi'] = $this->transaksi_model->getAll();
         $this->load->view("admin/transaksi/lihattransaksi", $data);
     }
 
