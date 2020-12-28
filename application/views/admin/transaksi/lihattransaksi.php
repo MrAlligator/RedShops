@@ -152,34 +152,81 @@
             </div>
           </div>
 
-        </div>
-        <!-- /.container-fluid -->
+                </div>
+                <!-- /.container-fluid -->
 
-      </div>
+            </div>
 
-        <!-- End of Main Content -->
+            <!-- End of Main Content -->
 
-        <!-- Footer -->
+            <?php foreach ($pesanan as $key => $value) { ?>
+                <div class="modal fade" id="bukti_pembayaran<?= $value->id_transaksi ?>">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title"><?= $value->no_order ?></h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+
+                                <table class="table">
+                                    <tr>
+                                        <th>Nama Bank</th>
+                                        <th>:</th>
+                                        <td><?= $value->nama_bank ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th>No Rekening</th>
+                                        <th>:</th>
+                                        <td><?= $value->no_rekening ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Atas Nama</th>
+                                        <th>:</th>
+                                        <td><?= $value->atas_nama ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Total Bayar</th>
+                                        <th>:</th>
+                                        <td>Rp.<?= number_format($value->total_bayar, 0) ?></td>
+                                    </tr>
+                                </table>
+
+                                <img src="<?= base_url('assets/img/bukti_pembayaran/' . $value->bukti_bayar) ?>" alt="">
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php } ?>
+
+            <!-- Footer -->
             <?php $this->load->view("admin/_partials/footer.php") ?>
-        <!-- End of Footer -->
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
 
     </div>
-    <!-- End of Content Wrapper -->
+    <!-- End of Page Wrapper -->
 
-</div>
-<!-- End of Page Wrapper -->
-
-<!-- Scroll to Top Button-->
+    <!-- Scroll to Top Button-->
     <?php $this->load->view("admin/_partials/scrolltop.php") ?>
 
-  <?php $this->load->view("admin/_partials/modal.php") ?>
-  <?php $this->load->view("admin/_partials/js.php") ?>
-  <script>
-    function deleteConfirm(url){
-    $('#btn-delete').attr('href', url);
-    $('#deleteModal').modal();
-    }
-  </script>
+    <?php $this->load->view("admin/_partials/modal.php") ?>
+    <?php $this->load->view("admin/_partials/js.php") ?>
+    <script>
+        function deleteConfirm(url) {
+            $('#btn-delete').attr('href', url);
+            $('#deleteModal').modal();
+        }
+    </script>
 </body>
 
 </html>

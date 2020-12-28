@@ -96,10 +96,15 @@ class Admin extends CI_Controller
 
     public function transaksi()
     {
-        $data['title'] = 'Data Transaksi';
+        $data = array(
+            'title' => 'Data Transaksi',
+            'pesanan' => $this->transaksi_model->pesanan_admin(),
+            'isi' => 'lihattransaksi',
+        );
+
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data['transaksi'] = $this->transaksi_model->getAll();
-        $this->load->view("admin/transaksi/lihattransaksi", $data);
+        $this->load->view("admin/transaksi/lihattransaksi", $data, FALSE);
     }
 
     public function editalamat()
