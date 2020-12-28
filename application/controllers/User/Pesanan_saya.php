@@ -35,6 +35,7 @@ class Pesanan_saya extends CI_Controller
             if (!$this->upload->do_upload($field_name)) {
                 $data = array(
                     'title' => 'Pembayaran',
+                    'user' => $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array(),
                     'pesanan' => $this->transaksi_model->detail_pesanan($id_transaksi),
                     'rekening' => $this->transaksi_model->rekening(),
                     'error_upload' => $this->upload->display_errors(),

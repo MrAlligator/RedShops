@@ -20,6 +20,9 @@ class Admin extends CI_Controller
     {
         $data['totalproduk'] = $this->product_model->hitung_jumlah_produk();
         $data['totaluser'] = $this->user_model->hitung_jumlah_user();
+        $data['totaltransaksi'] = $this->transaksi_model->hitung_jumlah_transaksi();
+        $data['totalbelumbayar'] = $this->transaksi_model->hitung_jumlah_belumbayar();
+        $data['totalsudahbayar'] = $this->transaksi_model->hitung_jumlah_sudahbayar();
         $data['title'] = 'Dashboard';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $this->load->view("admin/dashboard", $data);
