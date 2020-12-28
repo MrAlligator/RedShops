@@ -1,4 +1,4 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed');
+<?php defined('BASEPATH') or exit('No direct script access allowed');
 
 class Product_model extends CI_Model
 {
@@ -9,6 +9,7 @@ class Product_model extends CI_Model
     public $jenis_produk;
     public $harga_produk;
     public $jumlahstok;
+    public $berat;
     public $foto_produk = "default.jpg";
     public $foto_produk2 = "default.jpg";
     public $foto_produk3 = "default.jpg";
@@ -19,37 +20,59 @@ class Product_model extends CI_Model
     public function rules()
     {
         return [
-            ['field' => 'nama',
-            'label' => 'Nama',
-            'rules' => 'required'],
+            [
+                'field' => 'nama',
+                'label' => 'Nama',
+                'rules' => 'required'
+            ],
 
-            ['field' => 'jenis',
-            'label' => 'Jenis',
-            'rules' => 'required'],
+            [
+                'field' => 'jenis',
+                'label' => 'Jenis',
+                'rules' => 'required'
+            ],
 
-            ['field' => 'harga',
-            'label' => 'Harga',
-            'rules' => 'numeric', 'required'],
+            [
+                'field' => 'harga',
+                'label' => 'Harga',
+                'rules' => 'numeric', 'required'
+            ],
 
-            ['field' => 'jumlahstok',
-            'label' => 'Jumlah Stok',
-            'rules' => 'numeric', 'required'],
-            
-            ['field' => 'foto',
-            'label' => 'Foto',
-            'rules' => 'uploaded'],
+            [
+                'field' => 'jumlahstok',
+                'label' => 'Jumlah Stok',
+                'rules' => 'numeric', 'required'
+            ],
 
-            ['field' => 'gambar',
-            'label' => 'Foto',
-            'rules' => 'uploaded'],
+            [
+                'field' => 'berat',
+                'label' => 'Berat',
+                'rules' => 'numeric', 'required'
+            ],
 
-            ['field' => 'gmbr',
-            'label' => 'Foto',
-            'rules' => 'uploaded'],
+            [
+                'field' => 'foto',
+                'label' => 'Foto',
+                'rules' => 'uploaded'
+            ],
 
-            ['field' => 'deskripsi',
-            'label' => 'Deskripsi',
-            'rules' => 'required']
+            [
+                'field' => 'gambar',
+                'label' => 'Foto',
+                'rules' => 'uploaded'
+            ],
+
+            [
+                'field' => 'gmbr',
+                'label' => 'Foto',
+                'rules' => 'uploaded'
+            ],
+
+            [
+                'field' => 'deskripsi',
+                'label' => 'Deskripsi',
+                'rules' => 'required'
+            ]
         ];
     }
 
@@ -57,7 +80,7 @@ class Product_model extends CI_Model
     {
         return $this->db->get($this->_table)->result();
     }
-    
+
     public function getById($id)
     {
         return $this->db->get_where($this->_table, ["id_produk" => $id])->row();
@@ -141,6 +164,7 @@ class Product_model extends CI_Model
         $this->jenis_produk = $post["jenis"];
         $this->harga_produk = $post["harga"];
         $this->jumlahstok = $post["jumlahstok"];
+        $this->berat = $post["berat"];
         $this->foto_produk = $this->_uploadImage();
         $this->foto_produk2 = $this->_uploadImg();
         $this->foto_produk3 = $this->_uploadGbr();
@@ -158,21 +182,22 @@ class Product_model extends CI_Model
         $this->jenis_produk = $post["jenis"];
         $this->harga_produk = $post["harga"];
         $this->jumlahstok = $post["jumlahstok"];
+        $this->berat = $post["berat"];
         if (!empty($_FILES["foto"]["name"])) {
             $this->foto_produk = $this->_uploadImage();
-        }else {
-           $this->foto_produk = $post["old_image"];
+        } else {
+            $this->foto_produk = $post["old_image"];
         }
-        // if (!empty($_FILES["foto2"]["nama"])) {
-        //     $this->foto_produk2 = $this->_uploadImage2();
-        // } else {
-        //     $this->foto_produk2 = $post["old_image"];
-        // }
-        // if (!empty($_FILES["foto3"]["nama"])) {
-        //     $this->foto_produk3 = $this->_uploadImage3();
-        // } else {
-        //     $this->foto_produk3 = $post["old_image"];
-        // }
+        if (!empty($_FILES["foto2"]["nama"])) {
+            $this->foto_produk2 = $this->_uploadImage2();
+        } else {
+            $this->foto_produk2 = $post["old_image"];
+        }
+        if (!empty($_FILES["foto3"]["nama"])) {
+            $this->foto_produk3 = $this->_uploadImage3();
+        } else {
+            $this->foto_produk3 = $post["old_image"];
+        }
         $this->deskripsi = $post["deskripsi"];
         $this->deskripsi2 = $post["deskripsi2"];
         $this->deskripsi3 = $post["deskripsi3"];
@@ -186,11 +211,10 @@ class Product_model extends CI_Model
 
     public function hitung_jumlah_produk()
     {
-        $query=$this->db->get('produk');
-        if ($query->num_rows()>0) {
+        $query = $this->db->get('produk');
+        if ($query->num_rows() > 0) {
             return $query->num_rows();
-        }
-        else {
+        } else {
             return 0;
         }
     }
@@ -199,8 +223,8 @@ class Product_model extends CI_Model
     {
         $config['upload_path']          = './assets/img/products/';
         $config['allowed_types']        = 'jpg|png';
-        $config['file_name']            = $this->id_produk.'1';
-        $config['overwrite']			= true;
+        $config['file_name']            = $this->id_produk . '1';
+        $config['overwrite']            = true;
         $config['max_size']             = 2048; // 1MB
         // $config['max_width']            = 1024;
         // $config['max_height']           = 768;
@@ -218,8 +242,8 @@ class Product_model extends CI_Model
     {
         $config['upload_path']          = './assets/img/products/';
         $config['allowed_types']        = 'jpg|png';
-        $config['file_name']            = $this->id_produk.'2';
-        $config['overwrite']			= true;
+        $config['file_name']            = $this->id_produk . '2';
+        $config['overwrite']            = true;
         $config['max_size']             = 2048; // 1MB
         // $config['max_width']            = 1024;
         // $config['max_height']           = 768;
@@ -237,8 +261,8 @@ class Product_model extends CI_Model
     {
         $config['upload_path']          = './assets/img/products/';
         $config['allowed_types']        = 'jpg|png';
-        $config['file_name']            = $this->id_produk.'3';
-        $config['overwrite']			= true;
+        $config['file_name']            = $this->id_produk . '3';
+        $config['overwrite']            = true;
         $config['max_size']             = 2048; // 1MB
         // $config['max_width']            = 1024;
         // $config['max_height']           = 768;

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 19 Des 2020 pada 15.02
+-- Waktu pembuatan: 28 Des 2020 pada 02.38
 -- Versi server: 10.4.8-MariaDB
 -- Versi PHP: 7.3.10
 
@@ -29,13 +29,28 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `detail_transaksi` (
-  `id_transaksi` int(11) NOT NULL,
-  `id_produk` int(11) NOT NULL,
-  `nama_produk` varchar(255) NOT NULL,
-  `harga` int(11) NOT NULL,
-  `qty` int(11) NOT NULL,
-  `subtotal` int(11) NOT NULL
+  `id_detail_transaksi` int(11) NOT NULL,
+  `no_order` varchar(16) DEFAULT NULL,
+  `id_produk` int(11) DEFAULT NULL,
+  `qty` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `detail_transaksi`
+--
+
+INSERT INTO `detail_transaksi` (`id_detail_transaksi`, `no_order`, `id_produk`, `qty`) VALUES
+(9, '20201227DFFKYAMX', 5, 1),
+(10, '20201227DFFKYAMX', 5, 1),
+(11, '202012276CKPUFBI', 5, 1),
+(12, '202012276CKPUFBI', 5, 1),
+(13, '20201227VYTIRHG2', 5, 1),
+(14, '20201228FUDQTE0A', 5, 1),
+(15, '20201228FUDQTE0A', 5, 1),
+(16, '20201228PIAHWSWA', 5, 1),
+(17, '20201228VGZUTYWN', 5, 1),
+(18, '20201228VGZUTYWN', 5, 1),
+(19, '20201228ELMPLPHI', 5, 4);
 
 -- --------------------------------------------------------
 
@@ -73,6 +88,7 @@ CREATE TABLE `produk` (
   `jenis_produk` varchar(25) NOT NULL,
   `harga_produk` int(11) NOT NULL,
   `jumlahstok` int(11) NOT NULL,
+  `berat` int(11) NOT NULL,
   `foto_produk` varchar(255) NOT NULL DEFAULT 'default.jpg',
   `foto_produk2` varchar(256) NOT NULL DEFAULT 'default.jpg',
   `foto_produk3` varchar(256) NOT NULL DEFAULT 'default.jpg',
@@ -85,21 +101,22 @@ CREATE TABLE `produk` (
 -- Dumping data untuk tabel `produk`
 --
 
-INSERT INTO `produk` (`id_produk`, `nama_produk`, `jenis_produk`, `harga_produk`, `jumlahstok`, `foto_produk`, `foto_produk2`, `foto_produk3`, `deskripsi`, `deskripsi2`, `deskripsi3`) VALUES
-('5fafd9b55c2b1', 'jgjhgjhgg', 'Kaos Lengan Panjang', 2456789, 12345, '5fafd9b55c2b1.jpg', 'default.jpg', 'default.jpg', 'jvjfyugjhg', 'jvjfyugjhg', 'jvjfyugjhg'),
-('5fbb46cec2fb7', 'Whuzz', 'Kaos Lengan Panjang', 100000, 444, 'default.jpg', 'default.jpg', 'default.jpg', 'hjgljkhg', 'lkj', 'jhgkjjkg'),
-('5fbb46ec9ee58', 'kjhkjh', 'Kaos Lengan Panjang', 5436, 65446, 'default.jpg', 'default.jpg', 'default.jpg', 'djhgfjfg', 'djhgfjfg', 'djhgfjfg'),
-('5fc102fbc028d', 'Hoddie', 'Jaket', 200000, 23, '5fc102fbc028d.jpg', 'default.jpg', 'default.jpg', 'Akwkwakwak', 'wakkawkwakwa', 'wakawkawkwakwa'),
-('5fdaa6ea6b742', 'ashjfgh', 'Kaos Lengan Pendek', 1241, 124124, 'default.jpg', 'default.jpg', 'default.jpg', '124124', 'dfsfaugiyg', 'igiugafiaf'),
-('5fdaa73679dbd', 'ajhsfgjhagf', 'Kaos Lengan Panjang', 12313, 12442, 'default.jpg', 'default.jpg', 'default.jpg', 'dskjahlg', 'kjflkjg', 'kjhljkh'),
-('5fdaa7722811c', 'ajhsfgjhagf', 'Kaos Lengan Panjang', 12313, 12442, 'default.jpg', 'default.jpg', 'default.jpg', 'dskjahlg', 'kjflkjg', 'kjhljkh'),
-('5fdaa7915d143', 'avg', 'Kaos Lengan Pendek', 12412, 24325, 'default.jpg', 'default.jpg', 'default.jpg', 'sdgvisg', 'dhfhg', 'sdkjgsjhg'),
-('5fdaa7bae17fa', 'hbjk', 'Kemeja Lengan Panjang', 12124, 23546, 'default.jpg', 'default.jpg', 'default.jpg', 'sdkvhls', 'kkshdvlksdh', 'jdshgkjsah'),
-('5fdaa7c82f956', 'kjbkjhjkh', 'Kemeja Lengan Panjang', 124124, 124124, 'default.jpg', 'default.jpg', 'default.jpg', 'jvlsvlsav', 'akjvajsvh', 'ksjvaskljvhaslv'),
-('5fdaa8d8e606a', 'jkjkhj', 'Kemeja Lengan Pendek', 12512512, 2145125, 'default.jpg', 'default.jpg', 'default.jpg', 'dsgsg', 'sdgsg', 'dsgsg'),
-('5fdae91228391', 'Jeans Jacket', 'Jaket', 100000, 100, 'default.jpg', 'default.jpg', 'default.jpg', 'jhshafjhasgfjhaf', 'kashgfasfg', 'ahjgfkjasgf'),
-('5fdaea1e9c49f', 'Rizki Widya', 'Kaos Lengan Panjang', 60000, 100, 'default.jpg', 'default.jpg', 'default.jpg', 'kajhflashgh', 'jashjkahg', 'jaghajk'),
-('5fdaf10cac6a3', 'jghakgjhag', 'Kemeja Lengan Panjang', 94876, 76, 'default.jpg', 'default.jpg', 'default.jpg', 'khqwgfjhagfagf', 'hagfashgfsagfgf', 'asfhgasjhfgjhasgf');
+INSERT INTO `produk` (`id_produk`, `nama_produk`, `jenis_produk`, `harga_produk`, `jumlahstok`, `berat`, `foto_produk`, `foto_produk2`, `foto_produk3`, `deskripsi`, `deskripsi2`, `deskripsi3`) VALUES
+('5fafd9b55c2b1', 'jgjhgjhgg', 'Kaos Lengan Panjang', 2456789, 12345, 100, '5fafd9b55c2b1.jpg', 'default.jpg', 'default.jpg', 'jvjfyugjhg', 'jvjfyugjhg', 'jvjfyugjhg'),
+('5fbb46cec2fb7', 'Whuzz', 'Kaos Lengan Panjang', 100000, 444, 100, 'default.jpg', 'default.jpg', 'default.jpg', 'hjgljkhg', 'lkj', 'jhgkjjkg'),
+('5fbb46ec9ee58', 'kjhkjh', 'Kaos Lengan Panjang', 5436, 65446, 100, 'default.jpg', 'default.jpg', 'default.jpg', 'djhgfjfg', 'djhgfjfg', 'djhgfjfg'),
+('5fc102fbc028d', 'Hoddie', 'Jaket', 200000, 23, 100, '5fc102fbc028d.jpg', 'default.jpg', 'default.jpg', 'Akwkwakwak', 'wakkawkwakwa', 'wakawkawkwakwa'),
+('5fdaa6ea6b742', 'ashjfgh', 'Kaos Lengan Pendek', 1241, 124124, 100, 'default.jpg', 'default.jpg', 'default.jpg', '124124', 'dfsfaugiyg', 'igiugafiaf'),
+('5fdaa73679dbd', 'ajhsfgjhagf', 'Kaos Lengan Panjang', 12313, 200, 100, 'default.jpg', 'default.jpg', 'default.jpg', 'dskjahlg', 'kjflkjg', 'kjhljkh'),
+('5fdaa7722811c', 'ajhsfgjhagf', 'Kaos Lengan Panjang', 12313, 12442, 100, 'default.jpg', 'default.jpg', 'default.jpg', 'dskjahlg', 'kjflkjg', 'kjhljkh'),
+('5fdaa7915d143', 'avg', 'Kaos Lengan Pendek', 12412, 24325, 100, 'default.jpg', 'default.jpg', 'default.jpg', 'sdgvisg', 'dhfhg', 'sdkjgsjhg'),
+('5fdaa7bae17fa', 'hbjk', 'Kemeja Lengan Panjang', 12124, 23546, 100, 'default.jpg', 'default.jpg', 'default.jpg', 'sdkvhls', 'kkshdvlksdh', 'jdshgkjsah'),
+('5fdaa7c82f956', 'kjbkjhjkh', 'Kemeja Lengan Panjang', 124124, 124124, 100, 'default.jpg', 'default.jpg', 'default.jpg', 'jvlsvlsav', 'akjvajsvh', 'ksjvaskljvhaslv'),
+('5fdaa8d8e606a', 'jkjkhj', 'Kemeja Lengan Pendek', 12512512, 2145125, 100, 'default.jpg', 'default.jpg', 'default.jpg', 'dsgsg', 'sdgsg', 'dsgsg'),
+('5fdae91228391', 'Jeans Jacket', 'Jaket', 100000, 100, 100, 'default.jpg', 'default.jpg', 'default.jpg', 'jhshafjhasgfjhaf', 'kashgfasfg', 'ahjgfkjasgf'),
+('5fdaea1e9c49f', 'Rizki Widya', 'Kaos Lengan Panjang', 60000, 100, 100, 'default.jpg', 'default.jpg', 'default.jpg', 'kajhflashgh', 'jashjkahg', 'jaghajk'),
+('5fdaf10cac6a3', 'jghakgjhag', 'Kemeja Lengan Panjang', 94876, 76, 100, 'default.jpg', 'default.jpg', 'default.jpg', 'khqwgfjhagfagf', 'hagfashgfsagfgf', 'asfhgasjhfgjhasgf'),
+('5fe750349465d', 'adnlkad', 'Kaos Lengan Panjang', 1, 1, 100, 'default.jpg', 'default.jpg', 'default.jpg', '1akdhoh', 'aaaaaaaaaaa', 'asjdas');
 
 -- --------------------------------------------------------
 
@@ -111,15 +128,16 @@ CREATE TABLE `setting_toko` (
   `id_alamat` int(11) NOT NULL,
   `nama_toko` varchar(255) NOT NULL,
   `lokasi_toko` int(11) DEFAULT NULL,
-  `alamat_toko` text NOT NULL
+  `alamat_toko` text NOT NULL,
+  `no_telepon` varchar(20) NOT NULL DEFAULT '+62'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `setting_toko`
 --
 
-INSERT INTO `setting_toko` (`id_alamat`, `nama_toko`, `lokasi_toko`, `alamat_toko`) VALUES
-(1, 'REDSHOP', NULL, 'Jl. Brantas 23, Tegal Boto Lor, Sumbersari, Kec. Sumbersari, Kabupaten Jember, Jawa Timur 68121');
+INSERT INTO `setting_toko` (`id_alamat`, `nama_toko`, `lokasi_toko`, `alamat_toko`, `no_telepon`) VALUES
+(1, 'REDSHOP', 160, 'Jl. Brantas 23, Tegal Boto Lor, Sumbersari, Kec. Sumbersari, Kabupaten Jember, Jawa Timur 68121', '+6289685115937');
 
 -- --------------------------------------------------------
 
@@ -129,11 +147,42 @@ INSERT INTO `setting_toko` (`id_alamat`, `nama_toko`, `lokasi_toko`, `alamat_tok
 
 CREATE TABLE `transaksi` (
   `id_transaksi` int(11) NOT NULL,
-  `id_user` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `alamat` text NOT NULL,
-  `tgl_transaksi` varchar(50) NOT NULL
+  `no_order` varchar(16) NOT NULL,
+  `tgl_transaksi` date DEFAULT NULL,
+  `nama_penerima` varchar(50) DEFAULT NULL,
+  `provinsi` varchar(50) DEFAULT NULL,
+  `kabupaten` varchar(50) DEFAULT NULL,
+  `alamat` text DEFAULT NULL,
+  `kode_pos` varchar(10) DEFAULT NULL,
+  `no_telepon` varchar(16) DEFAULT NULL,
+  `ekspedisi` varchar(255) DEFAULT NULL,
+  `paket` varchar(255) DEFAULT NULL,
+  `estimasi` varchar(255) DEFAULT NULL,
+  `ongkir` int(11) DEFAULT NULL,
+  `berat` int(11) DEFAULT NULL,
+  `grand_total` int(11) DEFAULT NULL,
+  `total_bayar` int(11) DEFAULT NULL,
+  `status_bayar` int(1) DEFAULT NULL,
+  `bukti_bayar` text DEFAULT NULL,
+  `atas_nama` varchar(50) DEFAULT NULL,
+  `nama_bank` varchar(50) DEFAULT NULL,
+  `no_rekening` varchar(50) DEFAULT NULL,
+  `status_order` int(1) DEFAULT NULL,
+  `pemesan` varchar(128) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `transaksi`
+--
+
+INSERT INTO `transaksi` (`id_transaksi`, `no_order`, `tgl_transaksi`, `nama_penerima`, `provinsi`, `kabupaten`, `alamat`, `kode_pos`, `no_telepon`, `ekspedisi`, `paket`, `estimasi`, `ongkir`, `berat`, `grand_total`, `total_bayar`, `status_bayar`, `bukti_bayar`, `atas_nama`, `nama_bank`, `no_rekening`, `status_order`, `pemesan`) VALUES
+(9, '20201227DFFKYAMX', '2020-12-27', 'Rizki Widya P', 'Jawa Timur', 'Tuban', 'Dusun Krajan RT 03 / RW 04, Prunggahan Kulon, Semanding', '62381', '082331067312', 'jne', 'REG', '1-2 Hari', 8000, 200, 324124, 332124, 0, NULL, NULL, NULL, NULL, 0, ''),
+(10, '202012276CKPUFBI', '2020-12-27', 'kjhkhlhlkh', 'Bangka Belitung', 'Bangka Selatan', 'kwuehuhwf', '63254', '082331067312', 'jne', 'OKE', '3-6 Hari', 45000, 200, 219000, 264000, 0, NULL, NULL, NULL, NULL, 0, ''),
+(11, '20201227VYTIRHG2', '2020-12-27', 'Rizki Widya P', 'Jawa Timur', 'Tuban', 'Dusun Krajan RT 03 / RW 04, Prunggahan Kulon, Semanding', '62381', '082331067312', 'jne', 'REG', '1-2 Hari', 8000, 100, 124124, 132124, 0, NULL, NULL, NULL, NULL, 0, ''),
+(12, '20201228FUDQTE0A', '2020-12-28', 'Rizki Widya P', 'Jawa Timur', 'Tuban', 'Dusun Krajan RT 03 / RW 04, Prunggahan Kulon, Semanding', '62381', '082331067312', 'jne', 'REG', '1-2 Hari', 8000, 200, 219000, 227000, 0, NULL, NULL, NULL, NULL, 0, ''),
+(13, '20201228PIAHWSWA', '2020-12-28', 'Rizki Widya P', 'Jawa Timur', 'Tuban', 'Dusun Krajan RT 03 / RW 04, Prunggahan Kulon, Semanding', '62381', '082331067312', 'jne', 'REG', '1-2 Hari', 8000, 100, 124124, 132124, 0, NULL, NULL, NULL, NULL, 0, ''),
+(14, '20201228VGZUTYWN', '2020-12-28', 'Rizki Widya P', 'Jawa Timur', 'Tuban', 'Dusun Krajan RT 03 / RW 04, Prunggahan Kulon, Semanding', '62381', '082331067312', 'jne', 'REG', '1-2 Hari', 8000, 200, 300000, 308000, 0, NULL, NULL, NULL, NULL, 0, NULL),
+(15, '20201228ELMPLPHI', '2020-12-28', 'Rizki Widya P', 'Jawa Timur', 'Tuban', 'Dusun Krajan RT 03 / RW 04, Prunggahan Kulon, Semanding', '62381', '082331067312', 'jne', 'REG', '1-2 Hari', 8000, 400, 800000, 808000, 0, NULL, NULL, NULL, NULL, 0, 'superadmin');
 
 -- --------------------------------------------------------
 
@@ -152,14 +201,6 @@ CREATE TABLE `user` (
   `kab` varchar(128) NOT NULL,
   `prov` varchar(128) NOT NULL,
   `telp` varchar(128) NOT NULL,
-  `alamat2` varchar(128) NOT NULL,
-  `kab2` varchar(128) NOT NULL,
-  `prov2` varchar(128) NOT NULL,
-  `telp2` varchar(128) NOT NULL,
-  `alamat3` varchar(128) NOT NULL,
-  `kab3` varchar(128) NOT NULL,
-  `prov3` varchar(128) NOT NULL,
-  `telp3` varchar(128) NOT NULL,
   `role_id` int(11) NOT NULL,
   `is_active` int(1) NOT NULL,
   `date_created` int(11) NOT NULL
@@ -169,10 +210,11 @@ CREATE TABLE `user` (
 -- Dumping data untuk tabel `user`
 --
 
-INSERT INTO `user` (`id_user`, `name`, `email`, `username`, `image`, `password`, `alamat`, `kab`, `prov`, `telp`, `alamat2`, `kab2`, `prov2`, `telp2`, `alamat3`, `kab3`, `prov3`, `telp3`, `role_id`, `is_active`, `date_created`) VALUES
-(15, 'Rizki Pratama', 'e41181256@student.polije.ac.id', 'superadmin', '_MG_52231.JPG', '$2y$10$Ue1Gy7/2ayI9T/EctwsPS.0rl6L1CM0rI.FATdQ/onj2xW6jxmO2K', 'Dusun Krajan RT 03 / RW 04', 'Tuban', 'Jawa Timur', '082331067312', 'Belum diatur', '', '', '', 'Belum diatur', '', '', '', 1, 1, 1606392372),
-(28, 'Rizki', 'rizkipratama7575@gmail.com', 'admin', 'default.jpg', '$2y$10$XxBOdizPLBz4BlD3IA9bHem3gouLKmtWLxZg1OJEs9Q6SJrAJNWNS', 'Belum diatur', 'Belum diatur', 'Belum diatur', 'Belum diatur', 'Belum diatur', 'Belum diatur', 'Belum diatur', 'Belum diatur', 'Belum diatur', 'Belum diatur', 'Belum diatur', 'Belum diatur', 2, 1, 1608363165),
-(29, 'Rizki Widya Pratama', 'silvianawidya46@gmail.com', 'rizkiwp', 'default.jpg', '$2y$10$Q7mOLzY0.pIuwOkr2s009.9jmXd3kW7pzcPir9bGkmPfpXXVBHW8.', 'Belum diatur', 'Belum diatur', 'Belum diatur', 'Belum diatur', 'Belum diatur', 'Belum diatur', 'Belum diatur', 'Belum diatur', 'Belum diatur', 'Belum diatur', 'Belum diatur', 'Belum diatur', 3, 1, 1608363215);
+INSERT INTO `user` (`id_user`, `name`, `email`, `username`, `image`, `password`, `alamat`, `kab`, `prov`, `telp`, `role_id`, `is_active`, `date_created`) VALUES
+(15, 'Rizki Pratama', 'e41181256@student.polije.ac.id', 'superadmin', '_MG_52231.JPG', '$2y$10$Ue1Gy7/2ayI9T/EctwsPS.0rl6L1CM0rI.FATdQ/onj2xW6jxmO2K', 'Dusun Krajan RT 03 / RW 04', 'Tuban', 'Jawa Timur', '082331067312', 1, 1, 1606392372),
+(28, 'Rizki', 'rizkipratama7575@gmail.com', 'admin', 'default.jpg', '$2y$10$XxBOdizPLBz4BlD3IA9bHem3gouLKmtWLxZg1OJEs9Q6SJrAJNWNS', 'Belum diatur', 'Belum diatur', 'Belum diatur', 'Belum diatur', 2, 1, 1608363165),
+(29, 'Rizki Widya Pratama', 'silvianawidya46@gmail.com', 'rizkiwp', 'default.jpg', '$2y$10$Q7mOLzY0.pIuwOkr2s009.9jmXd3kW7pzcPir9bGkmPfpXXVBHW8.', 'Belum diatur', 'Belum diatur', 'Belum diatur', 'Belum diatur', 3, 1, 1608363215),
+(31, 'Fahim', 'fahimbarcajr@yahoo.com', 'fahim10969', 'default.jpg', '$2y$10$0ZCAhByeQQ9u5dHMzJ70Yu.lv18i3bvC2EGyat3Op1IGr0D.o36ci', 'Belum diatur', 'Belum diatur', 'Belum diatur', 'Belum diatur', 3, 1, 1608619125);
 
 -- --------------------------------------------------------
 
@@ -313,6 +355,12 @@ INSERT INTO `user_token` (`id_token`, `email`, `token`, `date_created`) VALUES
 --
 
 --
+-- Indeks untuk tabel `detail_transaksi`
+--
+ALTER TABLE `detail_transaksi`
+  ADD PRIMARY KEY (`id_detail_transaksi`);
+
+--
 -- Indeks untuk tabel `jenis`
 --
 ALTER TABLE `jenis`
@@ -379,6 +427,12 @@ ALTER TABLE `user_token`
 --
 
 --
+-- AUTO_INCREMENT untuk tabel `detail_transaksi`
+--
+ALTER TABLE `detail_transaksi`
+  MODIFY `id_detail_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
+--
 -- AUTO_INCREMENT untuk tabel `jenis`
 --
 ALTER TABLE `jenis`
@@ -388,13 +442,13 @@ ALTER TABLE `jenis`
 -- AUTO_INCREMENT untuk tabel `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT untuk tabel `user_access_menu`
@@ -424,7 +478,7 @@ ALTER TABLE `user_sub_menu`
 -- AUTO_INCREMENT untuk tabel `user_token`
 --
 ALTER TABLE `user_token`
-  MODIFY `id_token` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id_token` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
