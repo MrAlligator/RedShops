@@ -179,7 +179,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label>No Telepon</label>
-                            <input name="no_telepon" class="form-control" id="no_telepon" required></input>
+                            <input name="no_telepon" class="form-control" id="no_telepon" onkeypress="return hanyaAngka(event)" required></input>
                         </div>
                     </div>
                 </div>
@@ -316,6 +316,12 @@
                 $("input[name=total_bayar]").val(data_total_bayar);
             });
         });
+        function hanyaAngka(event) {
+            var angka = (event.which) ? event.which : event.keyCode
+            if (angka != 46 && angka > 31 && (angka < 48 || angka > 57))
+                return false;
+            return true;
+        }
     </script>
     <footer>
         <?php $this->load->view("user/_partials/footer.php") ?>

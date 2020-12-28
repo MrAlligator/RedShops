@@ -51,9 +51,11 @@
                                 <div class="form-group">
                                     <label for="kind">Jenis *</label><br>
                                     <select class="form-control" name="jenis" id="jenis" required>
-                                        <?php foreach ($menu as $row) : ?>
-                                            <option value="<?php echo $row->jenis; ?>"><?php echo $row->jenis; ?></option>
-                                        <?php endforeach; ?>
+                                        <option value='Kaos Lengan Panjang'>Kaos Lengan Panjang</option>
+                                        <option value='Kaos Lengan Pendek'>Kaos Lengan Pendek</option>
+                                        <option value='Kemeja Lengan Panjang'>Kemeja Lengan Panjang</option>
+                                        <option value='Kemeja Lengan Pendek'>Kemeja Lengan Pendek</option>
+                                        <option value='Jaket'>Jaket</option>
                                     </select>
                                 </div>
 
