@@ -132,6 +132,7 @@ class Cart extends CI_Controller
         } else {
             //simpan ke transaksi
             $data = array(
+                'id_user' => $this->session->userdata('id_user'),
                 'no_order' => $this->input->post('no_order'),
                 'tgl_transaksi' => date('Y-m-d'),
                 'nama_penerima' => $this->input->post('nama_penerima'),
@@ -149,7 +150,6 @@ class Cart extends CI_Controller
                 'total_bayar' => $this->input->post('total_bayar'),
                 'status_bayar' => '0',
                 'status_order' => '0',
-                'pemesan' => $this->input->post('pemesan')
             );
             $this->transaksi_model->simpan_transaksi($data);
             //simpan ke detail transaksi

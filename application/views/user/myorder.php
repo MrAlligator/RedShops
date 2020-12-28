@@ -50,7 +50,7 @@
 
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link active" id="belumbayar-tab" data-toggle="tab" href="#belumbayar" role="tab" aria-controls="belumbayar" aria-selected="true">Belum Bayar</a>
+                    <a class="nav-link active" id="belumbayar-tab" data-toggle="tab" href="#belumbayar" role="tab" aria-controls="belumbayar" aria-selected="true">Order</a>
                 </li>
                 <li class="nav-item" role="presentation">
                     <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
@@ -61,7 +61,33 @@
             </ul>
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="belumbayar" role="tabpanel" aria-labelledby="belumbayar-tab">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    <table class="table">
+                        <tr>
+                            <th>No Order</th>
+                            <th>Tanggal</th>
+                            <th>Ekspedisi</th>
+                            <th>Total Bayar</th>
+                            <th>Action</th>
+                        </tr>
+                        <?php foreach ($belum_bayar as $key => $value) { ?>
+                            <tr>
+                                <td><?= $value->no_order?></td>
+                                <td><?= $value->tgl_transaksi?></td>
+                                <td>
+                                    <b><?= $value->ekspedisi ?></b><br>
+                                    <?= $value->paket?><br>
+                                    <?= $value->ongkir?>
+                                </td>
+                                <td>
+                                    <b>Rp.<?= number_format($value->total_bayar,0) ?></b><br>
+                                    <span class="badge badge-warning">Belum bayar</span>
+                                </td>
+                                <td>
+                                    <a href="https://api.whatsapp.com/send?phone=6285215822336&text=Hai%2C%20Admin%20RedShop.%20Saya%20<?= $user['username'] ?>.%0ASaya%20Melakukan%20Pemesanan%20dengan%20Rincian%20:%0ANomor%20Order%20=%20<?php echo $value->no_order ?>%0ANama%20Penerima%20=%20<?php echo $value->nama_penerima ?>%0AAlamat%20Penerima%20=%20<?php echo $value->alamat ?>,%20<?php echo $value->kabupaten ?>,%20<?php echo $value->provinsi ?>,%20<?php echo $value->kode_pos ?>%0ATelepon%20Penerima%20=%20<?php echo $value->no_telepon ?>%0AEkspedisi%20=%20<?php echo $value->ekspedisi ?>,%20<?php echo $value->paket ?>(<?php echo $value->estimasi ?>)%0AOngkos%20Kirim%20=%20Rp.<?php echo $value->ongkir ?>,-%0ASubtotal%20Pembelanjaan%20=%20Rp.<?php echo $value->grand_total ?>,-%0ATotal%20yang%20dibayarkan%20=%20Rp.<?php echo $value->total_bayar ?>,-%0A%0A%0ATerima%20Kasih" class="btn btn-primary btn-sm">Bayar</a><br><br>
+                                </td>
+                            </tr>
+                        <?php } ?>
+                    </table>
                 </div>
                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.

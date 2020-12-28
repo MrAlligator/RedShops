@@ -12,4 +12,14 @@ class Transaksi_model extends CI_Model
     {
         $this->db->insert('detail_transaksi', $data_detail);
     }
+
+    public function belum_bayar()
+    {
+        $this->db->select('*');
+        $this->db->from('transaksi');
+        $this->db->where('status_bayar=0');
+        $this->db->where('id_user', $this->session->userdata('id_user'));
+        $this->db->order_by('id_transaksi', 'desc');
+        return $this->db->get()->result();
+    }
 }

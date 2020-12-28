@@ -217,7 +217,6 @@
             <input name="berat" id="berat" value="<?= $total_berat ?>" hidden>
             <input name="grand_total" id="grand_total" value="<?= $this->cart->total() ?>" hidden>
             <input name="total_bayar" id="total_bayar" hidden>
-            <input name="pemesan" id="pemesan" value="<?= $user['username'] ?>" hidden>
             <!-- End Simpan Transaksi -->
 
             <!-- Simpan Detail Transaksi -->

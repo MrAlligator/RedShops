@@ -40,6 +40,7 @@ class Auth extends CI_Controller {
                     //cek pass
                     if(password_verify($password, $user['password'])){
                         $data = [
+                            'id_user' => $user['id_user'],
                             'username' => $user['username'],
                             'role_id' => $user['role_id']
                         ];
@@ -65,6 +66,7 @@ class Auth extends CI_Controller {
                     //cek pass
                     if(password_verify($password, $email['password'])){
                         $data = [
+                            'id_user' => $email['id_user'],
                             'username' => $email['username'],
                             'role_id' => $email['role_id']
                         ];
@@ -141,6 +143,7 @@ class Auth extends CI_Controller {
 
     public function logout()
     {
+        $this->session->unset_userdata('id_user');
         $this->session->unset_userdata('username');
         $this->session->unset_userdata('role_id');
 
