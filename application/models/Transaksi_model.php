@@ -24,7 +24,7 @@ class Transaksi_model extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('transaksi');
-        $this->db->where('status_bayar=0');
+        // $this->db->where('status_bayar=0');
         $this->db->where('id_user', $this->session->userdata('id_user'));
         $this->db->order_by('id_transaksi', 'desc');
         return $this->db->get()->result();
@@ -48,6 +48,6 @@ class Transaksi_model extends CI_Model
     public function upload_buktibayar($data)
     {
         $this->db->where('id_transaksi', $data['id_transaksi']);
-        $this->db->update('id_transaksi', $data);
+        $this->db->update('transaksi', $data);
     }
 }
