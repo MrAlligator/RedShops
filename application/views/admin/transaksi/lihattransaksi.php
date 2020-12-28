@@ -90,9 +90,16 @@
                             <?php echo $items->total_bayar ?>
                             </td>
                             <td>
-                            <a href="https://api.whatsapp.com/send?phone=6285215822336&text=Hai%2C%20Admin%20RedShop.%20Saya%20<?= $user['username'] ?>.%0ASaya%20Melakukan%20Pemesanan%20dengan%20Rincian%20:%0ANomor%20Order%20=%20<?php echo $items->no_order ?>%0ANama%20Penerima%20=%20<?php echo $items->nama_penerima ?>%0AAlamat%20Penerima%20=%20<?php echo $items->alamat ?>,%20<?php echo $items->kabupaten ?>,%20<?php echo $items->provinsi ?>,%20<?php echo $items->kode_pos ?>%0ATelepon%20Penerima%20=%20<?php echo $items->no_telepon ?>%0AEkspedisi%20=%20<?php echo $items->ekspedisi ?>,%20<?php echo $items->paket ?>(<?php echo $items->estimasi ?>)%0AOngkos%20Kirim%20=%20Rp.<?php echo $items->ongkir ?>,-%0ASubtotal%20Pembelanjaan%20=%20Rp.<?php echo $items->grand_total ?>,-%0ATotal%20yang%20dibayarkan%20=%20Rp.<?php echo $items->total_bayar ?>,-%0A%0A%0ATerima%20Kasih" class="btn btn-primary btn-sm">Bayar</a><br><br>
-                            <a href="" class="btn btn-primary btn-sm">Lihat</a>
-                            </tr>
+                            <?php
+                                $status = $items->status_bayar;
+                                if($status == 0){
+                                    echo "Belum bayar";
+                                }else if($status == 1){
+                                    echo "Sudah bayar";
+                                }
+                            ?>
+                            </td>
+                        </tr>
                         <?php endforeach; ?>
                     </tbody>
                     </table>

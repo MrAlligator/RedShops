@@ -3,6 +3,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Transaksi_model extends CI_Model
 {
+    private $_table = "transaksi";
+    
     public function simpan_transaksi($data)
     {
         $this->db->insert('transaksi', $data);
@@ -11,6 +13,11 @@ class Transaksi_model extends CI_Model
     public function simpan_detail_transaksi($data_detail)
     {
         $this->db->insert('detail_transaksi', $data_detail);
+    }
+
+    public function getAll()
+    {
+        return $this->db->get($this->_table)->result();
     }
 
     public function belum_bayar()
