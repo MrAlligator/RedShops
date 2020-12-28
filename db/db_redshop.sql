@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 28 Des 2020 pada 07.33
--- Versi server: 10.4.8-MariaDB
--- Versi PHP: 7.3.10
+-- Generation Time: Dec 28, 2020 at 01:50 PM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 7.4.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -25,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `detail_transaksi`
+-- Table structure for table `detail_transaksi`
 --
 
 CREATE TABLE `detail_transaksi` (
@@ -36,28 +35,18 @@ CREATE TABLE `detail_transaksi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `detail_transaksi`
+-- Dumping data for table `detail_transaksi`
 --
 
 INSERT INTO `detail_transaksi` (`id_detail_transaksi`, `no_order`, `id_produk`, `qty`) VALUES
-(9, '20201227DFFKYAMX', 5, 1),
-(10, '20201227DFFKYAMX', 5, 1),
-(11, '202012276CKPUFBI', 5, 1),
-(12, '202012276CKPUFBI', 5, 1),
-(13, '20201227VYTIRHG2', 5, 1),
-(14, '20201228FUDQTE0A', 5, 1),
-(15, '20201228FUDQTE0A', 5, 1),
-(16, '20201228PIAHWSWA', 5, 1),
-(17, '20201228VGZUTYWN', 5, 1),
-(18, '20201228VGZUTYWN', 5, 1),
-(19, '20201228ELMPLPHI', 5, 4),
-(20, '20201228XDY8E6AR', 5, 1),
-(21, '20201228XDY8E6AR', 5, 1);
+(22, '2020122893U2K7TU', 5, 1),
+(23, '2020122893U2K7TU', 5, 1),
+(24, '20201228KZERU4IA', 5, 1);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `jenis`
+-- Table structure for table `jenis`
 --
 
 CREATE TABLE `jenis` (
@@ -66,7 +55,7 @@ CREATE TABLE `jenis` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `jenis`
+-- Dumping data for table `jenis`
 --
 
 INSERT INTO `jenis` (`id_jenis`, `jenis`) VALUES
@@ -81,7 +70,7 @@ INSERT INTO `jenis` (`id_jenis`, `jenis`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `produk`
+-- Table structure for table `produk`
 --
 
 CREATE TABLE `produk` (
@@ -100,7 +89,7 @@ CREATE TABLE `produk` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `produk`
+-- Dumping data for table `produk`
 --
 
 INSERT INTO `produk` (`id_produk`, `nama_produk`, `jenis_produk`, `harga_produk`, `jumlahstok`, `berat`, `foto_produk`, `foto_produk2`, `foto_produk3`, `deskripsi`, `deskripsi2`, `deskripsi3`) VALUES
@@ -123,7 +112,30 @@ INSERT INTO `produk` (`id_produk`, `nama_produk`, `jenis_produk`, `harga_produk`
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `setting_toko`
+-- Table structure for table `rekening`
+--
+
+CREATE TABLE `rekening` (
+  `id_rekening` int(11) NOT NULL,
+  `nama_bank` varchar(25) DEFAULT NULL,
+  `no_rekening` varchar(25) DEFAULT NULL,
+  `atas_nama` varchar(25) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `rekening`
+--
+
+INSERT INTO `rekening` (`id_rekening`, `nama_bank`, `no_rekening`, `atas_nama`) VALUES
+(1, 'BRI', '111928372264778', 'Redshops Store'),
+(2, 'Mandiri', '7283920152632', 'Redshops Store'),
+(3, 'BCA', '8263718295', 'Redshops Store'),
+(4, 'BNI', '7772618293', 'Redshops Store');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `setting_toko`
 --
 
 CREATE TABLE `setting_toko` (
@@ -135,7 +147,7 @@ CREATE TABLE `setting_toko` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `setting_toko`
+-- Dumping data for table `setting_toko`
 --
 
 INSERT INTO `setting_toko` (`id_alamat`, `nama_toko`, `lokasi_toko`, `alamat_toko`, `no_telepon`) VALUES
@@ -144,7 +156,7 @@ INSERT INTO `setting_toko` (`id_alamat`, `nama_toko`, `lokasi_toko`, `alamat_tok
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `transaksi`
+-- Table structure for table `transaksi`
 --
 
 CREATE TABLE `transaksi` (
@@ -174,23 +186,17 @@ CREATE TABLE `transaksi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `transaksi`
+-- Dumping data for table `transaksi`
 --
 
 INSERT INTO `transaksi` (`id_transaksi`, `id_user`, `no_order`, `tgl_transaksi`, `nama_penerima`, `provinsi`, `kabupaten`, `alamat`, `kode_pos`, `no_telepon`, `ekspedisi`, `paket`, `estimasi`, `ongkir`, `berat`, `grand_total`, `total_bayar`, `status_bayar`, `bukti_bayar`, `atas_nama`, `nama_bank`, `no_rekening`, `status_order`) VALUES
-(9, 29, '20201227DFFKYAMX', '2020-12-27', 'Rizki Widya P', 'Jawa Timur', 'Tuban', 'Dusun Krajan RT 03 / RW 04, Prunggahan Kulon, Semanding', '62381', '082331067312', 'jne', 'REG', '1-2 Hari', 8000, 200, 324124, 332124, 0, NULL, NULL, NULL, NULL, 0),
-(10, 29, '202012276CKPUFBI', '2020-12-27', 'kjhkhlhlkh', 'Bangka Belitung', 'Bangka Selatan', 'kwuehuhwf', '63254', '082331067312', 'jne', 'OKE', '3-6 Hari', 45000, 200, 219000, 264000, 0, NULL, NULL, NULL, NULL, 0),
-(11, 29, '20201227VYTIRHG2', '2020-12-27', 'Rizki Widya P', 'Jawa Timur', 'Tuban', 'Dusun Krajan RT 03 / RW 04, Prunggahan Kulon, Semanding', '62381', '082331067312', 'jne', 'REG', '1-2 Hari', 8000, 100, 124124, 132124, 0, NULL, NULL, NULL, NULL, 0),
-(12, 15, '20201228FUDQTE0A', '2020-12-28', 'Rizki Widya P', 'Jawa Timur', 'Tuban', 'Dusun Krajan RT 03 / RW 04, Prunggahan Kulon, Semanding', '62381', '082331067312', 'jne', 'REG', '1-2 Hari', 8000, 200, 219000, 227000, 0, NULL, NULL, NULL, NULL, 0),
-(13, 15, '20201228PIAHWSWA', '2020-12-28', 'Rizki Widya P', 'Jawa Timur', 'Tuban', 'Dusun Krajan RT 03 / RW 04, Prunggahan Kulon, Semanding', '62381', '082331067312', 'jne', 'REG', '1-2 Hari', 8000, 100, 124124, 132124, 0, NULL, NULL, NULL, NULL, 0),
-(14, 15, '20201228VGZUTYWN', '2020-12-28', 'Rizki Widya P', 'Jawa Timur', 'Tuban', 'Dusun Krajan RT 03 / RW 04, Prunggahan Kulon, Semanding', '62381', '082331067312', 'jne', 'REG', '1-2 Hari', 8000, 200, 300000, 308000, 0, NULL, NULL, NULL, NULL, 0),
-(15, 15, '20201228ELMPLPHI', '2020-12-28', 'Rizki Widya P', 'Jawa Timur', 'Tuban', 'Dusun Krajan RT 03 / RW 04, Prunggahan Kulon, Semanding', '62381', '082331067312', 'jne', 'REG', '1-2 Hari', 8000, 400, 800000, 808000, 0, NULL, NULL, NULL, NULL, 0),
-(16, 15, '20201228XDY8E6AR', '2020-12-28', 'Silviana Widya Lestari', 'Jawa Timur', 'Tuban', 'Dusun Krajan RT 03 / RW 04, Prunggahan Kulon, Semanding', '62381', '082331067312', 'jne', 'REG', '1-2 Hari', 8000, 200, 200000, 208000, 0, NULL, NULL, NULL, NULL, 0);
+(17, 31, '2020122893U2K7TU', '2020-12-28', 'Achmad Syadidul Fahim', 'DKI Jakarta', 'Jakarta Pusat', 'Tokyo', '67285', '085215822446', 'jne', 'REG', '1-2 Hari', 15000, 200, 136248, 151248, 0, NULL, NULL, NULL, NULL, 0),
+(18, 31, '20201228KZERU4IA', '2020-12-28', 'Achmad Syadidul Fahim', 'DI Yogyakarta', 'Yogyakarta', 'Dimana kita', '72121', '085215822446', 'jne', 'REG', '1-2 Hari', 15000, 100, 12124, 27124, 0, NULL, NULL, NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -210,7 +216,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id_user`, `name`, `email`, `username`, `image`, `password`, `alamat`, `kab`, `prov`, `telp`, `role_id`, `is_active`, `date_created`) VALUES
@@ -222,7 +228,7 @@ INSERT INTO `user` (`id_user`, `name`, `email`, `username`, `image`, `password`,
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user_access_menu`
+-- Table structure for table `user_access_menu`
 --
 
 CREATE TABLE `user_access_menu` (
@@ -232,7 +238,7 @@ CREATE TABLE `user_access_menu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `user_access_menu`
+-- Dumping data for table `user_access_menu`
 --
 
 INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
@@ -245,7 +251,7 @@ INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user_menu`
+-- Table structure for table `user_menu`
 --
 
 CREATE TABLE `user_menu` (
@@ -254,7 +260,7 @@ CREATE TABLE `user_menu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `user_menu`
+-- Dumping data for table `user_menu`
 --
 
 INSERT INTO `user_menu` (`id`, `menu`) VALUES
@@ -265,7 +271,7 @@ INSERT INTO `user_menu` (`id`, `menu`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user_role`
+-- Table structure for table `user_role`
 --
 
 CREATE TABLE `user_role` (
@@ -274,7 +280,7 @@ CREATE TABLE `user_role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `user_role`
+-- Dumping data for table `user_role`
 --
 
 INSERT INTO `user_role` (`id_role`, `role`) VALUES
@@ -285,7 +291,7 @@ INSERT INTO `user_role` (`id_role`, `role`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user_sub_menu`
+-- Table structure for table `user_sub_menu`
 --
 
 CREATE TABLE `user_sub_menu` (
@@ -298,7 +304,7 @@ CREATE TABLE `user_sub_menu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `user_sub_menu`
+-- Dumping data for table `user_sub_menu`
 --
 
 INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active`) VALUES
@@ -314,7 +320,7 @@ INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user_token`
+-- Table structure for table `user_token`
 --
 
 CREATE TABLE `user_token` (
@@ -325,7 +331,7 @@ CREATE TABLE `user_token` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `user_token`
+-- Dumping data for table `user_token`
 --
 
 INSERT INTO `user_token` (`id_token`, `email`, `token`, `date_created`) VALUES
@@ -358,43 +364,49 @@ INSERT INTO `user_token` (`id_token`, `email`, `token`, `date_created`) VALUES
 --
 
 --
--- Indeks untuk tabel `detail_transaksi`
+-- Indexes for table `detail_transaksi`
 --
 ALTER TABLE `detail_transaksi`
   ADD PRIMARY KEY (`id_detail_transaksi`);
 
 --
--- Indeks untuk tabel `jenis`
+-- Indexes for table `jenis`
 --
 ALTER TABLE `jenis`
   ADD PRIMARY KEY (`id_jenis`);
 
 --
--- Indeks untuk tabel `produk`
+-- Indexes for table `produk`
 --
 ALTER TABLE `produk`
   ADD PRIMARY KEY (`id_produk`);
 
 --
--- Indeks untuk tabel `setting_toko`
+-- Indexes for table `rekening`
+--
+ALTER TABLE `rekening`
+  ADD PRIMARY KEY (`id_rekening`);
+
+--
+-- Indexes for table `setting_toko`
 --
 ALTER TABLE `setting_toko`
   ADD PRIMARY KEY (`id_alamat`);
 
 --
--- Indeks untuk tabel `transaksi`
+-- Indexes for table `transaksi`
 --
 ALTER TABLE `transaksi`
   ADD PRIMARY KEY (`id_transaksi`);
 
 --
--- Indeks untuk tabel `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- Indeks untuk tabel `user_access_menu`
+-- Indexes for table `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
   ADD PRIMARY KEY (`id`),
@@ -402,83 +414,89 @@ ALTER TABLE `user_access_menu`
   ADD KEY `role_id` (`role_id`);
 
 --
--- Indeks untuk tabel `user_menu`
+-- Indexes for table `user_menu`
 --
 ALTER TABLE `user_menu`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `user_role`
+-- Indexes for table `user_role`
 --
 ALTER TABLE `user_role`
   ADD PRIMARY KEY (`id_role`);
 
 --
--- Indeks untuk tabel `user_sub_menu`
+-- Indexes for table `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `user_token`
+-- Indexes for table `user_token`
 --
 ALTER TABLE `user_token`
   ADD PRIMARY KEY (`id_token`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `detail_transaksi`
+-- AUTO_INCREMENT for table `detail_transaksi`
 --
 ALTER TABLE `detail_transaksi`
-  MODIFY `id_detail_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id_detail_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
--- AUTO_INCREMENT untuk tabel `jenis`
+-- AUTO_INCREMENT for table `jenis`
 --
 ALTER TABLE `jenis`
   MODIFY `id_jenis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT untuk tabel `transaksi`
+-- AUTO_INCREMENT for table `rekening`
 --
-ALTER TABLE `transaksi`
-  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+ALTER TABLE `rekening`
+  MODIFY `id_rekening` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT untuk tabel `user`
+-- AUTO_INCREMENT for table `transaksi`
+--
+ALTER TABLE `transaksi`
+  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
--- AUTO_INCREMENT untuk tabel `user_access_menu`
+-- AUTO_INCREMENT for table `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT untuk tabel `user_menu`
+-- AUTO_INCREMENT for table `user_menu`
 --
 ALTER TABLE `user_menu`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `user_role`
+-- AUTO_INCREMENT for table `user_role`
 --
 ALTER TABLE `user_role`
   MODIFY `id_role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `user_sub_menu`
+-- AUTO_INCREMENT for table `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT untuk tabel `user_token`
+-- AUTO_INCREMENT for table `user_token`
 --
 ALTER TABLE `user_token`
   MODIFY `id_token` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
