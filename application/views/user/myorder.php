@@ -75,7 +75,11 @@
                                 </td>
                                 <td>
                                     <b>Rp.<?= number_format($value->total_bayar, 0) ?></b><br>
-                                    <span class="badge badge-warning">Belum bayar</span>
+                                    <?php if($value->status_bayar == 0){ ?>
+                                        <span class="badge badge-warning">Belum bayar</span>
+                                    <?php } elseif ($value->status_bayar == 1) { ?>
+                                        <span class="badge badge-success">Sudah bayar</span>
+                                    <?php } ?>
                                 </td>
                                 <td>
                                     <a href="<?= base_url('user/pesanan_saya/bayar/' . $value->id_transaksi) ?> " class="btn btn-primary btn-sm">Bayar</a><br><br>
