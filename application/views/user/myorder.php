@@ -71,19 +71,20 @@
                         </tr>
                         <?php foreach ($belum_bayar as $key => $value) { ?>
                             <tr>
-                                <td><?= $value->no_order?></td>
-                                <td><?= $value->tgl_transaksi?></td>
+                                <td><?= $value->no_order ?></td>
+                                <td><?= $value->tgl_transaksi ?></td>
                                 <td>
                                     <b><?= $value->ekspedisi ?></b><br>
-                                    <?= $value->paket?><br>
-                                    <?= $value->ongkir?>
+                                    <?= $value->paket ?><br>
+                                    <?= $value->ongkir ?>
                                 </td>
                                 <td>
-                                    <b>Rp.<?= number_format($value->total_bayar,0) ?></b><br>
+                                    <b>Rp.<?= number_format($value->total_bayar, 0) ?></b><br>
                                     <span class="badge badge-warning">Belum bayar</span>
                                 </td>
                                 <td>
-                                    <a href="https://api.whatsapp.com/send?phone=6285215822336&text=Hai%2C%20Admin%20RedShop.%20Saya%20<?= $user['username'] ?>.%0ASaya%20Melakukan%20Pemesanan%20dengan%20Rincian%20:%0ANomor%20Order%20=%20<?php echo $value->no_order ?>%0ANama%20Penerima%20=%20<?php echo $value->nama_penerima ?>%0AAlamat%20Penerima%20=%20<?php echo $value->alamat ?>,%20<?php echo $value->kabupaten ?>,%20<?php echo $value->provinsi ?>,%20<?php echo $value->kode_pos ?>%0ATelepon%20Penerima%20=%20<?php echo $value->no_telepon ?>%0AEkspedisi%20=%20<?php echo $value->ekspedisi ?>,%20<?php echo $value->paket ?>(<?php echo $value->estimasi ?>)%0AOngkos%20Kirim%20=%20Rp.<?php echo $value->ongkir ?>,-%0ASubtotal%20Pembelanjaan%20=%20Rp.<?php echo $value->grand_total ?>,-%0ATotal%20yang%20dibayarkan%20=%20Rp.<?php echo $value->total_bayar ?>,-%0A%0A%0ATerima%20Kasih" class="btn btn-primary btn-sm">Bayar</a><br><br>
+                                    <a href="<?= base_url('user/pesanan_saya/bayar/' . $value->id_transaksi) ?> " class="btn btn-primary btn-sm">Bayar</a><br><br>
+                                    <!-- <a href="https://api.whatsapp.com/send?phone=6285215822336&text=Hai%2C%20Admin%20RedShop.%20Saya%20<?= $user['username'] ?>.%0ASaya%20Melakukan%20Pemesanan%20dengan%20Rincian%20:%0ANomor%20Order%20=%20<?php echo $value->no_order ?>%0ANama%20Penerima%20=%20<?php echo $value->nama_penerima ?>%0AAlamat%20Penerima%20=%20<?php echo $value->alamat ?>,%20<?php echo $value->kabupaten ?>,%20<?php echo $value->provinsi ?>,%20<?php echo $value->kode_pos ?>%0ATelepon%20Penerima%20=%20<?php echo $value->no_telepon ?>%0AEkspedisi%20=%20<?php echo $value->ekspedisi ?>,%20<?php echo $value->paket ?>(<?php echo $value->estimasi ?>)%0AOngkos%20Kirim%20=%20Rp.<?php echo $value->ongkir ?>,-%0ASubtotal%20Pembelanjaan%20=%20Rp.<?php echo $value->grand_total ?>,-%0ATotal%20yang%20dibayarkan%20=%20Rp.<?php echo $value->total_bayar ?>,-%0A%0A%0ATerima%20Kasih" class="btn btn-primary btn-sm">Bayar</a><br><br> -->
                                 </td>
                             </tr>
                         <?php } ?>

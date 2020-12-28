@@ -4,7 +4,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Transaksi_model extends CI_Model
 {
     private $_table = "transaksi";
-    
+
     public function simpan_transaksi($data)
     {
         $this->db->insert('transaksi', $data);
@@ -28,5 +28,26 @@ class Transaksi_model extends CI_Model
         $this->db->where('id_user', $this->session->userdata('id_user'));
         $this->db->order_by('id_transaksi', 'desc');
         return $this->db->get()->result();
+    }
+
+    public function detail_pesanan($id_transaksi)
+    {
+        $this->db->select('*');
+        $this->db->from('transaksi');
+        $this->db->where('id_transaksi', $id_transaksi);
+        return $this->db->get()->row();
+    }
+
+    public function rekening()
+    {
+        $this->db->select('*');
+        $this->db->from('rekening');
+        return $this->db->get()->result();
+    }
+
+    public function upload_buktibayar($data)
+    {
+        $this->db->where('id_transaksi', $data['id_transaksi']);
+        $this->db->update('id_transaksi', $data);
     }
 }

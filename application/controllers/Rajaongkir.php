@@ -3,7 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Rajaongkir extends CI_Controller
 {
-    private $api_key = "4daeb8fb96a1e7bfe82256a66a905d67";
+    private $api_key = "f04f0ac09c6ce8bf341b4030b8a1ba84";
 
 
     public function __construct()
