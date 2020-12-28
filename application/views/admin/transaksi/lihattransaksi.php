@@ -59,7 +59,7 @@
             </div> -->
             <div class="col-md-6">
                 <div class="col-lg-12">
-                    <a href="#" class="btn btn-danger btn-icon-split">
+                    <a href="<?= base_url('admin/admin/pdf') ?>" class="btn btn-danger btn-icon-split">
                         <span class="icon text-white-50">
                         <i class="fas fa-file-pdf"></i>
                         </span>

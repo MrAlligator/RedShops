@@ -98,7 +98,7 @@ class Admin extends CI_Controller
     {
         $data = array(
             'title' => 'Data Transaksi',
-            'pesanan' => $this->transaksi_model->pesanan_admin(),
+            'pesanan' => $this->transaksi_model->getAll(),
             'isi' => 'lihattransaksi',
         );
 
@@ -148,18 +148,35 @@ class Admin extends CI_Controller
     public function cetak()
     {
         $data['transaksi'] = $this->transaksi_model->getAll();
-        $this->load->view("user/print/transaksi", $data);
+        $this->load->view("admin/print/transaksi", $data);
     }
 
     public function cetak2()
     {
         $data['transaksi'] = $this->transaksi_model->getBelumBayar();
-        $this->load->view("user/print/transaksi", $data);
+        $this->load->view("admin/print/transaksi", $data);
     }
 
     public function cetak3()
     {
         $data['transaksi'] = $this->transaksi_model->getSudahBayar();
-        $this->load->view("user/print/transaksi", $data);
+        $this->load->view("admin/print/transaksi", $data);
+    }
+
+    public function pdf()
+    {
+        $this->load->library('dompdf_gen');
+        $data['transaksi'] = $this->transaksi_model->getAll();
+        $this->load->view("admin/print/transaksi-pdf", $data);
+
+        $paper_size = 'A4';
+        $orientation = 'landscape';
+        $html = $this->output->get_output();
+        $this->dompdf->set_paper($paper_size, $orientation);
+
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream("Laporan_transaksi_Redshop.pdf", array('Attachment' => 0));
+
     }
 }
