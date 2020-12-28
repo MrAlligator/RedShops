@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 28 Des 2020 pada 02.38
+-- Waktu pembuatan: 28 Des 2020 pada 07.33
 -- Versi server: 10.4.8-MariaDB
 -- Versi PHP: 7.3.10
 
@@ -50,7 +50,9 @@ INSERT INTO `detail_transaksi` (`id_detail_transaksi`, `no_order`, `id_produk`, 
 (16, '20201228PIAHWSWA', 5, 1),
 (17, '20201228VGZUTYWN', 5, 1),
 (18, '20201228VGZUTYWN', 5, 1),
-(19, '20201228ELMPLPHI', 5, 4);
+(19, '20201228ELMPLPHI', 5, 4),
+(20, '20201228XDY8E6AR', 5, 1),
+(21, '20201228XDY8E6AR', 5, 1);
 
 -- --------------------------------------------------------
 
@@ -147,6 +149,7 @@ INSERT INTO `setting_toko` (`id_alamat`, `nama_toko`, `lokasi_toko`, `alamat_tok
 
 CREATE TABLE `transaksi` (
   `id_transaksi` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
   `no_order` varchar(16) NOT NULL,
   `tgl_transaksi` date DEFAULT NULL,
   `nama_penerima` varchar(50) DEFAULT NULL,
@@ -167,22 +170,22 @@ CREATE TABLE `transaksi` (
   `atas_nama` varchar(50) DEFAULT NULL,
   `nama_bank` varchar(50) DEFAULT NULL,
   `no_rekening` varchar(50) DEFAULT NULL,
-  `status_order` int(1) DEFAULT NULL,
-  `pemesan` varchar(128) DEFAULT NULL
+  `status_order` int(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `transaksi`
 --
 
-INSERT INTO `transaksi` (`id_transaksi`, `no_order`, `tgl_transaksi`, `nama_penerima`, `provinsi`, `kabupaten`, `alamat`, `kode_pos`, `no_telepon`, `ekspedisi`, `paket`, `estimasi`, `ongkir`, `berat`, `grand_total`, `total_bayar`, `status_bayar`, `bukti_bayar`, `atas_nama`, `nama_bank`, `no_rekening`, `status_order`, `pemesan`) VALUES
-(9, '20201227DFFKYAMX', '2020-12-27', 'Rizki Widya P', 'Jawa Timur', 'Tuban', 'Dusun Krajan RT 03 / RW 04, Prunggahan Kulon, Semanding', '62381', '082331067312', 'jne', 'REG', '1-2 Hari', 8000, 200, 324124, 332124, 0, NULL, NULL, NULL, NULL, 0, ''),
-(10, '202012276CKPUFBI', '2020-12-27', 'kjhkhlhlkh', 'Bangka Belitung', 'Bangka Selatan', 'kwuehuhwf', '63254', '082331067312', 'jne', 'OKE', '3-6 Hari', 45000, 200, 219000, 264000, 0, NULL, NULL, NULL, NULL, 0, ''),
-(11, '20201227VYTIRHG2', '2020-12-27', 'Rizki Widya P', 'Jawa Timur', 'Tuban', 'Dusun Krajan RT 03 / RW 04, Prunggahan Kulon, Semanding', '62381', '082331067312', 'jne', 'REG', '1-2 Hari', 8000, 100, 124124, 132124, 0, NULL, NULL, NULL, NULL, 0, ''),
-(12, '20201228FUDQTE0A', '2020-12-28', 'Rizki Widya P', 'Jawa Timur', 'Tuban', 'Dusun Krajan RT 03 / RW 04, Prunggahan Kulon, Semanding', '62381', '082331067312', 'jne', 'REG', '1-2 Hari', 8000, 200, 219000, 227000, 0, NULL, NULL, NULL, NULL, 0, ''),
-(13, '20201228PIAHWSWA', '2020-12-28', 'Rizki Widya P', 'Jawa Timur', 'Tuban', 'Dusun Krajan RT 03 / RW 04, Prunggahan Kulon, Semanding', '62381', '082331067312', 'jne', 'REG', '1-2 Hari', 8000, 100, 124124, 132124, 0, NULL, NULL, NULL, NULL, 0, ''),
-(14, '20201228VGZUTYWN', '2020-12-28', 'Rizki Widya P', 'Jawa Timur', 'Tuban', 'Dusun Krajan RT 03 / RW 04, Prunggahan Kulon, Semanding', '62381', '082331067312', 'jne', 'REG', '1-2 Hari', 8000, 200, 300000, 308000, 0, NULL, NULL, NULL, NULL, 0, NULL),
-(15, '20201228ELMPLPHI', '2020-12-28', 'Rizki Widya P', 'Jawa Timur', 'Tuban', 'Dusun Krajan RT 03 / RW 04, Prunggahan Kulon, Semanding', '62381', '082331067312', 'jne', 'REG', '1-2 Hari', 8000, 400, 800000, 808000, 0, NULL, NULL, NULL, NULL, 0, 'superadmin');
+INSERT INTO `transaksi` (`id_transaksi`, `id_user`, `no_order`, `tgl_transaksi`, `nama_penerima`, `provinsi`, `kabupaten`, `alamat`, `kode_pos`, `no_telepon`, `ekspedisi`, `paket`, `estimasi`, `ongkir`, `berat`, `grand_total`, `total_bayar`, `status_bayar`, `bukti_bayar`, `atas_nama`, `nama_bank`, `no_rekening`, `status_order`) VALUES
+(9, 29, '20201227DFFKYAMX', '2020-12-27', 'Rizki Widya P', 'Jawa Timur', 'Tuban', 'Dusun Krajan RT 03 / RW 04, Prunggahan Kulon, Semanding', '62381', '082331067312', 'jne', 'REG', '1-2 Hari', 8000, 200, 324124, 332124, 0, NULL, NULL, NULL, NULL, 0),
+(10, 29, '202012276CKPUFBI', '2020-12-27', 'kjhkhlhlkh', 'Bangka Belitung', 'Bangka Selatan', 'kwuehuhwf', '63254', '082331067312', 'jne', 'OKE', '3-6 Hari', 45000, 200, 219000, 264000, 0, NULL, NULL, NULL, NULL, 0),
+(11, 29, '20201227VYTIRHG2', '2020-12-27', 'Rizki Widya P', 'Jawa Timur', 'Tuban', 'Dusun Krajan RT 03 / RW 04, Prunggahan Kulon, Semanding', '62381', '082331067312', 'jne', 'REG', '1-2 Hari', 8000, 100, 124124, 132124, 0, NULL, NULL, NULL, NULL, 0),
+(12, 15, '20201228FUDQTE0A', '2020-12-28', 'Rizki Widya P', 'Jawa Timur', 'Tuban', 'Dusun Krajan RT 03 / RW 04, Prunggahan Kulon, Semanding', '62381', '082331067312', 'jne', 'REG', '1-2 Hari', 8000, 200, 219000, 227000, 0, NULL, NULL, NULL, NULL, 0),
+(13, 15, '20201228PIAHWSWA', '2020-12-28', 'Rizki Widya P', 'Jawa Timur', 'Tuban', 'Dusun Krajan RT 03 / RW 04, Prunggahan Kulon, Semanding', '62381', '082331067312', 'jne', 'REG', '1-2 Hari', 8000, 100, 124124, 132124, 0, NULL, NULL, NULL, NULL, 0),
+(14, 15, '20201228VGZUTYWN', '2020-12-28', 'Rizki Widya P', 'Jawa Timur', 'Tuban', 'Dusun Krajan RT 03 / RW 04, Prunggahan Kulon, Semanding', '62381', '082331067312', 'jne', 'REG', '1-2 Hari', 8000, 200, 300000, 308000, 0, NULL, NULL, NULL, NULL, 0),
+(15, 15, '20201228ELMPLPHI', '2020-12-28', 'Rizki Widya P', 'Jawa Timur', 'Tuban', 'Dusun Krajan RT 03 / RW 04, Prunggahan Kulon, Semanding', '62381', '082331067312', 'jne', 'REG', '1-2 Hari', 8000, 400, 800000, 808000, 0, NULL, NULL, NULL, NULL, 0),
+(16, 15, '20201228XDY8E6AR', '2020-12-28', 'Silviana Widya Lestari', 'Jawa Timur', 'Tuban', 'Dusun Krajan RT 03 / RW 04, Prunggahan Kulon, Semanding', '62381', '082331067312', 'jne', 'REG', '1-2 Hari', 8000, 200, 200000, 208000, 0, NULL, NULL, NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -430,7 +433,7 @@ ALTER TABLE `user_token`
 -- AUTO_INCREMENT untuk tabel `detail_transaksi`
 --
 ALTER TABLE `detail_transaksi`
-  MODIFY `id_detail_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_detail_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT untuk tabel `jenis`
@@ -442,7 +445,7 @@ ALTER TABLE `jenis`
 -- AUTO_INCREMENT untuk tabel `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
