@@ -149,6 +149,7 @@ class Cart extends CI_Controller
                 'total_bayar' => $this->input->post('total_bayar'),
                 'status_bayar' => '0',
                 'status_order' => '0',
+                'pemesan' => $this->input->post('pemesan')
             );
             $this->transaksi_model->simpan_transaksi($data);
             //simpan ke detail transaksi

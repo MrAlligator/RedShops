@@ -151,35 +151,35 @@
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label>Provinsi</label>
-                            <select class="form-control" name="provinsi"></select>
+                            <select class="form-control" name="provinsi" id="provinsi"></select>
                         </div>
                         <div class="form-group col-md-6">
                             <label>Kabupaten/Kota</label>
-                            <select class="form-control" name="kabupaten"></select>
+                            <select class="form-control" name="kabupaten" id="kabupaten"></select>
                         </div>
                         <div class="form-group col-md-6">
                             <label>Ekspedisi</label>
-                            <select class="form-control" name="ekspedisi"></select>
+                            <select class="form-control" name="ekspedisi" id="ekspedisi"></select>
                         </div>
                         <div class="form-group col-md-6">
                             <label>Paket</label>
-                            <select class="form-control" name="paket"></select>
+                            <select class="form-control" name="paket" id="paket"></select>
                         </div>
                         <div class="form-group col-md-12">
                             <label>Nama Penerima</label>
-                            <input name="nama_penerima" class="form-control" required></input>
+                            <input name="nama_penerima" class="form-control" id="nama_penerima" required></input>
                         </div>
                         <div class="form-group col-md-12">
                             <label>Alamat</label>
-                            <input name="alamat" class="form-control" required></input>
+                            <input name="alamat" class="form-control" id="alamat" required></input>
                         </div>
                         <div class="form-group col-md-6">
                             <label>Kode Pos</label>
-                            <input name="kode_pos" class="form-control" required></input>
+                            <input name="kode_pos" class="form-control" id="kode_pos" required></input>
                         </div>
                         <div class="form-group col-md-6">
                             <label>No Telepon</label>
-                            <input name="no_telepon" class="form-control" required></input>
+                            <input name="no_telepon" class="form-control" id="no_telepon" required></input>
                         </div>
                     </div>
                 </div>
@@ -211,12 +211,13 @@
             <!-- /.row -->
 
             <!-- Simpan Transaksi -->
-            <input name="no_order" value="<?= $no_order ?>" hidden>
-            <input name="estimasi" hidden>
-            <input name="ongkir" hidden><br><br>
-            <input name="berat" value="<?= $total_berat ?>" hidden>
-            <input name="grand_total" value="<?= $this->cart->total() ?>" hidden>
-            <input name="total_bayar" hidden>
+            <input name="no_order" id="no_order" value="<?= $no_order ?>" hidden>
+            <input name="estimasi" id="estimasi" hidden>
+            <input name="ongkir" id="ongkir" hidden><br><br>
+            <input name="berat" id="berat" value="<?= $total_berat ?>" hidden>
+            <input name="grand_total" id="grand_total" value="<?= $this->cart->total() ?>" hidden>
+            <input name="total_bayar" id="total_bayar" hidden>
+            <input name="pemesan" id="pemesan" value="<?= $user['username'] ?>" hidden>
             <!-- End Simpan Transaksi -->
 
             <!-- Simpan Detail Transaksi -->
@@ -231,12 +232,13 @@
             <!-- this row will not appear when printing -->
             <div class="row no-print">
                 <div class="col-sm-6">
-                    <button type="submit" class="btn btn-success float-right">
+                    <button type="submit" name="btn-wa" id="btn-wa" class="btn btn-success float-right">
                         <i class="fas fa-shopping-cart"></i>Buat Pesanan
                     </button>
                 </div>
             </div>
             <?php echo form_close() ?>
+            <!-- <button type="submit" id="btn-wa" class="btn btn-success float-right"><i class="fas fa-shopping-cart"></i>Buat Pesanan</button> -->
         </div>
 
         </hr>
@@ -316,7 +318,6 @@
             });
         });
     </script>
-
     <footer>
         <?php $this->load->view("user/_partials/footer.php") ?>
     </footer>
