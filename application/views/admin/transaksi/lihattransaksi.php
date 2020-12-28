@@ -33,7 +33,7 @@
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
-            <!-- <div class="col-md-6">
+            <div class="col-md-6">
                 <div class="col-lg-12">
                     Cetak<br>
                     <a href="<?= base_url('admin/admin/cetak') ?>" class="btn btn-warning btn-icon-split">
@@ -48,16 +48,16 @@
                         </span>
                         <span class="text">Cetak Belum Bayar</span>
                     </a>
-                    <a href="<?= base_url('admin/admin/cetak') ?>" class="btn btn-warning btn-icon-split">
+                    <a href="<?= base_url('admin/admin/cetak3') ?>" class="btn btn-warning btn-icon-split">
                         <span class="icon text-white-50">
                         <i class="fas fa-print"></i>
                         </span>
-                        <span class="text">Cetak Semua</span>
+                        <span class="text">Cetak Sudah Bayar</span>
                     </a>
                     <br>
                 </div>
-            </div> -->
-            <div class="col-md-6">
+            </div>
+            <!-- <div class="col-md-6">
                 <div class="col-lg-12">
                     <a href="<?= base_url('admin/admin/pdf') ?>" class="btn btn-danger btn-icon-split">
                         <span class="icon text-white-50">
@@ -78,7 +78,7 @@
                         <span class="text">Ekspor Sudah Bayar</span>
                     </a>
                 </div>
-            </div>
+            </div> -->
             <hr>
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
