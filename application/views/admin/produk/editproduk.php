@@ -59,9 +59,40 @@
                                 <div class="form-group">
                                     <label for="kind">Jenis *</label><br>
                                     <select class="form-control" name="jenis" id="jenis" required>
-                                        <?php foreach ($menu as $row) : ?>
-                                            <option value="<?php echo $row->jenis; ?>"><?php echo $row->jenis; ?></option>
-                                        <?php endforeach; ?>
+                                    <?php
+                                        $jenis = $produk->jenis_produk;
+                                        if($jenis == 'Kaos Lengan Panjang') :
+                                    ?>
+                                        <option value='Kaos Lengan Panjang' selected>Kaos Lengan Panjang</option>
+                                        <option value='Kaos Lengan Pendek'>Kaos Lengan Pendek</option>
+                                        <option value='Kemeja Lengan Panjang'>Kemeja Lengan Panjang</option>
+                                        <option value='Kemeja Lengan Pendek'>Kemeja Lengan Pendek</option>
+                                        <option value='Jaket'>Jaket</option>
+                                    <?php elseif($jenis == 'Kaos Lengan Pendek') : ?>
+                                        <option value='Kaos Lengan Panjang'>Kaos Lengan Panjang</option>
+                                        <option value='Kaos Lengan Pendek' selected>Kaos Lengan Pendek</option>
+                                        <option value='Kemeja Lengan Panjang'>Kemeja Lengan Panjang</option>
+                                        <option value='Kemeja Lengan Pendek'>Kemeja Lengan Pendek</option>
+                                        <option value='Jaket'>Jaket</option>
+                                    <?php elseif($jenis == 'Kemeja Lengan Panjang') : ?>
+                                        <option value='Kaos Lengan Panjang'>Kaos Lengan Panjang</option>
+                                        <option value='Kaos Lengan Pendek'>Kaos Lengan Pendek</option>
+                                        <option value='Kemeja Lengan Panjang' selected>Kemeja Lengan Panjang</option>
+                                        <option value='Kemeja Lengan Pendek'>Kemeja Lengan Pendek</option>
+                                        <option value='Jaket'>Jaket</option>
+                                    <?php elseif($jenis == 'Kemeja Lengan Pendek') : ?>
+                                        <option value='Kaos Lengan Panjang'>Kaos Lengan Panjang</option>
+                                        <option value='Kaos Lengan Pendek'>Kaos Lengan Pendek</option>
+                                        <option value='Kemeja Lengan Panjang'>Kemeja Lengan Panjang</option>
+                                        <option value='Kemeja Lengan Pendek' selected>Kemeja Lengan Pendek</option>
+                                        <option value='Jaket'>Jaket</option>
+                                    <?php elseif($jenis == 'Jaket') : ?>
+                                        <option value='Kaos Lengan Panjang'>Kaos Lengan Panjang</option>
+                                        <option value='Kaos Lengan Pendek'>Kaos Lengan Pendek</option>
+                                        <option value='Kemeja Lengan Panjang'>Kemeja Lengan Panjang</option>
+                                        <option value='Kemeja Lengan Pendek'>Kemeja Lengan Pendek</option>
+                                        <option value='Jaket' selected>Jaket</option>
+                                    <?php endif ; ?>
                                     </select>
                                 </div>
 
@@ -98,7 +129,7 @@
                                         </div>
                                     </div> -->
 
-                                <div class="form-group">
+                                    <div class="form-group">
                                     <label for="name">Foto</label>
                                     <div class="col-sm-10">
                                         <div class="row">
@@ -114,6 +145,41 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                    <div class="form-group">
+                                    <br>
+                                    <div class="col-sm-10">
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <img src="<?php echo base_url('assets/img/products/') . $produk->foto_produk2 ?>" class='img-thumbnail'>
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <div class="custom-file">
+                                                    <input type="hidden" name="old_image" value="<?php echo $produk->foto_produk2 ?>" />
+                                                    <input type="file" class="custom-file-input" id="gambar" name="gambar">
+                                                    <label class="custom-file-label" for="customFile">Choose file</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                    <br>
+                                    <div class="col-sm-10">
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <img src="<?php echo base_url('assets/img/products/') . $produk->foto_produk3 ?>" class='img-thumbnail'>
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <div class="custom-file">
+                                                    <input type="hidden" name="old_image" value="<?php echo $produk->foto_produk3 ?>" />
+                                                    <input type="file" class="custom-file-input" id="gbr" name="gbr">
+                                                    <label class="custom-file-label" for="customFile">Choose file</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
 
                                     <div class="form-group">
                                         <label for="name">Deskripsi *</label>
