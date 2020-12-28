@@ -139,4 +139,22 @@ class Admin extends CI_Controller
             redirect("admin/admin/editalamat");
         }
     }
+
+    public function cetak()
+    {
+        $data['transaksi'] = $this->transaksi_model->getAll();
+        $this->load->view("user/print/transaksi", $data);
+    }
+
+    public function cetak2()
+    {
+        $data['transaksi'] = $this->transaksi_model->getBelumBayar();
+        $this->load->view("user/print/transaksi", $data);
+    }
+
+    public function cetak3()
+    {
+        $data['transaksi'] = $this->transaksi_model->getSudahBayar();
+        $this->load->view("user/print/transaksi", $data);
+    }
 }

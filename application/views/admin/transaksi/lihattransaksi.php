@@ -33,10 +33,55 @@
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
-          <!-- DataTales Example -->
-          <div class="card shadow mb-4">
-            <div class="card-header py-3">
-              <!-- <h6 class="m-0 font-weight-bold text-primary">Produk</h6> -->
+            <!-- <div class="col-md-6">
+                <div class="col-lg-12">
+                    Cetak<br>
+                    <a href="<?= base_url('admin/admin/cetak') ?>" class="btn btn-warning btn-icon-split">
+                        <span class="icon text-white-50">
+                        <i class="fas fa-print"></i>
+                        </span>
+                        <span class="text">Cetak</span>
+                    </a>
+                    <a href="<?= base_url('admin/admin/cetak2') ?>" class="btn btn-warning btn-icon-split">
+                        <span class="icon text-white-50">
+                        <i class="fas fa-print"></i>
+                        </span>
+                        <span class="text">Cetak Belum Bayar</span>
+                    </a>
+                    <a href="<?= base_url('admin/admin/cetak') ?>" class="btn btn-warning btn-icon-split">
+                        <span class="icon text-white-50">
+                        <i class="fas fa-print"></i>
+                        </span>
+                        <span class="text">Cetak Semua</span>
+                    </a>
+                    <br>
+                </div>
+            </div> -->
+            <div class="col-md-6">
+                <div class="col-lg-12">
+                    <a href="#" class="btn btn-danger btn-icon-split">
+                        <span class="icon text-white-50">
+                        <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span class="text">Ekspor</span>
+                    </a>
+                    <a href="#" class="btn btn-danger btn-icon-split">
+                        <span class="icon text-white-50">
+                        <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span class="text">Ekspor Belum Bayar</span>
+                    </a>
+                    <a href="#" class="btn btn-danger btn-icon-split">
+                        <span class="icon text-white-50">
+                        <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span class="text">Ekspor Sudah Bayar</span>
+                    </a>
+                </div>
+            </div>
+            <hr>
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -77,17 +122,17 @@
                             <td>
                             <?php echo $items->ekspedisi.", ".$items->paket;
                                 echo '<br>';
-                                echo $items->estimasi.", ".$items->ongkir;
+                                echo $items->estimasi.", Rp.".number_format($items->ongkir,0);
                             ?>
                             </td>
                             <td>
                                 <?= $items->berat ?>gr
                             </td>
                             <td>
-                            <?php echo $items->grand_total ?>
+                            Rp.<?php echo number_format($items->grand_total,0) ?>
                             </td>
                             <td>
-                            <?php echo $items->total_bayar ?>
+                            Rp.<?php echo number_format($items->total_bayar,0) ?>
                             </td>
                             <td>
                             <?php
