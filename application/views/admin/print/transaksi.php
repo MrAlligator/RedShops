@@ -5,8 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <?php $this->load->view("admin/_partials/head.php") ?>
+    <style>
+        @media print {
+            .btn {
+                display: none;
+            }
+        }
+    </style>
 </head>
 <body>
+    <br>
+    <h2 style="text-align:center;">Laporan Penjualan Redshops</h2>
+    <br>
+    <br>
     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <thead>
             <tr>
@@ -77,6 +88,7 @@
             <?php endforeach; ?>
         </tbody>
     </table>
+    <a href="<?= base_url('admin/admin/transaksi') ?>" class="btn btn-secondary">Kembali</a>
     <script type="text/javascript">
         window.print();
     </script>
