@@ -42,17 +42,17 @@
                         </span>
                         <span class="text">Cetak</span>
                     </a>
-                    <a href="<?= base_url('admin/admin/cetak2') ?>" class="btn btn-warning btn-icon-split">
+                    <a href="<?= base_url('admin/admin/cetak2') ?>" class="btn btn-danger btn-icon-split">
                         <span class="icon text-white-50">
                         <i class="fas fa-print"></i>
                         </span>
                         <span class="text">Cetak Belum Bayar</span>
                     </a>
-                    <a href="<?= base_url('admin/admin/cetak3') ?>" class="btn btn-warning btn-icon-split">
+                    <a href="<?= base_url('admin/admin/cetak3') ?>" class="btn btn-success btn-icon-split">
                         <span class="icon text-white-50">
                         <i class="fas fa-print"></i>
                         </span>
-                        <span class="text">Cetak Sudah Bayar</span>
+                        <span class="text">Cetak Sedang Proses</span>
                     </a>
                     <br>
                 </div>

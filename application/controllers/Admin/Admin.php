@@ -23,6 +23,8 @@ class Admin extends CI_Controller
         $data['totaltransaksi'] = $this->transaksi_model->hitung_jumlah_transaksi();
         $data['totalbelumbayar'] = $this->transaksi_model->hitung_jumlah_belumbayar();
         $data['totalsudahbayar'] = $this->transaksi_model->hitung_jumlah_sudahbayar();
+        $data['totalkirim'] = $this->transaksi_model->hitung_jumlah_kirim();
+        $data['totalselesai'] = $this->transaksi_model->hitung_jumlah_selesai();
         $data['title'] = 'Dashboard';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $this->load->view("admin/dashboard", $data);

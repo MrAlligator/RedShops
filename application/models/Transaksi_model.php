@@ -140,7 +140,17 @@ class Transaksi_model extends CI_Model
 
     public function hitung_jumlah_sudahbayar()
     {
-        $query = $this->db->query('SELECT * FROM transaksi WHERE status_bayar=1');
+        $query = $this->db->query('SELECT * FROM transaksi WHERE status_order=1');
+        if ($query->num_rows() > 0) {
+            return $query->num_rows();
+        } else {
+            return 0;
+        }
+    }
+
+    public function hitung_jumlah_kirim()
+    {
+        $query = $this->db->query('SELECT * FROM transaksi WHERE status_order=2');
         if ($query->num_rows() > 0) {
             return $query->num_rows();
         } else {
@@ -148,4 +158,13 @@ class Transaksi_model extends CI_Model
         }
     }
     
+    public function hitung_jumlah_selesai()
+    {
+        $query = $this->db->query('SELECT * FROM transaksi WHERE status_order=3');
+        if ($query->num_rows() > 0) {
+            return $query->num_rows();
+        } else {
+            return 0;
+        }
+    }
 }
