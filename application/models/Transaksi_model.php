@@ -33,6 +33,23 @@ class Transaksi_model extends CI_Model
         $this->db->select('*');
         $this->db->from('transaksi');
         $this->db->where('status_bayar=1');
+        $this->db->where('status_order=0');
+        return $this->db->get()->result();
+    }
+
+    public function getSudahKirim()
+    {
+        $this->db->select('*');
+        $this->db->from('transaksi');
+        $this->db->where('status_order=2');
+        return $this->db->get()->result();
+    }
+
+    public function getSudahTerima()
+    {
+        $this->db->select('*');
+        $this->db->from('transaksi');
+        $this->db->where('status_order=3');
         return $this->db->get()->result();
     }
 
@@ -59,6 +76,27 @@ class Transaksi_model extends CI_Model
         $this->db->select('*');
         $this->db->from('transaksi');
         $this->db->where('status_bayar=1');
+        $this->db->where('status_order=0');
+        $this->db->where('id_user', $this->session->userdata('id_user'));
+        $this->db->order_by('id_transaksi', 'desc');
+        return $this->db->get()->result();
+    }
+
+    public function dikirim()
+    {
+        $this->db->select('*');
+        $this->db->from('transaksi');
+        $this->db->where('status_order=2');
+        $this->db->where('id_user', $this->session->userdata('id_user'));
+        $this->db->order_by('id_transaksi', 'desc');
+        return $this->db->get()->result();
+    }
+
+    public function diterima()
+    {
+        $this->db->select('*');
+        $this->db->from('transaksi');
+        $this->db->where('status_order=3');
         $this->db->where('id_user', $this->session->userdata('id_user'));
         $this->db->order_by('id_transaksi', 'desc');
         return $this->db->get()->result();
@@ -93,6 +131,7 @@ class Transaksi_model extends CI_Model
         $this->db->select('*');
         $this->db->from('transaksi');
         $this->db->where('status_bayar=1');
+        $this->db->where('status_order=0');
         $this->db->order_by('id_transaksi', 'desc');
         return $this->db->get()->result();
     }
@@ -101,7 +140,16 @@ class Transaksi_model extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('transaksi');
-        $this->db->where('status_bayar=2');
+        $this->db->where('status_order=2');
+        $this->db->order_by('id_transaksi', 'desc');
+        return $this->db->get()->result();
+    }
+
+    public function pesanan_diterima()
+    {
+        $this->db->select('*');
+        $this->db->from('transaksi');
+        $this->db->where('status_order=3');
         $this->db->order_by('id_transaksi', 'desc');
         return $this->db->get()->result();
     }

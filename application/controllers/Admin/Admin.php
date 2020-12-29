@@ -103,6 +103,7 @@ class Admin extends CI_Controller
             'pesanan' => $this->transaksi_model->pesanan(),
             'pesanan_diproses' => $this->transaksi_model->pesanan_diproses(),
             'pesanan_dikirim' => $this->transaksi_model->pesanan_dikirim(),
+            'pesanan_diterima' => $this->transaksi_model->pesanan_diterima(),
             'isi' => 'lihattransaksi',
         );
 
@@ -186,6 +187,18 @@ class Admin extends CI_Controller
     public function cetak3()
     {
         $data['transaksi'] = $this->transaksi_model->getSudahBayar();
+        $this->load->view("admin/print/transaksi", $data);
+    }
+
+    public function cetak4()
+    {
+        $data['transaksi'] = $this->transaksi_model->getSudahKirim();
+        $this->load->view("admin/print/transaksi", $data);
+    }
+    
+    public function cetak5()
+    {
+        $data['transaksi'] = $this->transaksi_model->getSudahTerima();
         $this->load->view("admin/print/transaksi", $data);
     }
     

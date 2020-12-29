@@ -33,7 +33,7 @@
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <div class="col-lg-12">
                     Cetak<br>
                     <a href="<?= base_url('admin/admin/cetak') ?>" class="btn btn-warning btn-icon-split">
@@ -53,6 +53,18 @@
                         <i class="fas fa-print"></i>
                         </span>
                         <span class="text">Cetak Sedang Proses</span>
+                    </a>
+                    <a href="<?= base_url('admin/admin/cetak4') ?>" class="btn btn-secondary btn-icon-split">
+                        <span class="icon text-white-50">
+                        <i class="fas fa-print"></i>
+                        </span>
+                        <span class="text">Cetak Sedang Dikirim</span>
+                    </a>
+                    <a href="<?= base_url('admin/admin/cetak5') ?>" class="btn btn-info btn-icon-split">
+                        <span class="icon text-white-50">
+                        <i class="fas fa-print"></i>
+                        </span>
+                        <span class="text">Cetak Sudah Diterima</span>
                     </a>
                     <br>
                 </div>
@@ -212,7 +224,6 @@
 
                                 <!-- Pesanan Dikirim -->
                                 <div class="tab-pane fade" id="dikirim" role="tabpanel" aria-labelledby="dikirim-tab">
-                                    <hr>
                                     <div class="table-responsive">
                                         <table class="table table-bordered" id="dataTable" width="100%" cellpadding="0">
                                             <thead>
@@ -224,7 +235,7 @@
                                                     <th>Tanggal</th>
                                                     <th>Ekspedisi</th>
                                                     <th>Total Bayar</th>
-                                                    <th>Action</th>
+                                                    <th>No Resi</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -242,12 +253,10 @@
                                                         </td>
                                                         <td>
                                                             <b>Rp.<?= number_format($value->total_bayar, 0) ?></b><br>
-                                                            <span class="badge badge-primary">Sedang Dikemas</span>
+                                                            <span class="badge badge-primary">Dikirim</span>
                                                         </td>
                                                         <td>
-                                                            <?php if ($value->status_bayar == 1) { ?>
-                                                                <button class="btn btn-success btn-sm btn-flat" data-toggle="modal" data-target="#verifikasi<?= $value->id_transaksi ?>">Verifikasi</button><br><br>
-                                                            <?php } ?>
+                                                            <?= $value->no_resi ?>
                                                         </td>
                                                     </tr>
                                                 <?php } ?>
@@ -257,7 +266,45 @@
                                 </div>
                                 <!-- Pesanan Selesai -->
                                 <div class="tab-pane fade" id="selesai" role="tabpanel" aria-labelledby="selesai-tab">
-                                    It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                <div class="table-responsive">
+                                        <table class="table table-bordered" id="dataTable" width="100%" cellpadding="0">
+                                            <thead>
+                                                <tr>
+                                                    <th>No Order</th>
+                                                    <th>Nama Penerima</th>
+                                                    <th>Alamat</th>
+                                                    <th>No Telepon</th>
+                                                    <th>Tanggal</th>
+                                                    <th>Ekspedisi</th>
+                                                    <th>Total Bayar</th>
+                                                    <th>No Resi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php foreach ($pesanan_diterima as $key => $value) { ?>
+                                                    <tr>
+                                                        <td><?= $value->no_order ?></td>
+                                                        <td><?= $value->nama_penerima ?></td>
+                                                        <td><?= $value->alamat ?></td>
+                                                        <td><?= $value->no_telepon ?></td>
+                                                        <td><?= $value->tgl_transaksi ?></td>
+                                                        <td>
+                                                            <b><?= $value->ekspedisi ?></b><br>
+                                                            Paket : <?= $value->paket ?><br>
+                                                            Ongkir : <?= number_format($value->ongkir, 0) ?>
+                                                        </td>
+                                                        <td>
+                                                            <b>Rp.<?= number_format($value->total_bayar, 0) ?></b><br>
+                                                            <span class="badge badge-success">Selesai</span>
+                                                        </td>
+                                                        <td>
+                                                            <?= $value->no_resi ?>
+                                                        </td>
+                                                    </tr>
+                                                <?php } ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
 
@@ -332,7 +379,7 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body"> ?>
+                    <div class="modal-body">
                         <?php echo form_open('admin/admin/kirim/' . $value->id_transaksi) ?>
                         <table class="table">
                             <tr>

@@ -16,6 +16,8 @@ class Pesanan_saya extends CI_Controller
             'isi' => 'pesanan_saya',
             'belum_bayar' => $this->transaksi_model->belum_bayar(),
             'diproses' => $this->transaksi_model->diproses(),
+            'dikirim' => $this->transaksi_model->dikirim(),
+            'diterima' => $this->transaksi_model->diterima(),
             'user' => $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array()
         );
         $this->load->view('user/myorder', $data, FALSE);
@@ -40,7 +42,7 @@ class Pesanan_saya extends CI_Controller
                     'rekening' => $this->transaksi_model->rekening(),
                     'error_upload' => $this->upload->display_errors(),
                     'isi' => 'bayar',
-                    // 'user' => $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array(),
+                    'user' => $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array(),
                 );
                 $this->load->view('user/bayar', $data, FALSE);
             } else {
@@ -69,5 +71,16 @@ class Pesanan_saya extends CI_Controller
             'isi' => 'bayar',
         );
         $this->load->view('user/bayar', $data, FALSE);
+    }
+
+    public function diterima($id_transaksi)
+    {
+        $data = array(
+            'id_transaksi' => $id_transaksi,
+            'status_order' => '3'
+        );
+        $this->transaksi_model->update_order($data);
+        $this->session->set_flashdata('message', 'Pesanan Telah Diterima !!');
+        redirect('user/pesanan_saya');
     }
 }

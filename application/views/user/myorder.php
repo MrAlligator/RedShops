@@ -142,12 +142,87 @@
 
                 <!-- Dikirim -->
                 <div class="tab-pane fade" id="dikirim" role="tabpanel" aria-labelledby="dikirim-tab">
-                    It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>No Order</th>
+                                <th>Nama Penerima</th>
+                                <th>Alamat</th>
+                                <th>No Telepon</th>
+                                <th>Tanggal</th>
+                                <th>Ekspedisi</th>
+                                <th>Total Bayar</th>
+                                <th>No Resi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($dikirim as $key => $value) { ?>
+                                <tr>
+                                    <td><?= $value->no_order ?></td>
+                                    <td><?= $value->nama_penerima ?></td>
+                                    <td><?= $value->alamat ?></td>
+                                    <td><?= $value->no_telepon ?></td>
+                                    <td><?= $value->tgl_transaksi ?></td>
+                                    <td>
+                                        <b><?= $value->ekspedisi ?></b><br>
+                                        Paket : <?= $value->paket ?><br>
+                                        Ongkir : <?= number_format($value->ongkir, 0) ?>
+                                    </td>
+                                    <td>
+                                        <b>Rp.<?= number_format($value->total_bayar, 0) ?></b><br>
+
+                                        <span class="badge badge-success">Dikirim</span><br>
+                                    </td>
+                                    <td>
+                                        <?= $value->no_resi ?><br>
+                                        <a href="<?= base_url('user/pesanan_saya/diterima/'.$value->id_transaksi) ?>" class="btn btn-primary btn-sm">Diterima</a>
+                                    </td>
+                                </tr>
+                            <?php } ?>
+                        </tbody>
+                    </table>
                 </div>
 
                 <!-- Diproses -->
                 <div class="tab-pane fade" id="selesai" role="tabpanel" aria-labelledby="selesai-tab">
-                    It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                <table class="table">
+                        <thead>
+                            <tr>
+                                <th>No Order</th>
+                                <th>Nama Penerima</th>
+                                <th>Alamat</th>
+                                <th>No Telepon</th>
+                                <th>Tanggal</th>
+                                <th>Ekspedisi</th>
+                                <th>Total Bayar</th>
+                                <th>No Resi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($diterima as $key => $value) { ?>
+                                <tr>
+                                    <td><?= $value->no_order ?></td>
+                                    <td><?= $value->nama_penerima ?></td>
+                                    <td><?= $value->alamat ?></td>
+                                    <td><?= $value->no_telepon ?></td>
+                                    <td><?= $value->tgl_transaksi ?></td>
+                                    <td>
+                                        <b><?= $value->ekspedisi ?></b><br>
+                                        Paket : <?= $value->paket ?><br>
+                                        Ongkir : <?= number_format($value->ongkir, 0) ?>
+                                    </td>
+                                    <td>
+                                        <b>Rp.<?= number_format($value->total_bayar, 0) ?></b><br>
+
+                                        <span class="badge badge-success">Selesai</span><br>
+                                    </td>
+                                    <td>
+                                        <?= $value->no_resi ?><br>
+                                    </td>
+                                </tr>
+                            <?php } ?>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -161,6 +236,32 @@
     </footer>
 
     <!-- Modal -->
+    <?php foreach ($dikirim as $key => $value) { ?>
+    <div class="modal fade" id="diterima<?= $value->id_transaksi ?>" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="ion-android-close"></i></span></button>
+        </div>
+        <div class="modal-body">
+            <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3">
+                <h2 class="modal-title text-center">Apa anda yakin pesanan sudah diterima?</h2>
+                <br>
+                <br>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-warning" data-dismiss="modal">Tidak</button>
+        <a href="<?= base_url('user/pesanan_saya/diterima/'.$value->id_transaksi) ?>" class="btn btn-success" data-dismiss="modal">Ya</a>
+        </div>
+        </div>
+    </div>
+    </div>
+    <?php } ?>
     <?php $this->load->view("user/_partials/modal.php") ?>
     <?php $this->load->view("user/_partials/logout.php") ?>
 
