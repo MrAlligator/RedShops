@@ -188,7 +188,7 @@ class Transaksi_model extends CI_Model
 
     public function hitung_jumlah_sudahbayar()
     {
-        $query = $this->db->query('SELECT * FROM transaksi WHERE status_order=1');
+        $query = $this->db->query('SELECT * FROM transaksi WHERE status_order=0 && status_bayar=1' );
         if ($query->num_rows() > 0) {
             return $query->num_rows();
         } else {

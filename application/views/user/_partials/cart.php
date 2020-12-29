@@ -58,7 +58,7 @@
         <div class="checkout container-fluid">
           <div class="row">
             <div class="col-xs-12 col-sm-12 align-right">
-              <a class="btn btn-primary" href="checkout/"> Checkout order </a>
+              <a class="btn btn-primary" href="<?= base_url('user/cart/checkout') ?>"> Checkout order </a>
             </div>
           </div>
         </div>

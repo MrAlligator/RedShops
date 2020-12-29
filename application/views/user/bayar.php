@@ -59,15 +59,15 @@
                 ?>
                 <div class="form-group">
                     <label>Atas Nama</label>
-                    <input class="form-control" name="atas_nama" placeholder="Atas Nama">
+                    <input class="form-control" name="atas_nama" placeholder="Atas Nama" required>
                 </div>
                 <div class="form-group">
                     <label>Nama Bank</label>
-                    <input class="form-control" name="nama_bank" placeholder="Nama Bank">
+                    <input class="form-control" name="nama_bank" placeholder="Nama Bank" required>
                 </div>
                 <div class="form-group">
                     <label>No Rekening</label>
-                    <input class="form-control" name="no_rekening" placeholder="No Rekening">
+                    <input class="form-control" name="no_rekening" placeholder="No Rekening" onkeypress="return hanyaAngka(event)" required>
                 </div>
                 <div class="form-group mb-3">
                     <label for="formFile">Bukti Pembayaran</label>
@@ -90,6 +90,14 @@
     <?php $this->load->view("user/_partials/logout.php") ?>
 
     <?php $this->load->view("user/_partials/js-utama.php") ?>
+    <script>
+        function hanyaAngka(event) {
+            var angka = (event.which) ? event.which : event.keyCode
+            if (angka != 46 && angka > 31 && (angka < 48 || angka > 57))
+                return false;
+            return true;
+        }
+    </script>
 
 </body>
 
