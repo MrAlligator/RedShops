@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 29, 2020 at 12:45 AM
+-- Generation Time: Dec 29, 2020 at 01:28 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.4.13
 
@@ -181,6 +181,7 @@ CREATE TABLE `transaksi` (
   `atas_nama` varchar(50) DEFAULT NULL,
   `nama_bank` varchar(50) DEFAULT NULL,
   `no_rekening` varchar(50) DEFAULT NULL,
+  `no_resi` varchar(25) DEFAULT NULL,
   `status_order` int(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -188,9 +189,9 @@ CREATE TABLE `transaksi` (
 -- Dumping data for table `transaksi`
 --
 
-INSERT INTO `transaksi` (`id_transaksi`, `id_user`, `no_order`, `tgl_transaksi`, `nama_penerima`, `provinsi`, `kabupaten`, `alamat`, `kode_pos`, `no_telepon`, `ekspedisi`, `paket`, `estimasi`, `ongkir`, `berat`, `grand_total`, `total_bayar`, `status_bayar`, `bukti_bayar`, `atas_nama`, `nama_bank`, `no_rekening`, `status_order`) VALUES
-(30, 31, '202012285VSBBGMJ', '2020-12-28', 'Achmad Syadidul Fahim', 'Jawa Timur', 'Probolinggo', 'Perumahan puri bunga nirwana 2 cluster jimbaran blok g6', '67292', '085215822446', 'jne', 'REG', '1-2 Hari', 8000, 100, 12124, 20124, 1, 'ACE.jpg', 'Fahim', 'BCA', '9120092', 1),
-(31, 31, '20201228TOKASE45', '2020-12-28', 'Taka', 'Kalimantan Barat', 'Kapuas Hulu', 'Dimana kita', '521412', '085215822446', 'jne', 'OKE', '5-7 Hari', 45000, 100, 12124, 57124, 0, NULL, NULL, NULL, NULL, 0);
+INSERT INTO `transaksi` (`id_transaksi`, `id_user`, `no_order`, `tgl_transaksi`, `nama_penerima`, `provinsi`, `kabupaten`, `alamat`, `kode_pos`, `no_telepon`, `ekspedisi`, `paket`, `estimasi`, `ongkir`, `berat`, `grand_total`, `total_bayar`, `status_bayar`, `bukti_bayar`, `atas_nama`, `nama_bank`, `no_rekening`, `no_resi`, `status_order`) VALUES
+(30, 31, '202012285VSBBGMJ', '2020-12-28', 'Achmad Syadidul Fahim', 'Jawa Timur', 'Probolinggo', 'Perumahan puri bunga nirwana 2 cluster jimbaran blok g6', '67292', '085215822446', 'jne', 'REG', '1-2 Hari', 8000, 100, 12124, 20124, 1, 'ACE.jpg', 'Fahim', 'BCA', '9120092', 'JNE1073123104', 2),
+(31, 31, '20201228TOKASE45', '2020-12-28', 'Taka', 'Kalimantan Barat', 'Kapuas Hulu', 'Dimana kita', '521412', '085215822446', 'jne', 'OKE', '5-7 Hari', 45000, 100, 12124, 57124, 0, NULL, NULL, NULL, NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
