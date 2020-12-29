@@ -97,6 +97,15 @@ class Transaksi_model extends CI_Model
         return $this->db->get()->result();
     }
 
+    public function pesanan_dikirim()
+    {
+        $this->db->select('*');
+        $this->db->from('transaksi');
+        $this->db->where('status_bayar=2');
+        $this->db->order_by('id_transaksi', 'desc');
+        return $this->db->get()->result();
+    }
+
     public function update_order($data)
     {
         $this->db->where('id_transaksi', $data['id_transaksi']);

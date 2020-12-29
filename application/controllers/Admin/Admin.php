@@ -100,6 +100,7 @@ class Admin extends CI_Controller
             'title' => 'Data Transaksi',
             'pesanan' => $this->transaksi_model->pesanan(),
             'pesanan_diproses' => $this->transaksi_model->pesanan_diproses(),
+            'pesanan_dikirim' => $this->transaksi_model->pesanan_dikirim(),
             'isi' => 'lihattransaksi',
         );
 
@@ -115,6 +116,18 @@ class Admin extends CI_Controller
         );
         $this->transaksi_model->update_order($data);
         $this->session->set_flashdata('message', 'Pesanan Berhasil di Verifikasi !!');
+        redirect('admin/admin/transaksi');
+    }
+
+    public function kirim($id_transaksi)
+    {
+        $data = array(
+            'id_transaksi' => $id_transaksi,
+            'no_resi' => $this->input->post('no_resi'),
+            'status_order' => '2'
+        );
+        $this->transaksi_model->update_order($data);
+        $this->session->set_flashdata('message', 'Pesanan Berhasil di Kirim !!');
         redirect('admin/admin/transaksi');
     }
 
