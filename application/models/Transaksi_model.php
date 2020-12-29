@@ -36,11 +36,29 @@ class Transaksi_model extends CI_Model
         return $this->db->get()->result();
     }
 
+    /**
+     * Status order
+     * 0 = Order
+     * 1 = Di Proses
+     * 2 = Di Kirim
+     * 3 = Selesai
+     */
+
     public function belum_bayar()
     {
         $this->db->select('*');
         $this->db->from('transaksi');
-        // $this->db->where('status_bayar=0');
+        $this->db->where('status_bayar=0');
+        $this->db->where('id_user', $this->session->userdata('id_user'));
+        $this->db->order_by('id_transaksi', 'desc');
+        return $this->db->get()->result();
+    }
+
+    public function diproses()
+    {
+        $this->db->select('*');
+        $this->db->from('transaksi');
+        $this->db->where('status_bayar=1');
         $this->db->where('id_user', $this->session->userdata('id_user'));
         $this->db->order_by('id_transaksi', 'desc');
         return $this->db->get()->result();
@@ -59,6 +77,30 @@ class Transaksi_model extends CI_Model
         $this->db->select('*');
         $this->db->from('rekening');
         return $this->db->get()->result();
+    }
+
+    public function pesanan()
+    {
+        $this->db->select('*');
+        $this->db->from('transaksi');
+        $this->db->where('status_bayar=0');
+        $this->db->order_by('id_transaksi', 'desc');
+        return $this->db->get()->result();
+    }
+
+    public function pesanan_diproses()
+    {
+        $this->db->select('*');
+        $this->db->from('transaksi');
+        $this->db->where('status_bayar=1');
+        $this->db->order_by('id_transaksi', 'desc');
+        return $this->db->get()->result();
+    }
+
+    public function update_order($data)
+    {
+        $this->db->where('id_transaksi', $data['id_transaksi']);
+        $this->db->update('transaksi', $data);
     }
 
     public function upload_buktibayar($data)

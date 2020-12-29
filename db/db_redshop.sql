@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 28, 2020 at 01:50 PM
+-- Generation Time: Dec 29, 2020 at 12:45 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.4.13
 
@@ -39,9 +39,8 @@ CREATE TABLE `detail_transaksi` (
 --
 
 INSERT INTO `detail_transaksi` (`id_detail_transaksi`, `no_order`, `id_produk`, `qty`) VALUES
-(22, '2020122893U2K7TU', 5, 1),
-(23, '2020122893U2K7TU', 5, 1),
-(24, '20201228KZERU4IA', 5, 1);
+(36, '202012285VSBBGMJ', 5, 1),
+(37, '20201228TOKASE45', 5, 1);
 
 -- --------------------------------------------------------
 
@@ -178,7 +177,7 @@ CREATE TABLE `transaksi` (
   `grand_total` int(11) DEFAULT NULL,
   `total_bayar` int(11) DEFAULT NULL,
   `status_bayar` int(1) DEFAULT NULL,
-  `bukti_bayar` text DEFAULT NULL,
+  `bukti_bayar` varchar(255) DEFAULT NULL,
   `atas_nama` varchar(50) DEFAULT NULL,
   `nama_bank` varchar(50) DEFAULT NULL,
   `no_rekening` varchar(50) DEFAULT NULL,
@@ -190,8 +189,8 @@ CREATE TABLE `transaksi` (
 --
 
 INSERT INTO `transaksi` (`id_transaksi`, `id_user`, `no_order`, `tgl_transaksi`, `nama_penerima`, `provinsi`, `kabupaten`, `alamat`, `kode_pos`, `no_telepon`, `ekspedisi`, `paket`, `estimasi`, `ongkir`, `berat`, `grand_total`, `total_bayar`, `status_bayar`, `bukti_bayar`, `atas_nama`, `nama_bank`, `no_rekening`, `status_order`) VALUES
-(17, 31, '2020122893U2K7TU', '2020-12-28', 'Achmad Syadidul Fahim', 'DKI Jakarta', 'Jakarta Pusat', 'Tokyo', '67285', '085215822446', 'jne', 'REG', '1-2 Hari', 15000, 200, 136248, 151248, 0, NULL, NULL, NULL, NULL, 0),
-(18, 31, '20201228KZERU4IA', '2020-12-28', 'Achmad Syadidul Fahim', 'DI Yogyakarta', 'Yogyakarta', 'Dimana kita', '72121', '085215822446', 'jne', 'REG', '1-2 Hari', 15000, 100, 12124, 27124, 0, NULL, NULL, NULL, NULL, 0);
+(30, 31, '202012285VSBBGMJ', '2020-12-28', 'Achmad Syadidul Fahim', 'Jawa Timur', 'Probolinggo', 'Perumahan puri bunga nirwana 2 cluster jimbaran blok g6', '67292', '085215822446', 'jne', 'REG', '1-2 Hari', 8000, 100, 12124, 20124, 1, 'ACE.jpg', 'Fahim', 'BCA', '9120092', 1),
+(31, 31, '20201228TOKASE45', '2020-12-28', 'Taka', 'Kalimantan Barat', 'Kapuas Hulu', 'Dimana kita', '521412', '085215822446', 'jne', 'OKE', '5-7 Hari', 45000, 100, 12124, 57124, 0, NULL, NULL, NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -445,7 +444,7 @@ ALTER TABLE `user_token`
 -- AUTO_INCREMENT for table `detail_transaksi`
 --
 ALTER TABLE `detail_transaksi`
-  MODIFY `id_detail_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_detail_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `jenis`
@@ -463,7 +462,7 @@ ALTER TABLE `rekening`
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `user`

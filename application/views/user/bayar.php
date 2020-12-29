@@ -74,7 +74,6 @@
                     <input type="file" class="form-control" name="bukti_bayar" required>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
                 <?php echo form_close() ?>
             </div>
 

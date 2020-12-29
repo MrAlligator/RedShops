@@ -62,6 +62,9 @@
                     <table class="table">
                         <tr>
                             <th>No Order</th>
+                            <th>Nama Penerima</th>
+                            <th>Alamat</th>
+                            <th>No Telepon</th>
                             <th>Tanggal</th>
                             <th>Ekspedisi</th>
                             <th>Total Bayar</th>
@@ -70,6 +73,9 @@
                         <?php foreach ($belum_bayar as $key => $value) { ?>
                             <tr>
                                 <td><?= $value->no_order ?></td>
+                                <td><?= $value->nama_penerima ?></td>
+                                <td><?= $value->alamat ?></td>
+                                <td><?= $value->no_telepon ?></td>
                                 <td><?= $value->tgl_transaksi ?></td>
                                 <td>
                                     <b><?= $value->ekspedisi ?></b><br>
@@ -80,33 +86,73 @@
                                     <b>Rp.<?= number_format($value->total_bayar, 0) ?></b><br>
                                     <?php if ($value->status_bayar == 0) { ?>
                                         <span class="badge badge-warning">Belum Bayar</span>
-                                    <?php } elseif ($value->status_bayar == 1) { ?>
+                                    <?php } else { ?>
                                         <span class="badge badge-success">Sudah Bayar</span><br>
                                         <span class="badge badge-primary">Menunggu Verifikasi</span>
                                     <?php } ?>
                                 </td>
                                 <td>
                                     <?php if ($value->status_bayar == 0) { ?>
-                                        <a href="<?= base_url('user/pesanan_saya/bayar/' . $value->id_transaksi) ?> " class="btn btn-primary btn-sm">Bayar</a><br><br>
+                                        <a href="<?= base_url('user/pesanan_saya/bayar/' . $value->id_transaksi) ?> " class="btn btn-primary btn-sm">Bayar</a><br>
                                     <?php } ?>
-                                    <!-- <a href="https://api.whatsapp.com/send?phone=6285215822336&text=Hai%2C%20Admin%20RedShop.%20Saya%20<?= $user['username'] ?>.%0ASaya%20Melakukan%20Pemesanan%20dengan%20Rincian%20:%0ANomor%20Order%20=%20<?php echo $value->no_order ?>%0ANama%20Penerima%20=%20<?php echo $value->nama_penerima ?>%0AAlamat%20Penerima%20=%20<?php echo $value->alamat ?>,%20<?php echo $value->kabupaten ?>,%20<?php echo $value->provinsi ?>,%20<?php echo $value->kode_pos ?>%0ATelepon%20Penerima%20=%20<?php echo $value->no_telepon ?>%0AEkspedisi%20=%20<?php echo $value->ekspedisi ?>,%20<?php echo $value->paket ?>(<?php echo $value->estimasi ?>)%0AOngkos%20Kirim%20=%20Rp.<?php echo $value->ongkir ?>,-%0ASubtotal%20Pembelanjaan%20=%20Rp.<?php echo $value->grand_total ?>,-%0ATotal%20yang%20dibayarkan%20=%20Rp.<?php echo $value->total_bayar ?>,-%0A%0A%0ATerima%20Kasih" class="btn btn-primary btn-sm">Bayar</a><br><br> -->
                                 </td>
                             </tr>
                         <?php } ?>
                     </table>
                 </div>
+
+                <!-- Pesanan Di Proses -->
                 <div class="tab-pane fade" id="diproses" role="tabpanel" aria-labelledby="diproses-tab">
-                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>No Order</th>
+                                <th>Nama Penerima</th>
+                                <th>Alamat</th>
+                                <th>No Telepon</th>
+                                <th>Tanggal</th>
+                                <th>Ekspedisi</th>
+                                <th>Total Bayar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($diproses as $key => $value) { ?>
+                                <tr>
+                                    <td><?= $value->no_order ?></td>
+                                    <td><?= $value->nama_penerima ?></td>
+                                    <td><?= $value->alamat ?></td>
+                                    <td><?= $value->no_telepon ?></td>
+                                    <td><?= $value->tgl_transaksi ?></td>
+                                    <td>
+                                        <b><?= $value->ekspedisi ?></b><br>
+                                        Paket : <?= $value->paket ?><br>
+                                        Ongkir : <?= number_format($value->ongkir, 0) ?>
+                                    </td>
+                                    <td>
+                                        <b>Rp.<?= number_format($value->total_bayar, 0) ?></b><br>
+
+                                        <span class="badge badge-success">Terverifikasi</span><br>
+                                        <span class="badge badge-primary">Sedang Dikemas</span>
+                                    </td>
+                                </tr>
+                            <?php } ?>
+                        </tbody>
+                    </table>
                 </div>
+
+                <!-- Dikirim -->
                 <div class="tab-pane fade" id="dikirim" role="tabpanel" aria-labelledby="dikirim-tab">
                     It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                 </div>
+
+                <!-- Diproses -->
                 <div class="tab-pane fade" id="selesai" role="tabpanel" aria-labelledby="selesai-tab">
                     It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                 </div>
             </div>
-
         </div>
+
+    </div>
     </div>
 
 

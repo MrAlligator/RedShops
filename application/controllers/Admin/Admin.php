@@ -98,13 +98,24 @@ class Admin extends CI_Controller
     {
         $data = array(
             'title' => 'Data Transaksi',
-            'pesanan' => $this->transaksi_model->getAll(),
+            'pesanan' => $this->transaksi_model->pesanan(),
+            'pesanan_diproses' => $this->transaksi_model->pesanan_diproses(),
             'isi' => 'lihattransaksi',
         );
 
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
-        $data['transaksi'] = $this->transaksi_model->getAll();
         $this->load->view("admin/transaksi/lihattransaksi", $data, FALSE);
+    }
+
+    public function verifikasi($id_transaksi)
+    {
+        $data = array(
+            'id_transaksi' => $id_transaksi,
+            'status_order' => '1'
+        );
+        $this->transaksi_model->update_order($data);
+        $this->session->set_flashdata('message', 'Pesanan Berhasil di Verifikasi !!');
+        redirect('admin/admin/transaksi');
     }
 
     public function editalamat()

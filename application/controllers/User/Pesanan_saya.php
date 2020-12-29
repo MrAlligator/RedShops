@@ -15,6 +15,7 @@ class Pesanan_saya extends CI_Controller
             'title' => 'Pesanan Saya',
             'isi' => 'pesanan_saya',
             'belum_bayar' => $this->transaksi_model->belum_bayar(),
+            'diproses' => $this->transaksi_model->diproses(),
             'user' => $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array()
         );
         $this->load->view('user/myorder', $data, FALSE);
@@ -26,39 +27,47 @@ class Pesanan_saya extends CI_Controller
             'required' => '%s Harus Diisi!!'
         ));
 
-        if ($this->form_validation->run() == FALSE) {
-            $config['upload_path'] = './assets/img/bukti_pembayaran/';
+        if ($this->form_validation->run() == TRUE) {
+            $config['upload_path'] = './assets/img/buktipembayaran/';
             $config['allowed_types'] = 'jpg|jpeg|png';
-            $config['max_size'] = '2000';
+            $config['max_size'] = '2048';
             $this->upload->initialize($config);
             $field_name = 'bukti_bayar';
             if (!$this->upload->do_upload($field_name)) {
                 $data = array(
                     'title' => 'Pembayaran',
-                    'user' => $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array(),
                     'pesanan' => $this->transaksi_model->detail_pesanan($id_transaksi),
                     'rekening' => $this->transaksi_model->rekening(),
                     'error_upload' => $this->upload->display_errors(),
                     'isi' => 'bayar',
+                    // 'user' => $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array(),
                 );
                 $this->load->view('user/bayar', $data, FALSE);
+            } else {
+                $upload_data = array('uploads' => $this->upload->data());
+                $config['image_library'] = 'gd2';
+                $config['source_image'] = './assets/img/buktipembayaran/' . $upload_data['uploads']['file_name'];
+                $this->load->library('image_lib', $config);
+                $data = array(
+                    'id_transaksi' => $id_transaksi,
+                    'atas_nama' => $this->input->post('atas_nama'),
+                    'nama_bank' => $this->input->post('nama_bank'),
+                    'no_rekening' => $this->input->post('no_rekening'),
+                    'status_bayar' => '1',
+                    'bukti_bayar' => $upload_data['uploads']['file_name'],
+                );
+                $this->transaksi_model->upload_buktibayar($data);
+                $this->session->set_flashdata('message', 'Bukti Pembayaran Berhasil di Upload !!');
+                redirect('user/pesanan_saya');
             }
-        } else {
-            $upload_data = array('uploads' => $this->upload->data());
-            $config['image_library'] = 'gd2';
-            $config['source_image'] = './assets/img/bukti_pembayaran/' . $upload_data['uploads']['file_name'];
-            $this->load->library('image_lib', $config);
-            $data = array(
-                'id_transaksi' => $id_transaksi,
-                'atas_nama' => $this->input->post('atas_nama'),
-                'nama_bank' => $this->input->post('nama_bank'),
-                'no_rekening' => $this->input->post('no_rekening'),
-                'status_bayar' => '1',
-                'bukti_bayar' => $upload_data['uploads']['file_name'],
-            );
-            $this->transaksi_model->upload_buktibayar($data);
-            $this->session->set_flashdata('message', 'Bukti Pembayaran Berhasil di Upload !!');
-            redirect('user/pesanan_saya');
         }
+
+        $data = array(
+            'title' => 'Pembayaran',
+            'pesanan' => $this->transaksi_model->detail_pesanan($id_transaksi),
+            'rekening' => $this->transaksi_model->rekening(),
+            'isi' => 'bayar',
+        );
+        $this->load->view('user/bayar', $data, FALSE);
     }
 }
