@@ -200,7 +200,7 @@
                                                         </td>
                                                         <td>
                                                             <?php if ($value->status_bayar == 1) { ?>
-                                                                <a href="<?= base_url('admin/admin/kirim/' . $value->id_transaksi) ?> " class="btn btn-primary btn-sm">Verifikasi</a><br>
+                                                                <button class="btn btn-success btn-sm btn-flat" data-toggle="modal" data-target="#verifikasi<?= $value->id_transaksi ?>">Verifikasi</button><br><br>
                                                             <?php } ?>
                                                         </td>
                                                     </tr>
@@ -209,9 +209,53 @@
                                         </table>
                                     </div>
                                 </div>
+
+                                <!-- Pesanan Dikirim -->
                                 <div class="tab-pane fade" id="dikirim" role="tabpanel" aria-labelledby="dikirim-tab">
-                                    It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                    <hr>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered" id="dataTable" width="100%" cellpadding="0">
+                                            <thead>
+                                                <tr>
+                                                    <th>No Order</th>
+                                                    <th>Nama Penerima</th>
+                                                    <th>Alamat</th>
+                                                    <th>No Telepon</th>
+                                                    <th>Tanggal</th>
+                                                    <th>Ekspedisi</th>
+                                                    <th>Total Bayar</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php foreach ($pesanan_dikirim as $key => $value) { ?>
+                                                    <tr>
+                                                        <td><?= $value->no_order ?></td>
+                                                        <td><?= $value->nama_penerima ?></td>
+                                                        <td><?= $value->alamat ?></td>
+                                                        <td><?= $value->no_telepon ?></td>
+                                                        <td><?= $value->tgl_transaksi ?></td>
+                                                        <td>
+                                                            <b><?= $value->ekspedisi ?></b><br>
+                                                            Paket : <?= $value->paket ?><br>
+                                                            Ongkir : <?= number_format($value->ongkir, 0) ?>
+                                                        </td>
+                                                        <td>
+                                                            <b>Rp.<?= number_format($value->total_bayar, 0) ?></b><br>
+                                                            <span class="badge badge-primary">Sedang Dikemas</span>
+                                                        </td>
+                                                        <td>
+                                                            <?php if ($value->status_bayar == 1) { ?>
+                                                                <button class="btn btn-success btn-sm btn-flat" data-toggle="modal" data-target="#verifikasi<?= $value->id_transaksi ?>">Verifikasi</button><br><br>
+                                                            <?php } ?>
+                                                        </td>
+                                                    </tr>
+                                                <?php } ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
+                                <!-- Pesanan Selesai -->
                                 <div class="tab-pane fade" id="selesai" role="tabpanel" aria-labelledby="selesai-tab">
                                     It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                                 </div>
@@ -229,6 +273,7 @@
 
     <!-- End of Main Content -->
 
+    <!-- Modal Bukti Pembayaran -->
     <?php foreach ($pesanan as $key => $value) { ?>
         <div class="modal fade" id="bukti_pembayaran<?= $value->id_transaksi ?>">
             <div class="modal-dialog">
@@ -274,6 +319,50 @@
             </div>
         </div>
     <?php } ?>
+    <!-- End -->
+
+    <!-- Modal Kirim -->
+    <?php foreach ($pesanan_diproses as $key => $value) { ?>
+        <div class="modal fade" id="verifikasi<?= $value->id_transaksi ?>">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title"><?= $value->no_order ?></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body"> ?>
+                        <?php echo form_open('admin/admin/kirim/' . $value->id_transaksi) ?>
+                        <table class="table">
+                            <tr>
+                                <th>Ekspedisi</th>
+                                <th>:</th>
+                                <td><?= $value->ekspedisi ?></td>
+                            </tr>
+                            <tr>
+                                <th>Paket</th>
+                                <th>:</th>
+                                <td><?= $value->paket ?></td>
+                            </tr>
+                            <tr>
+                                <th>No Resi</th>
+                                <th>:</th>
+                                <td><input name="no_resi" class="form-control" placeholder="No Resi" required></td>
+                            </tr>
+                        </table>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                    <?php echo form_close() ?>
+                </div>
+            </div>
+        </div>
+    <?php } ?>
+    <!-- End -->
 
     <!-- Footer -->
     <?php $this->load->view("admin/_partials/footer.php") ?>
