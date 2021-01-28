@@ -110,6 +110,11 @@ class Auth extends CI_Controller {
         if($this->session->userdata('username')) {
             redirect('welcome');
         }
+        $data['produk1'] = $this->product_model->getKemejaPanjangIndex();
+		$data['produk2'] = $this->product_model->getKaosPanjangIndex();
+		$data['produk4'] = $this->product_model->getJaketIndex();
+		$data['produk5'] = $this->product_model->getKemejaPendekIndex();
+		$data['produk3'] = $this->product_model->getKaosPendekIndex();
         $data['title'] = 'Registrasi';
         $this->form_validation->set_rules('nama', 'Nama', 'required|trim');
         $this->form_validation->set_rules('username', 'Username', 'required|trim|is_unique[user.username]', [
@@ -125,7 +130,7 @@ class Auth extends CI_Controller {
         $this->form_validation->set_rules('password', 'Password', 'required|trim|matches[password]');
         if($this->form_validation->run() == false){
             $this->session->set_flashdata('message');
-            $this->load->view("welcome");
+            $this->load->view("user/overview", $data);
             
         } else {
             $email = $this->input->post('email',true);

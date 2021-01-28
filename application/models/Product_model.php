@@ -92,6 +92,12 @@ class Product_model extends CI_Model
         return $data->result();
     }
 
+    public function getStok($id)
+    {
+        $data = $this->db->query("SELECT jumlahstok FROM produk WHERE id_produk=$id_produk ");
+        return $data->result();
+    }
+
     public function getKemejaPendek()
     {
         $data = $this->db->query("SELECT * FROM produk WHERE jenis_produk='Kemeja Lengan Pendek' ");
